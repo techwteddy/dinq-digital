@@ -325,6 +325,81 @@
       .process-grid{grid-template-columns:1fr}
       .footer-top{grid-template-columns:1fr}
     }
+
+    /* ─── ABOUT ─── */
+    #about { background: var(--ink); }
+    .about-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about-left { position: relative; }
+    .about-img {
+      width: 100%; aspect-ratio: 4/5; border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #064E3B 0%, #0F5132 50%, #1A7A4A 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 8rem; position: relative; overflow: hidden;
+    }
+    .about-img::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(201,168,76,.06) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(201,168,76,.06) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    .about-img-glyph { position: relative; z-index: 2; font-size: 7rem; opacity: .3; }
+    .about-badge {
+      position: absolute; bottom: -20px; right: -20px;
+      background: var(--gold); color: var(--ink);
+      padding: 1.25rem 1.5rem; border-radius: var(--radius-lg);
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      box-shadow: 0 20px 40px rgba(201,168,76,.3);
+    }
+    .about-badge-num { font-size: 2rem; line-height: 1; }
+    .about-badge-label { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; opacity: .8; margin-top: .2rem; }
+    .about-right h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; margin-bottom: 1.25rem; }
+    .about-right p { color: var(--muted); font-size: .95rem; line-height: 1.85; font-weight: 300; margin-bottom: 1rem; }
+    .about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+    .av-item { padding: 1rem 1.25rem; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); border-left: 3px solid var(--gold); }
+    .av-item h4 { font-size: .85rem; font-weight: 600; margin-bottom: .25rem; }
+    .av-item p  { font-size: .75rem; color: var(--muted); font-weight: 300; line-height: 1.6; margin: 0; }
+
+    /* ─── TEAM ─── */
+    #team { background: var(--surface); }
+    .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .team-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: all .3s; cursor: pointer; }
+    .team-card:hover { border-color: var(--border2); transform: translateY(-4px); }
+    .team-photo { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; position: relative; overflow: hidden; }
+    .team-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(9,9,11,.6), transparent 60%); }
+    .tp-1 { background: linear-gradient(135deg, #064E3B, #0F5132); }
+    .tp-2 { background: linear-gradient(135deg, #1E1B4B, #312E81); }
+    .tp-3 { background: linear-gradient(135deg, #7C2D12, #991B1B); }
+    .tp-4 { background: linear-gradient(135deg, #0C4A6E, #1E3A5F); }
+    .team-info { padding: 1.25rem; }
+    .team-name { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: .2rem; }
+    .team-role { font-size: .75rem; color: var(--gold); font-weight: 500; letter-spacing: .06em; text-transform: uppercase; margin-bottom: .6rem; }
+    .team-bio  { font-size: .78rem; color: var(--muted); line-height: 1.65; font-weight: 300; }
+
+    /* ─── TESTIMONIALS ─── */
+    #testimonials { background: var(--ink); }
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .testi-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; transition: all .3s; position: relative; }
+    .testi-card:hover { border-color: var(--border2); transform: translateY(-3px); }
+    .testi-card.featured { border-color: var(--gold); background: linear-gradient(135deg, rgba(201,168,76,.06), var(--card)); }
+    .testi-stars { color: var(--gold); font-size: 1rem; letter-spacing: .1em; margin-bottom: 1rem; }
+    .testi-quote { font-size: .9rem; color: rgba(250,250,249,.75); line-height: 1.8; font-weight: 300; margin-bottom: 1.5rem; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: .85rem; }
+    .testi-avatar { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Syne', sans-serif; font-weight: 800; font-size: .9rem; color: var(--ink); flex-shrink: 0; }
+    .testi-name { font-size: .85rem; font-weight: 600; }
+    .testi-company { font-size: .72rem; color: var(--muted); margin-top: .1rem; }
+    .testi-badge { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.5rem; opacity: .3; }
+
+    /* ─── MOBILE additions ─── */
+    @media(max-width:900px){
+      .about-wrap { grid-template-columns: 1fr; }
+      .about-left { display: none; }
+      .team-grid { grid-template-columns: 1fr 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .about-values { grid-template-columns: 1fr; }
+    }
+    @media(max-width:580px){
+      .team-grid { grid-template-columns: 1fr 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -343,6 +418,7 @@
   <a href="#services" onclick="closeMobile()">Services</a>
   <a href="#work" onclick="closeMobile()">Work</a>
   <a href="#pricing" onclick="closeMobile()">Pricing</a>
+  <a href="#about" onclick="closeMobile()">About</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
   <a href="/cdn-cgi/l/email-protection#67030e0916030e000e13060b27000a060e0b4904080a" style="color:var(--gold)"><span class="__cf_email__" data-cfemail="a9cdc0c7d8cdc0cec0ddc8c5e9cec4c8c0c587cac6c4">[email&#160;protected]</span></a>
 </div>
@@ -356,6 +432,7 @@
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#chatbot">AI Bots</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -623,6 +700,122 @@
   </div>
 </section>
 
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-wrap">
+      <div class="about-left">
+        <div class="about-img">
+          <div class="about-img-glyph">ድ</div>
+        </div>
+        <div class="about-badge">
+          <div class="about-badge-num">150+</div>
+          <div class="about-badge-label">Projects Delivered</div>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="section-eyebrow" style="margin-bottom:.6rem"><span class="tag">Our Story</span></div>
+        <h2>Built in Ethiopia.<br>Built for <span class="gold">the World.</span></h2>
+        <p>Dinq Digital was born from a simple belief — Ethiopian businesses deserve world-class digital products, not second-rate templates. We saw local companies struggling with expensive foreign agencies that didn't understand the market, the language, or the culture.</p>
+        <p>So we built the studio we wished existed. One that speaks Amharic and English, integrates Telebirr and Stripe, and designs for both the streets of Addis Ababa and the boardrooms of London and Dubai.</p>
+        <p>Today we build websites, SaaS products, and digital experiences for Ethiopian businesses going global — and international brands entering Africa's fastest-growing market.</p>
+        <div class="about-values">
+          <div class="av-item"><h4>🇪🇹 Ethiopia First</h4><p>We understand the local market, networks, and payment systems better than anyone.</p></div>
+          <div class="av-item"><h4>🌍 Global Standards</h4><p>Every product we ship meets international design and performance benchmarks.</p></div>
+          <div class="av-item"><h4>⚡ Speed Matters</h4><p>We move fast without cutting corners. Most projects launch in under 30 days.</p></div>
+          <div class="av-item"><h4>🤝 Long-term Partners</h4><p>We don't disappear after launch. We grow with you.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow"><span class="tag">The Team</span></div>
+      <h2 class="section-title">The People Behind Dinq</h2>
+      <p class="section-desc">A small, focused team of designers, developers, and strategists — all obsessed with building great digital products.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo tp-1"><span style="position:relative;z-index:2">👤</span></div>
+        <div class="team-info">
+          <div class="team-name">Your Name Here</div>
+          <div class="team-role">Founder & Lead Developer</div>
+          <div class="team-bio">Full-stack developer with a passion for building products that work for Ethiopian and global markets.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo tp-2"><span style="position:relative;z-index:2">👤</span></div>
+        <div class="team-info">
+          <div class="team-name">Team Member</div>
+          <div class="team-role">UI/UX Designer</div>
+          <div class="team-bio">Crafting beautiful, intuitive interfaces that make complex products feel effortless to use.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo tp-3"><span style="position:relative;z-index:2">👤</span></div>
+        <div class="team-info">
+          <div class="team-name">Team Member</div>
+          <div class="team-role">Backend Engineer</div>
+          <div class="team-bio">Building the systems and APIs that power scalable SaaS products for thousands of users.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo tp-4"><span style="position:relative;z-index:2">👤</span></div>
+        <div class="team-info">
+          <div class="team-name">Team Member</div>
+          <div class="team-role">Project Manager</div>
+          <div class="team-bio">Keeping every project on track, on budget, and delivered with zero surprises.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow"><span class="tag">Client Love</span></div>
+      <h2 class="section-title">What Our Clients Say</h2>
+      <p class="section-desc">Don't just take our word for it — here's what the people we've built for have to say.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card featured">
+        <div class="testi-badge">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">Dinq Digital completely transformed our online presence. Our website now looks world-class and our customers can pay with Telebirr seamlessly. Best investment we made for our business.</div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:var(--gold)">AK</div>
+          <div><div class="testi-name">Abebe Kebede</div><div class="testi-company">Kebede Trading, Addis Ababa</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-badge">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">We needed a bilingual platform for our tourism business — both Amharic and English. Dinq Digital delivered exactly that, on time and within budget. Our international bookings tripled.</div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:#1E3A5F">ST</div>
+          <div><div class="testi-name">Sara Tadesse</div><div class="testi-company">Lalibela Tours & Travel</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-badge">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">The SaaS dashboard they built for us handles thousands of users without breaking a sweat. The team understood our product vision from day one and executed it perfectly.</div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:#3B0764">YG</div>
+          <div><div class="testi-name">Yonas Girma</div><div class="testi-company">SabaCloud Technologies</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="container">
@@ -720,7 +913,7 @@
         <li><a href="#services">AI Bots</a></li><li><a href="#services">Branding</a></li><li><a href="#services">Mobile Apps</a></li>
       </ul></div>
       <div class="footer-col"><h4>Company</h4><ul>
-        <li><a href="#work">Our Work</a></li><li><a href="#process">Process</a></li>
+        <li><a href="#about">About Us</a></li><li><a href="#work">Our Work</a></li><li><a href="#process">Process</a></li>
         <li><a href="#pricing">Pricing</a></li><li><a href="#contact">Contact</a></li>
       </ul></div>
       <div class="footer-col"><h4>Connect</h4><ul>
