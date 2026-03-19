@@ -28,7 +28,9 @@
     .container { max-width:1160px; margin:0 auto; padding:0 2.5rem; }
     .tag { display:inline-flex; align-items:center; gap:.4rem; background:var(--gold3); border:1px solid var(--border2); color:var(--gold); padding:.35rem .9rem; border-radius:99px; font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; font-weight:500; }
 
-    /* CURSOR */
+  
+
+  /* CURSOR */
     #cursor { width:10px; height:10px; background:var(--gold); border-radius:50%; position:fixed; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:transform .12s, width .2s, height .2s; }
     #cursor.hover { width:30px; height:30px; background:transparent; border:1.5px solid var(--gold); }
 
@@ -400,6 +402,62 @@
     @media(max-width:580px){
       .team-grid { grid-template-columns: 1fr 1fr; }
     }
+
+    /* ─── CARE PLANS ─── */
+    #careplans { background: var(--surface); }
+    .care-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 4rem; }
+    .care-intro h2 { font-size: clamp(1.8rem,3vw,2.5rem); font-weight: 800; margin-bottom: 1rem; }
+    .care-intro p { color: var(--muted); font-size: .95rem; line-height: 1.85; font-weight: 300; }
+    .care-highlight { background: var(--card); border: 1px solid var(--border2); border-radius: var(--radius-lg); padding: 2rem; }
+    .care-highlight h4 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: var(--gold); margin-bottom: 1rem; }
+    .care-math { display: flex; flex-direction: column; gap: .75rem; }
+    .cm-row { display: flex; justify-content: space-between; align-items: center; padding: .6rem 0; border-bottom: 1px solid var(--border); font-size: .85rem; }
+    .cm-row:last-child { border-bottom: none; font-weight: 700; color: var(--gold); font-size: 1rem; }
+    .cm-row span:last-child { font-family: 'Syne', sans-serif; font-weight: 700; }
+    .care-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .care-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; display: flex; flex-direction: column; transition: all .3s; position: relative; overflow: hidden; }
+    .care-card:hover { border-color: var(--border2); transform: translateY(-4px); }
+    .care-card.popular { border-color: var(--gold); background: linear-gradient(135deg, rgba(201,168,76,.07), var(--card)); }
+    .care-plan-badge { position: absolute; top: 0; right: 0; background: var(--gold); color: var(--ink); font-size: .6rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: .3rem .9rem; border-radius: 0 var(--radius-lg) 0 var(--radius-lg); }
+    .care-plan-name { font-size: .75rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: .5rem; }
+    .care-plan-price { font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; line-height: 1; margin-bottom: .2rem; }
+    .care-plan-price sup { font-size: 1rem; vertical-align: super; }
+    .care-plan-period { font-size: .75rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .care-features { list-style: none; flex: 1; margin-bottom: 1.75rem; }
+    .care-features li { font-size: .83rem; color: var(--muted); padding: .5rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: .6rem; }
+    .care-features li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+    .care-features li.no::before { content: '✕'; color: rgba(255,255,255,.2); }
+    .care-features li.no { color: rgba(255,255,255,.2); }
+    .care-note { text-align: center; margin-top: 2.5rem; padding: 1.5rem; background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); font-size: .85rem; color: var(--muted); }
+    .care-note strong { color: var(--white); }
+    @media(max-width:900px){ .care-grid { grid-template-columns: 1fr; } .care-intro { grid-template-columns: 1fr; } }
+
+    /* ─── FREE AUDIT ─── */
+    #audit { background: var(--ink); }
+    .audit-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .audit-left h2 { font-size: clamp(1.8rem,3vw,2.5rem); font-weight: 800; margin-bottom: 1rem; }
+    .audit-left p  { color: var(--muted); font-size: .95rem; line-height: 1.85; font-weight: 300; margin-bottom: 2rem; }
+    .audit-checks { display: flex; flex-direction: column; gap: .75rem; margin-bottom: 2rem; }
+    .ac-item { display: flex; align-items: center; gap: .85rem; font-size: .875rem; color: var(--muted); }
+    .ac-item::before { content: '✓'; width: 24px; height: 24px; background: rgba(201,168,76,.15); border: 1px solid var(--border2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: .75rem; font-weight: 700; flex-shrink: 0; }
+    .audit-form { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; position: relative; overflow: hidden; }
+    .audit-form::before { content: 'FREE'; position: absolute; top: -10px; right: -20px; font-family: 'Syne',sans-serif; font-size: 6rem; font-weight: 800; color: rgba(201,168,76,.04); pointer-events: none; }
+    .audit-form h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .4rem; }
+    .audit-form .af-sub { font-size: .8rem; color: var(--muted); margin-bottom: 1.5rem; font-weight: 300; }
+    .audit-result { display: none; }
+    .audit-result.show { display: block; }
+    .score-wrap { display: grid; grid-template-columns: repeat(2,1fr); gap: .75rem; margin: 1.5rem 0; }
+    .score-item { background: rgba(255,255,255,.03); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; text-align: center; }
+    .score-num { font-family: 'Syne',sans-serif; font-size: 1.6rem; font-weight: 800; }
+    .score-good { color: #4ADE80; }
+    .score-warn { color: #FBBf24; }
+    .score-bad  { color: #F87171; }
+    .score-label { font-size: .65rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-top: .2rem; }
+    .audit-issues { list-style: none; margin: 1rem 0; }
+    .audit-issues li { font-size: .82rem; padding: .5rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: .65rem; color: var(--muted); }
+    .audit-issues li:last-child { border-bottom: none; }
+    .ai-icon { flex-shrink: 0; }
+    @media(max-width:900px){ .audit-wrap { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -419,6 +477,7 @@
   <a href="#work" onclick="closeMobile()">Work</a>
   <a href="#pricing" onclick="closeMobile()">Pricing</a>
   <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#audit" onclick="closeMobile()">Free Audit</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
   <a href="/cdn-cgi/l/email-protection#67030e0916030e000e13060b27000a060e0b4904080a" style="color:var(--gold)"><span class="__cf_email__" data-cfemail="a9cdc0c7d8cdc0cec0ddc8c5e9cec4c8c0c587cac6c4">[email&#160;protected]</span></a>
 </div>
@@ -434,7 +493,9 @@
     <li><a href="#work">Work</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#chatbot">AI Bots</a></li>
+    <li><a href="#careplans">Care Plans</a></li>
+    <li><a href="#chatbot">AI Chatbot</a></li>
+    <li><a href="#audit">Free Audit</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Start a Project →</a>
@@ -521,9 +582,9 @@
         <p>We turn your idea into a full software product — from architecture and database design to production deployment. Scalable, subscription-ready SaaS for African and international markets.</p>
         <div class="service-tags"><span class="service-tag">Dashboards</span><span class="service-tag">Multi-tenant</span><span class="service-tag">API Development</span><span class="service-tag">Auth &amp; Billing</span><span class="service-tag">Analytics</span><span class="service-tag">Admin Panels</span></div>
       </div>
-      <div class="service-card" onclick="scrollToContact('AI Bots & Automation')">
+      <div class="service-card" onclick="scrollToContact('AI Chatbot & Automation')">
         <span class="service-arrow">↗</span><div class="service-icon">🤖</div>
-        <h3>AI Bots &amp; Automation</h3>
+        <h3>AI Chatbot &amp; Automation</h3>
         <p>Smart chatbots, WhatsApp &amp; Telegram bots in Amharic and English — so your business never sleeps.</p>
       </div>
       <div class="service-card" onclick="scrollToContact('Brand & UI Design')">
@@ -617,45 +678,124 @@
   <div class="container">
     <div class="section-header">
       <div class="section-eyebrow"><span class="tag">Transparent Pricing</span></div>
-      <h2 class="section-title">Simple, Honest Plans</h2>
-      <p class="section-desc">No hidden fees. No surprises. Choose the plan that fits, or contact us for a custom quote.</p>
+      <h2 class="section-title">Simple, Honest Packages</h2>
+      <p class="section-desc">Everything your business needs online — no hidden fees, no surprises. All prices in USD. Ethiopian Birr accepted at the current exchange rate on the day of order.</p>
     </div>
+
     <div class="pricing-grid">
+
+      <!-- STARTER -->
       <div class="price-card">
-        <div class="price-plan">Starter</div>
+        <div class="price-plan">🌐 Starter Website</div>
         <div class="price-amount"><sup>$</sup>499</div>
-        <p class="price-desc">Perfect for small businesses and local brands needing a strong online presence.</p>
+        <p class="price-desc">Any business needing a clean, professional online presence fast.</p>
         <ul class="price-features">
-          <li>Up to 5-page website</li><li>Mobile responsive design</li><li>Contact form</li>
-          <li>SEO basics</li><li>1 revision round</li><li>14-day delivery</li>
-          <li class="no">Custom animations</li><li class="no">CMS integration</li><li class="no">SaaS features</li>
+          <li>Up to 5 pages</li>
+          <li>Mobile responsive design</li>
+          <li>Contact form</li>
+          <li>Google Maps integration</li>
+          <li>Social media links</li>
+          <li>SEO basics</li>
+          <li>Delivered in 14 days</li>
+          <li class="no">Booking system</li>
+          <li class="no">Online payments</li>
+          <li class="no">Client portal</li>
         </ul>
-        <a href="#contact" class="btn-price outline" onclick="scrollToContact('Starter Plan - $499')">Get Started</a>
+        <div style="margin-bottom:.75rem;padding:.6rem;background:rgba(201,168,76,.06);border-radius:8px;border:1px solid var(--border2);font-size:.75rem;color:var(--muted);text-align:center">Care Plan: <strong style="color:var(--gold)">$20/mo</strong></div>
+        <a href="#contact" class="btn-price outline" onclick="scrollToContact('Starter Website - $499')">Get Started</a>
       </div>
+
+      <!-- BUSINESS PACKAGE — POPULAR -->
       <div class="price-card popular">
         <div class="popular-badge">Most Popular</div>
-        <div class="price-plan">Growth</div>
-        <div class="price-amount"><sup>$</sup>1,499</div>
-        <p class="price-desc">For growing businesses that need a powerful website or first SaaS product.</p>
+        <div class="price-plan">🚀 Business Package</div>
+        <div class="price-amount"><sup>$</sup>999</div>
+        <p class="price-desc">Salons, restaurants, auto shops, clinics — everything your business needs in one package.</p>
         <ul class="price-features">
-          <li>Up to 15 pages</li><li>Custom animations &amp; interactions</li><li>CMS integration</li>
-          <li>E-commerce ready</li><li>Telebirr &amp; Stripe integration</li><li>3 revision rounds</li>
-          <li>28-day delivery</li><li>Basic SaaS features</li><li class="no">Full SaaS build</li>
+          <li>Full website included</li>
+          <li>Online booking / reservations</li>
+          <li>Service &amp; pricing menu</li>
+          <li>Telebirr &amp; card payments</li>
+          <li>Customer notifications</li>
+          <li>Google Maps &amp; hours</li>
+          <li>Bilingual EN + Amharic</li>
+          <li>WhatsApp integration</li>
+          <li>Delivered in 21 days</li>
         </ul>
-        <a href="#contact" class="btn-price filled" onclick="scrollToContact('Growth Plan - $1,499')">Start Building →</a>
+        <div style="margin-bottom:.5rem;padding:.5rem;background:rgba(201,168,76,.04);border-radius:6px;font-size:.72rem;color:var(--muted);text-align:center">
+          ✦ Works for: <span style="color:var(--white)">Salons · Restaurants · Auto Shops · Clinics · Retail · Any Business</span>
+        </div>
+        <div style="margin-bottom:.75rem;padding:.6rem;background:rgba(201,168,76,.06);border-radius:8px;border:1px solid var(--border2);font-size:.75rem;color:var(--muted);text-align:center">Care Plan: <strong style="color:var(--gold)">$49/mo</strong></div>
+        <a href="#contact" class="btn-price filled" onclick="scrollToContact('Business Package - $999')">Get Started →</a>
       </div>
+
+      <!-- PRO -->
       <div class="price-card">
-        <div class="price-plan">Enterprise</div>
-        <div class="price-amount">Custom</div>
-        <p class="price-desc">Full-scale SaaS products, complex platforms, and long-term partnerships.</p>
+        <div class="price-plan">🏢 Pro Package</div>
+        <div class="price-amount"><sup>$</sup>1,999</div>
+        <p class="price-desc">Law firms, clinics, consultants — full professional platform with client portal and advanced features.</p>
         <ul class="price-features">
-          <li>Unlimited pages</li><li>Full SaaS product build</li><li>Multi-tenant architecture</li>
-          <li>Auth, billing &amp; admin panel</li><li>Dedicated project manager</li><li>Unlimited revisions</li>
-          <li>Priority support</li><li>Custom integrations</li><li>Ongoing maintenance</li>
+          <li>Everything in Business Package</li>
+          <li>Client portal login</li>
+          <li>Invoice generation</li>
+          <li>Document uploads</li>
+          <li>Advanced appointment system</li>
+          <li>Staff &amp; team management</li>
+          <li>Analytics dashboard</li>
+          <li>Priority support</li>
+          <li>Delivered in 28 days</li>
         </ul>
-        <a href="#contact" class="btn-price outline" onclick="scrollToContact('Enterprise Plan - Custom Quote')">Request a Quote</a>
+        <div style="margin-bottom:.75rem;padding:.6rem;background:rgba(201,168,76,.06);border-radius:8px;border:1px solid var(--border2);font-size:.75rem;color:var(--muted);text-align:center">Care Plan: <strong style="color:var(--gold)">$99/mo</strong></div>
+        <a href="#contact" class="btn-price outline" onclick="scrollToContact('Pro Package - $1,999')">Get Started</a>
+      </div>
+
+      <!-- CUSTOM -->
+      <div class="price-card" style="grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center">
+        <div>
+          <div class="price-plan">⚡ SaaS &amp; Custom Platform</div>
+          <div class="price-amount" style="font-size:2.2rem;margin-bottom:.5rem">Custom</div>
+          <p class="price-desc" style="max-width:100%">Apps, marketplaces, dashboards, and full software platforms built from scratch. We scope the project together and give you a fixed price — no surprises.</p>
+          <div style="margin-top:1.5rem">
+            <a href="#contact" class="btn-price outline" style="display:inline-block;width:auto;padding:.85rem 2rem" onclick="scrollToContact('SaaS / Custom Platform')">Request a Quote →</a>
+          </div>
+        </div>
+        <div>
+          <ul class="price-features" style="margin-bottom:0">
+            <li>Full custom development</li>
+            <li>Multi-tenant SaaS architecture</li>
+            <li>User authentication &amp; roles</li>
+            <li>Admin &amp; client dashboards</li>
+            <li>API &amp; third-party integrations</li>
+            <li>Telebirr &amp; Stripe billing</li>
+            <li>Scalable cloud hosting</li>
+            <li>Dedicated project manager</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PAYMENT METHODS -->
+    <div style="margin-top:2rem;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.75rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center">
+      <div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:.4rem">We Accept All Payment Methods</h3>
+        <p style="font-size:.82rem;color:var(--muted);font-weight:300;line-height:1.75">Pay in USD or Ethiopian Birr — your choice. Birr payments accepted at the current exchange rate on the day of order.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:.6rem;justify-content:flex-end">
+        <div style="background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:8px;padding:.5rem 1rem;font-size:.78rem;font-weight:600">📱 Telebirr</div>
+        <div style="background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:8px;padding:.5rem 1rem;font-size:.78rem;font-weight:600">🏦 CBE Birr</div>
+        <div style="background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:8px;padding:.5rem 1rem;font-size:.78rem;font-weight:600">💳 Awash Bank</div>
+        <div style="background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:8px;padding:.5rem 1rem;font-size:.78rem;font-weight:600">💳 Stripe</div>
+        <div style="background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:8px;padding:.5rem 1rem;font-size:.78rem;font-weight:600">💵 Cash</div>
+        <div style="background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:8px;padding:.5rem 1rem;font-size:.78rem;font-weight:600">🏛️ Bank Transfer</div>
       </div>
     </div>
+
+    <!-- NOTE -->
+    <div style="margin-top:1rem;text-align:center;font-size:.8rem;color:var(--muted)">
+      💡 Payment split: <strong style="color:var(--white)">50% upfront</strong> to start + <strong style="color:var(--white)">50% on launch.</strong> &nbsp;·&nbsp; Not sure which package? <a href="#contact" style="color:var(--gold);text-decoration:none">Contact us</a> — we will recommend the right one for your business.
+    </div>
+
   </div>
 </section>
 
@@ -664,7 +804,7 @@
   <div class="container">
     <div class="section-header">
       <div class="section-eyebrow"><span class="tag">Optional Service</span></div>
-      <h2 class="section-title">AI Bots for Your Business</h2>
+      <h2 class="section-title">AI Chatbot for Your Business</h2>
     </div>
     <div class="chatbot-wrap">
       <div class="chatbot-left">
@@ -816,6 +956,168 @@
   </div>
 </section>
 
+
+<!-- CARE PLANS -->
+<section id="careplans">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow"><span class="tag">Monthly Plans</span></div>
+      <h2 class="section-title">Website Care Plans</h2>
+      <p class="section-desc">We build your site once — then keep it running, updated, and growing every month. Turn your website into a long-term asset, not a one-time expense.</p>
+    </div>
+    <div class="care-intro">
+      <div>
+        <h2>Why pay monthly?<br><span class="gold">Recurring value.</span></h2>
+        <p>Your website is not a finished product — it's a living business tool. It needs hosting, security updates, content changes, and performance monitoring every single month.</p>
+        <p>Our care plans mean you never have to worry about your site going down, looking outdated, or losing Google ranking. We handle everything while you focus on running your business.</p>
+      </div>
+      <div class="care-highlight">
+        <h4>💰 What this means for your business</h4>
+        <div class="care-math">
+          <div class="cm-row"><span>10 clients on Basic</span><span>$200/mo</span></div>
+          <div class="cm-row"><span>10 clients on Care</span><span>$490/mo</span></div>
+          <div class="cm-row"><span>10 clients on Growth</span><span>$990/mo</span></div>
+          <div class="cm-row"><span>30 clients total</span><span>$1,680/mo</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="care-grid">
+      <div class="care-card">
+        <div class="care-plan-name">Basic</div>
+        <div class="care-plan-price"><sup>$</sup>20</div>
+        <div class="care-plan-period">per month / per site</div>
+        <ul class="care-features">
+          <li>Website hosting included</li>
+          <li>99.9% uptime monitoring</li>
+          <li>SSL certificate (https)</li>
+          <li>Monthly backup</li>
+          <li>Security updates</li>
+          <li class="no">Content edits</li>
+          <li class="no">SEO monitoring</li>
+          <li class="no">Monthly report</li>
+        </ul>
+        <a href="#contact" class="btn-price outline" onclick="scrollToContact('Basic Care Plan - $20/mo')">Get Started</a>
+      </div>
+      <div class="care-card popular">
+        <div class="care-plan-badge">Most Popular</div>
+        <div class="care-plan-name">Care</div>
+        <div class="care-plan-price"><sup>$</sup>49</div>
+        <div class="care-plan-period">per month / per site</div>
+        <ul class="care-features">
+          <li>Everything in Basic</li>
+          <li>Up to 2 content edits/month</li>
+          <li>Priority support (24hr response)</li>
+          <li>Weekly backups</li>
+          <li>Performance optimization</li>
+          <li>Google Analytics setup</li>
+          <li class="no">SEO monitoring</li>
+          <li class="no">Monthly report</li>
+        </ul>
+        <a href="#contact" class="btn-price filled" onclick="scrollToContact('Care Plan - $49/mo')">Start Care Plan</a>
+      </div>
+      <div class="care-card">
+        <div class="care-plan-name">Growth</div>
+        <div class="care-plan-price"><sup>$</sup>99</div>
+        <div class="care-plan-period">per month / per site</div>
+        <ul class="care-features">
+          <li>Everything in Care</li>
+          <li>Unlimited content edits</li>
+          <li>SEO monitoring & improvements</li>
+          <li>Monthly performance report</li>
+          <li>Social media link updates</li>
+          <li>New page additions</li>
+          <li>Google Business management</li>
+          <li>WhatsApp priority support</li>
+        </ul>
+        <a href="#contact" class="btn-price outline" onclick="scrollToContact('Growth Care Plan - $99/mo')">Get Growth Plan</a>
+      </div>
+    </div>
+    <div class="care-note">
+      <strong>Already have a website built elsewhere?</strong> We can take over the management of any existing website. Contact us at <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4d2924233c29242a24392c210d2a202c2421632e2220">[email&#160;protected]</a></strong> and we will assess your site for free.
+    </div>
+  </div>
+</section>
+
+
+<!-- FREE AUDIT -->
+<section id="audit">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow"><span class="tag">100% Free · No Obligation</span></div>
+      <h2 class="section-title">Free Website Audit</h2>
+      <p class="section-desc">Already have a website? Let us check it for free. We will tell you exactly what is hurting your business online — and how to fix it.</p>
+    </div>
+    <div class="audit-wrap">
+      <div class="audit-left">
+        <h2>Find out what your website<br><span class="gold">is costing you.</span></h2>
+        <p>Most Ethiopian business websites are slow, broken on mobile, and missing online payments. Every day your site has these problems you are losing customers to competitors.</p>
+        <p>We check 5 critical areas and send you a free report within 24 hours — no strings attached.</p>
+        <div class="audit-checks">
+          <div class="ac-item">Page speed — is your site loading fast enough?</div>
+          <div class="ac-item">Mobile design — does it work on phones?</div>
+          <div class="ac-item">Online payments — can customers pay you online?</div>
+          <div class="ac-item">Booking system — can customers book appointments?</div>
+          <div class="ac-item">SEO — can people find you on Google?</div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);padding:1.25rem;display:flex;gap:1rem;align-items:flex-start">
+          <div style="font-size:1.5rem;flex-shrink:0">💬</div>
+          <div>
+            <div style="font-size:.85rem;font-weight:600;margin-bottom:.25rem">What happens after the audit?</div>
+            <div style="font-size:.8rem;color:var(--muted);font-weight:300;line-height:1.7">We send you a clear report showing what is working and what is not. If you want us to fix it we give you a quote. If not — the audit is still yours, completely free.</div>
+          </div>
+        </div>
+      </div>
+      <div class="audit-right">
+        <div class="audit-form">
+          <h3>Get Your Free Site Audit</h3>
+          <div class="af-sub">Takes 30 seconds to submit. Report in 24 hours.</div>
+
+          <!-- FORM -->
+          <div id="auditFormContent">
+            <div class="form-group"><label>Your Name *</label><input type="text" id="af-name" placeholder="Abebe Kebede" /></div>
+            <div class="form-group"><label>Your Website URL *</label><input type="text" id="af-url" placeholder="www.yourbusiness.com" /></div>
+            <div class="form-group"><label>Business Type</label>
+              <select id="af-type">
+                <option value="">Select your business type...</option>
+                <option>Hair Salon / Spa</option>
+                <option>Restaurant / Cafe</option>
+                <option>Auto Repair Shop</option>
+                <option>Clinic / Hospital</option>
+                <option>Retail / Shop</option>
+                <option>Law Firm</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Phone / Telegram</label><input type="text" id="af-phone" placeholder="+251 91..." /></div>
+            <div class="form-group"><label>Email *</label><input type="text" id="af-email" placeholder="you@example.com" /></div>
+            <div class="form-group">
+              <label>Main Problem (optional)</label>
+              <select id="af-problem">
+                <option value="">What bothers you most about your site?</option>
+                <option>It looks outdated</option>
+                <option>It is too slow</option>
+                <option>It does not work on mobile</option>
+                <option>No online payments</option>
+                <option>Nobody finds it on Google</option>
+                <option>I do not know — just check everything</option>
+              </select>
+            </div>
+            <button class="form-submit" id="auditSubmit" onclick="submitAudit()">Get My Free Audit →</button>
+            <div style="text-align:center;margin-top:.85rem;font-size:.72rem;color:var(--muted)">We will never spam you. Audit report delivered within 24 hours.</div>
+          </div>
+
+          <!-- SUCCESS -->
+          <div class="form-success" id="auditSuccess">
+            <div class="fs-icon">🎉</div>
+            <h3>Audit Request Received!</h3>
+            <p>We are reviewing your website now and will send your free audit report to <span id="auditReplyEmail"></span> within <strong>24 hours.</strong><br><br>In the meantime feel free to reach us on Telegram <strong>@dinqdigital</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="container">
@@ -910,11 +1212,14 @@
       </div>
       <div class="footer-col"><h4>Services</h4><ul>
         <li><a href="#services">Web Design</a></li><li><a href="#services">SaaS Development</a></li>
-        <li><a href="#services">AI Bots</a></li><li><a href="#services">Branding</a></li><li><a href="#services">Mobile Apps</a></li>
+        <li><a href="#services">AI Chatbot</a></li><li><a href="#services">Branding</a></li><li><a href="#services">Mobile Apps</a></li>
       </ul></div>
       <div class="footer-col"><h4>Company</h4><ul>
-        <li><a href="#about">About Us</a></li><li><a href="#work">Our Work</a></li><li><a href="#process">Process</a></li>
-        <li><a href="#pricing">Pricing</a></li><li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About Us</a></li><li><a href="#audit">Free Audit</a></li>
+          <li><a href="#work">Our Work</a></li><li><a href="#process">Process</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#careplans">Care Plans</a></li><li><a href="#audit">Free Audit</a></li>
+    <li><a href="#contact">Contact</a></li>
       </ul></div>
       <div class="footer-col"><h4>Connect</h4><ul>
         <li><a href="https://t.me/dinqdigital" target="_blank">Telegram</a></li>
@@ -935,7 +1240,49 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+  /* FREE AUDIT FORM */
+  async function submitAudit() {
+    const name  = document.getElementById('af-name').value.trim();
+    const url   = document.getElementById('af-url').value.trim();
+    const email = document.getElementById('af-email').value.trim();
+    const type  = document.getElementById('af-type').value;
+    const phone = document.getElementById('af-phone').value.trim();
+    const prob  = document.getElementById('af-problem').value;
+
+    if (!name) { alert('Please enter your name.'); return; }
+    if (!url)  { alert('Please enter your website URL.'); return; }
+    if (!email || !/\S+@\S+\.\S+/.test(email)) { alert('Please enter a valid email.'); return; }
+
+    const btn = document.getElementById('auditSubmit');
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+
+    try {
+      const fd = new FormData();
+      fd.append('name', name);
+      fd.append('email', email);
+      fd.append('website_url', url);
+      fd.append('business_type', type || 'Not specified');
+      fd.append('phone', phone || 'Not provided');
+      fd.append('main_problem', prob || 'Not specified');
+      fd.append('_subject', 'Free Site Audit Request from ' + name + ' - ' + url);
+
+      await fetch('https://formspree.io/f/mgonpgpj', {
+        method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
+      });
+    } catch(e) {}
+
+    document.getElementById('auditFormContent').style.display = 'none';
+    document.getElementById('auditReplyEmail').textContent = email;
+    document.getElementById('auditSuccess').style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Get My Free Audit →';
+  }
+
+</script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+
   /* CURSOR */
   const cur = document.getElementById('cursor');
   document.addEventListener('mousemove', e => { cur.style.left=e.clientX+'px'; cur.style.top=e.clientY+'px'; });
@@ -1062,10 +1409,4 @@
     body.appendChild(userDiv);
     const typingDiv = document.createElement('div');
     typingDiv.className = 'msg msg-bot';
-    typingDiv.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
-    body.appendChild(typingDiv);
-    body.scrollTop = body.scrollHeight;
-    setTimeout(() => {
-      typingDiv.remove();
-      const key = msg.toLowerCase().replace(/[^a-z\s?]/g,'').trim();
-      let reply = botReplies[key] || 
+    typingDiv.innerHTML = '<div class="typing"><span></span><span></span><span></span></div
