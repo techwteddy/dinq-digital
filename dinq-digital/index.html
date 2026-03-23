@@ -9,785 +9,597 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
+    /* ─── RESET & BASE ─── */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; font-size: 16px; }
-    /* LIGHT MODE (default) */
+
     :root {
-      --ink:#FFFFFF; --surface:#F5F5F5; --card:#EFEFEF; --card2:#E8E8E8;
-      --gold:#111111; --gold2:#333333; --gold3:rgba(0,0,0,.06);
-      --green:#F0F0F0; --white:#111111; --muted:rgba(0,0,0,.5);
-      --border:rgba(0,0,0,.1); --border2:rgba(0,0,0,.2);
-      --radius:10px; --radius-lg:16px;
-      --bg:#FFFFFF; --fg:#111111;
-      --nav-scrolled:rgba(255,255,255,.95);
-      --grid-line:rgba(0,0,0,.12);
-      --hero-stroke:rgba(0,0,0,.3);
-      --cursor-color:#111111;
-      --scrollbar-bg:#ffffff;
-      --scrollbar-thumb:#111111;
-      --ticker-bg:#111111;
-      --mobile-menu-bg:rgba(255,255,255,.98);
-      --mobile-menu-color:#111111;
-      --logo-mark-bg:#111111;
-      --logo-mark-color:#FFFFFF;
-      --btn-primary-bg:#111111;
-      --btn-primary-color:#FFFFFF;
-      --badge-bg:#111111;
-      --badge-color:#FFFFFF;
-      --stat-color:#111111;
-      --chat-avatar-bg:#111111;
-      --msg-user-bg:#111111;
-      --proc-num-color:rgba(0,0,0,.1);
-      --footer-bg:#F5F5F5;
-      --footer-border:rgba(0,0,0,.1);
-      --av-border:#111111;
-      --testi-star:#111111;
-      --footer-heading:#111111;
-      --about-badge-bg:#111111;
-      --about-badge-color:#FFFFFF;
-      --form-input-bg:#FFFFFF;
-      --form-input-border:rgba(0,0,0,.15);
-      --form-input-focus:#111111;
-      --form-placeholder:rgba(0,0,0,.3);
+      --ink:     #09090B;
+      --surface: #111113;
+      --card:    #17171A;
+      --card2:   #1C1C20;
+      --gold:    #C9A84C;
+      --gold2:   #E8C97A;
+      --gold3:   rgba(201,168,76,.12);
+      --green:   #0F5132;
+      --red:     #991B1B;
+      --white:   #FAFAF9;
+      --muted:   rgba(250,250,249,.45);
+      --border:  rgba(250,250,249,.07);
+      --border2: rgba(201,168,76,.2);
+      --radius:  10px;
+      --radius-lg: 16px;
     }
 
-    /* DARK MODE */
-    [data-theme="dark"] {
-      --ink:#09090B; --surface:#111113; --card:#17171A; --card2:#1C1C20;
-      --gold:#C9A84C; --gold2:#E8C97A; --gold3:rgba(201,168,76,.12);
-      --green:#0F5132; --white:#FAFAF9; --muted:rgba(250,250,249,.45);
-      --border:rgba(250,250,249,.07); --border2:rgba(201,168,76,.2);
-      --radius:10px; --radius-lg:16px;
-      --bg:#09090B; --fg:#FAFAF9;
-      --nav-scrolled:rgba(9,9,11,.95);
-      --grid-line:rgba(201,168,76,.06);
-      --hero-stroke:rgba(250,250,249,.4);
-      --cursor-color:#C9A84C;
-      --scrollbar-bg:#09090B;
-      --scrollbar-thumb:#C9A84C;
-      --ticker-bg:#0F5132;
-      --mobile-menu-bg:rgba(9,9,11,.98);
-      --mobile-menu-color:#FAFAF9;
-      --logo-mark-bg:#C9A84C;
-      --logo-mark-color:#09090B;
-      --btn-primary-bg:#C9A84C;
-      --btn-primary-color:#09090B;
-      --badge-bg:#C9A84C;
-      --badge-color:#09090B;
-      --stat-color:#C9A84C;
-      --chat-avatar-bg:#C9A84C;
-      --msg-user-bg:#C9A84C;
-      --proc-num-color:rgba(201,168,76,.12);
-      --footer-bg:#09090B;
-      --footer-border:rgba(250,250,249,.07);
-      --av-border:#C9A84C;
-      --testi-star:#C9A84C;
-      --footer-heading:#C9A84C;
-      --about-badge-bg:#C9A84C;
-      --about-badge-color:#09090B;
-      --form-input-bg:rgba(255,255,255,.05);
-      --form-input-border:rgba(250,250,249,.07);
-      --form-input-focus:rgba(201,168,76,.5);
-      --form-placeholder:rgba(255,255,255,.2);
+    body {
+      background: var(--ink);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
     }
 
-    body { background:var(--ink); color:var(--white); font-family:'DM Sans',sans-serif; overflow-x:hidden; line-height:1.6; transition:background .3s, color .3s; }
-    ::selection { background:var(--gold); color:var(--ink); }
-    ::-webkit-scrollbar { width:5px; }
-    ::-webkit-scrollbar-track { background:var(--scrollbar-bg); }
-    ::-webkit-scrollbar-thumb { background:var(--scrollbar-thumb); border-radius:99px; }
-    h1,h2,h3 { font-family:'Syne',sans-serif; letter-spacing:-0.03em; line-height:1.05; }
-    .gold { color:var(--gold); }
-    .container { max-width:1160px; margin:0 auto; padding:0 2.5rem; }
-    .tag { display:inline-flex; align-items:center; gap:.4rem; background:var(--gold3); border:1px solid var(--border2); color:var(--gold); padding:.35rem .9rem; border-radius:99px; font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; font-weight:500; }
+    ::selection { background: var(--gold); color: var(--ink); }
 
-  
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--ink); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 99px; }
 
-  /* CURSOR */
-    #cursor { width:10px; height:10px; background:var(--cursor-color); border-radius:50%; position:fixed; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:transform .12s, width .2s, height .2s; }
-    #cursor.hover { width:30px; height:30px; background:transparent; border:1.5px solid var(--cursor-color); }
+    /* ─── TYPOGRAPHY ─── */
+    .syne { font-family: 'Syne', sans-serif; }
 
-    /* NAV */
-    #navbar { position:fixed; top:0; left:0; right:0; z-index:500; padding:1.4rem 2.5rem; display:flex; align-items:center; justify-content:space-between; transition:all .3s; }
-    #navbar.scrolled { background:var(--nav-scrolled); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); padding:1rem 2.5rem; }
-    .nav-logo { display:flex; align-items:center; gap:.65rem; text-decoration:none; }
-    .nav-logo-mark { width:34px; height:34px; background:var(--logo-mark-bg); border-radius:8px; display:flex; align-items:center; justify-content:center; font-family:'Syne',sans-serif; font-weight:800; font-size:.95rem; color:var(--logo-mark-color); }
-    .nav-logo-text { font-family:'Syne',sans-serif; font-weight:700; font-size:1.1rem; color:var(--white); }
-    .nav-logo-text span { color:var(--gold); }
-    .nav-links { display:flex; align-items:center; gap:2.5rem; list-style:none; }
-    .nav-links a { color:var(--muted); text-decoration:none; font-size:.82rem; letter-spacing:.06em; text-transform:uppercase; font-weight:500; transition:color .2s; }
-    .nav-links a:hover { color:var(--white); }
-    .nav-cta { background:var(--btn-primary-bg); color:var(--btn-primary-color); border:none; padding:.55rem 1.5rem; font-size:.8rem; font-family:'DM Sans',sans-serif; font-weight:600; letter-spacing:.05em; border-radius:var(--radius); cursor:pointer; transition:all .25s; text-decoration:none; display:inline-block; }
-    .nav-cta:hover { background:var(--gold2); transform:translateY(-1px); box-shadow:0 8px 24px rgba(201,168,76,.3); }
-    .nav-toggle { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:.3rem; background:none; border:none; }
-    .nav-toggle span { display:block; width:24px; height:2px; background:var(--white); border-radius:2px; transition:all .3s; }
-    /* mobile menu */
-    .mobile-menu { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:var(--mobile-menu-bg); z-index:400; flex-direction:column; align-items:center; justify-content:center; gap:2rem; }
-    .mobile-menu.open { display:flex; }
-    .mobile-menu a { color:var(--mobile-menu-color); text-decoration:none; font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:700; transition:color .2s; }
-    .mobile-menu a:hover { color:var(--gold); }
-    .mobile-close { position:absolute; top:1.5rem; right:1.5rem; background:none; border:none; color:var(--mobile-menu-color); font-size:1.5rem; cursor:pointer; }
+    h1, h2, h3 { font-family: 'Syne', sans-serif; letter-spacing: -0.03em; line-height: 1.05; }
 
-    /* HERO */
-    .hero { min-height:100vh; display:flex; align-items:center; padding:8rem 2.5rem 5rem; position:relative; overflow:hidden; }
-    .hero-glow { position:absolute; border-radius:50%; filter:blur(120px); pointer-events:none; }
-    .glow-gold { width:600px; height:600px; background:rgba(0,0,0,.04); top:-150px; right:-150px; }
-    .glow-green { width:400px; height:400px; background:rgba(0,0,0,.03); bottom:-100px; left:100px; }
-    .hero-grid-bg {
-      position:absolute; inset:0;
-      background-image:
-        linear-gradient(var(--grid-line) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-      background-size:60px 60px;
-      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
-      -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
-    }
-    .hero-grid-dots {
-      position:absolute; inset:0; pointer-events:none;
-      background-image: radial-gradient(circle, rgba(0,0,0,.25) 1px, transparent 1px);
-      background-size: 60px 60px;
-      background-position: 30px 30px;
-      mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 100%);
-      -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 100%);
-    }
-    .hero-inner { max-width:1160px; margin:0 auto; width:100%; display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:4rem; position:relative; z-index:2; }
-    .hero-eyebrow { margin-bottom:1.5rem; }
-    .hero-title { font-size:clamp(3rem,5.5vw,5rem); font-weight:800; margin-bottom:1.5rem; }
-    .hero-title .line-stroke { -webkit-text-stroke:1.5px var(--hero-stroke); color:transparent; }
-    .hero-desc { font-size:1rem; color:var(--muted); line-height:1.85; max-width:460px; margin-bottom:2.5rem; font-weight:300; }
-    .hero-actions { display:flex; gap:1rem; flex-wrap:wrap; }
-    .btn-primary { background:var(--btn-primary-bg); color:var(--btn-primary-color); border:none; padding:.9rem 2.2rem; font-size:.9rem; font-weight:600; font-family:'DM Sans',sans-serif; border-radius:var(--radius); cursor:pointer; transition:all .25s; letter-spacing:.03em; text-decoration:none; display:inline-block; }
-    .btn-primary:hover { background:var(--gold2); transform:translateY(-2px); box-shadow:0 14px 36px rgba(201,168,76,.28); }
-    .btn-ghost { background:transparent; color:var(--white); border:1px solid var(--border); padding:.9rem 2.2rem; font-size:.9rem; font-family:'DM Sans',sans-serif; border-radius:var(--radius); cursor:pointer; transition:all .25s; text-decoration:none; display:inline-block; }
-    .btn-ghost:hover { border-color:rgba(250,250,249,.3); background:rgba(250,250,249,.04); }
-    .hero-stats { display:flex; gap:0; margin-top:3.5rem; border-top:1px solid var(--border); padding-top:2rem; }
-    .stat { flex:1; }
-    .stat+.stat { border-left:1px solid var(--border); padding-left:2rem; margin-left:2rem; }
-    .stat-num { font-family:'Syne',sans-serif; font-size:2rem; font-weight:800; color:var(--stat-color); }
-    .stat-label { font-size:.72rem; color:var(--muted); margin-top:.2rem; letter-spacing:.08em; text-transform:uppercase; }
-
-    /* HERO VISUAL */
-    .hero-visual { position:relative; }
-    .browser-frame { background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; box-shadow:0 40px 80px rgba(0,0,0,.5),0 0 0 1px rgba(201,168,76,.08); }
-    .browser-bar { background:rgba(255,255,255,.04); padding:.75rem 1rem; display:flex; align-items:center; gap:.5rem; border-bottom:1px solid var(--border); }
-    .browser-dot { width:10px; height:10px; border-radius:50%; }
-    .browser-url { flex:1; margin-left:.75rem; background:rgba(255,255,255,.06); border-radius:6px; padding:.3rem .75rem; font-size:.65rem; color:rgba(255,255,255,.35); }
-    .browser-body { padding:1.5rem; }
-    .dash-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:.75rem; margin-bottom:.75rem; }
-    .dash-card { border-radius:8px; padding:.9rem; font-size:.7rem; border:1px solid rgba(255,255,255,.06); }
-    .dc-green { background:linear-gradient(135deg,#1A1A1A,#000000); }
-    .dc-amber { background:linear-gradient(135deg,#222222,#111111); }
-    .dc-blue  { background:linear-gradient(135deg,#1A1A1A,#0A0A0A); }
-    .dc-label { font-size:.58rem; opacity:.55; text-transform:uppercase; letter-spacing:.08em; margin-bottom:.3rem; }
-    .dc-value { font-family:'Syne',sans-serif; font-size:1.3rem; font-weight:700; }
-    .dc-sub   { font-size:.58rem; margin-top:.2rem; opacity:.6; }
-    .dash-wide { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; }
-    .dash-chart { background:rgba(255,255,255,.03); border:1px solid var(--border); border-radius:8px; padding:1rem; grid-column:1/-1; }
-    .chart-label { font-size:.6rem; opacity:.4; margin-bottom:.6rem; text-transform:uppercase; letter-spacing:.1em; }
-    .bars { display:flex; align-items:flex-end; gap:5px; height:50px; }
-    .bar { flex:1; border-radius:3px 3px 0 0; background:linear-gradient(to top,rgba(201,168,76,.6),rgba(201,168,76,.2)); animation:barGrow .8s ease-out forwards; transform-origin:bottom; transform:scaleY(0); }
-    @keyframes barGrow { to { transform:scaleY(1); } }
-    .bar:nth-child(1){height:35%;animation-delay:.1s} .bar:nth-child(2){height:55%;animation-delay:.15s} .bar:nth-child(3){height:42%;animation-delay:.2s} .bar:nth-child(4){height:70%;animation-delay:.25s} .bar:nth-child(5){height:58%;animation-delay:.3s} .bar:nth-child(6){height:85%;animation-delay:.35s} .bar:nth-child(7){height:65%;animation-delay:.4s} .bar:nth-child(8){height:90%;animation-delay:.45s}
-    .dash-list { background:rgba(255,255,255,.03); border:1px solid var(--border); border-radius:8px; padding:1rem; }
-    .dl-row { display:flex; justify-content:space-between; align-items:center; padding:.4rem 0; border-bottom:1px solid rgba(255,255,255,.04); font-size:.65rem; }
-    .dl-row:last-child { border-bottom:none; }
-    .dl-badge { background:rgba(201,168,76,.15); color:var(--gold); padding:.15rem .5rem; border-radius:3px; font-size:.55rem; font-weight:600; }
-    .floating-badge { position:absolute; bottom:-16px; left:-24px; background:var(--card2); border:1px solid var(--border2); border-radius:10px; padding:.75rem 1.1rem; display:flex; align-items:center; gap:.75rem; box-shadow:0 16px 40px rgba(0,0,0,.4); }
-    .fb-icon { width:32px; height:32px; background:var(--gold3); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1rem; }
-    .fb-text { font-size:.72rem; font-weight:500; }
-    .fb-sub  { font-size:.62rem; color:var(--muted); margin-top:.1rem; }
-    .floating-badge2 { position:absolute; top:-14px; right:-20px; background:var(--card2); border:1px solid var(--border); border-radius:10px; padding:.65rem 1rem; box-shadow:0 12px 32px rgba(0,0,0,.4); }
-    .fb2-text { font-size:.65rem; color:var(--muted); margin-bottom:.2rem; }
-    .fb2-val  { font-family:'Syne',sans-serif; font-size:1rem; font-weight:700; color:#4ADE80; }
-
-    /* TICKER */
-    .ticker { padding:.9rem 0; background:var(--ticker-bg); overflow:hidden; border-top:1px solid rgba(201,168,76,.25); border-bottom:1px solid rgba(201,168,76,.25); }
-    .ticker-track { display:flex; gap:2.5rem; animation:ticker 22s linear infinite; white-space:nowrap; }
-    .ticker-track span { font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.85); font-weight:500; }
-    .ticker-track .sep { color:rgba(255,255,255,.4); }
-    @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-
-    /* SECTIONS */
-    section { padding:7rem 2.5rem; }
-    .section-header { margin-bottom:3.5rem; }
-    .section-eyebrow { margin-bottom:.6rem; color:#111111; }
-    .section-title { font-size:clamp(2rem,3.5vw,2.8rem); font-weight:800; margin-bottom:1rem; }
-    .section-desc { color:var(--muted); font-size:.95rem; font-weight:300; line-height:1.85; max-width:520px; }
-
-    /* SERVICES */
-    #services { background:var(--surface); }
-    .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); }
-    .service-card { background:var(--surface); padding:2.5rem 2rem; position:relative; overflow:hidden; cursor:pointer; transition:background .3s; }
-    .service-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--gold); transform:scaleX(0); transition:transform .35s cubic-bezier(.25,.46,.45,.94); }
-    .service-card:hover { background:var(--card); }
-    .service-card:hover::after { transform:scaleX(1); }
-    .service-card.featured { background:var(--card); border:1px solid var(--border2); grid-column:span 2; }
-    .service-card.featured::after { transform:scaleX(1); }
-    .service-icon { font-size:1.8rem; margin-bottom:1.25rem; }
-    .service-card h3 { font-size:1.2rem; font-weight:700; margin-bottom:.75rem; transition:color .3s; }
-    .service-card:hover h3,.service-card.featured h3 { color:var(--gold); }
-    .service-card p { font-size:.875rem; color:var(--muted); line-height:1.8; font-weight:300; }
-    .service-tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:1.2rem; }
-    .service-tag { font-size:.65rem; letter-spacing:.06em; padding:.25rem .65rem; border-radius:4px; background:rgba(255,255,255,.05); color:rgba(255,255,255,.5); font-weight:500; }
-    .service-arrow { position:absolute; top:2.5rem; right:2rem; color:rgba(255,255,255,.15); font-size:1.1rem; transition:all .3s; }
-    .service-card:hover .service-arrow { color:var(--gold); transform:translate(3px,-3px); }
-
-    /* PORTFOLIO */
-    #work { background:var(--ink); }
-    .port-filters { display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:3rem; }
-    .pf-btn { background:transparent; border:1px solid var(--border); color:var(--muted); padding:.5rem 1.25rem; font-size:.75rem; font-family:'DM Sans',sans-serif; letter-spacing:.06em; text-transform:uppercase; cursor:pointer; border-radius:99px; transition:all .2s; font-weight:500; }
-    .pf-btn.active,.pf-btn:hover { background:var(--gold); border-color:var(--gold); color:var(--ink); }
-    .port-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--border); }
-    .port-item { position:relative; overflow:hidden; cursor:pointer; aspect-ratio:4/3; }
-    .port-item.wide { grid-column:span 2; }
-    .port-bg { width:100%; height:100%; transition:transform .55s cubic-bezier(.25,.46,.45,.94); display:flex; align-items:center; justify-content:center; }
-    .port-item:hover .port-bg { transform:scale(1.06); }
-    .port-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(9,9,11,.92) 0%,rgba(9,9,11,.2) 55%,transparent 100%); opacity:0; transition:opacity .3s; }
-    .port-item:hover .port-overlay { opacity:1; }
-    .port-info { position:absolute; bottom:0; left:0; right:0; padding:1.5rem; transform:translateY(6px); opacity:0; transition:all .3s; }
-    .port-item:hover .port-info { transform:translateY(0); opacity:1; }
-    .port-cat { display:inline-block; font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; background:var(--badge-bg); color:var(--badge-color); padding:.25rem .7rem; border-radius:3px; font-weight:700; margin-bottom:.5rem; }
-    .port-name { font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; }
-    .port-desc { font-size:.78rem; color:rgba(255,255,255,.6); margin-top:.3rem; font-weight:300; }
-    .amh { position:absolute; top:1rem; right:1.2rem; font-size:3.5rem; opacity:.15; line-height:1; pointer-events:none; }
-    .bg-emerald{background:linear-gradient(135deg,#1A1A1A,#000000)} .bg-violet{background:linear-gradient(135deg,#222222,#111111)} .bg-crimson{background:linear-gradient(135deg,#2A2A2A,#0A0A0A)} .bg-ocean{background:linear-gradient(135deg,#1A1A1A,#050505)} .bg-purple{background:linear-gradient(135deg,#222222,#111111)} .bg-stone{background:linear-gradient(135deg,#1A1A1A,#000000)}
-    .mock { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:8px; padding:.75rem; width:68%; }
-    .mock-dots { display:flex; gap:4px; margin-bottom:.6rem; }
-    .mock-dot { width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,.18); }
-    .ml{height:5px;border-radius:2px;background:rgba(255,255,255,.1);margin:.28rem 0} .ml-a{background:rgba(201,168,76,.4);width:70%} .ml-s{width:45%} .ml-m{width:80%}
-    .mg{display:grid;grid-template-columns:1fr 1fr;gap:.3rem;margin-top:.4rem} .mc{background:rgba(255,255,255,.07);border-radius:4px;height:24px}
-
-    /* PROCESS */
-    #process { background:var(--surface); }
-    .process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
-    .proc-item { padding:2rem 1.75rem; border:1px solid var(--border); border-radius:var(--radius-lg); transition:all .3s; position:relative; overflow:hidden; }
-    .proc-item::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,var(--gold3),transparent); opacity:0; transition:opacity .3s; }
-    .proc-item:hover { border-color:var(--border2); }
-    .proc-item:hover::before { opacity:1; }
-    .proc-num { font-family:'Syne',sans-serif; font-size:3.5rem; font-weight:800; color:var(--proc-num-color); line-height:1; margin-bottom:1.25rem; }
-    .proc-item h3 { font-size:1.05rem; font-weight:700; margin-bottom:.65rem; }
-    .proc-item p { font-size:.82rem; color:var(--muted); line-height:1.78; font-weight:300; }
-
-    /* PRICING */
-    #pricing { background:var(--ink); }
-    .pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
-    .price-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2rem 1.75rem; display:flex; flex-direction:column; transition:all .3s; position:relative; overflow:hidden; }
-    .price-card:hover { border-color:var(--border2); transform:translateY(-4px); }
-    .price-card.popular { border-color:var(--gold); background:linear-gradient(135deg,rgba(201,168,76,.07),var(--card)); }
-    .popular-badge { position:absolute; top:0; right:0; background:var(--badge-bg); color:var(--badge-color); font-size:.6rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:.3rem .9rem; border-radius:0 var(--radius-lg) 0 var(--radius-lg); }
-    .price-plan { font-size:.75rem; letter-spacing:.15em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:.75rem; }
-    .price-amount { font-family:'Syne',sans-serif; font-size:2.5rem; font-weight:800; line-height:1; margin-bottom:.3rem; color:var(--white); }
-    .price-amount sup { font-size:1rem; vertical-align:super; margin-right:.1rem; }
-    .price-desc { font-size:.82rem; color:var(--muted); margin-bottom:1.75rem; font-weight:300; }
-    .price-features { list-style:none; flex:1; margin-bottom:2rem; }
-    .price-features li { font-size:.83rem; color:var(--muted); padding:.55rem 0; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:.6rem; }
-    .price-features li::before { content:'✓'; color:var(--gold); font-weight:700; flex-shrink:0; }
-    .price-features li.no::before { content:'✕'; color:rgba(255,255,255,.2); }
-    .price-features li.no { color:rgba(255,255,255,.2); }
-    .btn-price { display:block; text-align:center; padding:.85rem; font-size:.85rem; font-family:'DM Sans',sans-serif; font-weight:600; border-radius:var(--radius); cursor:pointer; transition:all .25s; border:none; text-decoration:none; }
-    .btn-price.outline { background:transparent; border:1px solid var(--border); color:var(--white); }
-    .btn-price.outline:hover { border-color:var(--gold); color:var(--gold); }
-    .btn-price.filled { background:var(--btn-primary-bg); color:var(--btn-primary-color); }
-    .btn-price.filled:hover { background:var(--gold2); box-shadow:0 8px 24px rgba(201,168,76,.3); }
-
-    /* CONTACT SECTION */
-    #contact { background:var(--surface); }
-    .contact-wrap { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
-    .contact-info h2 { font-size:clamp(1.8rem,3vw,2.5rem); font-weight:800; margin-bottom:1rem; }
-    .contact-info p { color:var(--muted); font-size:.95rem; font-weight:300; line-height:1.85; margin-bottom:2.5rem; }
-    .contact-methods { display:flex; flex-direction:column; gap:1rem; }
-    .cm-item { display:flex; align-items:center; gap:1rem; padding:1rem 1.25rem; background:var(--card); border:1px solid var(--border); border-radius:var(--radius); text-decoration:none; transition:all .2s; }
-    .cm-item:hover { border-color:var(--border2); transform:translateX(4px); }
-    .cm-icon { width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
-    .cm-icon.email { background:rgba(201,168,76,.15); }
-    .cm-icon.tg    { background:rgba(37,211,102,.1); }
-    .cm-icon.wa    { background:rgba(37,211,102,.1); }
-    .cm-icon.ig    { background:rgba(225,48,108,.1); }
-    .cm-label { font-size:.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; margin-bottom:.15rem; }
-    .cm-value { font-size:.9rem; font-weight:500; color:var(--white); }
-
-    /* CONTACT FORM */
-    .contact-form { background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2rem; }
-    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem; }
-    .form-group { display:flex; flex-direction:column; gap:.4rem; margin-bottom:1rem; }
-    .form-group label { font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); font-weight:500; }
-    .form-group input, .form-group select, .form-group textarea {
-      background:rgba(255,255,255,.05); border:1px solid var(--border);
-      border-radius:var(--radius); padding:.75rem 1rem; font-size:.875rem;
-      color:var(--white); font-family:'DM Sans',sans-serif; outline:none;
-      transition:border-color .2s; width:100%;
-    }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:rgba(201,168,76,.5); }
-    .form-group input::placeholder, .form-group textarea::placeholder { color:rgba(255,255,255,.2); }
-    .form-group select option { background:var(--card); color:var(--white); }
-    .form-group textarea { resize:vertical; min-height:120px; }
-    .form-submit { width:100%; background:var(--btn-primary-bg); color:var(--btn-primary-color); border:none; padding:1rem; font-size:.95rem; font-weight:700; font-family:'DM Sans',sans-serif; border-radius:var(--radius); cursor:pointer; transition:all .25s; letter-spacing:.03em; }
-    .form-submit:hover { background:var(--gold2); transform:translateY(-2px); box-shadow:0 12px 32px rgba(201,168,76,.3); }
-    .form-submit:disabled { opacity:.6; cursor:not-allowed; transform:none; }
-    .form-success { display:none; text-align:center; padding:2rem; }
-    .form-success .fs-icon { font-size:3rem; margin-bottom:1rem; }
-    .form-success h3 { font-family:'Syne',sans-serif; font-size:1.3rem; font-weight:700; margin-bottom:.5rem; color:var(--gold); }
-    .form-success p { color:var(--muted); font-size:.875rem; }
-
-    /* CHATBOT */
-    #chatbot { background:var(--ink); }
-    .chatbot-wrap { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
-    .chatbot-features { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
-    .cf-item { display:flex; gap:1rem; align-items:flex-start; padding:1.2rem; background:var(--card); border-radius:var(--radius); border:1px solid var(--border); transition:border-color .2s; }
-    .cf-item:hover { border-color:var(--border2); }
-    .cf-icon { font-size:1.4rem; flex-shrink:0; }
-    .cf-item h4 { font-size:.9rem; font-weight:600; margin-bottom:.2rem; }
-    .cf-item p  { font-size:.78rem; color:var(--muted); font-weight:300; line-height:1.65; }
-    .chat-window { background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; box-shadow:0 30px 60px rgba(0,0,0,.4); }
-    .chat-header { padding:1rem 1.25rem; background:rgba(255,255,255,.03); border-bottom:1px solid var(--border); display:flex; align-items:center; gap:.75rem; }
-    .chat-avatar { width:34px; height:34px; background:var(--chat-avatar-bg); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Syne',sans-serif; font-weight:800; font-size:.8rem; color:var(--ink); }
-    .chat-name { font-size:.85rem; font-weight:600; }
-    .chat-status { font-size:.7rem; color:#4ADE80; display:flex; align-items:center; gap:.3rem; }
-    .chat-status::before { content:''; width:6px; height:6px; background:#4ADE80; border-radius:50%; }
-    .chat-body { padding:1.25rem; height:300px; overflow-y:auto; display:flex; flex-direction:column; gap:.85rem; }
-    .chat-body::-webkit-scrollbar { width:3px; }
-    .chat-body::-webkit-scrollbar-thumb { background:var(--border); border-radius:99px; }
-    .msg { max-width:78%; }
-    .msg-bot { align-self:flex-start; }
-    .msg-user { align-self:flex-end; }
-    .msg-bubble { padding:.7rem 1rem; border-radius:12px; font-size:.8rem; line-height:1.6; }
-    .msg-bot .msg-bubble  { background:rgba(255,255,255,.07); border-radius:4px 12px 12px 12px; color:rgba(255,255,255,.85); }
-    .msg-user .msg-bubble { background:var(--msg-user-bg); color:var(--btn-primary-color); border-radius:12px 4px 12px 12px; font-weight:500; }
-    .msg-time { font-size:.58rem; color:var(--muted); margin-top:.3rem; padding:0 .25rem; }
-    .typing { display:flex; gap:4px; align-items:center; padding:.7rem 1rem; background:rgba(255,255,255,.07); border-radius:4px 12px 12px 12px; width:fit-content; }
-    .typing span { width:6px; height:6px; background:rgba(255,255,255,.4); border-radius:50%; animation:blink 1.2s infinite; }
-    .typing span:nth-child(2){animation-delay:.2s} .typing span:nth-child(3){animation-delay:.4s}
-    @keyframes blink{0%,80%,100%{opacity:.3}40%{opacity:1}}
-    .quick-replies { display:flex; flex-wrap:wrap; gap:.4rem; padding:0 1.25rem .85rem; }
-    .qr { background:transparent; border:1px solid var(--border2); color:var(--gold); padding:.3rem .7rem; border-radius:99px; font-size:.68rem; cursor:pointer; font-family:'DM Sans',sans-serif; transition:all .2s; }
-    .qr:hover { background:var(--gold3); }
-    .chat-input { padding:.85rem 1rem; border-top:1px solid var(--border); display:flex; gap:.6rem; align-items:center; }
-    .chat-input input { flex:1; background:rgba(255,255,255,.05); border:1px solid var(--border); border-radius:8px; padding:.6rem .9rem; font-size:.8rem; color:var(--white); font-family:'DM Sans',sans-serif; outline:none; transition:border-color .2s; }
-    .chat-input input:focus { border-color:rgba(201,168,76,.4); }
-    .chat-input input::placeholder { color:var(--muted); }
-    .chat-send { width:34px; height:34px; background:var(--btn-primary-bg); border:none; border-radius:8px; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:.9rem; transition:all .2s; flex-shrink:0; color:var(--ink); font-weight:700; }
-    .chat-send:hover { background:var(--gold2); transform:scale(1.05); }
-
-    /* CTA */
-    #cta { background:linear-gradient(135deg,#111111 0%,#000000 100%); text-align:center; padding:7rem 2.5rem; position:relative; overflow:hidden; }
-    #cta::before { content:'ድንቅ'; position:absolute; font-family:'Syne',sans-serif; font-size:14rem; font-weight:800; opacity:.04; top:50%; left:50%; transform:translate(-50%,-50%); letter-spacing:.05em; white-space:nowrap; pointer-events:none; }
-    #cta h2 { font-size:clamp(2.2rem,4vw,3.5rem); font-weight:800; margin-bottom:1rem; position:relative; z-index:2; }
-    #cta p  { color:rgba(255,255,255,.65); font-size:.95rem; font-weight:300; margin-bottom:2.5rem; position:relative; z-index:2; }
-    .cta-actions { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; position:relative; z-index:2; }
-    .cta-footnote { font-size:.72rem; color:rgba(255,255,255,.35); margin-top:1.25rem; letter-spacing:.1em; position:relative; z-index:2; }
-
-    /* FOOTER */
-    footer { background:var(--footer-bg); border-top:1px solid var(--footer-border); padding:4rem 2.5rem 2.5rem; }
-    .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:3rem; padding-bottom:3rem; border-bottom:1px solid var(--border); }
-    .footer-brand p { font-size:.85rem; color:var(--muted); font-weight:300; line-height:1.8; margin-top:1rem; max-width:280px; }
-    .footer-col h4 { font-family:'Syne',sans-serif; font-size:.8rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--footer-heading); margin-bottom:1.25rem; }
-    .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:.75rem; }
-    .footer-col ul a { color:var(--muted); text-decoration:none; font-size:.82rem; font-weight:300; transition:color .2s; }
-    .footer-col ul a:hover { color:var(--white); }
-    .footer-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:2rem; flex-wrap:wrap; gap:1rem; }
-    .footer-copy { font-size:.75rem; color:rgba(255,255,255,.2); }
-    .footer-socials { display:flex; gap:1.5rem; }
-    .footer-socials a { font-size:.75rem; color:rgba(255,255,255,.3); text-decoration:none; letter-spacing:.06em; text-transform:uppercase; transition:color .2s; }
-    .footer-socials a:hover { color:var(--gold); }
-
-    /* TOAST */
-    .toast { position:fixed; bottom:2rem; right:2rem; background:var(--card); border:1px solid var(--border2); border-radius:var(--radius); padding:1rem 1.5rem; display:flex; align-items:center; gap:.75rem; z-index:9998; transform:translateY(100px); opacity:0; transition:all .4s cubic-bezier(.25,.46,.45,.94); box-shadow:0 20px 40px rgba(0,0,0,.4); }
-    .toast.show { transform:translateY(0); opacity:1; }
-    .toast-icon { font-size:1.2rem; }
-    .toast-text { font-size:.85rem; font-weight:500; }
-
-    /* MOBILE */
-    @media(max-width:900px){
-      .hero-inner{grid-template-columns:1fr} .hero-visual{display:none}
-      .services-grid{grid-template-columns:1fr} .service-card.featured{grid-column:span 1}
-      .port-grid{grid-template-columns:1fr} .port-item.wide{grid-column:span 1}
-      .process-grid{grid-template-columns:1fr 1fr}
-      .pricing-grid{grid-template-columns:1fr}
-      .chatbot-wrap{grid-template-columns:1fr}
-      .contact-wrap{grid-template-columns:1fr}
-      .footer-top{grid-template-columns:1fr 1fr}
-      .nav-links{display:none} .nav-cta{display:none}
-      .nav-toggle{display:flex}
-      .hero-stats{flex-wrap:wrap}
-      .stat+.stat{border-left:none;padding-left:0;margin-left:0;border-top:1px solid var(--border);padding-top:1.5rem;margin-top:1.5rem;flex-basis:100%}
-      .form-row{grid-template-columns:1fr}
-    }
-    @media(max-width:580px){
-      .process-grid{grid-template-columns:1fr}
-      .footer-top{grid-template-columns:1fr}
+    /* ─── UTILITIES ─── */
+    .gold { color: var(--gold); }
+    .muted { color: var(--muted); }
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 2.5rem; }
+    .tag {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: var(--gold3); border: 1px solid var(--border2);
+      color: var(--gold); padding: .35rem .9rem; border-radius: 99px;
+      font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 500;
     }
 
-    /* ─── ABOUT ─── */
-    #about { background: var(--ink); }
-    .about-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-    .about-left { position: relative; }
-    .about-img {
-      width: 100%; aspect-ratio: 4/5; border-radius: var(--radius-lg);
-      background: linear-gradient(135deg, #1A1A1A 0%, #2A2A2A 50%, #333333 100%);
+    /* ─── CURSOR ─── */
+    #cursor {
+      width: 10px; height: 10px; background: var(--gold); border-radius: 50%;
+      position: fixed; pointer-events: none; z-index: 9999;
+      transform: translate(-50%,-50%); transition: transform .12s, width .2s, height .2s;
+    }
+    #cursor.hover { width: 30px; height: 30px; background: transparent; border: 1.5px solid var(--gold); }
+
+    /* ─── NAV ─── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+      padding: 1.4rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: all .3s;
+    }
+    #navbar.scrolled {
+      background: rgba(9,9,11,.92); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border); padding: 1rem 2.5rem;
+    }
+    .nav-logo { display: flex; align-items: center; gap: .65rem; text-decoration: none; }
+    .nav-logo-mark {
+      width: 34px; height: 34px; background: var(--gold); border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 8rem; position: relative; overflow: hidden;
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: .95rem; color: var(--ink);
     }
-    .about-img::before {
+    .nav-logo-text { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--white); }
+    .nav-logo-text span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: .82rem;
+      letter-spacing: .06em; text-transform: uppercase; font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--gold); color: var(--ink); border: none;
+      padding: .55rem 1.5rem; font-size: .8rem; font-family: 'DM Sans', sans-serif;
+      font-weight: 600; letter-spacing: .05em; border-radius: var(--radius);
+      cursor: pointer; transition: all .25s; text-decoration: none;
+      display: inline-block;
+    }
+    .nav-cta:hover { background: var(--gold2); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(201,168,76,.3); }
+
+    /* mobile nav toggle */
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: .3rem; background: none; border: none; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all .3s; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 8rem 2.5rem 5rem; position: relative; overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none;
+    }
+    .glow-gold { width: 600px; height: 600px; background: rgba(201,168,76,.1); top: -150px; right: -150px; }
+    .glow-green { width: 400px; height: 400px; background: rgba(15,81,50,.18); bottom: -100px; left: 100px; }
+    .hero-grid-bg {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(201,168,76,.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(201,168,76,.04) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .hero-inner {
+      max-width: 1160px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 4rem;
+      position: relative; z-index: 2;
+    }
+    .hero-eyebrow { margin-bottom: 1.5rem; }
+    .hero-eyebrow::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--gold); vertical-align: middle; margin-right: .6rem; }
+    .hero-title {
+      font-size: clamp(3rem, 5.5vw, 5rem); font-weight: 800; margin-bottom: 1.5rem;
+    }
+    .hero-title .line-stroke {
+      -webkit-text-stroke: 1.5px rgba(250,250,249,.4);
+      color: transparent;
+    }
+    .hero-desc { font-size: 1rem; color: var(--muted); line-height: 1.85; max-width: 460px; margin-bottom: 2.5rem; font-weight: 300; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gold); color: var(--ink); border: none;
+      padding: .9rem 2.2rem; font-size: .9rem; font-weight: 600;
+      font-family: 'DM Sans', sans-serif; border-radius: var(--radius);
+      cursor: pointer; transition: all .25s; letter-spacing: .03em;
+    }
+    .btn-primary:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 14px 36px rgba(201,168,76,.28); }
+    .btn-ghost {
+      background: transparent; color: var(--white); border: 1px solid var(--border);
+      padding: .9rem 2.2rem; font-size: .9rem; font-family: 'DM Sans', sans-serif;
+      border-radius: var(--radius); cursor: pointer; transition: all .25s;
+    }
+    .btn-ghost:hover { border-color: rgba(250,250,249,.3); background: rgba(250,250,249,.04); }
+    .hero-stats {
+      display: flex; gap: 0; margin-top: 3.5rem;
+      border-top: 1px solid var(--border); padding-top: 2rem;
+    }
+    .stat { flex: 1; }
+    .stat + .stat { border-left: 1px solid var(--border); padding-left: 2rem; margin-left: 2rem; }
+    .stat-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--gold); }
+    .stat-label { font-size: .72rem; color: var(--muted); margin-top: .2rem; letter-spacing: .08em; text-transform: uppercase; }
+
+    /* Hero mockup */
+    .hero-visual { position: relative; }
+    .browser-frame {
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(201,168,76,.08);
+    }
+    .browser-bar {
+      background: rgba(255,255,255,.04); padding: .75rem 1rem;
+      display: flex; align-items: center; gap: .5rem; border-bottom: 1px solid var(--border);
+    }
+    .browser-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .browser-url {
+      flex: 1; margin-left: .75rem; background: rgba(255,255,255,.06);
+      border-radius: 6px; padding: .3rem .75rem; font-size: .65rem;
+      color: rgba(255,255,255,.35); font-family: 'DM Sans', monospace;
+    }
+    .browser-body { padding: 1.5rem; }
+    .dash-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .75rem; margin-bottom: .75rem; }
+    .dash-card {
+      border-radius: 8px; padding: .9rem; font-size: .7rem;
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .dc-green  { background: linear-gradient(135deg,#064E3B,#022C22); }
+    .dc-amber  { background: linear-gradient(135deg,#78350F,#3D1A00); }
+    .dc-blue   { background: linear-gradient(135deg,#1E3A5F,#0A1929); }
+    .dc-label  { font-size: .58rem; opacity: .55; text-transform: uppercase; letter-spacing: .08em; margin-bottom: .3rem; }
+    .dc-value  { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700; }
+    .dc-sub    { font-size: .58rem; margin-top: .2rem; opacity: .6; }
+    .dash-wide { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+    .dash-chart {
+      background: rgba(255,255,255,.03); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1rem; grid-column: 1 / -1;
+    }
+    .chart-label { font-size: .6rem; opacity: .4; margin-bottom: .6rem; text-transform: uppercase; letter-spacing: .1em; }
+    .bars { display: flex; align-items: flex-end; gap: 5px; height: 50px; }
+    .bar {
+      flex: 1; border-radius: 3px 3px 0 0;
+      background: linear-gradient(to top, rgba(201,168,76,.6), rgba(201,168,76,.2));
+      animation: barGrow .8s ease-out forwards;
+      transform-origin: bottom; transform: scaleY(0);
+    }
+    @keyframes barGrow { to { transform: scaleY(1); } }
+    .bar:nth-child(1) { height: 35%; animation-delay: .1s; }
+    .bar:nth-child(2) { height: 55%; animation-delay: .15s; }
+    .bar:nth-child(3) { height: 42%; animation-delay: .2s; }
+    .bar:nth-child(4) { height: 70%; animation-delay: .25s; }
+    .bar:nth-child(5) { height: 58%; animation-delay: .3s; }
+    .bar:nth-child(6) { height: 85%; animation-delay: .35s; }
+    .bar:nth-child(7) { height: 65%; animation-delay: .4s; }
+    .bar:nth-child(8) { height: 90%; animation-delay: .45s; }
+    .dash-list {
+      background: rgba(255,255,255,.03); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1rem;
+    }
+    .dl-row { display: flex; justify-content: space-between; align-items: center; padding: .4rem 0; border-bottom: 1px solid rgba(255,255,255,.04); font-size: .65rem; }
+    .dl-row:last-child { border-bottom: none; }
+    .dl-badge { background: rgba(201,168,76,.15); color: var(--gold); padding: .15rem .5rem; border-radius: 3px; font-size: .55rem; font-weight: 600; }
+    .floating-badge {
+      position: absolute; bottom: -16px; left: -24px;
+      background: var(--card2); border: 1px solid var(--border2);
+      border-radius: 10px; padding: .75rem 1.1rem;
+      display: flex; align-items: center; gap: .75rem;
+      box-shadow: 0 16px 40px rgba(0,0,0,.4);
+    }
+    .fb-icon { width: 32px; height: 32px; background: var(--gold3); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+    .fb-text { font-size: .72rem; font-weight: 500; }
+    .fb-sub  { font-size: .62rem; color: var(--muted); margin-top: .1rem; }
+    .floating-badge2 {
+      position: absolute; top: -14px; right: -20px;
+      background: var(--card2); border: 1px solid var(--border);
+      border-radius: 10px; padding: .65rem 1rem;
+      box-shadow: 0 12px 32px rgba(0,0,0,.4);
+    }
+    .fb2-text { font-size: .65rem; color: var(--muted); margin-bottom: .2rem; }
+    .fb2-val  { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: #4ADE80; }
+
+    /* ─── TICKER ─── */
+    .ticker { padding: .9rem 0; background: var(--green); overflow: hidden; border-top: 1px solid rgba(201,168,76,.25); border-bottom: 1px solid rgba(201,168,76,.25); }
+    .ticker-track { display: flex; gap: 2.5rem; animation: ticker 22s linear infinite; white-space: nowrap; }
+    .ticker-track span { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.75); font-weight: 500; }
+    .ticker-track .sep { color: var(--gold); }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ─── SECTION SHARED ─── */
+    section { padding: 7rem 2.5rem; }
+    .section-header { margin-bottom: 3.5rem; }
+    .section-eyebrow { margin-bottom: .6rem; }
+    .section-title { font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 800; margin-bottom: 1rem; }
+    .section-desc { color: var(--muted); font-size: .95rem; font-weight: 300; line-height: 1.85; max-width: 520px; }
+
+    /* ─── SERVICES ─── */
+    #services { background: var(--surface); }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+    .service-card {
+      background: var(--surface); padding: 2.5rem 2rem; position: relative;
+      overflow: hidden; cursor: pointer; transition: background .3s;
+    }
+    .service-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 2px; background: var(--gold); transform: scaleX(0);
+      transition: transform .35s cubic-bezier(.25,.46,.45,.94);
+    }
+    .service-card:hover { background: var(--card); }
+    .service-card:hover::after { transform: scaleX(1); }
+    .service-card.featured {
+      background: var(--card); border: 1px solid var(--border2);
+      grid-column: span 2;
+    }
+    .service-card.featured::after { transform: scaleX(1); width: 60px; }
+    .service-icon { font-size: 1.8rem; margin-bottom: 1.25rem; }
+    .service-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: .75rem; transition: color .3s; }
+    .service-card:hover h3 { color: var(--gold); }
+    .service-card.featured h3 { color: var(--gold); }
+    .service-card p { font-size: .875rem; color: var(--muted); line-height: 1.8; font-weight: 300; }
+    .service-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1.2rem; }
+    .service-tag {
+      font-size: .65rem; letter-spacing: .06em; padding: .25rem .65rem;
+      border-radius: 4px; background: rgba(255,255,255,.05);
+      color: rgba(255,255,255,.5); font-weight: 500;
+    }
+    .service-arrow { position: absolute; top: 2.5rem; right: 2rem; color: rgba(255,255,255,.15); font-size: 1.1rem; transition: all .3s; }
+    .service-card:hover .service-arrow { color: var(--gold); transform: translate(3px,-3px); }
+
+    /* ─── PORTFOLIO ─── */
+    #work { background: var(--ink); }
+    .port-filters { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .pf-btn {
+      background: transparent; border: 1px solid var(--border); color: var(--muted);
+      padding: .5rem 1.25rem; font-size: .75rem; font-family: 'DM Sans', sans-serif;
+      letter-spacing: .06em; text-transform: uppercase; cursor: pointer;
+      border-radius: 99px; transition: all .2s; font-weight: 500;
+    }
+    .pf-btn.active, .pf-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+    .port-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--border); }
+    .port-item { position: relative; overflow: hidden; cursor: pointer; aspect-ratio: 4/3; }
+    .port-item.wide { grid-column: span 2; }
+    .port-bg { width: 100%; height: 100%; transition: transform .55s cubic-bezier(.25,.46,.45,.94); display: flex; align-items: center; justify-content: center; }
+    .port-item:hover .port-bg { transform: scale(1.06); }
+    .port-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(9,9,11,.92) 0%, rgba(9,9,11,.2) 55%, transparent 100%);
+      opacity: 0; transition: opacity .3s;
+    }
+    .port-item:hover .port-overlay { opacity: 1; }
+    .port-info {
+      position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem;
+      transform: translateY(6px); opacity: 0; transition: all .3s;
+    }
+    .port-item:hover .port-info { transform: translateY(0); opacity: 1; }
+    .port-cat {
+      display: inline-block; font-size: .62rem; letter-spacing: .14em;
+      text-transform: uppercase; background: var(--gold); color: var(--ink);
+      padding: .25rem .7rem; border-radius: 3px; font-weight: 700; margin-bottom: .5rem;
+    }
+    .port-name { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; }
+    .port-desc { font-size: .78rem; color: rgba(255,255,255,.6); margin-top: .3rem; font-weight: 300; }
+    .amh { position: absolute; top: 1rem; right: 1.2rem; font-size: 3.5rem; opacity: .15; line-height: 1; pointer-events: none; font-family: 'Syne', sans-serif; }
+
+    /* bg colors */
+    .bg-emerald { background: linear-gradient(135deg,#064E3B 0%,#022C22 100%); }
+    .bg-violet  { background: linear-gradient(135deg,#1E1B4B 0%,#0F0A2E 100%); }
+    .bg-crimson { background: linear-gradient(135deg,#7C2D12 0%,#450A0A 100%); }
+    .bg-ocean   { background: linear-gradient(135deg,#0C4A6E 0%,#042038 100%); }
+    .bg-purple  { background: linear-gradient(135deg,#3B0764 0%,#1A0330 100%); }
+    .bg-stone   { background: linear-gradient(135deg,#292524 0%,#0C0A09 100%); }
+
+    /* mock screens */
+    .mock { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 8px; padding: .75rem; width: 68%; }
+    .mock-dots { display: flex; gap: 4px; margin-bottom: .6rem; }
+    .mock-dot  { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.18); }
+    .ml { height: 5px; border-radius: 2px; background: rgba(255,255,255,.1); margin: .28rem 0; }
+    .ml-a { background: rgba(201,168,76,.4); width: 70%; }
+    .ml-s { width: 45%; }
+    .ml-m { width: 80%; }
+    .mg { display: grid; grid-template-columns: 1fr 1fr; gap: .3rem; margin-top: .4rem; }
+    .mc { background: rgba(255,255,255,.07); border-radius: 4px; height: 24px; }
+
+    /* ─── PROCESS ─── */
+    #process { background: var(--surface); }
+    .process-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; }
+    .proc-item {
+      padding: 2rem 1.75rem; border: 1px solid var(--border); border-radius: var(--radius-lg);
+      transition: all .3s; position: relative; overflow: hidden;
+    }
+    .proc-item::before {
       content: ''; position: absolute; inset: 0;
-      background-image: linear-gradient(rgba(201,168,76,.06) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(201,168,76,.06) 1px, transparent 1px);
-      background-size: 32px 32px;
+      background: linear-gradient(135deg, var(--gold3), transparent);
+      opacity: 0; transition: opacity .3s;
     }
-    .about-img-glyph { position: relative; z-index: 2; font-size: 7rem; opacity: .3; }
-    .about-badge {
-      position: absolute; bottom: -20px; right: -20px;
-      background: var(--about-badge-bg); color: var(--about-badge-color);
-      padding: 1.25rem 1.5rem; border-radius: var(--radius-lg);
-      font-family: 'Syne', sans-serif; font-weight: 800;
-      box-shadow: 0 20px 40px rgba(201,168,76,.3);
+    .proc-item:hover { border-color: var(--border2); }
+    .proc-item:hover::before { opacity: 1; }
+    .proc-num { font-family: 'Syne', sans-serif; font-size: 3.5rem; font-weight: 800; color: rgba(201,168,76,.12); line-height: 1; margin-bottom: 1.25rem; }
+    .proc-item h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: .65rem; }
+    .proc-item p  { font-size: .82rem; color: var(--muted); line-height: 1.78; font-weight: 300; }
+
+    /* ─── PRICING ─── */
+    #pricing { background: var(--ink); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .price-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 2rem 1.75rem;
+      display: flex; flex-direction: column; transition: all .3s; position: relative; overflow: hidden;
     }
-    .about-badge-num { font-size: 2rem; line-height: 1; }
-    .about-badge-label { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; opacity: .8; margin-top: .2rem; }
-    .about-right h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; margin-bottom: 1.25rem; }
-    .about-right p { color: var(--muted); font-size: .95rem; line-height: 1.85; font-weight: 300; margin-bottom: 1rem; }
-    .about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
-    .av-item { padding: 1rem 1.25rem; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); border-left: 3px solid var(--av-border); }
-    .av-item h4 { font-size: .85rem; font-weight: 600; margin-bottom: .25rem; }
-    .av-item p  { font-size: .75rem; color: var(--muted); font-weight: 300; line-height: 1.6; margin: 0; }
-
-    /* ─── TEAM ─── */
-    #team { background: var(--surface); }
-    .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-    .team-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: all .3s; cursor: pointer; }
-    .team-card:hover { border-color: var(--border2); transform: translateY(-4px); }
-    .team-photo { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; position: relative; overflow: hidden; }
-    .team-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(9,9,11,.6), transparent 60%); }
-    .tp-1 { background: linear-gradient(135deg, #1A1A1A, #000000); }
-    .tp-2 { background: linear-gradient(135deg, #222222, #111111); }
-    .tp-3 { background: linear-gradient(135deg, #2A2A2A, #111111); }
-    .tp-4 { background: linear-gradient(135deg, #1A1A1A, #0A0A0A); }
-    .team-info { padding: 1.25rem; }
-    .team-name { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: .2rem; }
-    .team-role { font-size: .75rem; color: var(--gold); font-weight: 500; letter-spacing: .06em; text-transform: uppercase; margin-bottom: .6rem; }
-    .team-bio  { font-size: .78rem; color: var(--muted); line-height: 1.65; font-weight: 300; }
-
-    /* ─── TESTIMONIALS ─── */
-    #testimonials { background: var(--ink); }
-    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .testi-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; transition: all .3s; position: relative; }
-    .testi-card:hover { border-color: var(--border2); transform: translateY(-3px); }
-    .testi-card.featured { border-color: var(--av-border); background: linear-gradient(135deg, rgba(201,168,76,.06), var(--card)); }
-    .testi-stars { color: var(--testi-star); font-size: 1rem; letter-spacing: .1em; margin-bottom: 1rem; }
-    .testi-quote { font-size: .9rem; color: rgba(250,250,249,.75); line-height: 1.8; font-weight: 300; margin-bottom: 1.5rem; font-style: italic; }
-    .testi-author { display: flex; align-items: center; gap: .85rem; }
-    .testi-avatar { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Syne', sans-serif; font-weight: 800; font-size: .9rem; color: var(--ink); flex-shrink: 0; }
-    .testi-name { font-size: .85rem; font-weight: 600; }
-    .testi-company { font-size: .72rem; color: var(--muted); margin-top: .1rem; }
-    .testi-badge { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.5rem; opacity: .3; }
-
-    /* ─── MOBILE additions ─── */
-    @media(max-width:900px){
-      .about-wrap { grid-template-columns: 1fr; }
-      .about-left { display: none; }
-      .team-grid { grid-template-columns: 1fr 1fr !important; }
-      .testi-grid { grid-template-columns: 1fr; }
-      .about-values { grid-template-columns: 1fr; }
+    .price-card:hover { border-color: var(--border2); transform: translateY(-4px); }
+    .price-card.popular {
+      border-color: var(--gold); background: linear-gradient(135deg, rgba(201,168,76,.07), var(--card));
     }
-    @media(max-width:580px){
-      .team-grid { grid-template-columns: 1fr 1fr !important; }
+    .popular-badge {
+      position: absolute; top: 0; right: 0;
+      background: var(--gold); color: var(--ink);
+      font-size: .6rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: .3rem .9rem; border-radius: 0 var(--radius-lg) 0 var(--radius-lg);
     }
-
-    /* ─── CARE PLANS ─── */
-    #careplans { background: var(--surface); }
-    .care-intro { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; margin-bottom: 4rem; max-width: 680px; }
-    .care-intro h2 { font-size: clamp(1.8rem,3vw,2.5rem); font-weight: 800; margin-bottom: 1rem; }
-    .care-intro p { color: var(--muted); font-size: .95rem; line-height: 1.85; font-weight: 300; }
-    .care-highlight { background: var(--card); border: 1px solid var(--border2); border-radius: var(--radius-lg); padding: 2rem; }
-    .care-highlight h4 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: var(--gold); margin-bottom: 1rem; }
-    .care-math { display: flex; flex-direction: column; gap: .75rem; }
-    .cm-row { display: flex; justify-content: space-between; align-items: center; padding: .6rem 0; border-bottom: 1px solid var(--border); font-size: .85rem; }
-    .cm-row:last-child { border-bottom: none; font-weight: 700; color: var(--gold); font-size: 1rem; }
-    .cm-row span:last-child { font-family: 'Syne', sans-serif; font-weight: 700; }
-    .care-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
-    .care-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; display: flex; flex-direction: column; transition: all .3s; position: relative; overflow: hidden; }
-    .care-card:hover { border-color: var(--border2); transform: translateY(-4px); }
-    .care-card.popular { border-color: var(--gold); background: linear-gradient(135deg, rgba(201,168,76,.07), var(--card)); }
-    .care-plan-badge { position: absolute; top: 0; right: 0; background: var(--about-badge-bg); color: var(--about-badge-color); font-size: .6rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: .3rem .9rem; border-radius: 0 var(--radius-lg) 0 var(--radius-lg); }
-    .care-plan-name { font-size: .75rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: .5rem; }
-    .care-plan-price { font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; line-height: 1; margin-bottom: .2rem; }
-    .care-plan-price sup { font-size: 1rem; vertical-align: super; }
-    .care-plan-period { font-size: .75rem; color: var(--muted); margin-bottom: 1.5rem; }
-    .care-features { list-style: none; flex: 1; margin-bottom: 1.75rem; }
-    .care-features li { font-size: .83rem; color: var(--muted); padding: .5rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: .6rem; }
-    .care-features li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
-    .care-features li.no::before { content: '✕'; color: rgba(255,255,255,.2); }
-    .care-features li.no { color: rgba(255,255,255,.2); }
-    .care-note { text-align: center; margin-top: 2.5rem; padding: 1.5rem; background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); font-size: .85rem; color: var(--muted); }
-    .care-note strong { color: var(--white); }
-    @media(max-width:900px){ .care-grid { grid-template-columns: 1fr; } .care-intro { grid-template-columns: 1fr; } }
-
-    /* ─── FREE AUDIT ─── */
-    #audit { background: var(--ink); }
-    .audit-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-    .audit-left h2 { font-size: clamp(1.8rem,3vw,2.5rem); font-weight: 800; margin-bottom: 1rem; }
-    .audit-left p  { color: var(--muted); font-size: .95rem; line-height: 1.85; font-weight: 300; margin-bottom: 2rem; }
-    .audit-checks { display: flex; flex-direction: column; gap: .75rem; margin-bottom: 2rem; }
-    .ac-item { display: flex; align-items: center; gap: .85rem; font-size: .875rem; color: var(--muted); }
-    .ac-item::before { content: '✓'; width: 24px; height: 24px; background: rgba(201,168,76,.15); border: 1px solid var(--border2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: .75rem; font-weight: 700; flex-shrink: 0; }
-    .audit-form { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; position: relative; overflow: hidden; }
-    .audit-form::before { content: 'FREE'; position: absolute; top: -10px; right: -20px; font-family: 'Syne',sans-serif; font-size: 6rem; font-weight: 800; color: rgba(201,168,76,.04); pointer-events: none; }
-    .audit-form h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .4rem; }
-    .audit-form .af-sub { font-size: .8rem; color: var(--muted); margin-bottom: 1.5rem; font-weight: 300; }
-    .audit-result { display: none; }
-    .audit-result.show { display: block; }
-    .score-wrap { display: grid; grid-template-columns: repeat(2,1fr); gap: .75rem; margin: 1.5rem 0; }
-    .score-item { background: rgba(255,255,255,.03); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; text-align: center; }
-    .score-num { font-family: 'Syne',sans-serif; font-size: 1.6rem; font-weight: 800; }
-    .score-good { color: #4ADE80; }
-    .score-warn { color: #FBBf24; }
-    .score-bad  { color: #F87171; }
-    .score-label { font-size: .65rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-top: .2rem; }
-    .audit-issues { list-style: none; margin: 1rem 0; }
-    .audit-issues li { font-size: .82rem; padding: .5rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: .65rem; color: var(--muted); }
-    .audit-issues li:last-child { border-bottom: none; }
-    .ai-icon { flex-shrink: 0; }
-    @media(max-width:900px){ .audit-wrap { grid-template-columns: 1fr; } }
-
-    /* ─── PROMO CODE ─── */
-    .promo-wrap { display:flex; gap:.5rem; align-items:flex-end; }
-    .promo-wrap input { flex:1; }
-    .promo-apply { background:transparent; border:1px solid var(--border2); color:var(--gold); padding:.75rem 1rem; font-size:.8rem; font-family:'DM Sans',sans-serif; font-weight:600; border-radius:var(--radius); cursor:pointer; transition:all .2s; white-space:nowrap; }
-    .promo-apply:hover { background:var(--gold3); }
-    .promo-result { margin-top:.4rem; font-size:.75rem; display:none; }
-    .promo-result.valid { color:#4ADE80; display:block; }
-    .promo-result.invalid { color:#F87171; display:block; }
-    .promo-summary { display:none; background:rgba(201,168,76,.06); border:1px solid var(--border2); border-radius:var(--radius); padding:1rem; margin-bottom:1rem; }
-    .promo-summary.show { display:block; }
-    .ps-row { display:flex; justify-content:space-between; font-size:.82rem; padding:.3rem 0; }
-    .ps-row.total { font-weight:700; color:var(--gold); border-top:1px solid var(--border); padding-top:.6rem; margin-top:.3rem; font-family:'Syne',sans-serif; }
-    .ps-strike { text-decoration:line-through; color:var(--muted); }
-
-    /* ─── TRIAL & GUARANTEE ─── */
-    .trial-badge {
-      display:inline-flex; align-items:center; gap:.4rem;
-      background:rgba(74,222,128,.1); border:1px solid rgba(74,222,128,.25);
-      color:#4ADE80; padding:.3rem .8rem; border-radius:99px;
-      font-size:.65rem; font-weight:600; letter-spacing:.08em;
-      text-transform:uppercase; margin-bottom:.75rem;
+    .price-plan { font-size: .75rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: .75rem; }
+    .price-amount { font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; line-height: 1; margin-bottom: .3rem; }
+    .price-amount sup { font-size: 1rem; vertical-align: super; margin-right: .1rem; }
+    .price-desc { font-size: .82rem; color: var(--muted); margin-bottom: 1.75rem; font-weight: 300; }
+    .price-features { list-style: none; flex: 1; margin-bottom: 2rem; }
+    .price-features li {
+      font-size: .83rem; color: var(--muted); padding: .55rem 0;
+      border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: .6rem;
     }
-    .guarantee-badge {
-      display:inline-flex; align-items:center; gap:.4rem;
-      background:rgba(201,168,76,.1); border:1px solid var(--border2);
-      color:var(--gold); padding:.3rem .8rem; border-radius:99px;
-      font-size:.65rem; font-weight:600; letter-spacing:.08em;
-      text-transform:uppercase; margin-bottom:.75rem;
+    .price-features li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+    .price-features li.no::before { content: '✕'; color: rgba(255,255,255,.2); }
+    .price-features li.no { color: rgba(255,255,255,.2); }
+    .btn-price {
+      display: block; text-align: center; padding: .85rem;
+      font-size: .85rem; font-family: 'DM Sans', sans-serif; font-weight: 600;
+      border-radius: var(--radius); cursor: pointer; transition: all .25s; border: none;
     }
-    .trust-bar {
-      display:grid; grid-template-columns:repeat(3,1fr);
-      gap:1.5rem; margin-top:3rem;
+    .btn-price.outline { background: transparent; border: 1px solid var(--border); color: var(--white); }
+    .btn-price.outline:hover { border-color: var(--gold); color: var(--gold); }
+    .btn-price.filled { background: var(--gold); color: var(--ink); }
+    .btn-price.filled:hover { background: var(--gold2); box-shadow: 0 8px 24px rgba(201,168,76,.3); }
+
+    /* ─── CHATBOT DEMO ─── */
+    #chatbot { background: var(--surface); }
+    .chatbot-wrap {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
     }
-    .trust-item {
-      background:var(--card); border:1px solid var(--border);
-      border-radius:var(--radius-lg); padding:2rem 1.5rem;
-      text-align:center; transition:all .3s; position:relative; overflow:hidden;
+    .chatbot-left .section-desc { margin-bottom: 2rem; }
+    .chatbot-features { display: flex; flex-direction: column; gap: 1rem; }
+    .cf-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 1.2rem; background: var(--card); border-radius: var(--radius);
+      border: 1px solid var(--border); transition: border-color .2s;
     }
-    .trust-item:hover { border-color:var(--border2); transform:translateY(-3px); }
-    .trust-item::before {
-      content:''; position:absolute; inset:0;
-      background:linear-gradient(135deg,var(--gold3),transparent);
-      opacity:0; transition:opacity .3s;
+    .cf-item:hover { border-color: var(--border2); }
+    .cf-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .cf-item h4 { font-size: .9rem; font-weight: 600; margin-bottom: .2rem; }
+    .cf-item p  { font-size: .78rem; color: var(--muted); font-weight: 300; line-height: 1.65; }
+    /* chat UI */
+    .chat-window {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0,0,0,.4);
     }
-    .trust-item:hover::before { opacity:1; }
-    .trust-icon { font-size:2rem; margin-bottom:1rem; position:relative; z-index:1; }
-    .trust-item h3 { font-size:1rem; font-weight:700; margin-bottom:.5rem; position:relative; z-index:1; }
-    .trust-item p { font-size:.8rem; color:var(--muted); line-height:1.75; font-weight:300; position:relative; z-index:1; }
-    .trust-item .trust-highlight { color:var(--gold); font-weight:700; font-size:.9rem; display:block; margin-top:.5rem; position:relative; z-index:1; }
+    .chat-header {
+      padding: 1rem 1.25rem; background: rgba(255,255,255,.03);
+      border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: .75rem;
+    }
+    .chat-avatar {
+      width: 34px; height: 34px; background: var(--gold); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: .8rem; color: var(--ink);
+    }
+    .chat-name { font-size: .85rem; font-weight: 600; }
+    .chat-status { font-size: .7rem; color: #4ADE80; display: flex; align-items: center; gap: .3rem; }
+    .chat-status::before { content: ''; width: 6px; height: 6px; background: #4ADE80; border-radius: 50%; }
+    .chat-body { padding: 1.25rem; height: 320px; overflow-y: auto; display: flex; flex-direction: column; gap: .85rem; }
+    .chat-body::-webkit-scrollbar { width: 3px; }
+    .chat-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+    .msg { max-width: 78%; }
+    .msg-bot { align-self: flex-start; }
+    .msg-user { align-self: flex-end; }
+    .msg-bubble {
+      padding: .7rem 1rem; border-radius: 12px; font-size: .8rem; line-height: 1.6;
+    }
+    .msg-bot  .msg-bubble { background: rgba(255,255,255,.07); border-radius: 4px 12px 12px 12px; color: rgba(255,255,255,.85); }
+    .msg-user .msg-bubble { background: var(--gold); color: var(--ink); border-radius: 12px 4px 12px 12px; font-weight: 500; }
+    .msg-time { font-size: .58rem; color: var(--muted); margin-top: .3rem; padding: 0 .25rem; }
+    .typing { display: flex; gap: 4px; align-items: center; padding: .7rem 1rem; background: rgba(255,255,255,.07); border-radius: 4px 12px 12px 12px; width: fit-content; }
+    .typing span { width: 6px; height: 6px; background: rgba(255,255,255,.4); border-radius: 50%; animation: blink 1.2s infinite; }
+    .typing span:nth-child(2) { animation-delay: .2s; }
+    .typing span:nth-child(3) { animation-delay: .4s; }
+    @keyframes blink { 0%,80%,100%{opacity:.3} 40%{opacity:1} }
+    .chat-input {
+      padding: .85rem 1rem; border-top: 1px solid var(--border);
+      display: flex; gap: .6rem; align-items: center;
+    }
+    .chat-input input {
+      flex: 1; background: rgba(255,255,255,.05); border: 1px solid var(--border);
+      border-radius: 8px; padding: .6rem .9rem; font-size: .8rem;
+      color: var(--white); font-family: 'DM Sans', sans-serif; outline: none; transition: border-color .2s;
+    }
+    .chat-input input:focus { border-color: rgba(201,168,76,.4); }
+    .chat-input input::placeholder { color: var(--muted); }
+    .chat-send {
+      width: 34px; height: 34px; background: var(--gold); border: none; border-radius: 8px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: .9rem; transition: all .2s; flex-shrink: 0;
+    }
+    .chat-send:hover { background: var(--gold2); transform: scale(1.05); }
+    .quick-replies { display: flex; flex-wrap: wrap; gap: .4rem; padding: 0 1.25rem .85rem; }
+    .qr {
+      background: transparent; border: 1px solid var(--border2); color: var(--gold);
+      padding: .3rem .7rem; border-radius: 99px; font-size: .68rem;
+      cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all .2s;
+    }
+    .qr:hover { background: var(--gold3); }
 
-    /* TRIAL MODAL */
-    .trial-modal { position:fixed; inset:0; background:rgba(0,0,0,.8); z-index:600; display:none; align-items:center; justify-content:center; padding:2rem; }
-    .trial-modal.open { display:flex; }
-    .trial-box { background:var(--card); border:1px solid var(--border2); border-radius:var(--radius-lg); padding:2.5rem; width:100%; max-width:520px; position:relative; }
-    .trial-box h3 { font-family:'Syne',sans-serif; font-size:1.4rem; font-weight:800; margin-bottom:.4rem; }
-    .trial-box .tb-sub { font-size:.85rem; color:var(--muted); margin-bottom:1.75rem; font-weight:300; line-height:1.7; }
-    .trial-steps { display:flex; flex-direction:column; gap:.75rem; margin-bottom:1.75rem; }
-    .ts-item { display:flex; align-items:flex-start; gap:.85rem; }
-    .ts-num { width:26px; height:26px; background:var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Syne',sans-serif; font-weight:800; font-size:.75rem; color:var(--ink); flex-shrink:0; }
-    .ts-text { font-size:.82rem; color:var(--muted); line-height:1.6; padding-top:.2rem; }
-    .ts-text strong { color:var(--white); display:block; margin-bottom:.1rem; }
-    .trial-close { position:absolute; top:1rem; right:1rem; background:none; border:none; color:var(--muted); font-size:1.2rem; cursor:pointer; padding:.3rem; transition:color .2s; }
-    .trial-close:hover { color:var(--white); }
-    @media(max-width:900px){ .trust-bar { grid-template-columns:1fr; } }
+    /* ─── CTA BAND ─── */
+    #cta {
+      background: linear-gradient(135deg, var(--green) 0%, #072A1A 100%);
+      text-align: center; padding: 7rem 2.5rem; position: relative; overflow: hidden;
+    }
+    #cta::before {
+      content: 'ድንቅ'; position: absolute; font-family: 'Syne', sans-serif;
+      font-size: 14rem; font-weight: 800; opacity: .04;
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+      letter-spacing: .05em; white-space: nowrap; pointer-events: none;
+    }
+    #cta h2 { font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 800; margin-bottom: 1rem; position: relative; z-index: 2; }
+    #cta p  { color: rgba(255,255,255,.65); font-size: .95rem; font-weight: 300; margin-bottom: 2.5rem; position: relative; z-index: 2; }
+    .cta-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; position: relative; z-index: 2; }
+    .cta-footnote { font-size: .72rem; color: rgba(255,255,255,.35); margin-top: 1.25rem; letter-spacing: .1em; position: relative; z-index: 2; }
 
-    /* ─── TRIAL & GUARANTEE ─── */
-    .trial-badge { display:inline-flex; align-items:center; gap:.4rem; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.25); color:#FFFFFF; padding:.3rem .8rem; border-radius:99px; font-size:.65rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; margin-bottom:.75rem; }
-    .btn-trial { display:block; text-align:center; padding:.85rem; font-size:.85rem; font-family:'DM Sans',sans-serif; font-weight:600; border-radius:var(--radius); cursor:pointer; transition:all .25s; border:none; background:rgba(255,255,255,.08); color:#FFFFFF; border:1px solid rgba(255,255,255,.25); margin-bottom:.65rem; text-decoration:none; }
-    .btn-trial:hover { background:rgba(74,222,128,.25); transform:translateY(-2px); }
-    .trust-bar { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:2.5rem; padding:2rem; background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); }
-    .trust-item { text-align:center; }
-    .trust-icon { font-size:1.5rem; margin-bottom:.4rem; }
-    .trust-title { font-size:.82rem; font-weight:600; margin-bottom:.2rem; }
-    .trust-desc { font-size:.72rem; color:var(--muted); font-weight:300; line-height:1.5; }
-    /* TRIAL MODAL */
-    .trial-modal { position:fixed; inset:0; background:rgba(0,0,0,.8); z-index:600; display:none; align-items:center; justify-content:center; padding:2rem; }
-    .trial-modal.open { display:flex; }
-    .trial-box { background:var(--card); border:1px solid var(--border2); border-radius:var(--radius-lg); padding:2rem; width:100%; max-width:480px; }
-    .trial-box h3 { font-family:'Syne',sans-serif; font-size:1.2rem; font-weight:800; margin-bottom:.3rem; }
-    .trial-box .tb-sub { font-size:.82rem; color:var(--muted); margin-bottom:1.5rem; font-weight:300; line-height:1.7; }
-    .trial-steps { display:flex; flex-direction:column; gap:.6rem; margin-bottom:1.5rem; }
-    .ts-item { display:flex; align-items:center; gap:.75rem; font-size:.82rem; color:var(--muted); }
-    .ts-num { width:24px; height:24px; background:var(--gold3); border:1px solid var(--border2); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.65rem; font-weight:700; color:var(--gold); flex-shrink:0; }
-    @media(max-width:900px){ .trust-bar { grid-template-columns:1fr 1fr; } }
-    @media(max-width:580px){ .trust-bar { grid-template-columns:1fr; } }
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--ink); border-top: 1px solid var(--border);
+      padding: 4rem 2.5rem 2.5rem;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
+      padding-bottom: 3rem; border-bottom: 1px solid var(--border);
+    }
+    .footer-brand p { font-size: .85rem; color: var(--muted); font-weight: 300; line-height: 1.8; margin-top: 1rem; max-width: 280px; }
+    .footer-logo-wrap { display: flex; align-items: center; gap: .65rem; text-decoration: none; }
+    .footer-col h4 { font-family: 'Syne', sans-serif; font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .75rem; }
+    .footer-col ul a { color: var(--muted); text-decoration: none; font-size: .82rem; font-weight: 300; transition: color .2s; }
+    .footer-col ul a:hover { color: var(--white); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 2rem; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy { font-size: .75rem; color: rgba(255,255,255,.2); }
+    .footer-socials { display: flex; gap: 1.5rem; }
+    .footer-socials a { font-size: .75rem; color: rgba(255,255,255,.3); text-decoration: none; letter-spacing: .06em; text-transform: uppercase; transition: color .2s; }
+    .footer-socials a:hover { color: var(--gold); }
 
-
-
-
-    /* ─── ANIMATED COUNTERS ─── */
-    .count-up { display:inline-block; }
+    /* ─── MOBILE ─── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card.featured { grid-column: span 1; }
+      .port-grid { grid-template-columns: 1fr; }
+      .port-item.wide { grid-column: span 1; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .chatbot-wrap { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-cta { display: none; }
+      .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+      .stat + .stat { border-left: none; padding-left: 0; margin-left: 0; border-top: 1px solid var(--border); padding-top: 1.5rem; margin-top: 1.5rem; flex-basis: 100%; }
+    }
+    @media (max-width: 580px) {
+      .process-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .dash-row { grid-template-columns: 1fr 1fr; }
+    }
   </style>
-<script>
-  function toggleTheme() {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    if (isDark) {
-      document.documentElement.removeAttribute('data-theme');
-      localStorage.setItem('dinq-theme', 'light');
-      const icon = document.getElementById('themeIcon');
-      const label = document.getElementById('themeLabel');
-      if (icon) icon.textContent = '🌙';
-      if (label) label.textContent = 'Dark';
-    } else {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      localStorage.setItem('dinq-theme', 'dark');
-      const icon = document.getElementById('themeIcon');
-      const label = document.getElementById('themeLabel');
-      if (icon) icon.textContent = '☀️';
-      if (label) label.textContent = 'Light';
-    }
-  }
-  /* Apply saved theme immediately to prevent flash */
-  (function() {
-    const saved = localStorage.getItem('dinq-theme');
-    if (saved === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    }
-  })();
-
-  /* ── PROGRESS BAR ── */
-  window.addEventListener('scroll', () => {
-    const bar = document.getElementById('progressBar');
-    if (!bar) return;
-    const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-    bar.style.width = pct + '%';
-  });
-
-  /* ── SCROLL REVEAL ── */
-  constObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-       Observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
-   Observer.observe(el);
-  });
-
-  /* ── ANIMATED COUNTERS ── */
-  let countersStarted = false;
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !countersStarted) {
-        countersStarted = true;
-        document.querySelectorAll('.count-up').forEach(el => {
-          const target = parseInt(el.getAttribute('data-target'));
-          const suffix = el.getAttribute('data-suffix') || '';
-          const duration = 2000;
-          const step = target / (duration / 16);
-          let current = 0;
-          const timer = setInterval(() => {
-            current += step;
-            if (current >= target) {
-              current = target;
-              clearInterval(timer);
-            }
-            el.textContent = Math.floor(current) + suffix;
-          }, 16);
-        });
-      }
-    });
-  }, { threshold: 0.5 });
-
-  const statsSection = document.querySelector('.hero-stats');
-  if (statsSection) counterObserver.observe(statsSection);
-
-</script>
 </head>
 <body>
+<style>
+  #mobileMenu.open { display:flex !important; }
+</style>
 
+<!-- CURSOR -->
 <div id="cursor"></div>
 
-<!-- TOAST -->
-<div class="toast" id="toast">
-  <div class="toast-icon" id="toastIcon">✓</div>
-  <div class="toast-text" id="toastText">Message sent!</div>
-</div>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-close" id="mobileClose">✕</button>
-  <a href="#services" onclick="closeMobile()">Services</a>
-  <a href="#work" onclick="closeMobile()">Work</a>
-  <a href="#pricing" onclick="closeMobile()">Pricing</a>
-  <a href="#about" onclick="closeMobile()">About</a>
-  <a href="#audit" onclick="closeMobile()">Free Audit</a>
-  <a href="#contact" onclick="closeMobile()">Contact</a>
-  <a href="/cdn-cgi/l/email-protection#67030e0916030e000e13060b27000a060e0b4904080a" style="color:var(--gold)"><span class="__cf_email__" data-cfemail="a9cdc0c7d8cdc0cec0ddc8c5e9cec4c8c0c587cac6c4">[email&#160;protected]</span></a>
-</div>
-
-<!-- NAV -->
+<!-- ═══ NAVBAR ═══ -->
 <nav id="navbar">
   <a href="#" class="nav-logo">
     <div class="nav-logo-mark">D</div>
     <div class="nav-logo-text">Dinq<span>Digital</span></div>
   </a>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
     <li><a href="#work">Work</a></li>
-    <li><a href="#about">About</a></li>
     <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#careplans">Care Plans</a></li>
-    <li><a href="#chatbot">AI Chatbot</a></li>
-    <li><a href="#audit">Free Audit</a></li>
+    <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <a href="https://app.dinqdigital.com/login" style="background:transparent;border:1px solid var(--border);color:var(--white);padding:.5rem 1.1rem;font-size:.78rem;font-family:'DM Sans',sans-serif;font-weight:600;border-radius:var(--radius);text-decoration:none;display:inline-block;transition:all .25s;margin-right:.5rem;letter-spacing:.03em;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--white)'">Client Login</a>
   <a href="#contact" class="nav-cta">Start a Project →</a>
-  <button id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme" style="background:transparent;border:1px solid var(--border);border-radius:99px;padding:.4rem .9rem;cursor:pointer;font-size:.8rem;transition:all .2s;color:var(--white);font-family:'DM Sans',sans-serif;display:flex;align-items:center;gap:.4rem">
-    <span id="themeIcon">🌙</span>
-    <span id="themeLabel" style="font-size:.75rem;font-weight:500;letter-spacing:.04em">Dark</span>
-  </button>
-  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+  <div class="nav-toggle" id="navToggle" onclick="document.getElementById('mobileMenu').classList.add('open')">
     <span></span><span></span><span></span>
-  </button>
+  </div>
 </nav>
 
-<!-- HERO -->
+<!-- MOBILE MENU -->
+<div id="mobileMenu" style="display:none;position:fixed;inset:0;background:rgba(9,9,11,.97);z-index:400;flex-direction:column;align-items:center;justify-content:center;gap:2rem;">
+  <button onclick="document.getElementById('mobileMenu').classList.remove('open');document.getElementById('mobileMenu').style.display='none';" style="position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;">✕</button>
+  <a href="#work" onclick="document.getElementById('mobileMenu').style.display='none'" style="color:#fff;text-decoration:none;font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:700;">Work</a>
+  <a href="#pricing" onclick="document.getElementById('mobileMenu').style.display='none'" style="color:#fff;text-decoration:none;font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:700;">Pricing</a>
+  <a href="#about" onclick="document.getElementById('mobileMenu').style.display='none'" style="color:#fff;text-decoration:none;font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:700;">About</a>
+  <a href="#contact" onclick="document.getElementById('mobileMenu').style.display='none'" style="color:#fff;text-decoration:none;font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:700;">Contact</a>
+  <a href="https://app.dinqdigital.com/login" style="color:#C9A84C;text-decoration:none;font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:700;">Client Login →</a>
+</div>
+
+<!-- ═══ HERO ═══ -->
 <section class="hero" id="home">
   <div class="hero-glow glow-gold"></div>
   <div class="hero-glow glow-green"></div>
   <div class="hero-grid-bg"></div>
-  <div class="hero-grid-dots"></div>
   <div class="hero-inner">
     <div class="hero-left">
-      <div class="hero-eyebrow"><span class="tag">✦ ድንቅ · Ethiopia &amp; Global</span></div>
-      <h1 class="hero-title">We Build<br><span class="gold">Websites</span> &amp;<br><span class="line-stroke">SaaS Products.</span></h1>
+      <div class="hero-eyebrow">
+        <span class="tag">✦ ድንቅ · Ethiopia &amp; Global</span>
+      </div>
+      <h1 class="hero-title">
+        We Build<br>
+        <span class="gold">Websites</span> &amp;<br>
+        <span class="line-stroke">SaaS Products.</span>
+      </h1>
       <p class="hero-desc">Dinq Digital is Ethiopia's boldest creative studio — crafting world-class web experiences and SaaS platforms for local businesses and international brands that refuse to be ordinary.</p>
       <div class="hero-actions">
-        <a href="#work" class="btn-primary">View Our Work ↓</a>
-        <a href="#contact" class="btn-ghost">Start a Project →</a>
+        <button class="btn-primary" onclick="document.querySelector('#work').scrollIntoView({behavior:'smooth'})">View Our Work ↓</button>
+        <button class="btn-ghost" onclick="document.querySelector('#pricing').scrollIntoView({behavior:'smooth'})">See Pricing</button>
       </div>
       <div class="hero-stats">
-        <div class="stat"><div class="stat-num"><span class="count-up" data-target="150" data-suffix="+">0</span></div><div class="stat-label">Projects Shipped</div></div>
-        <div class="stat"><div class="stat-num"><span class="count-up" data-target="24" data-suffix="">0</span></div><div class="stat-label">Countries Served</div></div>
-        <div class="stat"><div class="stat-num"><span class="count-up" data-target="98" data-suffix="%">0</span></div><div class="stat-label">Client Satisfaction</div></div>
+        <div class="stat"><div class="stat-num">150+</div><div class="stat-label">Projects Shipped</div></div>
+        <div class="stat"><div class="stat-num">24</div><div class="stat-label">Countries Served</div></div>
+        <div class="stat"><div class="stat-num">98%</div><div class="stat-label">Client Satisfaction</div></div>
       </div>
     </div>
     <div class="hero-right hero-visual">
@@ -796,36 +608,83 @@
           <div class="browser-dot" style="background:#EF4444"></div>
           <div class="browser-dot" style="background:#F59E0B"></div>
           <div class="browser-dot" style="background:#10B981"></div>
-          <div class="browser-url">dinqdigital — client dashboard</div>
+          <div class="browser-url">dinq.digital — client dashboard</div>
         </div>
         <div class="browser-body">
           <div class="dash-row">
-            <div class="dash-card dc-green"><div class="dc-label">Revenue</div><div class="dc-value">ETB 4.2M</div><div class="dc-sub">↑ 34% this month</div></div>
-            <div class="dash-card dc-amber"><div class="dc-label">Active Users</div><div class="dc-value">12,840</div><div class="dc-sub">↑ 18% growth</div></div>
-            <div class="dash-card dc-blue"><div class="dc-label">Conversion</div><div class="dc-value">6.4%</div><div class="dc-sub">↑ 2.1pts</div></div>
+            <div class="dash-card dc-green">
+              <div class="dc-label">Monthly Revenue</div>
+              <div class="dc-value">ETB 4.2M</div>
+              <div class="dc-sub">↑ 34% this month</div>
+            </div>
+            <div class="dash-card dc-amber">
+              <div class="dc-label">Active Users</div>
+              <div class="dc-value">12,840</div>
+              <div class="dc-sub">↑ 18% growth</div>
+            </div>
+            <div class="dash-card dc-blue">
+              <div class="dc-label">Conversion</div>
+              <div class="dc-value">6.4%</div>
+              <div class="dc-sub">↑ 2.1pts</div>
+            </div>
           </div>
           <div class="dash-wide">
-            <div class="dash-chart" style="grid-column:1/-1"><div class="chart-label">Weekly Traffic</div><div class="bars"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div></div>
-            <div class="dash-list"><div class="dl-row"><span>Habesha Pay</span><span class="dl-badge">Live</span></div><div class="dl-row"><span>Addis Market</span><span class="dl-badge">Live</span></div><div class="dl-row"><span>EthioNews</span><span class="dl-badge">Live</span></div></div>
-            <div class="dash-list"><div class="dl-row"><span>SabaCloud</span><span class="dl-badge">Live</span></div><div class="dl-row"><span>Axum Coffee</span><span class="dl-badge">Live</span></div><div class="dl-row"><span>Dinq Bot</span><span class="dl-badge">Beta</span></div></div>
+            <div class="dash-chart" style="grid-column: 1 / -1;">
+              <div class="chart-label">Weekly Traffic</div>
+              <div class="bars">
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div>
+              </div>
+            </div>
+            <div class="dash-list">
+              <div class="dl-row"><span>Habesha Pay</span><span class="dl-badge">Live</span></div>
+              <div class="dl-row"><span>Addis Market</span><span class="dl-badge">Live</span></div>
+              <div class="dl-row"><span>EthioNews</span><span class="dl-badge">Live</span></div>
+            </div>
+            <div class="dash-list">
+              <div class="dl-row"><span>SabaCloud SaaS</span><span class="dl-badge">Live</span></div>
+              <div class="dl-row"><span>Axum Coffee</span><span class="dl-badge">Live</span></div>
+              <div class="dl-row"><span>Dinq Bot</span><span class="dl-badge">Beta</span></div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="floating-badge"><div class="fb-icon">🚀</div><div><div class="fb-text">New project launched</div><div class="fb-sub">Lalibela Tourism Platform</div></div></div>
-      <div class="floating-badge2"><div class="fb2-text">Uptime</div><div class="fb2-val">99.9%</div></div>
+      <div class="floating-badge">
+        <div class="fb-icon">🚀</div>
+        <div><div class="fb-text">New project launched</div><div class="fb-sub">Lalibela Tourism Platform</div></div>
+      </div>
+      <div class="floating-badge2">
+        <div class="fb2-text">Uptime</div>
+        <div class="fb2-val">99.9%</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- TICKER -->
+<!-- ═══ TICKER ═══ -->
 <div class="ticker">
   <div class="ticker-track">
-    <span>Web Design</span><span class="sep">✦</span><span>SaaS Development</span><span class="sep">✦</span><span>UI / UX Design</span><span class="sep">✦</span><span>E-Commerce</span><span class="sep">✦</span><span>AI Chatbots</span><span class="sep">✦</span><span>Branding</span><span class="sep">✦</span><span>Mobile Apps</span><span class="sep">✦</span><span>ድንቅ ዲጂታል</span><span class="sep">✦</span>
-    <span>Web Design</span><span class="sep">✦</span><span>SaaS Development</span><span class="sep">✦</span><span>UI / UX Design</span><span class="sep">✦</span><span>E-Commerce</span><span class="sep">✦</span><span>AI Chatbots</span><span class="sep">✦</span><span>Branding</span><span class="sep">✦</span><span>Mobile Apps</span><span class="sep">✦</span><span>ድንቅ ዲጂታል</span><span class="sep">✦</span>
+    <span>Web Design</span><span class="sep">✦</span>
+    <span>SaaS Development</span><span class="sep">✦</span>
+    <span>UI / UX Design</span><span class="sep">✦</span>
+    <span>E-Commerce</span><span class="sep">✦</span>
+    <span>AI Chatbots</span><span class="sep">✦</span>
+    <span>Branding</span><span class="sep">✦</span>
+    <span>Mobile Apps</span><span class="sep">✦</span>
+    <span>ድንቅ ዲጂታል</span><span class="sep">✦</span>
+    <span>Web Design</span><span class="sep">✦</span>
+    <span>SaaS Development</span><span class="sep">✦</span>
+    <span>UI / UX Design</span><span class="sep">✦</span>
+    <span>E-Commerce</span><span class="sep">✦</span>
+    <span>AI Chatbots</span><span class="sep">✦</span>
+    <span>Branding</span><span class="sep">✦</span>
+    <span>Mobile Apps</span><span class="sep">✦</span>
+    <span>ድንቅ ዲጂታል</span><span class="sep">✦</span>
   </div>
 </div>
 
-<!-- SERVICES -->
+<!-- ═══ SERVICES ═══ -->
 <section id="services">
   <div class="container">
     <div class="section-header">
@@ -833,52 +692,72 @@
       <h2 class="section-title">Core Services</h2>
       <p class="section-desc">Web design and SaaS development are our superpowers. Everything else supports your growth.</p>
     </div>
+  </div>
+  <div class="container">
     <div class="services-grid">
-      <div class="service-card featured" onclick="scrollToContact('Web Design & Development')">
+      <div class="service-card featured">
         <span class="service-arrow">↗</span>
         <div class="service-icon">🌐</div>
         <h3>Web Design &amp; Development</h3>
-        <p>From landing pages to enterprise platforms — blazing-fast, visually unforgettable websites optimised for Ethiopian networks and global performance standards.</p>
-        <div class="service-tags"><span class="service-tag">Landing Pages</span><span class="service-tag">Corporate Sites</span><span class="service-tag">E-Commerce</span><span class="service-tag">Portals</span><span class="service-tag">Bilingual (EN + AM)</span><span class="service-tag">Telebirr Integration</span></div>
+        <p>From landing pages to enterprise platforms — we design and build blazing-fast, visually unforgettable websites. Optimised for Ethiopian networks and global performance standards. Every pixel intentional, every interaction purposeful.</p>
+        <div class="service-tags">
+          <span class="service-tag">Landing Pages</span>
+          <span class="service-tag">Corporate Sites</span>
+          <span class="service-tag">E-Commerce</span>
+          <span class="service-tag">Portals</span>
+          <span class="service-tag">Bilingual (EN + AM)</span>
+          <span class="service-tag">Telebirr Integration</span>
+        </div>
       </div>
-      <div class="service-card featured" onclick="scrollToContact('SaaS Development')">
+      <div class="service-card featured">
         <span class="service-arrow">↗</span>
         <div class="service-icon">⚡</div>
         <h3>SaaS Product Development</h3>
-        <p>We turn your idea into a full software product — from architecture and database design to production deployment. Scalable, subscription-ready SaaS for African and international markets.</p>
-        <div class="service-tags"><span class="service-tag">Dashboards</span><span class="service-tag">Multi-tenant</span><span class="service-tag">API Development</span><span class="service-tag">Auth &amp; Billing</span><span class="service-tag">Analytics</span><span class="service-tag">Admin Panels</span></div>
+        <p>We turn your idea into a full software product — from architecture and database design to production deployment. Scalable, subscription-ready SaaS products built for African and international markets.</p>
+        <div class="service-tags">
+          <span class="service-tag">Dashboards</span>
+          <span class="service-tag">Multi-tenant Systems</span>
+          <span class="service-tag">API Development</span>
+          <span class="service-tag">Auth &amp; Billing</span>
+          <span class="service-tag">Analytics</span>
+          <span class="service-tag">Admin Panels</span>
+        </div>
       </div>
-      <div class="service-card" onclick="scrollToContact('AI Chatbot & Automation')">
-        <span class="service-arrow">↗</span><div class="service-icon">🤖</div>
-        <h3>AI Chatbot &amp; Automation</h3>
-        <p>Smart chatbots, WhatsApp &amp; Telegram bots in Amharic and English — so your business never sleeps.</p>
+      <div class="service-card">
+        <span class="service-arrow">↗</span>
+        <div class="service-icon">🤖</div>
+        <h3>AI Bots &amp; Automation</h3>
+        <p>Smart chatbots, WhatsApp bots, and automation pipelines that work 24/7 in Amharic and English — so your business never sleeps.</p>
       </div>
-      <div class="service-card" onclick="scrollToContact('Brand & UI Design')">
-        <span class="service-arrow">↗</span><div class="service-icon">✦</div>
+      <div class="service-card">
+        <span class="service-arrow">↗</span>
+        <div class="service-icon">✦</div>
         <h3>Brand &amp; UI Design</h3>
-        <p>Logos, design systems, and visual identities that make Ethiopian and international brands unforgettable.</p>
+        <p>Logos, design systems, and visual identities that make Ethiopian and international brands unforgettable across every touchpoint.</p>
       </div>
-      <div class="service-card" onclick="scrollToContact('Mobile App Development')">
-        <span class="service-arrow">↗</span><div class="service-icon">📱</div>
+      <div class="service-card">
+        <span class="service-arrow">↗</span>
+        <div class="service-icon">📱</div>
         <h3>Mobile Apps</h3>
-        <p>iOS and Android apps built for real users — optimised for Ethiopian telecom networks and international stores.</p>
+        <p>iOS and Android apps built for real users — optimised for Ethiopian telecom networks and international app stores.</p>
       </div>
-      <div class="service-card" onclick="scrollToContact('Game Design')">
-        <span class="service-arrow">↗</span><div class="service-icon">🎮</div>
+      <div class="service-card">
+        <span class="service-arrow">↗</span>
+        <div class="service-icon">🎮</div>
         <h3>Game Design</h3>
-        <p>Casual mobile games and immersive experiences — Ethiopia's gaming scene is just getting started.</p>
+        <p>Casual mobile games and immersive 2D/3D experiences — Ethiopia's gaming scene is just getting started, and we're leading it.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PORTFOLIO -->
+<!-- ═══ PORTFOLIO ═══ -->
 <section id="work">
   <div class="container">
     <div class="section-header">
       <div class="section-eyebrow"><span class="tag">Our Work</span></div>
       <h2 class="section-title">Selected Projects</h2>
-      <p class="section-desc">Websites and SaaS products we've shipped for Ethiopian and international clients.</p>
+      <p class="section-desc">A snapshot of websites and SaaS products we've shipped for Ethiopian and international clients.</p>
     </div>
     <div class="port-filters">
       <button class="pf-btn active" onclick="setFilter(this,'all')">All</button>
@@ -889,40 +768,105 @@
     </div>
   </div>
   <div class="port-grid" id="portGrid">
-    <div class="port-item wide" data-cat="saas" onclick="scrollToContact('SaaS project like Habesha Pay')">
-      <div class="port-bg bg-emerald"><div class="amh">ሃ</div><div class="mock"><div class="mock-dots"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div></div><div class="ml ml-a"></div><div class="ml ml-m"></div><div class="ml ml-s"></div><div class="mg"><div class="mc"></div><div class="mc"></div><div class="mc"></div><div class="mc"></div></div></div></div>
+    <div class="port-item wide" data-cat="saas">
+      <div class="port-bg bg-emerald">
+        <div class="amh">ሃ</div>
+        <div class="mock">
+          <div class="mock-dots"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div></div>
+          <div class="ml ml-a"></div><div class="ml ml-m"></div><div class="ml ml-s"></div>
+          <div class="mg"><div class="mc"></div><div class="mc"></div><div class="mc"></div><div class="mc"></div></div>
+        </div>
+      </div>
       <div class="port-overlay"></div>
-      <div class="port-info"><div class="port-cat">SaaS · Fintech</div><div class="port-name">Habesha Pay Platform</div><div class="port-desc">Digital payment dashboard serving 50K+ Ethiopian users</div></div>
+      <div class="port-info">
+        <div class="port-cat">SaaS · Fintech</div>
+        <div class="port-name">Habesha Pay Platform</div>
+        <div class="port-desc">Digital payment & analytics dashboard serving 50K+ Ethiopian users</div>
+      </div>
     </div>
-    <div class="port-item" data-cat="web" onclick="scrollToContact('Tourism website like Lalibela Experience')">
-      <div class="port-bg bg-violet"><div class="amh">ላ</div><div class="mock" style="width:65%"><div class="mock-dots"><div class="mock-dot"></div><div class="mock-dot"></div></div><div class="ml ml-a"></div><div class="ml ml-m"></div><div class="ml ml-s"></div></div></div>
+    <div class="port-item" data-cat="web">
+      <div class="port-bg bg-violet">
+        <div class="amh">ላ</div>
+        <div class="mock" style="width:65%">
+          <div class="mock-dots"><div class="mock-dot"></div><div class="mock-dot"></div></div>
+          <div class="ml ml-a"></div><div class="ml ml-m"></div><div class="ml ml-s"></div>
+        </div>
+      </div>
       <div class="port-overlay"></div>
-      <div class="port-info"><div class="port-cat">Web Design · Tourism</div><div class="port-name">Lalibela Experience</div><div class="port-desc">Premium tourism website for international visitors</div></div>
+      <div class="port-info">
+        <div class="port-cat">Web Design · Tourism</div>
+        <div class="port-name">Lalibela Experience</div>
+        <div class="port-desc">Premium tourism website for international visitors</div>
+      </div>
     </div>
-    <div class="port-item" data-cat="ecom" style="grid-row:span 2;aspect-ratio:auto" onclick="scrollToContact('E-commerce like Addis Market')">
-      <div class="port-bg bg-crimson" style="height:100%"><div class="amh">አ</div><div class="mock"><div class="mock-dots"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div></div><div style="background:rgba(251,146,60,.3);height:36px;border-radius:4px;margin-bottom:.4rem;display:flex;align-items:center;padding:.4rem;font-size:.55rem;color:rgba(255,255,255,.6)">Featured Product</div><div class="ml ml-a"></div><div class="ml ml-s"></div><div class="mg"><div class="mc"></div><div class="mc"></div></div></div></div>
+    <div class="port-item" data-cat="ecom" style="grid-row: span 2; aspect-ratio: auto;">
+      <div class="port-bg bg-crimson" style="height:100%">
+        <div class="amh">አ</div>
+        <div class="mock">
+          <div class="mock-dots"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div></div>
+          <div style="background:rgba(251,146,60,.3);height:36px;border-radius:4px;margin-bottom:.4rem;display:flex;align-items:center;padding:.4rem;font-size:.55rem;color:rgba(255,255,255,.6)">Featured Product</div>
+          <div class="ml ml-a"></div><div class="ml ml-s"></div>
+          <div class="mg"><div class="mc"></div><div class="mc"></div></div>
+        </div>
+      </div>
       <div class="port-overlay"></div>
-      <div class="port-info"><div class="port-cat">E-Commerce</div><div class="port-name">Addis Market</div><div class="port-desc">Full marketplace with Telebirr &amp; Stripe integration</div></div>
+      <div class="port-info">
+        <div class="port-cat">E-Commerce</div>
+        <div class="port-name">Addis Market</div>
+        <div class="port-desc">Full-scale marketplace with Telebirr & Stripe integration</div>
+      </div>
     </div>
-    <div class="port-item" data-cat="web" onclick="scrollToContact('Media website like EthioNews')">
-      <div class="port-bg bg-ocean"><div class="amh">ዜ</div><div class="mock" style="width:65%"><div class="mock-dots"><div class="mock-dot"></div><div class="mock-dot"></div></div><div class="ml" style="background:rgba(96,165,250,.4);width:80%"></div><div class="ml ml-s"></div><div class="ml ml-m"></div></div></div>
+    <div class="port-item" data-cat="web">
+      <div class="port-bg bg-ocean">
+        <div class="amh">ዜ</div>
+        <div class="mock" style="width:65%">
+          <div class="mock-dots"><div class="mock-dot"></div><div class="mock-dot"></div></div>
+          <div class="ml" style="background:rgba(96,165,250,.4);width:80%"></div>
+          <div class="ml ml-s"></div><div class="ml ml-m"></div>
+        </div>
+      </div>
       <div class="port-overlay"></div>
-      <div class="port-info"><div class="port-cat">Web · Media</div><div class="port-name">EthioNews Digital</div><div class="port-desc">Bilingual news platform in Amharic &amp; English</div></div>
+      <div class="port-info">
+        <div class="port-cat">Web · Media</div>
+        <div class="port-name">EthioNews Digital</div>
+        <div class="port-desc">Bilingual news platform in Amharic &amp; English</div>
+      </div>
     </div>
-    <div class="port-item" data-cat="saas" onclick="scrollToContact('Analytics SaaS like SabaCloud')">
-      <div class="port-bg bg-purple"><div class="amh">ሳ</div><div class="mock" style="width:65%"><div class="mock-dots"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div></div><div class="ml" style="background:rgba(167,139,250,.4);width:70%"></div><div class="mg"><div class="mc" style="background:rgba(167,139,250,.2)"></div><div class="mc"></div></div></div></div>
+    <div class="port-item" data-cat="saas">
+      <div class="port-bg bg-purple">
+        <div class="amh">ሳ</div>
+        <div class="mock" style="width:65%">
+          <div class="mock-dots"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div></div>
+          <div class="ml" style="background:rgba(167,139,250,.4);width:70%"></div>
+          <div class="mg"><div class="mc" style="background:rgba(167,139,250,.2)"></div><div class="mc"></div></div>
+        </div>
+      </div>
       <div class="port-overlay"></div>
-      <div class="port-info"><div class="port-cat">SaaS · Analytics</div><div class="port-name">SabaCloud Analytics</div><div class="port-desc">B2B analytics SaaS for African enterprises</div></div>
+      <div class="port-info">
+        <div class="port-cat">SaaS · Analytics</div>
+        <div class="port-name">SabaCloud Analytics</div>
+        <div class="port-desc">B2B analytics SaaS for African enterprises</div>
+      </div>
     </div>
-    <div class="port-item" data-cat="brand" onclick="scrollToContact('Brand identity like Axum Coffee')">
-      <div class="port-bg bg-stone"><div class="amh">ቡ</div><div style="text-align:center"><div style="font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:rgba(201,168,76,.65);letter-spacing:-.02em">AXUM</div><div style="font-size:.55rem;letter-spacing:.3em;color:rgba(255,255,255,.2);text-transform:uppercase;margin-top:.2rem">Coffee Roasters</div></div></div>
+    <div class="port-item" data-cat="brand">
+      <div class="port-bg bg-stone">
+        <div class="amh">ቡ</div>
+        <div style="text-align:center">
+          <div style="font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:rgba(201,168,76,.65);letter-spacing:-.02em">AXUM</div>
+          <div style="font-size:.55rem;letter-spacing:.3em;color:rgba(255,255,255,.2);text-transform:uppercase;margin-top:.2rem">Coffee Roasters</div>
+        </div>
+      </div>
       <div class="port-overlay"></div>
-      <div class="port-info"><div class="port-cat">Branding · Web</div><div class="port-name">Axum Coffee Roasters</div><div class="port-desc">Premium brand identity for export-focused coffee brand</div></div>
+      <div class="port-info">
+        <div class="port-cat">Branding · Web</div>
+        <div class="port-name">Axum Coffee Roasters</div>
+        <div class="port-desc">Premium brand identity for export-focused coffee brand</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- PROCESS -->
+<!-- ═══ PROCESS ═══ -->
 <section id="process">
   <div class="container">
     <div class="section-header">
@@ -931,181 +875,143 @@
       <p class="section-desc">Four focused phases. Zero guesswork. Delivered on time.</p>
     </div>
     <div class="process-grid">
-      <div class="proc-item"><div class="proc-num">01</div><h3>Discover</h3><p>We learn your business, users, and competitors — then map exactly what to build and why.</p></div>
-      <div class="proc-item"><div class="proc-num">02</div><h3>Design</h3><p>Wireframes to high-fidelity UI — we design experiences that convert visitors into customers.</p></div>
-      <div class="proc-item"><div class="proc-num">03</div><h3>Build</h3><p>Clean, scalable code. Optimised for Ethiopian networks and global cloud infrastructure.</p></div>
-      <div class="proc-item"><div class="proc-num">04</div><h3>Launch &amp; Grow</h3><p>We deploy, monitor, and stay with you post-launch — great products need great support.</p></div>
+      <div class="proc-item">
+        <div class="proc-num">01</div>
+        <h3>Discover</h3>
+        <p>We learn your business, your users, and your competitors — then map exactly what to build and why.</p>
+      </div>
+      <div class="proc-item">
+        <div class="proc-num">02</div>
+        <h3>Design</h3>
+        <p>Wireframes to high-fidelity UI — we design experiences that convert visitors into customers.</p>
+      </div>
+      <div class="proc-item">
+        <div class="proc-num">03</div>
+        <h3>Build</h3>
+        <p>Clean, scalable code. Optimised for Ethiopian networks and global cloud infrastructure.</p>
+      </div>
+      <div class="proc-item">
+        <div class="proc-num">04</div>
+        <h3>Launch &amp; Grow</h3>
+        <p>We deploy, monitor, and stay with you post-launch — because a great product needs great support.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- PRICING -->
+<!-- ═══ PRICING ═══ -->
 <section id="pricing">
   <div class="container">
     <div class="section-header">
       <div class="section-eyebrow"><span class="tag">Transparent Pricing</span></div>
-      <h2 class="section-title">Simple, Honest Packages</h2>
-      <p class="section-desc">Everything your business needs online — no hidden fees, no surprises. All prices in USD. Ethiopian Birr accepted at the current exchange rate on the day of order.</p>
+      <h2 class="section-title">Simple, Honest Plans</h2>
+      <p class="section-desc">No hidden fees. No surprises. Choose the plan that fits your project, or contact us for a custom quote.</p>
     </div>
-
     <div class="pricing-grid">
-
-      <!-- STARTER -->
       <div class="price-card">
-        <div class="trial-badge">🎁 7-Day Free Trial</div>
-        <div class="price-plan">🌐 Starter Website</div>
+        <div class="price-plan">Starter</div>
         <div class="price-amount"><sup>$</sup>499</div>
-        <p class="price-desc">Any business needing a clean, professional online presence fast.</p>
+        <p class="price-desc">Perfect for small businesses, freelancers, and local brands needing a strong online presence.</p>
         <ul class="price-features">
-          <li>Up to 5 pages</li>
+          <li>Up to 5-page website</li>
           <li>Mobile responsive design</li>
           <li>Contact form</li>
-          <li>Google Maps integration</li>
-          <li>Social media links</li>
           <li>SEO basics</li>
-          <li>Delivered in 14 days</li>
-          <li class="no">Booking system</li>
-          <li class="no">Online payments</li>
-          <li class="no">Client portal</li>
+          <li>1 revision round</li>
+          <li>14-day delivery</li>
+          <li class="no">Custom animations</li>
+          <li class="no">CMS integration</li>
+          <li class="no">SaaS features</li>
         </ul>
-        <div style="margin-bottom:.75rem;padding:.6rem;background:rgba(201,168,76,.06);border-radius:8px;border:1px solid var(--border2);font-size:.75rem;color:var(--muted);text-align:center">Care Plan: <strong style="color:var(--gold)">$20/mo</strong></div>
-        <a href="#contact" class="btn-price outline" onclick="scrollToContact('Starter Website - $499')">Get Started</a>
+        <button class="btn-price outline" onclick="window.location.href='#cta'">Get Started</button>
       </div>
-
-      <!-- BUSINESS PACKAGE — POPULAR -->
       <div class="price-card popular">
         <div class="popular-badge">Most Popular</div>
-        <div class="trial-badge">🎁 7-Day Free Trial</div>
-        <div class="price-plan">🚀 Business Package</div>
-        <div class="price-amount"><sup>$</sup>999</div>
-        <p class="price-desc">Salons, restaurants, auto shops, clinics — everything your business needs in one package.</p>
+        <div class="price-plan">Growth</div>
+        <div class="price-amount"><sup>$</sup>1,499</div>
+        <p class="price-desc">For growing businesses that need a powerful website or a first SaaS product built right.</p>
         <ul class="price-features">
-          <li>Full website included</li>
-          <li>Online booking / reservations</li>
-          <li>Service &amp; pricing menu</li>
-          <li>Telebirr &amp; card payments</li>
-          <li>Customer notifications</li>
-          <li>Google Maps &amp; hours</li>
-          <li>Bilingual EN + Amharic</li>
-          <li>WhatsApp integration</li>
-          <li>Delivered in 21 days</li>
+          <li>Up to 15 pages</li>
+          <li>Custom animations &amp; interactions</li>
+          <li>CMS integration (blog, news)</li>
+          <li>E-commerce ready</li>
+          <li>Telebirr &amp; Stripe integration</li>
+          <li>3 revision rounds</li>
+          <li>28-day delivery</li>
+          <li>Basic SaaS features</li>
+          <li class="no">Full SaaS build</li>
         </ul>
-        <div style="margin-bottom:.5rem;padding:.5rem;background:rgba(201,168,76,.04);border-radius:6px;font-size:.72rem;color:var(--muted);text-align:center">
-          ✦ Works for: <span style="color:var(--white)">Salons · Restaurants · Auto Shops · Clinics · Retail · Any Business</span>
-        </div>
-        <div style="margin-bottom:.75rem;padding:.6rem;background:rgba(201,168,76,.06);border-radius:8px;border:1px solid var(--border2);font-size:.75rem;color:var(--muted);text-align:center">Care Plan: <strong style="color:var(--gold)">$49/mo</strong></div>
-        <a href="#contact" class="btn-price filled" onclick="scrollToContact('Business Package - $999')">Get Started →</a>
+        <button class="btn-price filled" onclick="window.location.href='#cta'">Start Building →</button>
       </div>
-
-      <!-- PRO -->
       <div class="price-card">
-        <div class="price-plan">🏢 Pro Package</div>
-        <div class="price-amount"><sup>$</sup>1,999</div>
-        <p class="price-desc">Law firms, clinics, consultants — full professional platform with client portal and advanced features.</p>
+        <div class="price-plan">Enterprise</div>
+        <div class="price-amount">Custom</div>
+        <p class="price-desc">Full-scale SaaS products, complex web platforms, and long-term partnerships.</p>
         <ul class="price-features">
-          <li>Everything in Business Package</li>
-          <li>Client portal login</li>
-          <li>Invoice generation</li>
-          <li>Document uploads</li>
-          <li>Advanced appointment system</li>
-          <li>Staff &amp; team management</li>
-          <li>Analytics dashboard</li>
+          <li>Unlimited pages</li>
+          <li>Full SaaS product build</li>
+          <li>Multi-tenant architecture</li>
+          <li>Auth, billing &amp; admin panel</li>
+          <li>Dedicated project manager</li>
+          <li>Unlimited revisions</li>
           <li>Priority support</li>
-          <li>Delivered in 28 days</li>
+          <li>Custom integrations</li>
+          <li>Ongoing maintenance</li>
         </ul>
-        <div style="margin-bottom:.75rem;padding:.6rem;background:rgba(201,168,76,.06);border-radius:8px;border:1px solid var(--border2);font-size:.75rem;color:var(--muted);text-align:center">Care Plan: <strong style="color:var(--gold)">$99/mo</strong></div>
-        <a href="#contact" class="btn-price outline" onclick="scrollToContact('Pro Package - $1,999')">Get Started</a>
-      </div>
-
-      <!-- CUSTOM -->
-      <div class="price-card" style="grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center">
-        <div>
-          <div class="price-plan">⚡ SaaS &amp; Custom Platform</div>
-          <div class="price-amount" style="font-size:2.2rem;margin-bottom:.5rem">Custom</div>
-          <p class="price-desc" style="max-width:100%">Apps, marketplaces, dashboards, and full software platforms built from scratch. We scope the project together and give you a fixed price — no surprises.</p>
-          <div style="margin-top:1.5rem">
-            <a href="#contact" class="btn-price outline" style="display:inline-block;width:auto;padding:.85rem 2rem" onclick="scrollToContact('SaaS / Custom Platform')">Request a Quote →</a>
-          </div>
-        </div>
-        <div>
-          <ul class="price-features" style="margin-bottom:0">
-            <li>Full custom development</li>
-            <li>Multi-tenant SaaS architecture</li>
-            <li>User authentication &amp; roles</li>
-            <li>Admin &amp; client dashboards</li>
-            <li>API &amp; third-party integrations</li>
-            <li>Telebirr &amp; Stripe billing</li>
-            <li>Scalable cloud hosting</li>
-            <li>Dedicated project manager</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- PAYMENT METHODS -->
-    <div style="margin-top:2rem;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.75rem">
-      <div style="margin-bottom:1.25rem">
-        <h3 style="font-size:1rem;font-weight:700;margin-bottom:.3rem">We Accept All Major Payment Methods</h3>
-        <p style="font-size:.82rem;color:var(--muted);font-weight:300;line-height:1.75">Pay from anywhere in the world using your preferred method. Ethiopian Birr accepted at current exchange rate.</p>
-      </div>
-      <div style="display:flex;flex-wrap:wrap;gap:.75rem">
-        <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--radius);padding:.75rem 1.25rem;display:flex;align-items:center;gap:.6rem;font-size:.82rem;font-weight:600">
-          <span style="font-size:1.1rem">💳</span> Stripe
-        </div>
-        <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--radius);padding:.75rem 1.25rem;display:flex;align-items:center;gap:.6rem;font-size:.82rem;font-weight:600">
-          <span style="font-size:1.1rem">💙</span> PayPal
-        </div>
-        <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--radius);padding:.75rem 1.25rem;display:flex;align-items:center;gap:.6rem;font-size:.82rem;font-weight:600">
-          <span style="font-size:1.1rem">🏦</span> Zelle
-        </div>
-        <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--radius);padding:.75rem 1.25rem;display:flex;align-items:center;gap:.6rem;font-size:.82rem;font-weight:600">
-          <span style="font-size:1.1rem">🖤</span> Cash App
-        </div>
-        <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--radius);padding:.75rem 1.25rem;display:flex;align-items:center;gap:.6rem;font-size:.82rem;font-weight:600">
-          <span style="font-size:1.1rem">📱</span> Telebirr
-        </div>
-        <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--radius);padding:.75rem 1.25rem;display:flex;align-items:center;gap:.6rem;font-size:.82rem;font-weight:600">
-          <span style="font-size:1.1rem">⚡</span> FastPayEt
-        </div>
-      </div>
-      <div style="margin-top:1rem;font-size:.75rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.85rem">
-        💡 Don't see your method? <a href="#contact" style="color:var(--gold);text-decoration:none">Contact us</a> — we will find a way to make it work.
+        <button class="btn-price outline" onclick="window.location.href='#cta'">Request a Quote</button>
       </div>
     </div>
-
-    <!-- NOTE -->
-    <div style="margin-top:1rem;text-align:center;font-size:.8rem;color:var(--muted)">
-      💡 Payment split: <strong style="color:var(--white)">50% upfront</strong> to start + <strong style="color:var(--white)">50% on launch.</strong> &nbsp;·&nbsp; Not sure which package? <a href="#contact" style="color:var(--gold);text-decoration:none">Contact us</a> — we will recommend the right one for your business.
-    </div>
-
   </div>
 </section>
 
-<!-- CHATBOT DEMO -->
+<!-- ═══ CHATBOT DEMO ═══ -->
 <section id="chatbot">
   <div class="container">
     <div class="section-header">
       <div class="section-eyebrow"><span class="tag">Optional Service</span></div>
-      <h2 class="section-title">AI Chatbot for Your Business</h2>
+      <h2 class="section-title">AI Bots for Your Business</h2>
     </div>
     <div class="chatbot-wrap">
       <div class="chatbot-left">
-        <p class="section-desc">We build AI-powered bots that talk to your customers 24/7 — in Amharic, English, or both. Embed on your website, WhatsApp, or Telegram.</p>
+        <p class="section-desc" style="margin-bottom:2rem">We build AI-powered bots that talk to your customers 24/7 — in Amharic, English, or both. Embed on your website, WhatsApp, or Telegram.</p>
         <div class="chatbot-features">
-          <div class="cf-item"><div class="cf-icon">🇪🇹</div><div><h4>Amharic &amp; English</h4><p>Fluent in both languages — your Ethiopian and international customers all get answered instantly.</p></div></div>
-          <div class="cf-item"><div class="cf-icon">⚡</div><div><h4>Instant Responses</h4><p>No waiting. Answers to FAQs, orders, bookings, and support queries around the clock.</p></div></div>
-          <div class="cf-item"><div class="cf-icon">🔗</div><div><h4>Connects to Your Systems</h4><p>Integrates with your CRM, e-commerce, or any backend you already have.</p></div></div>
+          <div class="cf-item">
+            <div class="cf-icon">🇪🇹</div>
+            <div>
+              <h4>Amharic &amp; English</h4>
+              <p>Fluent in both languages — your Ethiopian and international customers all get answered.</p>
+            </div>
+          </div>
+          <div class="cf-item">
+            <div class="cf-icon">⚡</div>
+            <div>
+              <h4>Instant Responses</h4>
+              <p>No waiting. Instant answers to FAQs, orders, bookings, and support queries around the clock.</p>
+            </div>
+          </div>
+          <div class="cf-item">
+            <div class="cf-icon">🔗</div>
+            <div>
+              <h4>Connects to Your Systems</h4>
+              <p>Integrates with your CRM, e-commerce platform, or any backend you already have.</p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="chatbot-right">
         <div class="chat-window">
           <div class="chat-header">
             <div class="chat-avatar">D</div>
-            <div><div class="chat-name">Dinq Bot</div><div class="chat-status">Online · Powered by Dinq Digital</div></div>
+            <div>
+              <div class="chat-name">Dinq Bot</div>
+              <div class="chat-status">Online · Powered by Dinq Digital</div>
+            </div>
           </div>
           <div class="chat-body" id="chatBody">
-            <div class="msg msg-bot"><div class="msg-bubble">ሰላም! 👋 Hello! I'm the Dinq Bot. How can I help you today?</div><div class="msg-time">Just now</div></div>
+            <div class="msg msg-bot">
+              <div class="msg-bubble">ሰላም! 👋 Hello! I'm the Dinq Bot. How can I help you today?</div>
+              <div class="msg-time">Just now</div>
+            </div>
           </div>
           <div class="quick-replies" id="quickReplies">
             <button class="qr" onclick="sendMsg('What services do you offer?')">Services</button>
@@ -1123,800 +1029,100 @@
   </div>
 </section>
 
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <div class="about-wrap">
-      <div class="about-left">
-        <div class="about-img">
-          <div class="about-img-glyph">ድ</div>
-        </div>
-        <div class="about-badge">
-          <div class="about-badge-num">150+</div>
-          <div class="about-badge-label">Projects Delivered</div>
-        </div>
-      </div>
-      <div class="about-right">
-        <div class="section-eyebrow" style="margin-bottom:.6rem"><span class="tag">Our Story</span></div>
-        <h2>Built in Ethiopia.<br>Built for <span class="gold">the World.</span></h2>
-        <p>Dinq Digital was born from a simple belief — Ethiopian businesses deserve world-class digital products, not second-rate templates. We saw local companies struggling with expensive foreign agencies that didn't understand the market, the language, or the culture.</p>
-        <p>So we built the studio we wished existed. One that speaks Amharic and English, integrates Telebirr and Stripe, and designs for both the streets of Addis Ababa and the boardrooms of London and Dubai.</p>
-        <p>Today we build websites, SaaS products, and digital experiences for Ethiopian businesses going global — and international brands entering Africa's fastest-growing market.</p>
-        <div class="about-values">
-          <div class="av-item"><h4>🇪🇹 Ethiopia First</h4><p>We understand the local market, networks, and payment systems better than anyone.</p></div>
-          <div class="av-item"><h4>🌍 Global Standards</h4><p>Every product we ship meets international design and performance benchmarks.</p></div>
-          <div class="av-item"><h4>⚡ Speed Matters</h4><p>We move fast without cutting corners. Most projects launch in under 30 days.</p></div>
-          <div class="av-item"><h4>🤝 Long-term Partners</h4><p>We don't disappear after launch. We grow with you.</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TEAM -->
-<section id="team">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-eyebrow"><span class="tag">The Team</span></div>
-      <h2 class="section-title">The People Behind Dinq</h2>
-      <p class="section-desc">A small, focused team of designers, developers, and strategists — all obsessed with building great digital products.</p>
-    </div>
-    <div class="team-grid" style="grid-template-columns:repeat(3,1fr)">
-
-      <!-- 1. Founder -->
-      <div class="team-card">
-        <div class="team-photo tp-1"><span style="position:relative;z-index:2">👤</span></div>
-        <div class="team-info">
-          <div class="team-name">Your Name Here</div>
-          <div class="team-role">Founder & Lead Developer</div>
-          <div class="team-bio">Full-stack developer with a passion for building world-class digital products for Ethiopian and global markets.</div>
-        </div>
-      </div>
-
-      <!-- 2. UI/UX Designer -->
-      <div class="team-card">
-        <div class="team-photo tp-2"><span style="position:relative;z-index:2">👤</span></div>
-        <div class="team-info">
-          <div class="team-name">Team Member</div>
-          <div class="team-role">UI / UX Designer</div>
-          <div class="team-bio">Crafting beautiful, intuitive interfaces that make complex products feel effortless to use.</div>
-        </div>
-      </div>
-
-      <!-- 3. Backend Engineer -->
-      <div class="team-card">
-        <div class="team-photo tp-3"><span style="position:relative;z-index:2">👤</span></div>
-        <div class="team-info">
-          <div class="team-name">Team Member</div>
-          <div class="team-role">Backend Engineer</div>
-          <div class="team-bio">Building the systems and APIs that power scalable SaaS products for thousands of users.</div>
-        </div>
-      </div>
-
-      <!-- 4. Project Manager -->
-      <div class="team-card">
-        <div class="team-photo tp-4"><span style="position:relative;z-index:2">👤</span></div>
-        <div class="team-info">
-          <div class="team-name">Team Member</div>
-          <div class="team-role">Project Manager</div>
-          <div class="team-bio">Keeping every project on track, on budget, and delivered with zero surprises.</div>
-        </div>
-      </div>
-
-      <!-- 5. Mobile Developer -->
-      <div class="team-card">
-        <div class="team-photo" style="background:linear-gradient(135deg,#222222,#111111);height:200px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
-          <span style="position:relative;z-index:2;font-size:3.5rem">👤</span>
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(9,9,11,.6),transparent 60%)"></div>
-        </div>
-        <div class="team-info">
-          <div class="team-name">Team Member</div>
-          <div class="team-role">Mobile Developer</div>
-          <div class="team-bio">Building iOS and Android apps optimised for Ethiopian networks and international app stores.</div>
-        </div>
-      </div>
-
-      <!-- 6. Digital Marketer -->
-      <div class="team-card">
-        <div class="team-photo" style="background:linear-gradient(135deg,#2A2A2A,#111111);height:200px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
-          <span style="position:relative;z-index:2;font-size:3.5rem">👤</span>
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(9,9,11,.6),transparent 60%)"></div>
-        </div>
-        <div class="team-info">
-          <div class="team-name">Team Member</div>
-          <div class="team-role">Digital Marketer</div>
-          <div class="team-bio">Driving growth through SEO, social media, and targeted campaigns for Ethiopian and global brands.</div>
-        </div>
-      </div>
-
-    </div></div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-eyebrow"><span class="tag">Client Love</span></div>
-      <h2 class="section-title">What Our Clients Say</h2>
-      <p class="section-desc">Don't just take our word for it — here's what the people we've built for have to say.</p>
-    </div>
-    <div class="testi-grid">
-      <div class="testi-card featured">
-        <div class="testi-badge">"</div>
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">Dinq Digital completely transformed our online presence. Our website now looks world-class and our customers can pay with Telebirr seamlessly. Best investment we made for our business.</div>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background:var(--gold)">AK</div>
-          <div><div class="testi-name">Abebe Kebede</div><div class="testi-company">Kebede Trading, Addis Ababa</div></div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-badge">"</div>
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">We needed a bilingual platform for our tourism business — both Amharic and English. Dinq Digital delivered exactly that, on time and within budget. Our international bookings tripled.</div>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background:#1E3A5F">ST</div>
-          <div><div class="testi-name">Sara Tadesse</div><div class="testi-company">Lalibela Tours & Travel</div></div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-badge">"</div>
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">The SaaS dashboard they built for us handles thousands of users without breaking a sweat. The team understood our product vision from day one and executed it perfectly.</div>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background:#3B0764">YG</div>
-          <div><div class="testi-name">Yonas Girma</div><div class="testi-company">SabaCloud Technologies</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- CARE PLANS -->
-<section id="careplans">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-eyebrow"><span class="tag">Monthly Plans</span></div>
-      <h2 class="section-title">Website Care Plans</h2>
-      <p class="section-desc">We build your site once — then keep it running, updated, and growing every month. Turn your website into a long-term asset, not a one-time expense.</p>
-    </div>
-    <div class="care-intro">
-      <div>
-        <h2>Why pay monthly?<br><span class="gold">Recurring value.</span></h2>
-        <p>Your website is not a finished product — it's a living business tool. It needs hosting, security updates, content changes, and performance monitoring every single month.</p>
-        <p>Our care plans mean you never have to worry about your site going down, looking outdated, or losing Google ranking. We handle everything while you focus on running your business.</p>
-      </div>
-
-    </div>
-    <div class="care-grid">
-      <div class="care-card">
-        <div class="care-plan-name">Basic</div>
-        <div class="care-plan-price"><sup>$</sup>20</div>
-        <div class="care-plan-period">per month / per site</div>
-        <ul class="care-features">
-          <li>Website hosting included</li>
-          <li>99.9% uptime monitoring</li>
-          <li>SSL certificate (https)</li>
-          <li>Monthly backup</li>
-          <li>Security updates</li>
-          <li class="no">Content edits</li>
-          <li class="no">SEO monitoring</li>
-          <li class="no">Monthly report</li>
-        </ul>
-        <a href="#contact" class="btn-price outline" onclick="scrollToContact('Basic Care Plan - $20/mo')">Get Started</a>
-      </div>
-      <div class="care-card popular">
-        <div class="care-plan-badge">Most Popular</div>
-        <div class="care-plan-name">Care</div>
-        <div class="care-plan-price"><sup>$</sup>49</div>
-        <div class="care-plan-period">per month / per site</div>
-        <ul class="care-features">
-          <li>Everything in Basic</li>
-          <li>Up to 2 content edits/month</li>
-          <li>Priority support (24hr response)</li>
-          <li>Weekly backups</li>
-          <li>Performance optimization</li>
-          <li>Google Analytics setup</li>
-          <li class="no">SEO monitoring</li>
-          <li class="no">Monthly report</li>
-        </ul>
-        <a href="#contact" class="btn-price filled" onclick="scrollToContact('Care Plan - $49/mo')">Start Care Plan</a>
-      </div>
-      <div class="care-card">
-        <div class="care-plan-name">Growth</div>
-        <div class="care-plan-price"><sup>$</sup>99</div>
-        <div class="care-plan-period">per month / per site</div>
-        <ul class="care-features">
-          <li>Everything in Care</li>
-          <li>Unlimited content edits</li>
-          <li>SEO monitoring & improvements</li>
-          <li>Monthly performance report</li>
-          <li>Social media link updates</li>
-          <li>New page additions</li>
-          <li>Google Business management</li>
-          <li>WhatsApp priority support</li>
-        </ul>
-        <a href="#contact" class="btn-price outline" onclick="scrollToContact('Growth Care Plan - $99/mo')">Get Growth Plan</a>
-      </div>
-    </div>
-    <div class="care-note">
-      <strong>Already have a website built elsewhere?</strong> We can take over the management of any existing website. Contact us at <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4d2924233c29242a24392c210d2a202c2421632e2220">[email&#160;protected]</a></strong> and we will assess your site for free.
-    </div>
-  </div>
-</section>
-
-
-<!-- FREE AUDIT -->
-<section id="audit">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-eyebrow"><span class="tag">100% Free · No Obligation</span></div>
-      <h2 class="section-title">Free Website Audit</h2>
-      <p class="section-desc">Already have a website? Let us check it for free. We will tell you exactly what is hurting your business online — and how to fix it.</p>
-    </div>
-    <div class="audit-wrap">
-      <div class="audit-left">
-        <h2>Find out what your website<br><span class="gold">is costing you.</span></h2>
-        <p>Most Ethiopian business websites are slow, broken on mobile, and missing online payments. Every day your site has these problems you are losing customers to competitors.</p>
-        <p>We check 5 critical areas and send you a free report within 24 hours — no strings attached.</p>
-        <div class="audit-checks">
-          <div class="ac-item">Page speed — is your site loading fast enough?</div>
-          <div class="ac-item">Mobile design — does it work on phones?</div>
-          <div class="ac-item">Online payments — can customers pay you online?</div>
-          <div class="ac-item">Booking system — can customers book appointments?</div>
-          <div class="ac-item">SEO — can people find you on Google?</div>
-        </div>
-        <div style="background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);padding:1.25rem;display:flex;gap:1rem;align-items:flex-start">
-          <div style="font-size:1.5rem;flex-shrink:0">💬</div>
-          <div>
-            <div style="font-size:.85rem;font-weight:600;margin-bottom:.25rem">What happens after the audit?</div>
-            <div style="font-size:.8rem;color:var(--muted);font-weight:300;line-height:1.7">We send you a clear report showing what is working and what is not. If you want us to fix it we give you a quote. If not — the audit is still yours, completely free.</div>
-          </div>
-        </div>
-      </div>
-      <div class="audit-right">
-        <div class="audit-form">
-          <h3>Get Your Free Site Audit</h3>
-          <div class="af-sub">Takes 30 seconds to submit. Report in 24 hours.</div>
-
-          <!-- FORM -->
-          <div id="auditFormContent">
-            <div class="form-group"><label>Your Name *</label><input type="text" id="af-name" placeholder="Abebe Kebede" /></div>
-            <div class="form-group"><label>Your Website URL *</label><input type="text" id="af-url" placeholder="www.yourbusiness.com" /></div>
-            <div class="form-group"><label>Business Type</label>
-              <select id="af-type">
-                <option value="">Select your business type...</option>
-                <option>Hair Salon / Spa</option>
-                <option>Restaurant / Cafe</option>
-                <option>Auto Repair Shop</option>
-                <option>Clinic / Hospital</option>
-                <option>Retail / Shop</option>
-                <option>Law Firm</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="form-group"><label>Phone / Telegram</label><input type="text" id="af-phone" placeholder="+251 91..." /></div>
-            <div class="form-group"><label>Email *</label><input type="text" id="af-email" placeholder="you@example.com" /></div>
-            <div class="form-group">
-              <label>Main Problem (optional)</label>
-              <select id="af-problem">
-                <option value="">What bothers you most about your site?</option>
-                <option>It looks outdated</option>
-                <option>It is too slow</option>
-                <option>It does not work on mobile</option>
-                <option>No online payments</option>
-                <option>Nobody finds it on Google</option>
-                <option>I do not know — just check everything</option>
-              </select>
-            </div>
-            <button class="form-submit" id="auditSubmit" onclick="submitAudit()">Get My Free Audit →</button>
-            <div style="text-align:center;margin-top:.85rem;font-size:.72rem;color:var(--muted)">We will never spam you. Audit report delivered within 24 hours.</div>
-          </div>
-
-          <!-- SUCCESS -->
-          <div class="form-success" id="auditSuccess">
-            <div class="fs-icon">🎉</div>
-            <h3>Audit Request Received!</h3>
-            <p>We are reviewing your website now and will send your free audit report to <span id="auditReplyEmail"></span> within <strong>24 hours.</strong><br><br>In the meantime feel free to reach us on Telegram <strong>@dinqdigital</strong>.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-eyebrow"><span class="tag">Get In Touch</span></div>
-      <h2 class="section-title">Let's Build Something ድንቅ</h2>
-    </div>
-    <div class="contact-wrap">
-      <div class="contact-info">
-        <p>Tell us what you're building. We'll get back to you within 24 hours with a plan, a price, and a timeline.</p>
-        <div class="contact-methods">
-          <a href="/cdn-cgi/l/email-protection#f99d9097889d909e908d9895b99e94989095d79a9694" class="cm-item">
-            <div class="cm-icon email">📧</div>
-            <div><div class="cm-label">Email</div><div class="cm-value"><span class="__cf_email__" data-cfemail="63070a0d12070a040a17020f23040e020a0f4d000c0e">[email&#160;protected]</span></div></div>
-          </a>
-          <a href="https://t.me/dinqdigital" target="_blank" class="cm-item">
-            <div class="cm-icon tg">✈️</div>
-            <div><div class="cm-label">Telegram</div><div class="cm-value">@dinqdigital</div></div>
-          </a>
-          <a href="https://wa.me/dinqdigital" target="_blank" class="cm-item">
-            <div class="cm-icon wa">💬</div>
-            <div><div class="cm-label">WhatsApp</div><div class="cm-value">@dinqdigital</div></div>
-          </a>
-          <a href="https://instagram.com/dinqdigital" target="_blank" class="cm-item">
-            <div class="cm-icon ig">📸</div>
-            <div><div class="cm-label">Instagram</div><div class="cm-value">@dinqdigital</div></div>
-          </a>
-        </div>
-      </div>
-      <div class="contact-form" id="contactFormWrap">
-        <div id="formContent">
-          <div class="form-row">
-            <div class="form-group"><label>Your Name *</label><input type="text" id="fname" placeholder="Abebe Kebede" required /></div>
-            <div class="form-group"><label>Email *</label><input type="email" id="femail" placeholder="you@example.com" required /></div>
-          </div>
-          <div class="form-group"><label>Service Needed</label>
-            <select id="fservice">
-              <option value="">Select a service...</option>
-              <option>Web Design &amp; Development</option>
-              <option>SaaS Product Development</option>
-              <option>E-Commerce Website</option>
-              <option>AI Bot &amp; Automation</option>
-              <option>Brand &amp; UI Design</option>
-              <option>Mobile App</option>
-              <option>Game Design</option>
-              <option>Not sure yet</option>
-            </select>
-          </div>
-          <div class="form-group"><label>Budget Range</label>
-            <select id="fbudget">
-              <option value="">Select a budget...</option>
-              <option>Under $500</option>
-              <option>$500 – $1,500</option>
-              <option>$1,500 – $5,000</option>
-              <option>$5,000 – $15,000</option>
-              <option>$15,000+</option>
-              <option>Let's discuss</option>
-            </select>
-          </div>
-          <div class="form-group"><label>Tell Us About Your Project *</label><textarea id="fmessage" placeholder="Describe what you want to build, your target users, and any timeline you have in mind..."></textarea></div>
-
-          <!-- PROMO CODE -->
-          <div class="form-group">
-            <label>Promo Code (optional)</label>
-            <div class="promo-wrap">
-              <input type="text" id="fpromo" placeholder="Enter code e.g. DINQ20" style="text-transform:uppercase"/>
-              <button class="promo-apply" onclick="applyPromo()">Apply</button>
-            </div>
-            <div class="promo-result" id="promoResult"></div>
-          </div>
-
-          <!-- PRICE SUMMARY -->
-          <div class="promo-summary" id="promoSummary">
-            <div class="ps-row"><span>Package</span><span id="ps-package">—</span></div>
-            <div class="ps-row"><span>Original Price</span><span class="ps-strike" id="ps-original">—</span></div>
-            <div class="ps-row"><span>Discount</span><span style="color:#4ADE80" id="ps-discount">—</span></div>
-            <div class="ps-row total"><span>You Pay</span><span id="ps-total">—</span></div>
-          </div>
-
-          <button class="form-submit" id="formSubmit" onclick="submitForm()">Send Message →</button>
-        </div>
-        <div class="form-success" id="formSuccess">
-          <div class="fs-icon">🎉</div>
-          <h3>Message Sent!</h3>
-          <p>We've received your message and will reply to <span id="replyEmail"></span> within 24 hours.<br><br>In the meantime, feel free to reach us on Telegram <strong>@dinqdigital</strong>.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
+<!-- ═══ CTA ═══ -->
 <section id="cta">
   <h2>Ready to build something<br><span class="gold">ድንቅ?</span></h2>
   <p>From Addis Ababa to everywhere — your vision, our execution.</p>
   <div class="cta-actions">
-    <a href="/cdn-cgi/l/email-protection#b0d4d9dec1d4d9d7d9c4d1dcf0d7ddd1d9dc9ed3dfdd" class="btn-primary">Email Us →</a>
-    <a href="https://t.me/dinqdigital" target="_blank" class="btn-ghost">Telegram ✈️</a>
-    <a href="https://wa.me/dinqdigital" target="_blank" class="btn-ghost">WhatsApp 💬</a>
+    <a href="/cdn-cgi/l/email-protection#6e060b0202012e0a07001f0a0709071a0f02400d0103" class="btn-primary" style="text-decoration:none">Email Us →</a>
+    <a href="https://t.me/dinqdigital" class="btn-ghost" style="text-decoration:none">Telegram</a>
   </div>
-  <div class="cta-footnote"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e084898e918489878994818ca0878d81898cce838f8d">[email&#160;protected]</a> · @dinqdigital · Addis Ababa, Ethiopia</div>
+  <div class="cta-footnote"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="650d0009090a25010c0b14010c020c1104094b060a08">[email&#160;protected]</a> · @dinqdigital · Addis Ababa, Ethiopia</div>
 </section>
 
-<!-- FOOTER -->
+<!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="#" class="nav-logo" style="text-decoration:none"><div class="nav-logo-mark">D</div><div class="nav-logo-text">Dinq<span>Digital</span></div></a>
-        <p>Ethiopia's boldest web design and SaaS studio. Building digital empires for local heroes and global brands.</p>
+        <a href="#" class="footer-logo-wrap" style="text-decoration:none">
+          <div class="nav-logo-mark">D</div>
+          <div class="nav-logo-text">Dinq<span>Digital</span></div>
+        </a>
+        <p>Ethiopia's boldest web design and SaaS studio. Building digital empires for local heroes and global brands since 2024.</p>
       </div>
-      <div class="footer-col"><h4>Services</h4><ul>
-        <li><a href="#services">Web Design</a></li><li><a href="#services">SaaS Development</a></li>
-        <li><a href="#services">AI Chatbot</a></li><li><a href="#services">Branding</a></li><li><a href="#services">Mobile Apps</a></li>
-      </ul></div>
-      <div class="footer-col"><h4>Company</h4><ul>
-        <li><a href="#about">About Us</a></li><li><a href="#audit">Free Audit</a></li>
-          <li><a href="#work">Our Work</a></li><li><a href="#process">Process</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#careplans">Care Plans</a></li><li><a href="#audit">Free Audit</a></li>
-    <li><a href="#contact">Contact</a></li>
-      </ul></div>
-      <div class="footer-col"><h4>Connect</h4><ul>
-        <li><a href="https://t.me/dinqdigital" target="_blank">Telegram</a></li>
-        <li><a href="https://wa.me/dinqdigital" target="_blank">WhatsApp</a></li>
-        <li><a href="https://instagram.com/dinqdigital" target="_blank">Instagram</a></li>
-        <li><a href="https://linkedin.com/company/dinqdigital" target="_blank">LinkedIn</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#c8aca1a6b9aca1afa1bca9a488afa5a9a1a4e6aba7a5">Email Us</a></li>
-      </ul></div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Web Design</a></li>
+          <li><a href="#services">SaaS Development</a></li>
+          <li><a href="#services">AI Bots</a></li>
+          <li><a href="#services">Branding</a></li>
+          <li><a href="#services">Mobile Apps</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#work">Our Work</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#cta">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://t.me/dinqdigital">Telegram</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#48202d242427082c2126392c212f213c2924662b2725">Email Us</a></li>
+        </ul>
+      </div>
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">© 2025 Dinq Digital · ድንቅ ዲጂታል · Addis Ababa, Ethiopia</div>
       <div class="footer-socials">
-        <a href="https://t.me/dinqdigital" target="_blank">Telegram</a>
-        <a href="https://instagram.com/dinqdigital" target="_blank">Instagram</a>
-        <a href="https://linkedin.com/company/dinqdigital" target="_blank">LinkedIn</a>
+        <a href="#">Telegram</a>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
       </div>
     </div>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
-  /* FREE AUDIT FORM */
-  async function submitAudit() {
-    const name  = document.getElementById('af-name').value.trim();
-    const url   = document.getElementById('af-url').value.trim();
-    const email = document.getElementById('af-email').value.trim();
-    const type  = document.getElementById('af-type').value;
-    const phone = document.getElementById('af-phone').value.trim();
-    const prob  = document.getElementById('af-problem').value;
-
-    if (!name) { alert('Please enter your name.'); return; }
-    if (!url)  { alert('Please enter your website URL.'); return; }
-    if (!email || !/\S+@\S+\.\S+/.test(email)) { alert('Please enter a valid email.'); return; }
-
-    const btn = document.getElementById('auditSubmit');
-    btn.disabled = true;
-    btn.textContent = 'Submitting...';
-
-    try {
-      const fd = new FormData();
-      fd.append('name', name);
-      fd.append('email', email);
-      fd.append('website_url', url);
-      fd.append('business_type', type || 'Not specified');
-      fd.append('phone', phone || 'Not provided');
-      fd.append('main_problem', prob || 'Not specified');
-      fd.append('_subject', 'Free Site Audit Request from ' + name + ' - ' + url);
-
-      await fetch('https://formspree.io/f/mgonpgpj', {
-        method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
-      });
-    } catch(e) {}
-
-    document.getElementById('auditFormContent').style.display = 'none';
-    document.getElementById('auditReplyEmail').textContent = email;
-    document.getElementById('auditSuccess').style.display = 'block';
-    btn.disabled = false;
-    btn.textContent = 'Get My Free Audit →';
-  }
-
-
-  /* PROMO CODES */
-  const promoCodes = {
-    'DINQ10':   10,
-    'DINQ15':   15,
-    'DINQ20':   20,
-    'DINQ25':   25,
-    'DINQ40':   40,
-    'DINQ50':   50,
-    'FAMILY70': 70
-  };
-
-  const packagePrices = {
-    'Starter Website - $499':       499,
-    'Business Package - $999':      999,
-    'Pro Package - $1,999':        1999,
-    'SaaS / Custom Platform':      null,
-    'Basic Care Plan - $20/mo':      20,
-    'Care Plan - $49/mo':            49,
-    'Growth Care Plan - $99/mo':     99,
-    'Web Design & Development':     999,
-    'SaaS Development':            1999,
-    'AI Chatbot & Automation':      999,
-    'Brand & UI Design':            499,
-    'Mobile App Development':       999,
-    'Game Design':                  999,
-  };
-
-  let activeDiscount = 0;
-
-  function applyPromo() {
-    const code = document.getElementById('fpromo').value.trim().toUpperCase();
-    const resultEl = document.getElementById('promoResult');
-    const summaryEl = document.getElementById('promoSummary');
-
-    if (!code) {
-      resultEl.textContent = 'Please enter a promo code.';
-      resultEl.className = 'promo-result invalid';
-      return;
-    }
-
-    if (promoCodes[code] !== undefined) {
-      activeDiscount = promoCodes[code];
-      resultEl.textContent = '✓ Code applied — ' + activeDiscount + '% off!';
-      resultEl.className = 'promo-result valid';
-      updatePriceSummary();
-    } else {
-      activeDiscount = 0;
-      resultEl.textContent = '✕ Invalid promo code. Please check and try again.';
-      resultEl.className = 'promo-result invalid';
-      summaryEl.classList.remove('show');
-    }
-  }
-
-  function updatePriceSummary() {
-    const service = document.getElementById('fservice').value;
-    const summaryEl = document.getElementById('promoSummary');
-
-    if (!service || !activeDiscount) { summaryEl.classList.remove('show'); return; }
-
-    const price = packagePrices[service];
-    if (!price) {
-      summaryEl.classList.remove('show');
-      document.getElementById('ps-package').textContent = service;
-      return;
-    }
-
-    const discountAmt = (price * activeDiscount / 100).toFixed(0);
-    const finalPrice  = (price - discountAmt).toFixed(0);
-
-    document.getElementById('ps-package').textContent  = service;
-    document.getElementById('ps-original').textContent = '$' + price;
-    document.getElementById('ps-discount').textContent = '-$' + discountAmt + ' (' + activeDiscount + '% off)';
-    document.getElementById('ps-total').textContent    = '$' + finalPrice;
-    summaryEl.classList.add('show');
-  }
-
-  /* Update summary when service changes */
-  document.addEventListener('DOMContentLoaded', function() {
-    const sel = document.getElementById('fservice');
-    if (sel) sel.addEventListener('change', function() {
-      if (activeDiscount) updatePriceSummary();
-    });
-  });
-
-
-  /* TRIAL MODAL */
-  function openTrial() { document.getElementById('trialModal').classList.add('open'); }
-  function closeTrial() { document.getElementById('trialModal').classList.remove('open'); }
-
-  async function submitTrial() {
-    const name    = document.getElementById('tf-name').value.trim();
-    const biz     = document.getElementById('tf-biz').value.trim();
-    const type    = document.getElementById('tf-type').value;
-    const pkg     = document.getElementById('tf-package').value;
-    const contact = document.getElementById('tf-contact').value.trim();
-
-    if (!name)    { alert('Please enter your name.'); return; }
-    if (!biz)     { alert('Please enter your business name.'); return; }
-    if (!pkg)     { alert('Please select a package.'); return; }
-    if (!contact) { alert('Please enter your email or Telegram.'); return; }
-
-    const btn = document.getElementById('trialSubmit');
-    btn.disabled = true;
-    btn.textContent = 'Submitting...';
-
-    try {
-      const fd = new FormData();
-      fd.append('name', name);
-      fd.append('business', biz);
-      fd.append('type', type || 'Not specified');
-      fd.append('package', pkg);
-      fd.append('contact', contact);
-      fd.append('_subject', '7-Day Free Trial Request from ' + name + ' — ' + biz);
-      await fetch('https://formspree.io/f/mgonpgpj', {
-        method:'POST', body:fd, headers:{'Accept':'application/json'}
-      });
-    } catch(e) {}
-
-    document.getElementById('trialSubmit').style.display = 'none';
-    document.getElementById('trialSuccess').style.display = 'block';
-    btn.disabled = false;
-    btn.textContent = 'Request My Free Trial →';
-  }
-
-  /* Close modal on outside click */
-  document.getElementById('trialModal').addEventListener('click', function(e) {
-    if (e.target === this) closeTrial();
-  });
-
-
-  /* FREE TRIAL */
-  function openTrial(pkg, price) {
-    document.getElementById('tf-package').value = pkg + ' - $' + price;
-    document.getElementById('trialFormContent').style.display = 'block';
-    document.getElementById('trialSuccess').style.display = 'none';
-    document.getElementById('trialModal').classList.add('open');
-  }
-  function closeTrial() {
-    document.getElementById('trialModal').classList.remove('open');
-  }
-  async function submitTrial() {
-    const name  = document.getElementById('tf-name').value.trim();
-    const email = document.getElementById('tf-email').value.trim();
-    const phone = document.getElementById('tf-phone').value.trim();
-    const biz   = document.getElementById('tf-biz').value.trim();
-    const desc  = document.getElementById('tf-desc').value.trim();
-    const pkg   = document.getElementById('tf-package').value;
-
-    if (!name) { alert('Please enter your name.'); return; }
-    if (!email || !/\S+@\S+\.\S+/.test(email)) { alert('Please enter a valid email.'); return; }
-
-    const btn = document.getElementById('trialSubmit');
-    btn.disabled = true;
-    btn.textContent = 'Sending...';
-
-    try {
-      const fd = new FormData();
-      fd.append('name', name);
-      fd.append('email', email);
-      fd.append('phone', phone || 'Not provided');
-      fd.append('business', biz || 'Not provided');
-      fd.append('description', desc || 'Not provided');
-      fd.append('package', pkg);
-      fd.append('_subject', '7-Day Free Trial Request from ' + name + ' — ' + pkg);
-      await fetch('https://formspree.io/f/mgonpgpj', {
-        method:'POST', body:fd, headers:{'Accept':'application/json'}
-      });
-    } catch(e) {}
-
-    document.getElementById('trialFormContent').style.display = 'none';
-    document.getElementById('trialReplyEmail').textContent = email;
-    document.getElementById('trialSuccess').style.display = 'block';
-    btn.disabled = false;
-    btn.textContent = 'Request Free Trial →';
-  }
-
-
-
-
-  /* Load saved theme on page load */
-  document.addEventListener('DOMContentLoaded', function() {
-    const saved = localStorage.getItem('dinq-theme');
-    if (saved === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      const icon = document.getElementById('themeIcon');
-      const label = document.getElementById('themeLabel');
-      if (icon) icon.textContent = '☀️';
-      if (label) label.textContent = 'Light';
-    }
-  });
-
-</script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-
-
-  /* CURSOR */
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  /* ── cursor ── */
   const cur = document.getElementById('cursor');
-  document.addEventListener('mousemove', e => { cur.style.left=e.clientX+'px'; cur.style.top=e.clientY+'px'; });
-  document.querySelectorAll('a,button,.port-item,.service-card,.price-card').forEach(el => {
+  document.addEventListener('mousemove', e => { cur.style.left = e.clientX+'px'; cur.style.top = e.clientY+'px'; });
+  document.querySelectorAll('a,button,.port-item,.service-card').forEach(el => {
     el.addEventListener('mouseenter', () => cur.classList.add('hover'));
     el.addEventListener('mouseleave', () => cur.classList.remove('hover'));
   });
 
-  /* NAV SCROLL */
+  /* ── nav scroll ── */
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
   });
 
-  /* MOBILE MENU */
-  document.getElementById('navToggle').addEventListener('click', () => {
-    document.getElementById('mobileMenu').classList.add('open');
-  });
-  document.getElementById('mobileClose').addEventListener('click', closeMobile);
-  function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
-
-  /* PORTFOLIO FILTER */
+  /* ── portfolio filter ── */
   function setFilter(btn, cat) {
     document.querySelectorAll('.pf-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     document.querySelectorAll('.port-item').forEach(item => {
       const show = cat === 'all' || item.dataset.cat === cat;
-      item.style.opacity = show ? '1' : '0.15';
+      item.style.opacity = show ? '1' : '0.2';
       item.style.pointerEvents = show ? 'auto' : 'none';
-      item.style.transition = 'opacity .3s';
     });
   }
 
-  /* SCROLL TO CONTACT + PREFILL SERVICE */
-  function scrollToContact(service) {
-    document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
-    if (service) {
-      setTimeout(() => {
-        const sel = document.getElementById('fservice');
-        for (let i = 0; i < sel.options.length; i++) {
-          if (sel.options[i].text.toLowerCase().includes(service.toLowerCase().split(' ')[0])) {
-            sel.selectedIndex = i; break;
-          }
-        }
-      }, 600);
-    }
-  }
-
-  /* TOAST */
-  function showToast(icon, text) {
-    const t = document.getElementById('toast');
-    document.getElementById('toastIcon').textContent = icon;
-    document.getElementById('toastText').textContent = text;
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 4000);
-  }
-
-  /* CONTACT FORM - mailto + Formspree dual approach */
-  async function submitForm() {
-    const name    = document.getElementById('fname').value.trim();
-    const email   = document.getElementById('femail').value.trim();
-    const service = document.getElementById('fservice').value || 'Not specified';
-    const budget  = document.getElementById('fbudget').value || 'Not specified';
-    const message = document.getElementById('fmessage').value.trim();
-
-    if (!name) { alert('Please enter your name.'); return; }
-    if (!email || !/\S+@\S+\.\S+/.test(email)) { alert('Please enter a valid email address.'); return; }
-    if (!message) { alert('Please write a message.'); return; }
-
-    const btn = document.getElementById('formSubmit');
-    btn.disabled = true;
-    btn.textContent = 'Sending...';
-
-    /* Try Formspree first */
-    let sent = false;
-    try {
-      const fd = new FormData();
-      fd.append('name', name);
-      fd.append('email', email);
-      fd.append('service', service);
-      fd.append('budget', budget);
-      fd.append('message', message);
-      const res = await fetch('https://formspree.io/f/mgonpgpj', {
-        method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) sent = true;
-    } catch(e) {}
-
-    /* Always show success and open mailto as backup */
-    const subject = encodeURIComponent('New Project Inquiry from ' + name + ' - Dinq Digital');
-    const body = encodeURIComponent(
-      'Name: ' + name + '\n' +
-      'Email: ' + email + '\n' +
-      'Service: ' + service + '\n' +
-      'Budget: ' + budget + '\n\n' +
-      'Message:\n' + message
-    );
-    window.open('mailto:dinqdigital@gmail.com?subject=' + subject + '&body=' + body);
-
-    document.getElementById('formContent').style.display = 'none';
-    document.getElementById('replyEmail').textContent = email;
-    document.getElementById('formSuccess').style.display = 'block';
-
-    btn.disabled = false;
-    btn.textContent = 'Send Message';
-  }
-
-  /* CHATBOT */
+  /* ── chatbot demo ── */
   const botReplies = {
-    'what services do you offer?': 'We specialize in **Web Design** and **SaaS Development**. We also offer AI bots, mobile apps, branding, and game design. What are you looking to build? 🚀',
-    'how much does a website cost?': 'Websites start from **$499** (Starter), **$1,499** (Growth), or custom pricing for enterprise. Want me to help find the right plan?',
-    'i want to start a project': 'Amazing! 🎉 Fill out the contact form on this page or reach us at **dinqdigital@gmail.com** or Telegram **@dinqdigital**.',
-    'do you build in amharic?': 'Absolutely! ✅ We build fully bilingual sites in Amharic and English, with Telebirr and CBE Birr payment integration.',
+    'what services do you offer?': 'We specialize in **Web Design** and **SaaS Development** as our core services. We also offer AI bots, mobile apps, branding, and game design. What are you looking to build? 🚀',
+    'how much does a website cost?': 'Our websites start from **$499** for a Starter site, **$1,499** for a Growth package, and custom pricing for enterprise projects. Want me to help you find the right plan?',
+    'i want to start a project': 'Amazing! 🎉 We\'d love to work with you. You can reach us at **hello@dinqdigital.com** or on Telegram **@dinqdigital**. Tell us what you\'re building!',
+    'do you build in amharic?': 'Absolutely! ✅ We build fully bilingual websites in both Amharic (አማርኛ) and English. We also integrate local payment methods like Telebirr and CBE Birr.',
   };
 
   function sendMsg(text) {
@@ -1924,11 +1130,27 @@
     const msg = text || input.value.trim();
     if (!msg) return;
     input.value = '';
+
     const body = document.getElementById('chatBody');
+
+    // user message
     const userDiv = document.createElement('div');
     userDiv.className = 'msg msg-user';
     userDiv.innerHTML = `<div class="msg-bubble">${msg}</div><div class="msg-time">You</div>`;
     body.appendChild(userDiv);
+
+    // typing
     const typingDiv = document.createElement('div');
     typingDiv.className = 'msg msg-bot';
-    typingDiv.innerHTML = '<div class="typing"><span></span><span></span><span></span></div
+    typingDiv.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
+    body.appendChild(typingDiv);
+    body.scrollTop = body.scrollHeight;
+
+    setTimeout(() => {
+      typingDiv.remove();
+      const key = msg.toLowerCase().replace(/[^a-z\s?]/g,'').trim();
+      let reply = botReplies[key] || 'Great question! For detailed answers, reach out to us at **hello@dinqdigital.com** or via Telegram. We\'re happy to help you build something ድንቅ! 🌟';
+      // bold formatting
+      reply = reply.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      const botDiv = document.createElement('div');
+      botDi
