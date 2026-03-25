@@ -64,10 +64,12 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 #curt{width:28px;height:28px;border:1px solid rgba(201,168,76,.12);border-radius:50%;position:fixed;pointer-events:none;z-index:9996;transform:translate(-50%,-50%);transition:left .15s ease-out,top .15s ease-out}
 
 /* ── REVEAL ── */
-.rv{opacity:0;transform:translateY(24px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1)}
-.rvl{opacity:0;transform:translateX(-30px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1)}
-.rvr{opacity:0;transform:translateX(30px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1)}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
+.rvl{opacity:0;transform:translateX(-24px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
+.rvr{opacity:0;transform:translateX(24px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
 .rv.in,.rvl.in,.rvr.in{opacity:1;transform:none}
+/* If JS hasn't run, show everything */
+@media(prefers-reduced-motion:reduce){.rv,.rvl,.rvr{opacity:1;transform:none}}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
 
 /* ── NAV ── */
@@ -157,7 +159,7 @@ section{padding:9rem 3rem}
 .sd{font-size:.95rem;color:var(--t2);font-weight:300;line-height:1.82;max-width:480px}
 
 /* ── VISION ── */
-#vision{background:var(--void);padding:10rem 3rem;position:relative;overflow:hidden}
+#vision{background:var(--void);padding:10rem 3rem;position:relative;overflow:hidden;z-index:1}
 .vis-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:3fr 2fr;gap:9rem;align-items:start}
 .vis-quote{font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3vw,2.6rem);font-weight:400;line-height:1.3;color:var(--t1);padding-left:2rem;position:relative}
 .vis-quote::before{content:'';position:absolute;left:0;top:.2rem;bottom:.2rem;width:2px;background:linear-gradient(to bottom,var(--gold),rgba(196,163,90,.1))}
@@ -228,9 +230,9 @@ section{padding:9rem 3rem}
 .sc-scroll{height:380vh;position:relative}
 .sc-stick{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .sc-bg{position:absolute;inset:0;transition:background 1.4s cubic-bezier(.16,1,.3,1)}
-.sc-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.02) 1px,transparent 1px);background-size:80px 80px}
+.sc-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(196,163,90,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(196,163,90,.025) 1px,transparent 1px);background-size:80px 80px}
 .sc-top{position:absolute;top:3rem;left:50%;transform:translateX(-50%);z-index:20;text-align:center;pointer-events:none}
-.sc-top-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);font-weight:400}
+.sc-top-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(194,170,143,.5);font-weight:400}
 .sc-top-h{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,2.5vw,2.4rem);font-weight:700;margin-top:.6rem;line-height:1.05}
 .sc-label{position:absolute;left:3.5rem;bottom:3.5rem;z-index:20;max-width:280px}
 .sc-lnum{font-size:.68rem;color:var(--t4);letter-spacing:.14em;margin-bottom:.5rem;transition:all .4s}
@@ -240,10 +242,10 @@ section{padding:9rem 3rem}
 .sc-la:hover{border-color:var(--gold)}
 /* progress dots */
 .sc-dots{position:absolute;right:3rem;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:.75rem;z-index:20}
-.scd{width:5px;height:5px;border-radius:50%;background:var(--t4);cursor:pointer;transition:all .35s}
-.scd.on{width:6px;height:6px;background:var(--gold);box-shadow:0 0 8px rgba(201,168,76,.4)}
+.scd{width:6px;height:6px;border-radius:50%;background:rgba(194,170,143,.2);cursor:pointer;transition:all .35s}
+.scd.on{width:8px;height:8px;background:var(--gold);box-shadow:0 0 12px rgba(196,163,90,.5)}
 /* card stack */
-.sc-stack{position:relative;width:min(660px,86vw);height:min(420px,52vw);perspective:1400px;transform-style:preserve-3d}
+.sc-stack{position:relative;width:min(680px,88vw);height:min(430px,54vw);perspective:1200px;transform-style:preserve-3d;will-change:transform}
 .sc-card{position:absolute;inset:0;border-radius:18px;overflow:hidden;backface-visibility:hidden;transform-style:preserve-3d;cursor:pointer;transition:transform 1.2s cubic-bezier(.16,1,.3,1),opacity 1.2s cubic-bezier(.16,1,.3,1),box-shadow 1.2s cubic-bezier(.16,1,.3,1);will-change:transform,opacity}
 .sc-ci{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:2.25rem}
 .sc-cb{display:flex;align-items:center;justify-content:space-between}
@@ -289,7 +291,7 @@ section{padding:9rem 3rem}
 .mkc{background:rgba(255,255,255,.06);border-radius:3px;height:16px}
 
 /* ── PAYMENTS ── */
-#payments{background:var(--void);padding:9rem 0 9rem}
+#payments{background:var(--void);padding:9rem 0}
 .pay-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center}
 .pay-methods{display:flex;flex-direction:column;gap:0;margin-top:2rem}
 .pm{display:flex;align-items:center;gap:1.1rem;padding:1.25rem 0;border-bottom:1px solid var(--edge);transition:all .22s;cursor:default;position:relative}
@@ -385,7 +387,7 @@ section{padding:9rem 3rem}
 .csnd:hover{background:var(--gold-l)}
 
 /* ── CTA ── */
-#cta{background:var(--void);padding:10rem 3rem;position:relative;overflow:hidden;text-align:center}
+#cta{background:var(--void);padding:12rem 3rem 14rem;position:relative;overflow:hidden;text-align:center;min-height:100vh;display:flex;align-items:center;justify-content:center}
 .cta-atm{position:absolute;inset:0;background:radial-gradient(ellipse 60% 55% at 50% 55%,rgba(46,74,43,.32),transparent 65%),radial-gradient(ellipse 35% 30% at 75% 25%,rgba(122,75,46,.1),transparent 60%);pointer-events:none}
 #ctac{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
 .cta-in{position:relative;z-index:2;max-width:640px;margin:0 auto}
@@ -983,8 +985,8 @@ payEl.addEventListener('scroll',()=>{
 <!-- 10. CTA -->
 <section id="cta">
   <div class="cta-atm"></div>
-  <canvas id="ctac"></canvas>
-  <div class="cta-in rv">
+  <canvas id="ctac" style="position:absolute;inset:0;width:100%;height:100%;opacity:.75"></canvas>
+  <div class="cta-in rv" style="position:relative;z-index:2">
     <div class="cta-pre">Build your system</div>
     <h2 class="cta-h">Build your system.<br><em style="font-style:italic;color:var(--gold)">Grow without limits.</em></h2>
     <p class="cta-s">From ET to everywhere, we help you build, run, and scale your business the right way.</p>
@@ -1032,30 +1034,79 @@ const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('s',scrollY>60));
 
 /* ── SCROLL REVEAL ── */
-const ro=new IntersectionObserver(e=>e.forEach(n=>{if(n.isIntersecting){n.target.classList.add('in');ro.unobserve(n.target)}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+const ro=new IntersectionObserver(e=>e.forEach(n=>{if(n.isIntersecting){n.target.classList.add('in');ro.unobserve(n.target)}}),{threshold:0,rootMargin:'0px 0px 0px 0px'});
 document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>ro.observe(el));
+/* Fallback: if file:// or slow load, force all visible after 400ms */
+setTimeout(()=>document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>el.classList.add('in')),400);
+/* Also trigger on first scroll */
+window.addEventListener('scroll',function onFirstScroll(){
+  document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>el.classList.add('in'));
+  window.removeEventListener('scroll',onFirstScroll);
+},{once:true});
 
 /* ── COUNTERS ── */
 function animCnt(el){
   const t=+el.dataset.t,dur=2000;let c=0;const s=t/(dur/16);
   const ti=setInterval(()=>{c=Math.min(c+s,t);el.textContent=Math.floor(c)+(t===98?'%':'+');if(c>=t)clearInterval(ti)},16);
 }
-const co=new IntersectionObserver(e=>e.forEach(n=>{if(n.isIntersecting){animCnt(n.target);co.unobserve(n.target)}}),{threshold:.5});
+const co=new IntersectionObserver(e=>e.forEach(n=>{if(n.isIntersecting){animCnt(n.target);co.unobserve(n.target)}}),{threshold:0});
 document.querySelectorAll('.count').forEach(el=>co.observe(el));
+/* Fallback: run counters after 600ms regardless */
+setTimeout(()=>document.querySelectorAll('.count').forEach(el=>{if(el.textContent==='0')animCnt(el)}),600);
 
 /* ── STACKED CARDS ── */
 (function(){
   const CARDS=[
-    {title:'DinqOS Platform',tag:'Business OS',tagBg:'rgba(196,163,90,.18)',tagC:'#C9A84C',desc:'The complete 42-module business operating system — everything you need to run, manage, and scale your business from one place.',pills:['CRM','Invoicing','Kanban','AI','Payments'],bg:'linear-gradient(135deg,#0A1209,#060D06)',glow:'rgba(10,61,32,.5)',accent:'#C9A84C',link:'https://app.dinqdigital.com/login'},
-    {title:'Digital Products',tag:'Web + SaaS',tagBg:'rgba(122,148,120,.2)',tagC:'#9AAF95',desc:'High-performance websites and SaaS platforms built to convert visitors into customers — from landing pages to full-scale systems.',pills:['Websites','E-commerce','SaaS','APIs'],bg:'linear-gradient(135deg,#0E1209,#0A0F08)',glow:'rgba(37,99,235,.3)',accent:'#9AAF95',link:'#cta'},
-    {title:'AI Bots & Automation',tag:'AI',tagBg:'rgba(232,201,122,.15)',tagC:'#E8C97A',desc:'Automate your business with AI — respond to customers, handle support, and run workflows 24/7 without manual effort.',pills:['WhatsApp','Auto-reply','Claude AI','Workflows'],bg:'linear-gradient(135deg,#13100A,#0D0C07)',glow:'rgba(201,168,76,.25)',accent:'#E8C97A',link:'#ai'},
-    {title:'Brand & UI Design',tag:'Design',tagBg:'rgba(194,170,143,.15)',tagC:'#C2AA8F',desc:'Build a brand that stands out instantly — clean visuals, strong identity, and user experiences designed to earn trust and drive action.',pills:['Brand identity','UI systems','Motion','Assets'],bg:'linear-gradient(135deg,#100D08,#0B0906)',glow:'rgba(219,39,119,.25)',accent:'#C2AA8F',link:'#cta'},
+    {
+      title:'DinqOS Platform',tag:'Business OS',
+      tagBg:'rgba(196,163,90,.2)',tagC:'#C4A35A',
+      desc:'The complete 42-module business operating system — everything you need to run, manage, and scale your business from one place.',
+      pills:['CRM','Invoicing','Kanban','AI','Payments'],
+      bg:'linear-gradient(135deg,#0F2614 0%,#0A1C0E 50%,#071209 100%)',
+      glow:'rgba(46,74,43,.6)',
+      accent:'#C4A35A',
+      link:'https://app.dinqdigital.com/login'
+    },
+    {
+      title:'Digital Products',tag:'Web + SaaS',
+      tagBg:'rgba(122,164,118,.18)',tagC:'#8FAF8A',
+      desc:'High-performance websites and SaaS platforms built to convert visitors into customers — from landing pages to full-scale systems.',
+      pills:['Websites','E-commerce','SaaS','APIs'],
+      bg:'linear-gradient(135deg,#1A2410 0%,#121A0C 50%,#0C1208 100%)',
+      glow:'rgba(61,96,56,.5)',
+      accent:'#8FAF8A',
+      link:'#cta'
+    },
+    {
+      title:'AI Bots & Automation',tag:'AI',
+      tagBg:'rgba(196,163,90,.18)',tagC:'#DFBE7A',
+      desc:'Automate your business with AI — respond to customers, handle support, and run workflows 24/7 without manual effort.',
+      pills:['WhatsApp','Auto-reply','Claude AI','Workflows'],
+      bg:'linear-gradient(135deg,#221A08 0%,#1A1306 50%,#120E05 100%)',
+      glow:'rgba(196,163,90,.35)',
+      accent:'#DFBE7A',
+      link:'#ai'
+    },
+    {
+      title:'Brand & UI Design',tag:'Design',
+      tagBg:'rgba(194,170,143,.18)',tagC:'#C2AA8F',
+      desc:'Build a brand that stands out instantly — clean visuals, strong identity, and user experiences designed to earn trust and drive action.',
+      pills:['Brand identity','UI systems','Motion','Assets'],
+      bg:'linear-gradient(135deg,#1F1610 0%,#17110C 50%,#100C08 100%)',
+      glow:'rgba(122,75,46,.45)',
+      accent:'#C2AA8F',
+      link:'#cta'
+    },
   ];
   const BGS=[
-    'radial-gradient(ellipse 75% 55% at 50% 50%,rgba(46,74,43,.42),transparent 68%)',
-    'radial-gradient(ellipse 75% 55% at 50% 50%,rgba(35,55,32,.38),transparent 68%)',
-    'radial-gradient(ellipse 75% 55% at 50% 50%,rgba(196,163,90,.2),transparent 68%)',
-    'radial-gradient(ellipse 75% 55% at 50% 50%,rgba(122,75,46,.22),transparent 68%)',
+    /* DinqOS — deep forest green */
+    'radial-gradient(ellipse 80% 60% at 50% 55%,rgba(46,74,43,.5),transparent 65%)',
+    /* Digital Products — sage olive */
+    'radial-gradient(ellipse 80% 60% at 50% 55%,rgba(61,96,56,.42),transparent 65%)',
+    /* AI — warm amber */
+    'radial-gradient(ellipse 80% 60% at 50% 55%,rgba(138,107,46,.38),transparent 65%)',
+    /* Brand — terracotta clay */
+    'radial-gradient(ellipse 80% 60% at 50% 55%,rgba(122,75,46,.4),transparent 65%)',
   ];
 
   let cur=0;
@@ -1074,8 +1125,8 @@ document.querySelectorAll('.count').forEach(el=>co.observe(el));
     el.dataset.i=i;
     el.innerHTML=`
       <div style="position:absolute;inset:0;background:${c.bg}"></div>
-      <div style="position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 25% 35%,${c.glow},transparent 65%)"></div>
-      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 45%,rgba(0,0,0,.55) 100%)"></div>
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse 75% 65% at 25% 35%,${c.glow},transparent 60%)"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,.65) 100%)"></div>
       <div class="sc-ci">
         <div class="sc-cb">
           <div class="sc-dots2"><div class="sc-dot" style="background:#FF5F57"></div><div class="sc-dot" style="background:#FEBC2E"></div><div class="sc-dot" style="background:#28C840"></div></div>
@@ -1167,34 +1218,321 @@ document.querySelectorAll('.count').forEach(el=>co.observe(el));
   elTit.style.transition='none';elSub.style.transition='none';
 })();
 
-/* ── CTA GLOBE ── */
+/* ── CTA GLOBE — Futuristic 3D Particle Sphere ── */
 (()=>{
-  const c=document.getElementById('ctac');if(!c)return;
-  const ctx=c.getContext('2d');let W,H,pts=[],rot=0;
-  function resize(){
-    W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;pts=[];
-    const R=Math.min(W,H)*.36;
-    for(let lat=-80;lat<=80;lat+=14){const lr=lat*Math.PI/180,cr=Math.cos(lr)*R,steps=Math.max(6,Math.floor(cr*.2));for(let i=0;i<steps;i++){const lng=(i/steps)*2*Math.PI;pts.push({lat:lr,lng,s:.5+Math.random()*.7,o:.25+Math.abs(Math.sin(lr))*.2,type:'g'})}}
-    for(let lng=0;lng<360;lng+=24){const lr=lng*Math.PI/180;for(let lat=-88;lat<=88;lat+=7)pts.push({lat:lat*Math.PI/180,lng:lr,s:.4,o:.15,type:'g'})}
-    for(let i=0;i<250;i++)pts.push({lat:Math.asin(2*Math.random()-1),lng:Math.random()*Math.PI*2,s:Math.random()*.9+.25,o:.12+Math.random()*.4,type:'s'});
+  const c = document.getElementById('ctac');
+  if(!c) return;
+  const ctx = c.getContext('2d');
+
+  let W, H, R;
+  let rotY = 0;       // Y-axis rotation (main spin)
+  let rotX = 0.12;    // slight tilt — feels 3D
+  let mouseX = 0, mouseY = 0;
+  let targetRotX = 0.12, targetRotY = 0;
+
+  // ── Sphere surface points ──
+  const SURFACE = [];
+  // Latitude/longitude grid — dense
+  for(let lat = -85; lat <= 85; lat += 7) {
+    const lr = lat * Math.PI / 180;
+    const cr = Math.cos(lr);
+    const steps = Math.max(6, Math.floor(cr * 38));
+    for(let i = 0; i < steps; i++) {
+      const lng = (i / steps) * 2 * Math.PI;
+      SURFACE.push({
+        lat: lr, lng,
+        baseSize: 0.55 + Math.random() * 0.6,
+        brightness: 0.4 + Math.random() * 0.4,
+        pulse: Math.random() * Math.PI * 2,
+        pulseSpeed: 0.008 + Math.random() * 0.012,
+        type: 'grid'
+      });
+    }
   }
-  resize();window.addEventListener('resize',resize);
-  function draw(){
-    ctx.clearRect(0,0,W,H);rot+=.003;
-    const R=Math.min(W,H)*.36,cx=W/2,cy=H/2;
-    const rendered=pts.map(p=>{
-      const lr=p.lng+rot;
-      const x3=Math.cos(p.lat)*Math.sin(lr),y3=Math.sin(p.lat),z3=Math.cos(p.lat)*Math.cos(lr);
-      return{sx:cx+x3*R,sy:cy-y3*R,z3,d:(z3+1)/2,s:p.s,o:p.o};
-    }).sort((a,b)=>a.z3-b.z3);
-    rendered.forEach(p=>{
-      if(p.z3<-.05)return;
-      const op=p.o*p.d*(p.z3>0?1:.25);if(op<.02)return;
-      ctx.beginPath();ctx.arc(p.sx,p.sy,p.s*p.d,0,Math.PI*2);
-      ctx.fillStyle=`rgba(255,255,255,${Math.min(op,.7)})`;ctx.fill();
+  // Random scattered stars on surface
+  for(let i = 0; i < 500; i++) {
+    const lat = Math.asin(2 * Math.random() - 1);
+    const lng = Math.random() * 2 * Math.PI;
+    SURFACE.push({
+      lat, lng,
+      baseSize: 0.3 + Math.random() * 1.1,
+      brightness: 0.15 + Math.random() * 0.6,
+      pulse: Math.random() * Math.PI * 2,
+      pulseSpeed: 0.005 + Math.random() * 0.02,
+      type: 'star'
     });
+  }
+  // Bright accent nodes — like cities on a globe
+  for(let i = 0; i < 18; i++) {
+    const lat = (Math.random() - 0.5) * Math.PI * 0.8;
+    const lng = Math.random() * 2 * Math.PI;
+    SURFACE.push({
+      lat, lng,
+      baseSize: 1.8 + Math.random() * 1.2,
+      brightness: 0.9,
+      pulse: Math.random() * Math.PI * 2,
+      pulseSpeed: 0.02 + Math.random() * 0.03,
+      type: 'node'
+    });
+  }
+
+  // ── Orbital rings — satellites ──
+  const ORBITS = [
+    // { tilt (radians), speed, radius-factor, count, color, size }
+    { tilt: 0.3,  speed: 0.004,  rf: 1.18, count: 28, color: [242,237,228], size: 1.2 },
+    { tilt: -0.6, speed: -0.006, rf: 1.28, count: 20, color: [196,163,90],  size: 1.5 },
+    { tilt: 1.1,  speed: 0.003,  rf: 1.38, count: 16, color: [122,164,118], size: 1.1 },
+    { tilt: -1.4, speed: -0.005, rf: 1.22, count: 12, color: [194,170,143], size: 1.3 },
+  ];
+  // Each orbit particle has a phase
+  const orbitPts = ORBITS.map(o =>
+    Array.from({ length: o.count }, (_, i) => ({
+      phase: (i / o.count) * 2 * Math.PI,
+      orbitAngle: 0,
+    }))
+  );
+
+  // ── Floating particles — random field ──
+  const FLOATERS = Array.from({ length: 60 }, () => ({
+    x: 0, y: 0, // calculated per frame
+    lng: Math.random() * 2 * Math.PI,
+    lat: (Math.random() - 0.5) * Math.PI,
+    dist: 1.55 + Math.random() * 0.8,
+    size: 0.4 + Math.random() * 0.8,
+    alpha: 0.1 + Math.random() * 0.2,
+    speed: (Math.random() - 0.5) * 0.001,
+  }));
+
+  let t = 0;
+
+  function resize() {
+    W = c.width = c.offsetWidth;
+    H = c.height = c.offsetHeight;
+    R = Math.min(W, H) * 0.36;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Mouse parallax — subtle tilt
+  const cta = document.getElementById('cta');
+  if(cta) {
+    cta.addEventListener('mousemove', e => {
+      const rect = cta.getBoundingClientRect();
+      mouseX = (e.clientX - rect.left) / rect.width - 0.5;
+      mouseY = (e.clientY - rect.top)  / rect.height - 0.5;
+      targetRotX = 0.12 + mouseY * 0.15;
+      targetRotY = mouseX * 0.2;
+    });
+    cta.addEventListener('mouseleave', () => {
+      targetRotX = 0.12;
+      targetRotY = 0;
+    });
+  }
+
+  // ── 3D rotation helpers ──
+  function rotateY(x, z, a) {
+    return { x: x * Math.cos(a) - z * Math.sin(a), z: x * Math.sin(a) + z * Math.cos(a) };
+  }
+  function rotateX(y, z, a) {
+    return { y: y * Math.cos(a) - z * Math.sin(a), z: y * Math.sin(a) + z * Math.cos(a) };
+  }
+  function project(px, py, pz) {
+    // perspective-like projection
+    const fov = 900;
+    const scale = fov / (fov + pz * 0.1);
+    return {
+      sx: W/2 + px * scale,
+      sy: H/2 - py * scale,
+      depth: pz,
+      scale
+    };
+  }
+
+  function sphereToCart(lat, lng, r) {
+    return {
+      x: r * Math.cos(lat) * Math.sin(lng),
+      y: r * Math.sin(lat),
+      z: r * Math.cos(lat) * Math.cos(lng)
+    };
+  }
+
+  function applyRotation(x, y, z) {
+    // Y rotation
+    let ry = rotateY(x, z, rotY);
+    x = ry.x; z = ry.z;
+    // X tilt
+    let rx = rotateX(y, z, rotX);
+    y = rx.y; z = rx.z;
+    return { x, y, z };
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    t += 0.016;
+
+    // Smooth camera
+    rotY += 0.003 + (targetRotY - rotY) * 0.04;
+    rotX += (targetRotX - rotX) * 0.04;
+
+    const cx = W / 2, cy = H / 2;
+
+    // ── 1. DEEP GLOW BEHIND SPHERE ──
+    const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, R * 1.4);
+    grd.addColorStop(0, 'rgba(46,74,43,.12)');
+    grd.addColorStop(0.5, 'rgba(30,50,28,.06)');
+    grd.addColorStop(1, 'transparent');
+    ctx.fillStyle = grd;
+    ctx.fillRect(0, 0, W, H);
+
+    // ── 2. SPHERE SURFACE POINTS ──
+    const rendered = [];
+    for(const p of SURFACE) {
+      const lngR = p.lng + rotY;
+      const latR = p.lat;
+      // Convert to cartesian after rotation
+      const raw = sphereToCart(latR, lngR, R);
+      const rot = applyRotation(raw.x, raw.y, raw.z - R * Math.cos(latR) * Math.cos(lngR) + R * Math.cos(latR) * Math.cos(lngR));
+
+      // Simpler: just rotate the lng
+      const x3 = R * Math.cos(latR) * Math.sin(lngR + rotY * 0 ); // already in lngR
+      const y3 = R * Math.sin(latR);
+      const z3_raw = R * Math.cos(latR) * Math.cos(lngR);
+
+      // Apply Y rotation
+      const cosRY = Math.cos(rotY), sinRY = Math.sin(rotY);
+      let rx = x3 * cosRY - z3_raw * sinRY;
+      let rz = x3 * sinRY + z3_raw * cosRY;
+
+      // Apply X rotation
+      const cosRX = Math.cos(rotX), sinRX = Math.sin(rotX);
+      let ry2 = y3 * cosRX - rz * sinRX;
+      let rz2 = y3 * sinRX + rz * cosRX;
+
+      const sx = cx + rx;
+      const sy = cy - ry2;
+      const depth = rz2; // positive = front
+
+      // Skip back hemisphere mostly (gives solid sphere look)
+      if(depth < -R * 0.05) continue;
+
+      // Depth-based opacity
+      const depthNorm = (depth + R) / (2 * R); // 0=back, 1=front
+      const pulsed = 0.7 + 0.3 * Math.sin(t * p.pulseSpeed * 60 + p.pulse);
+      let alpha, size;
+
+      if(p.type === 'node') {
+        alpha = p.brightness * Math.max(0.3, depthNorm) * pulsed;
+        size  = p.baseSize * (0.7 + depthNorm * 0.6) * pulsed;
+      } else if(p.type === 'star') {
+        alpha = p.brightness * depthNorm * pulsed * 0.85;
+        size  = p.baseSize * depthNorm;
+      } else {
+        alpha = p.brightness * Math.pow(depthNorm, 0.7) * 0.75;
+        size  = p.baseSize * (0.5 + depthNorm * 0.7);
+      }
+
+      if(alpha < 0.02 || size < 0.1) continue;
+      rendered.push({ sx, sy, size, alpha, depth, type: p.type });
+    }
+
+    // Sort back to front
+    rendered.sort((a, b) => a.depth - b.depth);
+
+    for(const p of rendered) {
+      ctx.beginPath();
+      if(p.type === 'node') {
+        // Bright node with glow halo
+        const halo = ctx.createRadialGradient(p.sx, p.sy, 0, p.sx, p.sy, p.size * 4);
+        halo.addColorStop(0, `rgba(196,163,90,${p.alpha * 0.9})`);
+        halo.addColorStop(0.4, `rgba(196,163,90,${p.alpha * 0.25})`);
+        halo.addColorStop(1, 'transparent');
+        ctx.fillStyle = halo;
+        ctx.fillRect(p.sx - p.size*4, p.sy - p.size*4, p.size*8, p.size*8);
+        // Core dot
+        ctx.beginPath();
+        ctx.arc(p.sx, p.sy, p.size, 0, Math.PI*2);
+        ctx.fillStyle = `rgba(242,237,228,${p.alpha})`;
+        ctx.fill();
+      } else {
+        ctx.arc(p.sx, p.sy, Math.max(0.3, p.size), 0, Math.PI*2);
+        ctx.fillStyle = `rgba(242,237,228,${Math.min(p.alpha, 0.82)})`;
+        ctx.fill();
+      }
+    }
+
+    // ── 3. ORBITAL RINGS ──
+    ORBITS.forEach((orb, oi) => {
+      orbitPts[oi].forEach(op => {
+        op.phase += orb.speed;
+        const angle = op.phase;
+        const orbR = R * orb.rf;
+
+        // Orbit position in orbit plane
+        let ox = orbR * Math.cos(angle);
+        let oy = 0;
+        let oz = orbR * Math.sin(angle);
+
+        // Tilt the orbital plane
+        const cosT = Math.cos(orb.tilt), sinT = Math.sin(orb.tilt);
+        let ty = oy * cosT - oz * sinT;
+        let tz = oy * sinT + oz * cosT;
+        oy = ty; oz = tz;
+
+        // Apply globe rotation
+        const cosRY = Math.cos(rotY), sinRY = Math.sin(rotY);
+        let rx2 = ox * cosRY - oz * sinRY;
+        let rz3 = ox * sinRY + oz * cosRY;
+
+        const cosRX = Math.cos(rotX), sinRX = Math.sin(rotX);
+        let ry3 = oy * cosRX - rz3 * sinRX;
+        let rz4 = oy * sinRX + rz3 * cosRX;
+
+        const sx2 = cx + rx2;
+        const sy2 = cy - ry3;
+        const depth2 = rz4;
+
+        // Depth-based opacity for orbital particles
+        const dNorm = (depth2 + orbR) / (2 * orbR);
+        const [r,g,b] = orb.color;
+        const alpha2 = dNorm * 0.75;
+
+        if(alpha2 < 0.05) return;
+
+        // Glow
+        const grd2 = ctx.createRadialGradient(sx2, sy2, 0, sx2, sy2, orb.size * 3);
+        grd2.addColorStop(0, `rgba(${r},${g},${b},${alpha2 * 0.9})`);
+        grd2.addColorStop(1, 'transparent');
+        ctx.fillStyle = grd2;
+        ctx.fillRect(sx2 - orb.size*3, sy2 - orb.size*3, orb.size*6, orb.size*6);
+
+        ctx.beginPath();
+        ctx.arc(sx2, sy2, orb.size * (0.5 + dNorm * 0.7), 0, Math.PI*2);
+        ctx.fillStyle = `rgba(${r},${g},${b},${alpha2})`;
+        ctx.fill();
+      });
+    });
+
+    // ── 4. EQUATOR RING GLOW (subtle) ──
+    const eqGrd = ctx.createRadialGradient(cx, cy, R * 0.95, cx, cy, R * 1.05);
+    eqGrd.addColorStop(0, 'rgba(196,163,90,.03)');
+    eqGrd.addColorStop(0.5,'rgba(196,163,90,.06)');
+    eqGrd.addColorStop(1, 'transparent');
+    ctx.fillStyle = eqGrd;
+    ctx.fillRect(0, 0, W, H);
+
+    // ── 5. ATMOSPHERE LIMB GLOW ──
+    const limb = ctx.createRadialGradient(cx, cy, R * 0.88, cx, cy, R * 1.12);
+    limb.addColorStop(0, 'transparent');
+    limb.addColorStop(0.6, 'rgba(46,74,43,.04)');
+    limb.addColorStop(1, 'rgba(46,74,43,.08)');
+    ctx.fillStyle = limb;
+    ctx.beginPath();
+    ctx.arc(cx, cy, R * 1.12, 0, Math.PI*2);
+    ctx.fill();
+
     requestAnimationFrame(draw);
   }
+
   draw();
 })();
 
