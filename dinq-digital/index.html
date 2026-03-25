@@ -994,14 +994,16 @@ payEl.addEventListener('scroll',()=>{
 </section>
 
 <!-- 10. CTA -->
-<section id="cta" style="background:#080808;padding:8rem 2rem;position:relative;overflow:hidden;text-align:center;min-height:100vh;display:flex;align-items:center;justify-content:center">
-  <div class="cta-atm" style="position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(8,8,8,.15),rgba(8,8,8,.55) 100%);pointer-events:none"></div>
+<section id="cta" style="background:#080808;padding:8rem 2rem;position:relative;overflow:hidden;text-align:center;min-height:100vh;display:flex;align-items:center;justify-content:center;isolation:isolate">
+  <div class="cta-atm" style="position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(8,8,8,.1),rgba(8,8,8,.5) 100%);pointer-events:none"></div>
   <video
     autoplay
     muted
     loop
     playsinline
-    style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;pointer-events:none;opacity:.65;z-index:0"
+    onerror="this.style.display='none'"
+    oncanplay="this.style.opacity='.7'"
+    style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;pointer-events:none;opacity:.7;z-index:0"
   >
     <source src="/cta_sphere_loop_v4.mp4" type="video/mp4">
   </video>
@@ -1115,6 +1117,17 @@ const co=new IntersectionObserver(e=>e.forEach(n=>{if(n.isIntersecting){animCnt(
 document.querySelectorAll('.count').forEach(el=>co.observe(el));
 /* Fallback: run counters after 600ms regardless */
 setTimeout(()=>document.querySelectorAll('.count').forEach(el=>{if(el.textContent==='0')animCnt(el)}),600);
+
+/* ── VIDEO AUTOPLAY FORCE ── */
+(function(){
+  var v = document.querySelector('#cta video');
+  if (!v) return;
+  v.play().catch(function(){
+    // autoplay blocked — try on first user interaction
+    document.addEventListener('touchstart', function() { v.play(); }, { once: true });
+    document.addEventListener('click', function() { v.play(); }, { once: true });
+  });
+})();
 
 /* ── DINQ BOT — Routed through app.dinqdigital.com/api/ai ── */
 let chatHist=[];
