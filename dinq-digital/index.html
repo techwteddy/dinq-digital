@@ -994,11 +994,9 @@ payEl.addEventListener('scroll',()=>{
 </section>
 
 <!-- 10. CTA -->
-<section id="cta" style="background:#080808;padding:8rem 2rem;position:relative;overflow:visible;text-align:center;min-height:100vh;display:flex;align-items:center;justify-content:center;isolation:isolate">
+<section id="cta" style="background:#080808;padding:8rem 2rem;position:relative;overflow:hidden;text-align:center;min-height:100vh;display:flex;align-items:center;justify-content:center">
   <div class="cta-atm" style="position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(8,8,8,.1),rgba(8,8,8,.5) 100%);pointer-events:none"></div>
-  <video autoplay muted loop playsinline style="position:absolute;top:18%;left:50%;transform:translate(-50%,-50%);width:min(680px,88vw);height:auto;pointer-events:none;opacity:.78;z-index:0">
-    <source src="https://pub-698683405d704ff9ab8cfcfab228bd65.r2.dev/cta_sphere_loop_v4.mp4" type="video/mp4">
-  </video>
+  <canvas id="ctac" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0"></canvas>
 
   <!-- Decorative Amharic background letters -->
   <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:1;overflow:hidden">
@@ -1110,11 +1108,117 @@ document.querySelectorAll('.count').forEach(el=>co.observe(el));
 /* Fallback: run counters after 600ms regardless */
 setTimeout(()=>document.querySelectorAll('.count').forEach(el=>{if(el.textContent==='0')animCnt(el)}),600);
 
-/* ── VIDEO PLAY ── */
-document.addEventListener('DOMContentLoaded',function(){
-  var v=document.querySelector('#cta video');
-  if(v){v.muted=true;v.play().catch(function(){});}
-});
+/* ── CTA SPHERE — Three.js ── */
+(function(){
+  var s = document.createElement('script');
+  s.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js';
+  s.onload = function(){
+    var canvas = document.getElementById('ctac');
+    var sect   = document.getElementById('cta');
+    if(!canvas || !sect) return;
+
+    var W = sect.offsetWidth;
+    var H = sect.offsetHeight;
+
+    // Scene
+    var scene  = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(75, W/H, 0.1, 1000);
+    camera.position.z = 2.8;
+
+    // Renderer — alpha:true = transparent background
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+    renderer.setSize(W, H);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x000000, 0); // fully transparent
+
+    // 9000 particles on sphere surface
+    var geo = new THREE.BufferGeometry();
+    var pos = [];
+    for(var i = 0; i < 9000; i++){
+      var u = Math.random(), v = Math.random();
+      var theta = 2 * Math.PI * u;
+      var phi   = Math.acos(2 * v - 1);
+      var r     = 1.2 + (Math.random() - 0.5) * 0.05;
+      pos.push(
+        r * Math.sin(phi) * Math.cos(theta),
+        r * Math.sin(phi) * Math.sin(theta),
+        r * Math.cos(phi)
+      );
+    }
+    geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+    var sphere = new THREE.Points(geo, new THREE.PointsMaterial({
+      color: 0xffffff, size: 0.008,
+      transparent: true, opacity: 0.75,
+      depthWrite: false, blending: THREE.AdditiveBlending
+    }));
+    scene.add(sphere);
+
+    // Gold orbital ring
+    var rGeo = new THREE.BufferGeometry();
+    var rPos = [];
+    for(var j = 0; j < 300; j++){
+      var a = (j/300) * Math.PI * 2;
+      rPos.push(1.45 * Math.cos(a), 1.45 * Math.sin(a) * 0.15, 1.45 * Math.sin(a));
+    }
+    rGeo.setAttribute('position', new THREE.Float32BufferAttribute(rPos, 3));
+    var ring = new THREE.Points(rGeo, new THREE.PointsMaterial({
+      color: 0xc4a35a, size: 0.013,
+      transparent: true, opacity: 0.6,
+      depthWrite: false, blending: THREE.AdditiveBlending
+    }));
+    scene.add(ring);
+
+    // Second ring
+    var r2Geo = new THREE.BufferGeometry();
+    var r2Pos = [];
+    for(var k = 0; k < 200; k++){
+      var a2 = (k/200) * Math.PI * 2;
+      r2Pos.push(1.55 * Math.cos(a2) * 0.18, 1.55 * Math.sin(a2), 1.55 * Math.cos(a2));
+    }
+    r2Geo.setAttribute('position', new THREE.Float32BufferAttribute(r2Pos, 3));
+    var ring2 = new THREE.Points(r2Geo, new THREE.PointsMaterial({
+      color: 0xdfbe7a, size: 0.010,
+      transparent: true, opacity: 0.45,
+      depthWrite: false, blending: THREE.AdditiveBlending
+    }));
+    scene.add(ring2);
+
+    // Mouse parallax
+    var mx = 0, my = 0;
+    sect.addEventListener('mousemove', function(e){
+      var r = sect.getBoundingClientRect();
+      mx =  ((e.clientX - r.left) / r.width  - 0.5) * 0.4;
+      my = -((e.clientY - r.top)  / r.height - 0.5) * 0.4;
+    });
+    sect.addEventListener('mouseleave', function(){ mx = 0; my = 0; });
+
+    // Animate
+    function animate(){
+      requestAnimationFrame(animate);
+      sphere.rotation.y += 0.0008;
+      sphere.rotation.x += 0.00025;
+      ring.rotation.y   += 0.002;
+      ring.rotation.z   += 0.0006;
+      ring2.rotation.x  += 0.0014;
+      ring2.rotation.z  -= 0.0009;
+      camera.position.x += (mx - camera.position.x) * 0.05;
+      camera.position.y += (my - camera.position.y) * 0.05;
+      camera.lookAt(scene.position);
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Resize
+    window.addEventListener('resize', function(){
+      var nw = sect.offsetWidth;
+      var nh = sect.offsetHeight;
+      camera.aspect = nw / nh;
+      camera.updateProjectionMatrix();
+      renderer.setSize(nw, nh);
+    });
+  };
+  document.head.appendChild(s);
+})();
 
 /* ── DINQ BOT — Routed through app.dinqdigital.com/api/ai ── */
 let chatHist=[];
