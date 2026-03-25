@@ -14,72 +14,73 @@
    Clean · Minimal · Cinematic · Convertible
 ══════════════════════════════════════════ */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{font-size:16px;scroll-behavior:smooth;background:#0C0F0A}
+html{font-size:16px;scroll-behavior:smooth;background:#080808}
 
 :root{
-  /* ── Deep Rich Backgrounds ── */
-  --void:   #0C0F0A;
-  --ink:    #111510;
-  --deep:   #161A13;
-  --card:   #1C211A;
-  --lift:   #23281F;
-  /* ── Ceramic Gold Accents ── */
+  /* ── Deep Dark Backgrounds ── */
+  --void:   #080808;
+  --ink:    #0F0F0F;
+  --deep:   #141414;
+  --card:   #1A1A1A;
+  --lift:   #222222;
+  /* ── Ceramic Gold ── */
   --gold:   #C4A35A;
   --gold-l: #DFBE7A;
   --gold-d: #8A6B2E;
   --gold-g: rgba(196,163,90,.08);
   --gold-b: rgba(196,163,90,.2);
-  /* ── Primary Soft — Raw Linen ── */
+  /* ── Text ── */
   --t1:   #F2EDE4;
   --t2:   rgba(242,237,228,.52);
   --t3:   rgba(242,237,228,.3);
   --t4:   rgba(242,237,228,.12);
-  /* ── Earth Surface Borders ── */
-  --edge:  rgba(194,170,143,.07);
-  --edge2: rgba(194,170,143,.14);
-  /* ── Earth Accent Palette ── */
-  --moss:   #2E4A2B;
-  --moss-l: #3D6038;
-  --moss-m: rgba(46,74,43,.45);
-  --clay:   #7A4B2E;
-  --clay-l: rgba(122,75,46,.14);
-  --sage:   #7A9478;
+  /* ── Gold-tinted Borders ── */
+  --edge:  rgba(196,163,90,.08);
+  --edge2: rgba(196,163,90,.16);
+  /* ── Extended Gold Palette ── */
+  --cyan:   #C4A35A;
+  --cyan-l: #DFBE7A;
+  --cyan-d: #8A6B2E;
   --sand:   #C2AA8F;
   --ceramic:#E8E0D4;
-  --parch:  #F5F0E8;
-  /* ── Sizing ── */
   --r:8px;--rl:14px;
 }
 
-body{background:#0C0F0A;background:var(--void);color:#F2EDE4;color:var(--t1);font-family:'Outfit',sans-serif;overflow-x:hidden;line-height:1.65;-webkit-font-smoothing:antialiased}
-::selection{background:var(--gold);color:#0C0F0A}
-::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--gold-d);border-radius:99px;border:1px solid rgba(194,170,143,.1)}
+body{background:#080808;background:var(--void);color:#F2EDE4;color:var(--t1);font-family:'Outfit',sans-serif;overflow-x:hidden;line-height:1.65;-webkit-font-smoothing:antialiased}
+::selection{background:var(--gold);color:#080808}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--gold-d);border-radius:99px}
 
 /* noise grain */
-body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.038;pointer-events:none;z-index:9998}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.028;pointer-events:none;z-index:9998}
 
 /* ── CURSOR ── */
-#cur{width:7px;height:7px;background:var(--gold);border-radius:50%;position:fixed;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);transition:width .25s,height .25s}
-#cur.big{width:36px;height:36px;background:transparent;border:1px solid rgba(201,168,76,.4)}
-#curt{width:28px;height:28px;border:1px solid rgba(201,168,76,.12);border-radius:50%;position:fixed;pointer-events:none;z-index:9996;transform:translate(-50%,-50%);transition:left .15s ease-out,top .15s ease-out}
+#cur{width:7px;height:7px;background:var(--gold);border-radius:50%;;position:fixed;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);transition:width .25s,height .25s}
+#cur.big{width:36px;height:36px;background:transparent;border:1px solid rgba(196,163,90,.45)}
+#curt{width:28px;height:28px;border:1px solid rgba(196,163,90,.15);border-radius:50%;position:fixed;pointer-events:none;z-index:9996;transform:translate(-50%,-50%);transition:left .15s ease-out,top .15s ease-out}
+
+/* ── FORCE VISIBILITY ── */
+section, section *{visibility:visible!important}
+section > *{opacity:1!important}
 
 /* ── REVEAL ── */
-.rv{opacity:0;transform:translateY(20px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
-.rvl{opacity:0;transform:translateX(-24px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
-.rvr{opacity:0;transform:translateX(24px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
+.rv{opacity:1;transform:none;transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
+.rvl{opacity:1;transform:none;transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
+.rvr{opacity:1;transform:none;transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
 .rv.in,.rvl.in,.rvr.in{opacity:1;transform:none}
-/* If JS hasn't run, show everything */
-@media(prefers-reduced-motion:reduce){.rv,.rvl,.rvr{opacity:1;transform:none}}
+/* Animate in only when JS adds .in class */
+.rv.animate-start{opacity:0;transform:translateY(20px)}
+.rvl.animate-start{opacity:0;transform:translateX(-24px)}
+.rvr.animate-start{opacity:0;transform:translateX(24px)}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
 
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.6rem 3rem;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
-nav.s{padding:1rem 3rem;background:rgba(12,15,10,.96);backdrop-filter:blur(28px);border-bottom:1px solid rgba(194,170,143,.08)}
+nav.s{padding:1rem 3rem;background:rgba(8,8,8,.96);backdrop-filter:blur(28px);border-bottom:1px solid rgba(196,163,90,.08)}
 .nlogo{display:flex;align-items:center;gap:.7rem;text-decoration:none}
 .nmark{width:30px;height:30px;border:1px solid var(--gold-d);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:.82rem;color:var(--gold);transition:all .25s}
-.nlogo:hover .nmark{background:var(--gold);color:var(--void);border-color:var(--gold)}
+.nlogo:hover .nmark{background:var(--gold);color:#080808;border-color:var(--gold)}
 .nname{font-family:'Outfit',sans-serif;font-weight:600;font-size:.92rem;color:var(--t1)}
-.nname em{color:var(--gold);font-style:normal}
+.nname em{color:rgba(255,255,255,.55);font-style:normal}
 .nlinks{display:flex;gap:2.25rem;list-style:none}
 .nlinks a{color:rgba(245,244,240,.28);color:var(--t3);text-decoration:none;font-size:.78rem;font-weight:400;letter-spacing:.05em;text-transform:uppercase;transition:color .2s;padding:.2rem 0;position:relative}
 .nlinks a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width .28s}
@@ -88,67 +89,67 @@ nav.s{padding:1rem 3rem;background:rgba(12,15,10,.96);backdrop-filter:blur(28px)
 .nright{display:flex;align-items:center;gap:.85rem}
 .btn-ng{background:transparent;border:1px solid var(--edge2);color:var(--t2);padding:.42rem 1rem;font-size:.76rem;font-family:'Outfit',sans-serif;font-weight:500;border-radius:var(--r);text-decoration:none;transition:all .22s}
 .btn-ng:hover{border-color:var(--gold-d);color:var(--t1)}
-.btn-nc{background:#C4A35A;background:var(--gold);color:#0C0F0A;padding:.42rem 1.1rem;font-size:.76rem;font-family:'Outfit',sans-serif;font-weight:600;border-radius:var(--r);text-decoration:none;border:none;cursor:pointer;transition:all .22s}
-.btn-nc:hover{background:var(--gold-l);transform:translateY(-1px);box-shadow:0 6px 18px rgba(201,168,76,.22)}
+.btn-nc{background:#FFFFFF;color:#080808;padding:.42rem 1.1rem;font-size:.76rem;font-family:'Outfit',sans-serif;font-weight:600;border-radius:var(--r);text-decoration:none;border:none;cursor:pointer;transition:all .22s}
+.btn-nc:hover{background:var(--gold-l);transform:translateY(-1px)}
 .ntog{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:4px;padding:.25rem}
 .ntog span{display:block;width:19px;height:1.5px;background:var(--t1);border-radius:2px;transition:all .3s}
 
 /* ── MOBILE MENU ── */
-#mm{position:fixed;inset:0;background:rgba(12,15,10,.98);z-index:490;display:none;flex-direction:column;align-items:center;justify-content:center;gap:1.75rem}
+#mm{position:fixed;inset:0;background:rgba(8,8,8,.98);z-index:490;display:none;flex-direction:column;align-items:center;justify-content:center;gap:1.75rem}
 #mm.open{display:flex}
 #mm a{color:var(--t1);text-decoration:none;font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700}
 #mm .mm-s{color:var(--gold);font-size:1.1rem;font-family:'Outfit',sans-serif;font-weight:500}
 #mm .mm-x{position:absolute;top:1.5rem;right:2rem;background:none;border:none;color:var(--t2);font-size:1.1rem;cursor:pointer}
 
 /* ── TICKER ── */
-.ticker{background:rgba(13,16,11,.98);border-bottom:1px solid rgba(194,170,143,.07);padding:.65rem 0;overflow:hidden}
+.ticker{background:rgba(8,8,8,.98);border-bottom:1px solid rgba(196,163,90,.07);padding:.65rem 0;overflow:hidden}
 .ttk{display:flex;gap:3rem;animation:tk 40s linear infinite;white-space:nowrap}
 .ttk span{font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);font-weight:400}
-.ttk .dot{color:rgba(201,168,76,.3)}
+.ttk .dot{color:rgba(196,163,90,.35)}
 @keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ── HERO ── */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:0 2rem}
-.hero-atm{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 45%,rgba(46,74,43,.38),transparent 65%),radial-gradient(ellipse 40% 35% at 15% 70%,rgba(122,75,46,.12),transparent 55%),var(--void)}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(196,163,90,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(196,163,90,.02) 1px,transparent 1px);background-size:80px 80px}
+.hero-atm{position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 45%,rgba(46,74,43,.35),transparent 65%),radial-gradient(ellipse 40% 35% at 85% 25%,rgba(196,163,90,.08),transparent 55%),var(--void)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(196,163,90,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(196,163,90,.03) 1px,transparent 1px);background-size:72px 72px}
 /* very subtle vignette edges */
 .hero-vign{position:absolute;inset:0;background:radial-gradient(ellipse 100% 100% at 50% 50%,transparent 50%,rgba(5,5,5,.6) 100%)}
 .hero-c{position:relative;z-index:2;max-width:820px;padding-top:9rem;padding-bottom:4rem}
-.hero-eye{display:flex;align-items:center;justify-content:center;gap:.75rem;margin-bottom:2.5rem;opacity:0;animation:fu .6s .25s cubic-bezier(.16,1,.3,1) forwards}
-.hero-eye-line{width:32px;height:1px;background:var(--gold-d)}
-.hero-eye-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);animation:dp 2.5s ease-in-out infinite}
+.hero-eye{display:flex;align-items:center;justify-content:center;gap:.75rem;margin-bottom:2.5rem;opacity:0;animation:fu .6s .25s cubic-bezier(.16,1,.3,1) both}
+.hero-eye-line{width:32px;height:1px;background:rgba(200,200,200,.4)}
+.hero-eye-dot{width:5px;height:5px;border-radius:50%;background:var(--cyan);animation:dp 2.5s ease-in-out infinite;}
 @keyframes dp{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.6)}}
-.hero-eye-txt{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.hero-eye-txt{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);font-weight:500}
 
 /* headline */
 .hero-h{font-family:'Playfair Display',serif;font-size:clamp(3.2rem,7.5vw,7rem);font-weight:700;letter-spacing:-.03em;line-height:.98;margin-bottom:2rem}
-.hero-h .w{display:inline-block;opacity:0;transform:translateY(110%);animation:wr .75s cubic-bezier(.16,1,.3,1) forwards;overflow:visible}
+.hero-h .w{display:inline-block;opacity:0;transform:translateY(110%);animation:wr .75s cubic-bezier(.16,1,.3,1) forwards;overflow:visible;animation-fill-mode:both}
 .hero-h .ww{overflow:hidden;display:inline-block;vertical-align:bottom}
 @keyframes wr{to{opacity:1;transform:none}}
-.hero-h .dim{color:rgba(242,237,228,.22)}
+.hero-h .dim{color:rgba(242,237,228,.28)}
 .hero-h .gl{color:var(--gold)}
 
-.hero-sub{font-size:1.05rem;color:var(--t2);line-height:1.75;max-width:500px;margin:0 auto 2.75rem;font-weight:300;opacity:0;animation:fu .7s 1s cubic-bezier(.16,1,.3,1) forwards}
-.hero-btns{display:flex;align-items:center;justify-content:center;gap:1.1rem;flex-wrap:wrap;opacity:0;animation:fu .7s 1.15s cubic-bezier(.16,1,.3,1) forwards}
-.btn-pf{display:inline-flex;align-items:center;gap:.55rem;padding:.95rem 2.25rem;background:var(--gold);color:#0C0F0A;border:none;font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:600;border-radius:var(--r);cursor:pointer;text-decoration:none;transition:all .28s;position:relative;overflow:hidden;letter-spacing:.02em}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.55);line-height:1.75;max-width:500px;margin:0 auto 2.75rem;font-weight:300;opacity:0;animation:fu .7s 1s cubic-bezier(.16,1,.3,1) both}
+.hero-btns{display:flex;align-items:center;justify-content:center;gap:1.1rem;flex-wrap:wrap;opacity:0;animation:fu .7s 1.15s cubic-bezier(.16,1,.3,1) both}
+.btn-pf{display:inline-flex;align-items:center;gap:.55rem;padding:.95rem 2.25rem;background:var(--cyan);color:#080808;border:none;font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:600;border-radius:var(--r);cursor:pointer;text-decoration:none;transition:all .28s;position:relative;overflow:hidden;letter-spacing:.02em}
 .btn-pf::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.16),transparent);transform:translateX(-100%);transition:transform .5s}
 .btn-pf:hover::after{transform:translateX(100%)}
-.btn-pf:hover{background:var(--gold-l);transform:translateY(-2px);box-shadow:0 14px 36px rgba(201,168,76,.22)}
+.btn-pf:hover{background:#F0F0F0;transform:translateY(-2px);box-shadow:0 0 32px rgba(200,200,200,.4),0 14px 36px rgba(200,200,200,.2)}
 .btn-ph{display:inline-flex;align-items:center;gap:.55rem;padding:.95rem 2.25rem;background:transparent;color:var(--t2);border:1px solid var(--edge2);font-family:'Outfit',sans-serif;font-size:.88rem;border-radius:var(--r);cursor:pointer;text-decoration:none;transition:all .28s}
 .btn-ph:hover{border-color:rgba(255,255,255,.25);color:var(--t1)}
 .barr{transition:transform .25s}.btn-pf:hover .barr{transform:translateX(4px)}
 
-.hero-proof{display:flex;align-items:center;justify-content:center;gap:0;margin-top:5rem;padding-top:2.25rem;border-top:1px solid var(--edge);opacity:0;animation:fu .7s 1.3s cubic-bezier(.16,1,.3,1) forwards}
+.hero-proof{display:flex;align-items:center;justify-content:center;gap:0;margin-top:5rem;padding-top:2.25rem;border-top:1px solid var(--edge);opacity:0;animation:fu .7s 1.3s cubic-bezier(.16,1,.3,1) both}
 .hp{text-align:center;flex:0 0 auto;padding:0 2.5rem}
 .hp+.hp{border-left:1px solid var(--edge)}
-.hp-n{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--sand);line-height:1}
+.hp-n{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--gold);line-height:1}
 .hp-l{font-size:.65rem;color:var(--t3);text-transform:uppercase;letter-spacing:.1em;margin-top:.25rem}
 
-.scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;animation:fu .7s 1.5s cubic-bezier(.16,1,.3,1) forwards}
-.sh-line{width:1px;height:44px;background:linear-gradient(to bottom,rgba(201,168,76,.5),transparent);animation:sl 2s ease-in-out infinite}
+.scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;animation:fu .7s 1.5s cubic-bezier(.16,1,.3,1) both}
+.sh-line{width:1px;height:44px;background:linear-gradient(to bottom,rgba(255,255,255,.4),transparent);animation:sl 2s ease-in-out infinite}
 @keyframes sl{0%,100%{transform:scaleY(1);transform-origin:top}50%{transform:scaleY(.35);transform-origin:bottom}}
 .sh-txt{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--t4)}
-@keyframes fu{to{opacity:1;transform:none}}
+@keyframes fu{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 
 /* ── SECTION SHARED ── */
 section{padding:9rem 3rem}
@@ -159,7 +160,7 @@ section{padding:9rem 3rem}
 .sd{font-size:.95rem;color:var(--t2);font-weight:300;line-height:1.82;max-width:480px}
 
 /* ── VISION ── */
-#vision{background:var(--void);padding:10rem 3rem;position:relative;overflow:hidden;z-index:1}
+#vision{background:var(--void);padding:10rem 3rem;position:relative;overflow:hidden}
 .vis-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:3fr 2fr;gap:9rem;align-items:start}
 .vis-quote{font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3vw,2.6rem);font-weight:400;line-height:1.3;color:var(--t1);padding-left:2rem;position:relative}
 .vis-quote::before{content:'';position:absolute;left:0;top:.2rem;bottom:.2rem;width:2px;background:linear-gradient(to bottom,var(--gold),rgba(196,163,90,.1))}
@@ -168,17 +169,17 @@ section{padding:9rem 3rem}
 .vis-stat{padding:2rem 0;border-bottom:1px solid var(--edge)}
 .vis-stat:first-child{padding-top:0}
 .vis-stat:last-child{border-bottom:none;padding-bottom:0}
-.vs-n{font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:700;line-height:1;color:var(--ceramic)}
+.vs-n{font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:700;line-height:1;color:#FFFFFF}
 .vs-n span{color:var(--gold)}
 .vs-l{font-size:.82rem;color:var(--t3);margin-top:.35rem;font-weight:300;line-height:1.6}
 
 /* ── PLATFORM (WHITE) ── */
-#platform{background:#F5F0E8;padding:9rem 3rem;color:#1a1a16}
+#platform{background:#0F0F0F;padding:9rem 3rem;color:#FFFFFF;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
 .plat-head{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:end;margin-bottom:5rem}
-.plat-h{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,4vw,3.6rem);font-weight:700;color:#1a1a16;line-height:1.06;letter-spacing:-.02em}
-.plat-sub{font-size:.95rem;color:rgba(26,26,22,.5);line-height:1.8;font-weight:300;margin-bottom:1.25rem}
-.plat-link{display:inline-flex;align-items:center;gap:.45rem;font-size:.82rem;font-weight:600;color:#1a1a16;text-decoration:none;border-bottom:1.5px solid #1a1a16;padding-bottom:.15rem;transition:all .22s}
-.plat-link:hover{color:var(--gold-d);border-color:var(--gold-d)}
+.plat-h{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,4vw,3.6rem);font-weight:700;color:#FFFFFF;line-height:1.06;letter-spacing:-.02em}
+.plat-sub{font-size:.95rem;color:rgba(255,255,255,.5);line-height:1.8;font-weight:300;margin-bottom:1.25rem}
+.plat-link{display:inline-flex;align-items:center;gap:.45rem;font-size:.82rem;font-weight:600;color:var(--gold);text-decoration:none;border-bottom:1.5px solid rgba(196,163,90,.4);padding-bottom:.15rem;transition:all .22s}
+.plat-link:hover{color:var(--gold-l);border-color:var(--gold)}
 
 /* feature cards */
 .fc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-bottom:1.25rem}
@@ -190,19 +191,19 @@ section{padding:9rem 3rem}
 .fc-body{flex:1;padding:0 1.25rem 1.25rem;display:flex;align-items:flex-end}
 
 /* dark cards */
-.fc-dk{background:#181D16}
+.fc-dk{background:#111111}
 .fc-dk h3{color:#fff}
 .fc-dk p{color:rgba(255,255,255,.45)}
 /* light cards */
-.fc-lt{background:#EDE8DF}
-.fc-lt h3{color:#1a1a16}
-.fc-lt p{color:rgba(26,26,22,.5)}
+.fc-lt{background:#161616;border:1px solid rgba(255,255,255,.06)}
+.fc-lt h3{color:#FFFFFF}
+.fc-lt p{color:rgba(255,255,255,.45)}
 /* accent card */
-.fc-gr{background:linear-gradient(135deg,#0D1C0B,#090F08)}
+.fc-gr{background:linear-gradient(135deg,#111111,#0A0A0A)}
 .fc-gr h3{color:#fff}
 .fc-gr p{color:rgba(255,255,255,.45)}
 /* blue card */
-.fc-bl{background:linear-gradient(135deg,#0A1510,#06100D)}
+.fc-bl{background:linear-gradient(135deg,#151515,#0D0D0D)}
 .fc-bl h3{color:#fff}
 .fc-bl p{color:rgba(255,255,255,.45)}
 
@@ -219,48 +220,14 @@ section{padding:9rem 3rem}
 .mb{flex:1;border-radius:2px 2px 0 0;background:rgba(201,168,76,.3)}
 
 /* module strip */
-.mod-strip{overflow:hidden;border-top:1px solid rgba(26,26,22,.1);padding:1.75rem 0;margin-top:3rem}
+.mod-strip{overflow:hidden;border-top:1px solid rgba(196,163,90,.08);padding:1.75rem 0;margin-top:3rem}
 .mod-track{display:flex;gap:.85rem;animation:mts 36s linear infinite;white-space:nowrap}
-.mod-pill{display:inline-flex;align-items:center;gap:.4rem;background:#EDE8DF;border:1px solid rgba(26,26,22,.12);border-radius:99px;padding:.32rem .85rem;font-size:.7rem;color:rgba(26,26,22,.55);flex-shrink:0;box-shadow:0 1px 4px rgba(0,0,0,.06);transition:all .2s}
-.mod-pill:hover{border-color:var(--gold-d);color:#1a1a16}
+.mod-pill{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:99px;padding:.32rem .85rem;font-size:.7rem;color:rgba(255,255,255,.5);flex-shrink:0;transition:all .2s}
+.mod-pill:hover{border-color:var(--gold);color:var(--gold)}
 @keyframes mts{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* ── STACKED CARDS ── */
-#showcase{background:var(--void);position:relative;overflow:hidden}
-.sc-scroll{height:380vh;position:relative}
-.sc-stick{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.sc-bg{position:absolute;inset:0;transition:background 1.4s cubic-bezier(.16,1,.3,1)}
-.sc-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(196,163,90,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(196,163,90,.025) 1px,transparent 1px);background-size:80px 80px}
-.sc-top{position:absolute;top:3rem;left:50%;transform:translateX(-50%);z-index:20;text-align:center;pointer-events:none}
-.sc-top-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(194,170,143,.5);font-weight:400}
-.sc-top-h{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,2.5vw,2.4rem);font-weight:700;margin-top:.6rem;line-height:1.05}
-.sc-label{position:absolute;left:3.5rem;bottom:3.5rem;z-index:20;max-width:280px}
-.sc-lnum{font-size:.68rem;color:var(--t4);letter-spacing:.14em;margin-bottom:.5rem;transition:all .4s}
-.sc-lt{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;line-height:1.1;margin-bottom:.5rem;transition:opacity .35s,transform .35s}
-.sc-ls{font-size:.78rem;color:var(--t2);font-weight:300;line-height:1.65;transition:opacity .35s .08s}
-.sc-la{display:inline-flex;align-items:center;gap:.45rem;font-size:.75rem;color:var(--gold);text-decoration:none;margin-top:.9rem;border-bottom:1px solid rgba(201,168,76,.25);padding-bottom:.15rem;transition:all .25s}
-.sc-la:hover{border-color:var(--gold)}
-/* progress dots */
-.sc-dots{position:absolute;right:3rem;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:.75rem;z-index:20}
-.scd{width:6px;height:6px;border-radius:50%;background:rgba(194,170,143,.2);cursor:pointer;transition:all .35s}
-.scd.on{width:8px;height:8px;background:var(--gold);box-shadow:0 0 12px rgba(196,163,90,.5)}
-/* card stack */
-.sc-stack{position:relative;width:min(680px,88vw);height:min(430px,54vw);perspective:1200px;transform-style:preserve-3d;will-change:transform}
-.sc-card{position:absolute;inset:0;border-radius:18px;overflow:hidden;backface-visibility:hidden;transform-style:preserve-3d;cursor:pointer;transition:transform 1.2s cubic-bezier(.16,1,.3,1),opacity 1.2s cubic-bezier(.16,1,.3,1),box-shadow 1.2s cubic-bezier(.16,1,.3,1);will-change:transform,opacity}
-.sc-ci{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:2.25rem}
-.sc-cb{display:flex;align-items:center;justify-content:space-between}
-.sc-dots2{display:flex;gap:4px}
-.sc-dot{width:8px;height:8px;border-radius:50%}
-.sc-tag{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:.25rem .7rem;border-radius:99px}
-.sc-body{display:flex;flex-direction:column;gap:.85rem}
-.sc-title{font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.75rem);font-weight:700;line-height:1.05;color:#fff}
-.sc-desc{font-size:.8rem;color:rgba(255,255,255,.5);font-weight:300;line-height:1.7;max-width:380px}
-.sc-pills{display:flex;flex-wrap:wrap;gap:.4rem}
-.sc-pill{font-size:.62rem;padding:.22rem .65rem;border-radius:99px;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.45)}
-.sc-accent{position:absolute;bottom:2rem;left:2.25rem;width:36px;height:2px;border-radius:2px;opacity:.55}
-
 /* ── WORK ── */
-#work{background:var(--deep);padding:9rem 3rem}
+#work{background:#141414;padding:9rem 3rem}
 .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--edge);margin-top:4rem}
 .wi{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:16/10}
 .wi.tall{aspect-ratio:4/5}
@@ -270,17 +237,19 @@ section{padding:9rem 3rem}
 .wi:hover .wov{opacity:1}
 .wi-info{position:absolute;bottom:0;left:0;right:0;padding:2rem;transform:translateY(6px);opacity:0;transition:all .35s}
 .wi:hover .wi-info{transform:none;opacity:1}
-.wi-cat{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:.4rem}
+.wi-cat{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500;letter-spacing:.12em;margin-bottom:.4rem}
 .wi-name{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700}
+.wi-placeholder .wbg{position:relative}
+.wi-placeholder .wbg::after{content:'+ Add your project';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(196,163,90,.3);font-weight:500}
 .wi-desc{font-size:.78rem;color:var(--t2);margin-top:.3rem;font-weight:300}
-.wi-metric{display:inline-flex;align-items:center;gap:.4rem;margin-top:.65rem;font-size:.68rem;color:var(--gold);background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.18);padding:.22rem .65rem;border-radius:99px}
+.wi-metric{display:inline-flex;align-items:center;gap:.4rem;margin-top:.65rem;font-size:.68rem;color:var(--gold);background:rgba(196,163,90,.08);border:1px solid rgba(196,163,90,.2);padding:.22rem .65rem;border-radius:99px}
 .wam{position:absolute;top:1rem;right:1.25rem;font-size:3rem;opacity:.07;line-height:1;pointer-events:none;font-family:'Playfair Display',serif;transition:opacity .35s}
 .wi:hover .wam{opacity:.15}
 /* bg colors */
-.bg-e{background:linear-gradient(135deg,#0D2E1A,#071409)}
-.bg-v{background:linear-gradient(135deg,#1A2414,#0D140A)}
-.bg-o{background:linear-gradient(135deg,#1A2E1A,#0D1A0D)}
-.bg-s{background:linear-gradient(135deg,#1A1C16,#0C0F0A)}
+.bg-e{background:linear-gradient(135deg,#0E0E0E,#141414)}
+.bg-v{background:linear-gradient(135deg,#101010,#181818)}
+.bg-o{background:linear-gradient(135deg,#0C0C0C,#131313)}
+.bg-s{background:linear-gradient(135deg,#0A0A0A,#111111)}
 /* mock screens */
 .mk{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:7px;padding:.6rem;width:60%}
 .mk-dots{display:flex;gap:3px;margin-bottom:.45rem}
@@ -302,10 +271,10 @@ section{padding:9rem 3rem}
 .pm-name{font-size:.9rem;font-weight:500;color:var(--t1)}
 .pm-sub{font-size:.72rem;color:var(--t3);font-weight:300}
 /* invoice */
-.inv{background:var(--card);border:1px solid rgba(196,163,90,.1);border-radius:18px;overflow:hidden;box-shadow:0 32px 64px rgba(0,0,0,.35)}
-.inv-top{padding:1.4rem 1.6rem;background:rgba(35,40,31,.9);border-bottom:1px solid rgba(194,170,143,.08);display:flex;justify-content:space-between;align-items:center}
+.inv{background:var(--card);border:1px solid rgba(196,163,90,.12);border-radius:18px;overflow:hidden;box-shadow:0 32px 64px rgba(0,0,0,.5)}
+.inv-top{padding:1.4rem 1.6rem;background:rgba(26,26,26,.9);border-bottom:1px solid rgba(196,163,90,.08);display:flex;justify-content:space-between;align-items:center}
 .inv-co{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700}
-.inv-badge{font-size:.58rem;color:var(--gold);background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.18);border-radius:4px;padding:.18rem .6rem;letter-spacing:.08em}
+.inv-badge{font-size:.58rem;color:var(--gold);background:rgba(200,200,200,.08);border:1px solid rgba(200,200,200,.18);border-radius:4px;padding:.18rem .6rem;letter-spacing:.08em}
 .inv-body{padding:1.75rem}
 .inv-amt{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:.2rem;letter-spacing:-.02em}
 .inv-cur{font-size:.68rem;color:var(--t3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.4rem}
@@ -315,7 +284,7 @@ section{padding:9rem 3rem}
 .inv-div{height:1px;background:var(--edge);margin:.85rem 0}
 .inv-tot{display:flex;justify-content:space-between;font-size:.85rem;font-weight:500}
 .inv-tv{font-family:'Playfair Display',serif;font-size:1.05rem}
-.inv-btn{width:100%;margin-top:1.1rem;padding:.85rem;background:var(--gold);color:var(--void);border:none;border-radius:var(--r);font-size:.83rem;font-weight:600;font-family:'Outfit',sans-serif;cursor:pointer;transition:all .22s;position:relative;overflow:hidden}
+.inv-btn{width:100%;margin-top:1.1rem;padding:.85rem;background:var(--gold);color:#080808;border:none;border-radius:var(--r);font-size:.83rem;font-weight:600;font-family:'Outfit',sans-serif;cursor:pointer;transition:all .22s;position:relative;overflow:hidden}
 .inv-btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.16),transparent);transition:left .4s}
 .inv-btn:hover::before{left:100%}
 .inv-btn:hover{background:var(--gold-l)}
@@ -324,7 +293,7 @@ section{padding:9rem 3rem}
 .inv-m:hover{border-color:rgba(201,168,76,.25);color:var(--gold)}
 
 /* ── PRICING ── */
-#pricing{background:var(--deep);padding:9rem 3rem}
+#pricing{background:#141414;padding:9rem 3rem}
 .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--edge);margin-top:4rem}
 .pc{background:var(--deep);padding:2.75rem;display:flex;flex-direction:column;transition:background .3s;cursor:default;position:relative}
 .pc:hover{background:var(--card)}
@@ -340,26 +309,26 @@ section{padding:9rem 3rem}
 .pc-btn{display:block;text-align:center;padding:.78rem;font-size:.8rem;font-family:'Outfit',sans-serif;font-weight:600;border-radius:var(--r);cursor:pointer;transition:all .25s;border:none;text-decoration:none;letter-spacing:.03em}
 .pc-btn.gh{background:transparent;border:1px solid var(--edge2);color:var(--t2)}
 .pc-btn.gh:hover{border-color:var(--gold-d);color:var(--t1)}
-.pc-btn.sl{background:var(--gold);color:var(--void)}
-.pc-btn.sl:hover{background:var(--gold-l);box-shadow:0 6px 20px rgba(201,168,76,.22)}
+.pc-btn.sl{background:var(--gold);color:#080808}
+.pc-btn.sl:hover{background:var(--gold-l)}
 .pc-note{text-align:center;margin-top:2.25rem;font-size:.76rem;color:var(--t3);font-weight:300}
-.pc-note a{color:var(--gold);text-decoration:none}
-.pop-b{position:absolute;top:0;right:0;background:var(--gold);color:var(--void);font-size:.56rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .8rem;border-radius:0 14px 0 14px}
+.pc-note a{color:rgba(255,255,255,.45);text-decoration:none}
+.pop-b{position:absolute;top:0;right:0;background:var(--gold);color:#080808;font-size:.56rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .8rem;border-radius:0 14px 0 14px}
 
 /* ── AI CHAT ── */
-#ai{background:var(--void);padding:9rem 3rem}
+#ai{background:#080808;padding:9rem 3rem}
 .ai-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center}
 .ai-feats{display:flex;flex-direction:column;margin-top:2.25rem}
 .af{display:flex;align-items:flex-start;gap:1.1rem;padding:1.4rem 0;border-bottom:1px solid var(--edge);transition:padding .22s;cursor:default}
 .af:last-child{border-bottom:none}
 .af:hover{padding-left:.4rem}
-.af-n{font-family:'Playfair Display',serif;font-size:.72rem;color:var(--gold);font-weight:700;flex-shrink:0;margin-top:.15rem}
+.af-n{font-family:'Playfair Display',serif;font-size:.72rem;color:#FFFFFF;font-weight:700;flex-shrink:0;margin-top:.15rem}
 .af h4{font-size:.88rem;font-weight:500;margin-bottom:.28rem;color:var(--t1)}
 .af p{font-size:.78rem;color:var(--t2);font-weight:300;line-height:1.6}
-.cw{background:var(--card);border:1px solid var(--edge);border-radius:18px;overflow:hidden;box-shadow:0 28px 56px rgba(0,0,0,.45)}
+.cw{background:var(--card);border:1px solid rgba(196,163,90,.1);border-radius:18px;overflow:hidden;box-shadow:0 28px 56px rgba(0,0,0,.45)}
 .cw-head{padding:.85rem 1.2rem;background:var(--lift);border-bottom:1px solid var(--edge);display:flex;align-items:center;justify-content:space-between}
 .cw-hl{display:flex;align-items:center;gap:.7rem}
-.cw-av{width:28px;height:28px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:.7rem;color:var(--void)}
+.cw-av{width:28px;height:28px;background:#FFFFFF;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:.7rem;color:var(--void)}
 .cw-nm{font-size:.8rem;font-weight:500}
 .cw-st{font-size:.62rem;color:#4ADE80;display:flex;align-items:center;gap:.28rem}
 .cw-st::before{content:'';width:4px;height:4px;background:#4ADE80;border-radius:50%;animation:dp 2s ease-in-out infinite}
@@ -369,26 +338,26 @@ section{padding:9rem 3rem}
 .cmsg{max-width:82%}
 .cb{align-self:flex-start}.cu{align-self:flex-end}
 .bbl{padding:.6rem .9rem;font-size:.76rem;line-height:1.58;border-radius:10px}
-.cb .bbl{background:rgba(35,40,31,.75);border:1px solid rgba(194,170,143,.08);color:var(--t2);border-radius:3px 10px 10px 10px}
-.cu .bbl{background:var(--gold);color:#0C0F0A;border-radius:10px 3px 10px 10px;font-weight:500}
+.cb .bbl{background:rgba(26,26,26,.75);border:1px solid rgba(196,163,90,.07);color:var(--t2);border-radius:3px 10px 10px 10px}
+.cu .bbl{background:var(--gold);color:#080808;border-radius:10px 3px 10px 10px;font-weight:500}
 .ctm{font-size:.52rem;color:var(--t4);margin-top:.2rem;padding:0 .15rem}
 .typind{display:flex;gap:3px;padding:.6rem .9rem;background:var(--lift);border-radius:3px 10px 10px 10px;width:fit-content}
 .typind span{width:4px;height:4px;background:var(--t3);border-radius:50%;animation:blink 1.2s infinite}
 .typind span:nth-child(2){animation-delay:.2s}.typind span:nth-child(3){animation-delay:.4s}
 @keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
 .qch{display:flex;flex-wrap:wrap;gap:.3rem;padding:0 1rem .7rem}
-.qcp{background:transparent;border:1px solid rgba(201,168,76,.2);color:rgba(201,168,76,.8);padding:.24rem .6rem;border-radius:99px;font-size:.62rem;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .2s}
-.qcp:hover{background:rgba(201,168,76,.08)}
+.qcp{background:transparent;border:1px solid rgba(196,163,90,.22);color:rgba(196,163,90,.8);padding:.24rem .6rem;border-radius:99px;font-size:.62rem;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .2s}
+.qcp:hover{background:rgba(196,163,90,.1)}
 .cin{padding:.65rem .85rem;border-top:1px solid var(--edge);display:flex;gap:.45rem}
 .cin input{flex:1;background:transparent;border:1px solid var(--edge);border-radius:6px;padding:.48rem .75rem;font-size:.76rem;color:var(--t1);font-family:'Outfit',sans-serif;outline:none;transition:border-color .2s}
 .cin input:focus{border-color:rgba(201,168,76,.3)}
 .cin input::placeholder{color:var(--t4)}
-.csnd{width:28px;height:28px;background:var(--gold);border:none;border-radius:6px;cursor:pointer;color:var(--void);font-size:.78rem;transition:all .2s;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.csnd:hover{background:var(--gold-l)}
+.csnd{width:28px;height:28px;background:#FFFFFF;border:none;border-radius:6px;cursor:pointer;color:var(--void);font-size:.78rem;transition:all .2s;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.csnd:hover{background:#F0F0F0;box-shadow:0 0 12px rgba(200,200,200,.4)}
 
 /* ── CTA ── */
 #cta{background:var(--void);padding:12rem 3rem 14rem;position:relative;overflow:hidden;text-align:center;min-height:100vh;display:flex;align-items:center;justify-content:center}
-.cta-atm{position:absolute;inset:0;background:radial-gradient(ellipse 60% 55% at 50% 55%,rgba(46,74,43,.32),transparent 65%),radial-gradient(ellipse 35% 30% at 75% 25%,rgba(122,75,46,.1),transparent 60%);pointer-events:none}
+.cta-atm{position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 50% 55%,rgba(46,74,43,.28),transparent 65%),radial-gradient(ellipse 35% 30% at 80% 20%,rgba(196,163,90,.06),transparent 55%);pointer-events:none}
 #ctac{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
 .cta-in{position:relative;z-index:2;max-width:640px;margin:0 auto}
 .cta-pre{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1.75rem;display:flex;align-items:center;justify-content:center;gap:.6rem}
@@ -398,11 +367,11 @@ section{padding:9rem 3rem}
 .cta-fine{margin-top:1.4rem;font-size:.68rem;color:var(--t4);letter-spacing:.08em}
 
 /* ── FOOTER ── */
-footer{background:var(--deep);border-top:1px solid rgba(194,170,143,.1);padding:5rem 3rem 3rem}
+footer{background:#141414;border-top:1px solid rgba(200,200,200,.08);padding:5rem 3rem 3rem}
 .ft{max-width:1140px;margin:0 auto}
 .ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;padding-bottom:3.5rem;border-bottom:1px solid var(--edge)}
 .ft-br p{font-size:.8rem;color:var(--t3);font-weight:300;line-height:1.8;margin-top:.8rem;max-width:250px}
-.ft-col h5{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1.1rem}
+.ft-col h5{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:#FFFFFF;font-weight:500;margin-bottom:1.1rem}
 .ft-col ul{list-style:none;display:flex;flex-direction:column;gap:.65rem}
 .ft-col ul a{color:var(--t3);text-decoration:none;font-size:.78rem;font-weight:300;transition:color .2s}
 .ft-col ul a:hover{color:var(--t1)}
@@ -435,7 +404,6 @@ footer{background:var(--deep);border-top:1px solid rgba(194,170,143,.1);padding:
 @media(max-width:480px){
   .ft-top{grid-template-columns:1fr}
   .sc-label{left:1.5rem;bottom:2rem}
-  .sc-dots{right:1.25rem}
 }
 </style>
 </head>
@@ -447,11 +415,11 @@ footer{background:var(--deep);border-top:1px solid rgba(194,170,143,.1);padding:
 <!-- MOBILE MENU -->
 <div id="mm">
   <button class="mm-x" onclick="document.getElementById('mm').classList.remove('open')">✕</button>
-  <a href="#vision" onclick="document.getElementById('mm').classList.remove('open')">About</a>
-  <a href="#platform" onclick="document.getElementById('mm').classList.remove('open')">Platform</a>
-  <a href="#work" onclick="document.getElementById('mm').classList.remove('open')">Work</a>
-  <a href="#pricing" onclick="document.getElementById('mm').classList.remove('open')">Pricing</a>
-  <a href="#cta" onclick="document.getElementById('mm').classList.remove('open')">Contact</a>
+  <a href="#vision" onclick="document.getElementById('mm').classList.remove('open');return true">About</a>
+  <a href="#platform" onclick="document.getElementById('mm').classList.remove('open');return true">Platform</a>
+  <a href="#work" onclick="document.getElementById('mm').classList.remove('open');return true">Work</a>
+  <a href="#pricing" onclick="document.getElementById('mm').classList.remove('open');return true">Pricing</a>
+  <a href="#cta" onclick="document.getElementById('mm').classList.remove('open');return true">Contact</a>
   <a href="https://app.dinqdigital.com/login" class="mm-s">Login →</a>
 </div>
 
@@ -459,7 +427,7 @@ footer{background:var(--deep);border-top:1px solid rgba(194,170,143,.1);padding:
 <nav id="nav">
   <a href="#" class="nlogo">
     <div class="nmark">D</div>
-    <span class="nname">Dinq<em>Digital</em></span>
+    <span class="nname">Dinq<em style="color:#C4A35A;font-style:normal">Digital</em></span>
   </a>
   <ul class="nlinks">
     <li><a href="#vision">About</a></li>
@@ -483,11 +451,11 @@ footer{background:var(--deep);border-top:1px solid rgba(194,170,143,.1);padding:
 </div>
 
 <!-- 2. HERO -->
-<section class="hero" id="home">
+<section class="hero" id="home" style="color:#FFFFFF">
   <div class="hero-atm"></div>
   <div class="hero-grid"></div>
   <div class="hero-vign"></div>
-  <div class="hero-c">
+  <div class="hero-c" style="color:#FFFFFF">
     <div class="hero-eye">
       <div class="hero-eye-line"></div>
       <div class="hero-eye-dot"></div>
@@ -496,13 +464,13 @@ footer{background:var(--deep);border-top:1px solid rgba(194,170,143,.1);padding:
     </div>
     <h1 class="hero-h">
       <span class="ww"><span class="w" style="animation-delay:.4s">Run&nbsp;</span></span><!--
-      --><span class="ww"><span class="w dim" style="animation-delay:.52s">your&nbsp;</span></span><!--
-      --><span class="ww"><span class="w gl" style="animation-delay:.64s">entire&nbsp;</span></span><!--
-      --><span class="ww"><span class="w dim" style="animation-delay:.76s">business</span></span>
+      --><span class="ww"><span class="w" style="animation-delay:.52s">your&nbsp;</span></span><!--
+      --><span class="ww"><span class="w" style="animation-delay:.64s">entire&nbsp;</span></span><!--
+      --><span class="ww"><span class="w" style="animation-delay:.76s">business</span></span>
       <br>
-      <span class="ww"><span class="w dim" style="animation-delay:.9s">from&nbsp;</span></span><!--
-      --><span class="ww"><span class="w dim" style="animation-delay:1.02s">one&nbsp;</span></span><!--
-      --><span class="ww"><span class="w" style="animation-delay:1.14s">system.</span></span>
+      <span class="ww"><span class="w gl" style="animation-delay:.9s">from&nbsp;</span></span><!--
+      --><span class="ww"><span class="w gl" style="animation-delay:1.02s">one&nbsp;</span></span><!--
+      --><span class="ww"><span class="w gl" style="animation-delay:1.14s">system.</span></span>
     </h1>
     <p class="hero-sub">Websites, bookings, payments, customers, and operations — everything in one place, built for Ethiopian businesses and global growth.</p>
     <div class="hero-btns">
@@ -531,8 +499,8 @@ footer{background:var(--deep);border-top:1px solid rgba(194,170,143,.1);padding:
         <div class="vs-l">Everything you need in one place — customers, orders, inventory, invoicing, analytics, and automation. One login. Everything connected.</div>
       </div>
       <div class="vis-stat rv d2">
-        <div class="vs-n"><span>6</span> currencies</div>
-        <div class="vs-l">Accept payments globally and locally. ETB, USD, GBP, CAD, KES, NGN — plus Telebirr, Stripe, Zelle, CashApp, and CBE — all in one dashboard.</div>
+        <div class="vs-n"><span>Multiple</span> currencies</div>
+        <div class="vs-l">Accept payments globally and locally — ETB, USD, GBP, CAD, KES, NGN, and more. Telebirr, Stripe, Zelle, CashApp, and CBE all in one dashboard.</div>
       </div>
       <div class="vis-stat rv d3" style="border-bottom:none;padding-bottom:0">
         <div class="vs-n"><span>24/7</span></div>
@@ -543,10 +511,11 @@ footer{background:var(--deep);border-top:1px solid rgba(194,170,143,.1);padding:
 </section>
 
 <!-- 4. PLATFORM (WHITE) -->
-<section id="platform" style="background:#fff;padding:9rem 3rem;color:#0a0a0b">
+<section id="platform" style="background:#0F0F0F;padding:9rem 3rem;color:#FFFFFF !important;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)">
   <div class="mxw">
     <div class="plat-head rv">
       <h2 class="plat-h">Everything you need.<br>One platform.</h2>
+      <p style="margin-top:1.25rem;font-size:.85rem;color:rgba(255,255,255,.35);line-height:1.7;font-weight:300;max-width:400px">42 integrated modules — manage customers, payments, projects, and growth all from one dashboard.</p>
       <div>
         <p class="plat-sub">Run your entire business from one place — manage customers, payments, operations, and growth with a fully integrated system built for speed.</p>
         <a href="https://app.dinqdigital.com/login" class="plat-link">View all features →</a>
@@ -557,7 +526,7 @@ footer{background:var(--deep);border-top:1px solid rgba(194,170,143,.1);padding:
     <div class="fc-grid">
       <!-- DinqOS -->
       <div class="fc fc-dk rv d1">
-        <div class="fc-top"><h3>DinqOS</h3><p>Your complete business operating system — manage everything from one dashboard. One login. Full control.</p></div>
+        <div class="fc-top"><h3>Dinq<span style="color:var(--gold)">OS</span></h3><p>Your complete business operating system — manage everything from one dashboard. One login. Full control.</p></div>
         <div class="fc-body">
           <div class="mmk">
             <div class="mmk-bar"><div class="mmk-d" style="background:#FF5F57"></div><div class="mmk-d" style="background:#FEBC2E"></div><div class="mmk-d" style="background:#28C840"></div></div>
@@ -605,7 +574,7 @@ footer{background:var(--deep);border-top:1px solid rgba(194,170,143,.1);padding:
             <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.09);border-radius:9px;padding:.7rem;display:flex;align-items:center;gap:.45rem"><span style="font-size:1rem">🇪🇹</span><div><div style="font-size:.62rem;font-weight:600;color:#fff">Telebirr</div><div style="font-size:.52rem;color:rgba(255,255,255,.32)">Ethiopia</div></div></div>
             <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.09);border-radius:9px;padding:.7rem;display:flex;align-items:center;gap:.45rem"><span style="font-size:1rem">🌍</span><div><div style="font-size:.62rem;font-weight:600;color:#fff">Stripe</div><div style="font-size:.52rem;color:rgba(255,255,255,.32)">Global</div></div></div>
             <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.09);border-radius:9px;padding:.7rem;display:flex;align-items:center;gap:.45rem"><span style="font-size:1rem">💚</span><div><div style="font-size:.62rem;font-weight:600;color:#fff">CashApp</div><div style="font-size:.52rem;color:rgba(255,255,255,.32)">US</div></div></div>
-            <div style="background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.18);border-radius:9px;padding:.7rem;display:flex;align-items:center;gap:.45rem"><span style="font-size:1rem">🏦</span><div><div style="font-size:.62rem;font-weight:600;color:rgba(201,168,76,.9)">CBE</div><div style="font-size:.52rem;color:rgba(201,168,76,.42)">+2 more</div></div></div>
+            <div style="background:rgba(200,200,200,.08);border:1px solid rgba(200,200,200,.18);border-radius:9px;padding:.7rem;display:flex;align-items:center;gap:.45rem"><span style="font-size:1rem">🏦</span><div><div style="font-size:.62rem;font-weight:600;color:rgba(201,168,76,.9)">CBE</div><div style="font-size:.52rem;color:rgba(201,168,76,.42)">+2 more</div></div></div>
           </div>
         </div>
       </div>
@@ -641,9 +610,9 @@ footer{background:var(--deep);border-top:1px solid rgba(194,170,143,.1);padding:
         <div class="fc-top"><h3>Kanban & Projects</h3><p>Visual boards to manage leads, projects, orders, and tasks — drag, drop, and stay organized.</p></div>
         <div class="fc-body">
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.35rem;width:100%">
-            <div style="display:flex;flex-direction:column;gap:.25rem"><div style="font-size:.52rem;color:rgba(10,10,11,.35);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.1rem">New</div><div style="background:rgba(10,10,11,.07);border-radius:5px;padding:.35rem .45rem;font-size:.58rem;color:rgba(10,10,11,.55)">Lead #1</div><div style="background:rgba(10,10,11,.07);border-radius:5px;padding:.35rem .45rem;font-size:.58rem;color:rgba(10,10,11,.55)">Lead #2</div></div>
-            <div style="display:flex;flex-direction:column;gap:.25rem"><div style="font-size:.52rem;color:rgba(10,10,11,.35);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.1rem">Active</div><div style="background:rgba(201,168,76,.18);border:1px solid rgba(201,168,76,.28);border-radius:5px;padding:.35rem .45rem;font-size:.58rem;color:#8B6E2A">Project A</div></div>
-            <div style="display:flex;flex-direction:column;gap:.25rem"><div style="font-size:.52rem;color:rgba(10,10,11,.35);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.1rem">Done</div><div style="background:rgba(10,10,11,.07);border-radius:5px;padding:.35rem .45rem;font-size:.58rem;color:rgba(10,10,11,.55)">Invoice</div><div style="background:rgba(10,10,11,.07);border-radius:5px;padding:.35rem .45rem;font-size:.58rem;color:rgba(10,10,11,.55)">Site</div></div>
+            <div style="display:flex;flex-direction:column;gap:.25rem"><div style="font-size:.52rem;color:rgba(255,255,255,.35);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.1rem">New</div><div style="background:rgba(255,255,255,.06);border-radius:5px;padding:.35rem .45rem;font-size:.58rem;color:rgba(255,255,255,.55)">Lead #1</div><div style="background:rgba(255,255,255,.06);border-radius:5px;padding:.35rem .45rem;font-size:.58rem;color:rgba(255,255,255,.55)">Lead #2</div></div>
+            <div style="display:flex;flex-direction:column;gap:.25rem"><div style="font-size:.52rem;color:rgba(255,255,255,.35);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.1rem">Active</div><div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:5px;padding:.35rem .45rem;font-size:.58rem;color:rgba(255,255,255,.8)">Project A</div></div>
+            <div style="display:flex;flex-direction:column;gap:.25rem"><div style="font-size:.52rem;color:rgba(255,255,255,.35);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.1rem">Done</div><div style="background:rgba(255,255,255,.06);border-radius:5px;padding:.35rem .45rem;font-size:.58rem;color:rgba(255,255,255,.55)">Invoice</div><div style="background:rgba(255,255,255,.06);border-radius:5px;padding:.35rem .45rem;font-size:.58rem;color:rgba(255,255,255,.55)">Site</div></div>
           </div>
         </div>
       </div>
@@ -651,7 +620,7 @@ footer{background:var(--deep);border-top:1px solid rgba(194,170,143,.1);padding:
         <div class="fc-top"><h3>WhatsApp & Inbox</h3><p>All your messages in one place — WhatsApp, email, and customer chats, fully connected to your system.</p></div>
         <div class="fc-body">
           <div style="width:100%;display:flex;flex-direction:column;gap:.35rem">
-            <div style="background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.18);border-radius:7px;padding:.5rem .7rem;display:flex;align-items:center;gap:.45rem"><span style="font-size:.8rem">💚</span><span style="font-size:.63rem;color:rgba(255,255,255,.55)">New WhatsApp from client</span><span style="margin-left:auto;font-size:.52rem;color:rgba(255,255,255,.25)">2m</span></div>
+            <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:7px;padding:.5rem .7rem;display:flex;align-items:center;gap:.45rem"><span style="font-size:.8rem">💚</span><span style="font-size:.63rem;color:rgba(255,255,255,.55)">New WhatsApp from client</span><span style="margin-left:auto;font-size:.52rem;color:rgba(255,255,255,.25)">2m</span></div>
             <div style="background:rgba(255,255,255,.05);border-radius:7px;padding:.5rem .7rem;display:flex;align-items:center;gap:.45rem"><span style="font-size:.8rem">📬</span><span style="font-size:.63rem;color:rgba(255,255,255,.55)">Invoice #042 paid — $750</span><span style="margin-left:auto;font-size:.52rem;color:rgba(255,255,255,.25)">5m</span></div>
           </div>
         </div>
@@ -659,11 +628,11 @@ footer{background:var(--deep);border-top:1px solid rgba(194,170,143,.1);padding:
       <div class="fc fc-lt rv d3" style="min-height:220px">
         <div class="fc-top"><h3>Forms & Booking</h3><p>Create forms, collect leads, and let customers book services through simple, shareable pages.</p></div>
         <div class="fc-body">
-          <div style="width:100%;background:#fff;border:1px solid rgba(10,10,11,.1);border-radius:9px;padding:.8rem;box-shadow:0 4px 12px rgba(0,0,0,.06)">
-            <div style="font-size:.58rem;font-weight:600;color:#0a0a0b;margin-bottom:.55rem">Book a Consultation</div>
-            <div style="background:rgba(10,10,11,.05);border-radius:5px;padding:.4rem .55rem;font-size:.58rem;color:rgba(10,10,11,.35);margin-bottom:.3rem">Full name *</div>
-            <div style="background:rgba(10,10,11,.05);border-radius:5px;padding:.4rem .55rem;font-size:.58rem;color:rgba(10,10,11,.35);margin-bottom:.4rem">Email address *</div>
-            <div style="background:#0a0a0b;border-radius:5px;padding:.4rem .55rem;font-size:.58rem;color:#fff;text-align:center;font-weight:600">Book Now</div>
+          <div style="width:100%;background:#1A1A1A;border:1px solid rgba(255,255,255,.1);border-radius:9px;padding:.8rem;box-shadow:0 4px 12px rgba(0,0,0,.06)">
+            <div style="font-size:.58rem;font-weight:600;color:#FFFFFF;margin-bottom:.55rem">Book a Consultation</div>
+            <div style="background:rgba(255,255,255,.06);border-radius:5px;padding:.4rem .55rem;font-size:.58rem;color:rgba(255,255,255,.35);margin-bottom:.3rem">Full name *</div>
+            <div style="background:rgba(255,255,255,.06);border-radius:5px;padding:.4rem .55rem;font-size:.58rem;color:rgba(255,255,255,.35);margin-bottom:.4rem">Email address *</div>
+            <div style="background:#FFFFFF;border-radius:5px;padding:.4rem .55rem;font-size:.58rem;color:#080808;text-align:center;font-weight:600">Book Now</div>
           </div>
         </div>
       </div>
@@ -679,38 +648,12 @@ footer{background:var(--deep);border-top:1px solid rgba(194,170,143,.1);padding:
   </div>
 </section>
 
-<!-- 5. STACKED CARDS — 4 products, ~350vh -->
-<section id="showcase" style="background:var(--void);position:relative;overflow:hidden">
-  <div class="sc-scroll" style="height:380vh">
-    <div class="sc-stick">
-      <div class="sc-bg" id="scBg"></div>
-      <div class="sc-grid-bg"></div>
-      <div class="sc-top">
-        <div class="sc-top-label">What We Build</div>
-        <div class="sc-top-h">Four products.<br><em style="font-style:italic;color:var(--gold)">One studio.</em></div>
-      </div>
-      <div class="sc-label">
-        <div class="sc-lnum" id="scNum">01 / 04</div>
-        <div class="sc-lt" id="scTit">DinqOS Platform</div>
-        <div class="sc-ls" id="scSub">The complete 42-module business OS for Ethiopian & global businesses.</div>
-        <a class="sc-la" id="scCta" href="https://app.dinqdigital.com/login">Explore <span>→</span></a>
-      </div>
-      <div class="sc-dots" id="scDots">
-        <div class="scd on" data-i="0"></div>
-        <div class="scd" data-i="1"></div>
-        <div class="scd" data-i="2"></div>
-        <div class="scd" data-i="3"></div>
-      </div>
-      <div class="sc-stack" id="scStack"></div>
-    </div>
-  </div>
-</section>
-
 <!-- 6. WORK -->
 <section id="work" style="background:var(--deep);padding:9rem 3rem">
   <div class="mxw">
     <div class="rv" style="margin-bottom:4rem">
       <div class="sl">Selected Work</div>
+      <p style="font-size:.72rem;letter-spacing:.12em;color:rgba(255,255,255,.25);margin-bottom:.5rem;text-transform:uppercase">7 projects across fintech, SaaS, e-commerce & more</p>
       <h2 class="sh">Real products.<br><em style="font-style:italic;color:var(--gold)">Real results.</em></h2>
     </div>
     <div class="work-grid rv" style="grid-template-columns:repeat(3,1fr)">
@@ -748,6 +691,71 @@ footer{background:var(--deep);border-top:1px solid rgba(194,170,143,.1);padding:
         <div class="wbg" style="background:linear-gradient(135deg,#0D120A,#090E07)"><div class="mk"><div class="mk-dots"><div class="mk-dot"></div><div class="mk-dot"></div><div class="mk-dot"></div></div><div class="mkl mkl-g"></div><div class="mkl mkl-m"></div><div class="mkl mkl-s"></div></div></div>
         <div class="wov"></div><span class="wam">አ</span>
         <div class="wi-info"><div class="wi-cat">Photography</div><div class="wi-name">Adismotion</div><div class="wi-desc">Full-service photo studio with digital galleries</div><div class="wi-metric">500+ shoots completed</div></div>
+      <!-- Placeholder 1 -->
+      <div class="wi">
+        <div class="wbg" style="background:linear-gradient(135deg,#1a1209,#0d0d0a)">
+          <div class="mk"><div class="mk-dots"><div class="mk-dot"></div><div class="mk-dot"></div><div class="mk-dot"></div></div><div class="mkl mkl-g"></div><div class="mkl mkl-m"></div></div>
+        </div>
+        <div class="wov"></div><span class="wam">ሀ</span>
+        <div class="wi-info">
+          <div class="wi-cat" style="color:rgba(196,163,90,.5);letter-spacing:.18em">— Coming Soon —</div>
+          <div class="wi-name">Your Project</div>
+          <div class="wi-desc">Fintech · E-commerce · SaaS · Brand</div>
+          <div class="wi-metric" style="color:var(--gold);border-color:var(--gold)">Let's build it →</div>
+        </div>
+      </div>
+      <!-- Placeholder 2 -->
+      <div class="wi">
+        <div class="wbg" style="background:linear-gradient(135deg,#0d1a14,#080f0a)">
+          <div class="mk"><div class="mk-dots"><div class="mk-dot"></div><div class="mk-dot"></div><div class="mk-dot"></div></div><div class="mkl mkl-g"></div><div class="mkl mkl-s"></div></div>
+        </div>
+        <div class="wov"></div><span class="wam">ሸ</span>
+        <div class="wi-info">
+          <div class="wi-cat" style="color:rgba(196,163,90,.5);letter-spacing:.18em">— Coming Soon —</div>
+          <div class="wi-name">Your Project</div>
+          <div class="wi-desc">Web design · DinqOS · Payments</div>
+          <div class="wi-metric" style="color:var(--gold);border-color:var(--gold)">Start a project →</div>
+        </div>
+      </div>
+      <!-- Placeholder 3 -->
+      <div class="wi">
+        <div class="wbg" style="background:linear-gradient(135deg,#1a1409,#0f0e08)">
+          <div class="mk"><div class="mk-dots"><div class="mk-dot"></div><div class="mk-dot"></div><div class="mk-dot"></div></div><div class="mkl mkl-m"></div><div class="mkl mkl-g"></div></div>
+        </div>
+        <div class="wov"></div><span class="wam">ዜ</span>
+        <div class="wi-info">
+          <div class="wi-cat" style="color:rgba(196,163,90,.5);letter-spacing:.18em">— Coming Soon —</div>
+          <div class="wi-name">Your Project</div>
+          <div class="wi-desc">AI automation · Branding · Growth</div>
+          <div class="wi-metric" style="color:var(--gold);border-color:var(--gold)">Get in touch →</div>
+        </div>
+      </div>
+      <!-- Placeholder 4 -->
+      <div class="wi">
+        <div class="wbg" style="background:linear-gradient(135deg,#0d0d1a,#08080f)">
+          <div class="mk"><div class="mk-dots"><div class="mk-dot"></div><div class="mk-dot"></div><div class="mk-dot"></div></div><div class="mkl mkl-g"></div><div class="mkl mkl-m"></div><div class="mkl mkl-s"></div></div>
+        </div>
+        <div class="wov"></div><span class="wam">ቡ</span>
+        <div class="wi-info">
+          <div class="wi-cat" style="color:rgba(196,163,90,.5);letter-spacing:.18em">— Coming Soon —</div>
+          <div class="wi-name">Your Project</div>
+          <div class="wi-desc">From Ethiopia to everywhere</div>
+          <div class="wi-metric" style="color:var(--gold);border-color:var(--gold)">Work with us →</div>
+        </div>
+      </div>
+      <!-- Placeholder 5 -->
+      <div class="wi">
+        <div class="wbg" style="background:linear-gradient(135deg,#1a0d0d,#0f0808)">
+          <div class="mk"><div class="mk-dots"><div class="mk-dot"></div><div class="mk-dot"></div><div class="mk-dot"></div></div><div class="mkl mkl-s"></div><div class="mkl mkl-g"></div></div>
+        </div>
+        <div class="wov"></div><span class="wam">ሳ</span>
+        <div class="wi-info">
+          <div class="wi-cat" style="color:rgba(196,163,90,.5);letter-spacing:.18em">— Coming Soon —</div>
+          <div class="wi-name">Your Project</div>
+          <div class="wi-desc">The next ድንቅ business</div>
+          <div class="wi-metric" style="color:var(--gold);border-color:var(--gold)"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="85e1ecebf4e1ece2ecf1e4e9c5e2e8e4ece9abe6eae8">[email&#160;protected]</a> →</div>
+        </div>
+      </div>
       </div>
     </div>
   </div>
@@ -758,6 +766,7 @@ footer{background:var(--deep);border-top:1px solid rgba(194,170,143,.1);padding:
   <div class="mxw" style="padding:0 3rem;margin-bottom:3.5rem">
     <div class="rvl">
       <div class="sl">Payments</div>
+      <p style="font-size:.72rem;letter-spacing:.12em;color:rgba(255,255,255,.25);margin-bottom:.5rem;text-transform:uppercase">Telebirr · Stripe · Zelle · CashApp · CBE · PayPal</p>
       <h2 class="sh">Accept money<br><em style="font-style:italic;color:var(--gold)">anywhere on earth</em></h2>
       <p class="sd" style="margin-top:.85rem">Most platforms don't understand African payments. We do — Telebirr in Ethiopia, Stripe globally, Zelle or CashApp in the US.</p>
     </div>
@@ -769,20 +778,20 @@ footer{background:var(--deep);border-top:1px solid rgba(194,170,143,.1);padding:
     <div id="payCarousel" style="display:flex;gap:1.25rem;overflow-x:auto;padding:0 3rem 1.5rem;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab;user-select:none" onmousedown="startDrag(event)" onmousemove="onDrag(event)" onmouseup="stopDrag()" onmouseleave="stopDrag()">
 
       <!-- Card 1: Telebirr -->
-      <div style="min-width:300px;max-width:300px;background:linear-gradient(135deg,#0D1A0B,#08100A);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:2rem;scroll-snap-align:start;flex-shrink:0;position:relative;overflow:hidden;transition:transform .25s" onmouseenter="this.style.transform='translateY(-4px)'" onmouseleave="this.style.transform='none'">
+      <div style="min-width:300px;max-width:300px;background:linear-gradient(135deg,#050528,#020215);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:2rem;scroll-snap-align:start;flex-shrink:0;position:relative;overflow:hidden;transition:transform .25s" onmouseenter="this.style.transform='translateY(-4px)'" onmouseleave="this.style.transform='none'">
         <div style="position:absolute;top:-40px;right:-40px;width:150px;height:150px;background:radial-gradient(circle,rgba(201,168,76,.12),transparent 70%);pointer-events:none"></div>
         <div style="font-size:2.5rem;margin-bottom:1.25rem">🇪🇹</div>
         <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:.5rem">Telebirr</div>
         <div style="font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.65;font-weight:300;margin-bottom:1.5rem">Ethiopia's #1 mobile money. Accept payments from any Telebirr user instantly.</div>
         <div style="display:flex;flex-wrap:wrap;gap:.4rem">
-          <span style="font-size:.62rem;padding:.22rem .65rem;border-radius:99px;border:1px solid rgba(201,168,76,.25);color:rgba(201,168,76,.7)">Ethiopia</span>
+          <span style="font-size:.62rem;padding:.22rem .65rem;border-radius:99px;border:1px solid rgba(201,168,76,.25);color:rgba(200,200,200,.7)">Ethiopia</span>
           <span style="font-size:.62rem;padding:.22rem .65rem;border-radius:99px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.35)">Mobile money</span>
           <span style="font-size:.62rem;padding:.22rem .65rem;border-radius:99px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.35)">Instant</span>
         </div>
       </div>
 
       <!-- Card 2: Stripe -->
-      <div style="min-width:300px;max-width:300px;background:linear-gradient(135deg,#0E1409,#090E08);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:2rem;scroll-snap-align:start;flex-shrink:0;position:relative;overflow:hidden;transition:transform .25s" onmouseenter="this.style.transform='translateY(-4px)'" onmouseleave="this.style.transform='none'">
+      <div style="min-width:300px;max-width:300px;background:linear-gradient(135deg,#0D0525,#08021A);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:2rem;scroll-snap-align:start;flex-shrink:0;position:relative;overflow:hidden;transition:transform .25s" onmouseenter="this.style.transform='translateY(-4px)'" onmouseleave="this.style.transform='none'">
         <div style="position:absolute;top:-40px;right:-40px;width:150px;height:150px;background:radial-gradient(circle,rgba(99,102,241,.12),transparent 70%);pointer-events:none"></div>
         <div style="font-size:2.5rem;margin-bottom:1.25rem">🌍</div>
         <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:.5rem">Stripe</div>
@@ -795,7 +804,7 @@ footer{background:var(--deep);border-top:1px solid rgba(194,170,143,.1);padding:
       </div>
 
       <!-- Card 3: Zelle / CashApp -->
-      <div style="min-width:300px;max-width:300px;background:linear-gradient(135deg,#0C1209,#080E07);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:2rem;scroll-snap-align:start;flex-shrink:0;position:relative;overflow:hidden;transition:transform .25s" onmouseenter="this.style.transform='translateY(-4px)'" onmouseleave="this.style.transform='none'">
+      <div style="min-width:300px;max-width:300px;background:linear-gradient(135deg,#050520,#030318);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:2rem;scroll-snap-align:start;flex-shrink:0;position:relative;overflow:hidden;transition:transform .25s" onmouseenter="this.style.transform='translateY(-4px)'" onmouseleave="this.style.transform='none'">
         <div style="position:absolute;top:-40px;right:-40px;width:150px;height:150px;background:radial-gradient(circle,rgba(37,211,102,.1),transparent 70%);pointer-events:none"></div>
         <div style="display:flex;gap:.5rem;margin-bottom:1.25rem"><span style="font-size:1.8rem">💚</span><span style="font-size:1.8rem">💙</span><span style="font-size:1.8rem">🍎</span></div>
         <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:.5rem">CashApp, Zelle & Apple Pay</div>
@@ -808,19 +817,19 @@ footer{background:var(--deep);border-top:1px solid rgba(194,170,143,.1);padding:
       </div>
 
       <!-- Card 4: CBE Birr -->
-      <div style="min-width:300px;max-width:300px;background:linear-gradient(135deg,#120F08,#0C0B06);border:1px solid rgba(201,168,76,.12);border-radius:18px;padding:2rem;scroll-snap-align:start;flex-shrink:0;position:relative;overflow:hidden;transition:transform .25s" onmouseenter="this.style.transform='translateY(-4px)'" onmouseleave="this.style.transform='none'">
+      <div style="min-width:300px;max-width:300px;background:linear-gradient(135deg,#100A28,#0A0720);border:1px solid rgba(201,168,76,.12);border-radius:18px;padding:2rem;scroll-snap-align:start;flex-shrink:0;position:relative;overflow:hidden;transition:transform .25s" onmouseenter="this.style.transform='translateY(-4px)'" onmouseleave="this.style.transform='none'">
         <div style="position:absolute;top:-40px;right:-40px;width:150px;height:150px;background:radial-gradient(circle,rgba(201,168,76,.1),transparent 70%);pointer-events:none"></div>
         <div style="font-size:2.5rem;margin-bottom:1.25rem">🏦</div>
         <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:.5rem">CBE Birr</div>
         <div style="font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.65;font-weight:300;margin-bottom:1.5rem">Commercial Bank of Ethiopia's mobile banking — trusted by millions of Ethiopians for direct transfers.</div>
         <div style="display:flex;flex-wrap:wrap;gap:.4rem">
-          <span style="font-size:.62rem;padding:.22rem .65rem;border-radius:99px;border:1px solid rgba(201,168,76,.25);color:rgba(201,168,76,.7)">Ethiopia</span>
+          <span style="font-size:.62rem;padding:.22rem .65rem;border-radius:99px;border:1px solid rgba(201,168,76,.25);color:rgba(200,200,200,.7)">Ethiopia</span>
           <span style="font-size:.62rem;padding:.22rem .65rem;border-radius:99px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.35)">Bank transfer</span>
         </div>
       </div>
 
       <!-- Card 5: PayPal -->
-      <div style="min-width:300px;max-width:300px;background:linear-gradient(135deg,#0D1209,#09100A);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:2rem;scroll-snap-align:start;flex-shrink:0;position:relative;overflow:hidden;transition:transform .25s" onmouseenter="this.style.transform='translateY(-4px)'" onmouseleave="this.style.transform='none'">
+      <div style="min-width:300px;max-width:300px;background:linear-gradient(135deg,#0A0530,#060220);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:2rem;scroll-snap-align:start;flex-shrink:0;position:relative;overflow:hidden;transition:transform .25s" onmouseenter="this.style.transform='translateY(-4px)'" onmouseleave="this.style.transform='none'">
         <div style="position:absolute;top:-40px;right:-40px;width:150px;height:150px;background:radial-gradient(circle,rgba(0,112,243,.1),transparent 70%);pointer-events:none"></div>
         <div style="font-size:2.5rem;margin-bottom:1.25rem">🅿️</div>
         <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:.5rem">PayPal</div>
@@ -835,7 +844,7 @@ footer{background:var(--deep);border-top:1px solid rgba(194,170,143,.1);padding:
       <div style="min-width:300px;max-width:300px;background:var(--card);border:1px solid var(--edge);border-radius:18px;overflow:hidden;scroll-snap-align:start;flex-shrink:0;box-shadow:0 24px 48px rgba(0,0,0,.4)">
         <div style="padding:1.2rem 1.4rem;background:var(--lift);border-bottom:1px solid var(--edge);display:flex;justify-content:space-between;align-items:center">
           <div style="font-family:'Playfair Display',serif;font-size:.88rem;font-weight:700">Habesha Coffee</div>
-          <div style="font-size:.55rem;color:var(--gold);background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.18);border-radius:3px;padding:.15rem .55rem;letter-spacing:.08em">PENDING</div>
+          <div style="font-size:.55rem;color:var(--gold);background:rgba(200,200,200,.08);border:1px solid rgba(200,200,200,.18);border-radius:3px;padding:.15rem .55rem;letter-spacing:.08em">PENDING</div>
         </div>
         <div style="padding:1.5rem">
           <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:.15rem">$850</div>
@@ -880,7 +889,7 @@ footer{background:var(--deep);border-top:1px solid rgba(194,170,143,.1);padding:
 #payCarousel::-webkit-scrollbar{display:none}
 #payCarousel.dragging{cursor:grabbing}
 </style>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Drag to scroll
 let isDragging=false,startX=0,scrollLeft=0;
 function startDrag(e){isDragging=true;startX=e.pageX-document.getElementById('payCarousel').offsetLeft;scrollLeft=document.getElementById('payCarousel').scrollLeft;document.getElementById('payCarousel').classList.add('dragging')}
@@ -904,6 +913,7 @@ payEl.addEventListener('scroll',()=>{
   <div class="mxw">
     <div class="rv" style="margin-bottom:1rem">
       <div class="sl">Pricing</div>
+      <p style="font-size:.72rem;letter-spacing:.12em;color:rgba(255,255,255,.25);margin-bottom:.5rem;text-transform:uppercase">One-time project fees · No hidden costs</p>
       <h2 class="sh">Simple. Honest.<br><em style="font-style:italic;color:var(--gold)">No surprises.</em></h2>
       <p class="sd" style="margin-top:.85rem">One-time project fees. Quote in USD or local currency based on where you are.</p>
     </div>
@@ -949,6 +959,7 @@ payEl.addEventListener('scroll',()=>{
   <div class="ai-inner mxw">
     <div class="rvl">
       <div class="sl">AI Assistant</div>
+      <p style="font-size:.72rem;letter-spacing:.12em;color:rgba(255,255,255,.25);margin-bottom:.5rem;text-transform:uppercase">Claude-powered · English + Amharic · 24/7</p>
       <h2 class="sh">Your business<br><em style="font-style:italic;color:var(--gold)">never sleeps</em></h2>
       <p class="sd" style="margin-top:.85rem">Dinq Bot handles customer messages, writes proposals, and keeps operations running in Amharic and English.</p>
       <div class="ai-feats">
@@ -983,18 +994,47 @@ payEl.addEventListener('scroll',()=>{
 </section>
 
 <!-- 10. CTA -->
-<section id="cta">
+<section id="cta" style="background:#080808;padding:8rem 2rem;position:relative;overflow:hidden;text-align:center;min-height:100vh;display:flex;align-items:center;justify-content:center">
   <div class="cta-atm"></div>
-  <canvas id="ctac" style="position:absolute;inset:0;width:100%;height:100%;opacity:.75"></canvas>
-  <div class="cta-in rv" style="position:relative;z-index:2">
-    <div class="cta-pre">Build your system</div>
-    <h2 class="cta-h">Build your system.<br><em style="font-style:italic;color:var(--gold)">Grow without limits.</em></h2>
-    <p class="cta-s">From ET to everywhere, we help you build, run, and scale your business the right way.</p>
-    <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap">
-      <a href="/cdn-cgi/l/email-protection#2d4944435c49444a44594c416d4a404c4441034e4240" class="btn-pf">Get Your System <span class="barr">→</span></a>
-      <a href="https://t.me/dinqdigital" class="btn-ph">Book a Call</a>
+  <!-- Three.js will inject canvas here -->
+
+  <!-- Decorative Amharic background letters -->
+  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:1;overflow:hidden">
+    <span style="font-family:'Playfair Display',serif;font-size:clamp(12rem,30vw,22rem);font-weight:700;color:rgba(255,255,255,.03);line-height:1;user-select:none;letter-spacing:-.05em">ድንቅ</span>
+  </div>
+
+  <div class="cta-in" style="position:relative;z-index:2;max-width:680px;margin:0 auto;text-align:center">
+
+    <!-- Big headline -->
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(3rem,9vw,6.5rem);font-weight:700;letter-spacing:-.03em;line-height:1.0;margin-bottom:1.5rem;color:#FFFFFF">
+      Ready to build<br>something<br>
+      <em style="font-style:italic;color:#C4A35A">ድንቅ</em>?
+    </h2>
+
+    <p style="font-size:1rem;color:rgba(255,255,255,.45);font-weight:300;margin-bottom:3rem;line-height:1.75">
+      From Addis Ababa to everywhere — your vision, our execution.
+    </p>
+
+    <!-- Buttons -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:.85rem;max-width:420px;margin:0 auto">
+      <a href="/cdn-cgi/l/email-protection#f094999e819499979984919cb0979d91999cde939f9d" style="display:flex;align-items:center;justify-content:center;gap:.65rem;width:100%;padding:1rem 2rem;background:var(--gold);color:#080808;border:none;border-radius:var(--r);font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:600;text-decoration:none;transition:all .25s;letter-spacing:.02em">
+        Email Us →
+      </a>
+      <div style="display:flex;gap:.85rem;width:100%">
+        <a href="https://t.me/dinqdigital" style="flex:1;display:flex;align-items:center;justify-content:center;gap:.55rem;padding:1rem;background:transparent;color:#FFFFFF;border:1px solid rgba(255,255,255,.2);border-radius:var(--r);font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:400;text-decoration:none;transition:all .25s">
+          Telegram ✈️
+        </a>
+        <a href="https://wa.me/dinqdigital" style="flex:1;display:flex;align-items:center;justify-content:center;gap:.55rem;padding:1rem;background:transparent;color:#FFFFFF;border:1px solid rgba(255,255,255,.2);border-radius:var(--r);font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:400;text-decoration:none;transition:all .25s">
+          WhatsApp 💬
+        </a>
+      </div>
     </div>
-    <p class="cta-fine"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7f1b16110e1b1618160b1e133f18121e1613511c1012">[email&#160;protected]</a> · @dinqdigital on Telegram & WhatsApp</p>
+
+    <!-- Fine print -->
+    <p style="margin-top:2rem;font-size:.72rem;color:rgba(255,255,255,.2);letter-spacing:.06em">
+      <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f3979a9d82979a949a87929fb3949e929a9fdd909c9e">[email&#160;protected]</a> · @dinqdigital · Addis Ababa, Ethiopia
+    </p>
+
   </div>
 </section>
 
@@ -1005,7 +1045,7 @@ payEl.addEventListener('scroll',()=>{
       <div class="ft-br">
         <a href="#" style="display:flex;align-items:center;gap:.7rem;text-decoration:none">
           <div class="nmark">D</div>
-          <span class="nname">Dinq<em>Digital</em></span>
+          <span class="nname">Dinq<em style="color:#C4A35A;font-style:normal">Digital</em></span>
         </a>
         <p>Building the operating system for Ethiopian & global businesses.</p>
         <p style="font-size:.68rem;color:var(--t4);margin-top:.4rem">Addis Ababa · Global</p>
@@ -1021,7 +1061,7 @@ payEl.addEventListener('scroll',()=>{
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── CURSOR ── */
 const cur=document.getElementById('cur'),curt=document.getElementById('curt');
 let mx=0,my=0,tx=0,ty=0;
@@ -1032,12 +1072,26 @@ document.querySelectorAll('a,button,.fc,.wi,.pm,.af,.pc').forEach(el=>{el.addEve
 /* ── NAV ── */
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('s',scrollY>60));
+/* Smooth scroll for all anchor links */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id=a.getAttribute('href').slice(1);
+    const el=document.getElementById(id);
+    if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'})}
+  });
+});
 
 /* ── SCROLL REVEAL ── */
 const ro=new IntersectionObserver(e=>e.forEach(n=>{if(n.isIntersecting){n.target.classList.add('in');ro.unobserve(n.target)}}),{threshold:0,rootMargin:'0px 0px 0px 0px'});
 document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>ro.observe(el));
 /* Fallback: if file:// or slow load, force all visible after 400ms */
 setTimeout(()=>document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>el.classList.add('in')),400);
+/* Force hero words visible after 800ms if animation failed */
+setTimeout(()=>{
+  document.querySelectorAll('.hero-h .w,.hero-sub,.hero-btns,.hero-proof,.hero-eye,.scroll-hint').forEach(el=>{
+    el.style.opacity='1';el.style.transform='none';
+  });
+},800);
 /* Also trigger on first scroll */
 window.addEventListener('scroll',function onFirstScroll(){
   document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>el.classList.add('in'));
@@ -1054,509 +1108,182 @@ document.querySelectorAll('.count').forEach(el=>co.observe(el));
 /* Fallback: run counters after 600ms regardless */
 setTimeout(()=>document.querySelectorAll('.count').forEach(el=>{if(el.textContent==='0')animCnt(el)}),600);
 
-/* ── STACKED CARDS ── */
-(function(){
-  const CARDS=[
-    {
-      title:'DinqOS Platform',tag:'Business OS',
-      tagBg:'rgba(196,163,90,.2)',tagC:'#C4A35A',
-      desc:'The complete 42-module business operating system — everything you need to run, manage, and scale your business from one place.',
-      pills:['CRM','Invoicing','Kanban','AI','Payments'],
-      bg:'linear-gradient(135deg,#0F2614 0%,#0A1C0E 50%,#071209 100%)',
-      glow:'rgba(46,74,43,.6)',
-      accent:'#C4A35A',
-      link:'https://app.dinqdigital.com/login'
-    },
-    {
-      title:'Digital Products',tag:'Web + SaaS',
-      tagBg:'rgba(122,164,118,.18)',tagC:'#8FAF8A',
-      desc:'High-performance websites and SaaS platforms built to convert visitors into customers — from landing pages to full-scale systems.',
-      pills:['Websites','E-commerce','SaaS','APIs'],
-      bg:'linear-gradient(135deg,#1A2410 0%,#121A0C 50%,#0C1208 100%)',
-      glow:'rgba(61,96,56,.5)',
-      accent:'#8FAF8A',
-      link:'#cta'
-    },
-    {
-      title:'AI Bots & Automation',tag:'AI',
-      tagBg:'rgba(196,163,90,.18)',tagC:'#DFBE7A',
-      desc:'Automate your business with AI — respond to customers, handle support, and run workflows 24/7 without manual effort.',
-      pills:['WhatsApp','Auto-reply','Claude AI','Workflows'],
-      bg:'linear-gradient(135deg,#221A08 0%,#1A1306 50%,#120E05 100%)',
-      glow:'rgba(196,163,90,.35)',
-      accent:'#DFBE7A',
-      link:'#ai'
-    },
-    {
-      title:'Brand & UI Design',tag:'Design',
-      tagBg:'rgba(194,170,143,.18)',tagC:'#C2AA8F',
-      desc:'Build a brand that stands out instantly — clean visuals, strong identity, and user experiences designed to earn trust and drive action.',
-      pills:['Brand identity','UI systems','Motion','Assets'],
-      bg:'linear-gradient(135deg,#1F1610 0%,#17110C 50%,#100C08 100%)',
-      glow:'rgba(122,75,46,.45)',
-      accent:'#C2AA8F',
-      link:'#cta'
-    },
-  ];
-  const BGS=[
-    /* DinqOS — deep forest green */
-    'radial-gradient(ellipse 80% 60% at 50% 55%,rgba(46,74,43,.5),transparent 65%)',
-    /* Digital Products — sage olive */
-    'radial-gradient(ellipse 80% 60% at 50% 55%,rgba(61,96,56,.42),transparent 65%)',
-    /* AI — warm amber */
-    'radial-gradient(ellipse 80% 60% at 50% 55%,rgba(138,107,46,.38),transparent 65%)',
-    /* Brand — terracotta clay */
-    'radial-gradient(ellipse 80% 60% at 50% 55%,rgba(122,75,46,.4),transparent 65%)',
-  ];
+/* ── CTA GLOBE — Three.js ── */
+(function() {
+  var script = document.createElement('script');
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js';
+  script.onload = function() {
+    var sect = document.getElementById('cta');
+    if (!sect) return;
 
-  let cur=0;
-  const stack=document.getElementById('scStack');
-  const bg=document.getElementById('scBg');
-  const dots=document.querySelectorAll('.scd');
-  const elNum=document.getElementById('scNum');
-  const elTit=document.getElementById('scTit');
-  const elSub=document.getElementById('scSub');
-  const elCta=document.getElementById('scCta');
+    var W = sect.offsetWidth  || window.innerWidth;
+    var H = sect.offsetHeight || window.innerHeight;
 
-  // Build cards
-  const cards=CARDS.map((c,i)=>{
-    const el=document.createElement('div');
-    el.className='sc-card';
-    el.dataset.i=i;
-    el.innerHTML=`
-      <div style="position:absolute;inset:0;background:${c.bg}"></div>
-      <div style="position:absolute;inset:0;background:radial-gradient(ellipse 75% 65% at 25% 35%,${c.glow},transparent 60%)"></div>
-      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,.65) 100%)"></div>
-      <div class="sc-ci">
-        <div class="sc-cb">
-          <div class="sc-dots2"><div class="sc-dot" style="background:#FF5F57"></div><div class="sc-dot" style="background:#FEBC2E"></div><div class="sc-dot" style="background:#28C840"></div></div>
-          <span class="sc-tag" style="background:${c.tagBg};color:${c.tagC}">${c.tag}</span>
-        </div>
-        <div class="sc-body">
-          <div class="sc-title">${c.title}</div>
-          <div class="sc-desc">${c.desc}</div>
-          <div class="sc-pills">${c.pills.map(p=>`<span class="sc-pill">${p}</span>`).join('')}</div>
-        </div>
-      </div>
-      <div class="sc-accent" style="background:${c.accent}"></div>
-    `;
-    el.addEventListener('click',()=>{ i===cur ? window.location.href=c.link : goTo(i) });
-    stack.appendChild(el);
-    return el;
-  });
+    var scene    = new THREE.Scene();
+    var camera   = new THREE.PerspectiveCamera(75, W / H, 0.1, 1000);
+    camera.position.z = 3;
 
-  function getT(i,active){
-    const d=i-active;
-    if(d===0) return {t:'translateZ(0px) rotateX(0deg) scale(1)',o:1,z:10,s:'0 32px 64px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.05)'};
-    if(d>0){const n=Math.min(d,3);return {t:`translateZ(${-n*50}px) translateY(${n*14}px) scale(${1-n*.035}) rotateX(${n*1.5}deg)`,o:Math.max(0,1-n*.2),z:10-n,s:'0 16px 32px rgba(0,0,0,.5)'}}
-    return {t:'translateZ(100px) translateY(-30px) scale(1.03) rotateX(-3deg)',o:0,z:1,s:'none'};
-  }
+    var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(W, H);
+    renderer.setClearColor(0x000000, 0);
+    renderer.setPixelRatio(window.devicePixelRatio);
 
-  function applyT(active){
-    cards.forEach((el,i)=>{
-      const t=getT(i,active);
-      el.style.transform=t.t;el.style.opacity=t.o;el.style.zIndex=t.z;el.style.boxShadow=t.s;
+    /* Style the canvas to sit behind CTA content */
+    var c = renderer.domElement;
+    c.style.position   = 'absolute';
+    c.style.top        = '0';
+    c.style.left       = '0';
+    c.style.width      = '100%';
+    c.style.height     = '100%';
+    c.style.pointerEvents = 'none';
+    c.id = 'ctac';
+    sect.insertBefore(c, sect.firstChild);
+
+    /* 9000 particles on sphere surface */
+    var geo = new THREE.BufferGeometry();
+    var pos = [];
+    for (var i = 0; i < 9000; i++) {
+      var u = Math.random(), v = Math.random();
+      var theta = 2 * Math.PI * u;
+      var phi   = Math.acos(2 * v - 1);
+      var r     = 1.15 + (Math.random() - 0.5) * 0.06;
+      pos.push(
+        r * Math.sin(phi) * Math.cos(theta),
+        r * Math.sin(phi) * Math.sin(theta),
+        r * Math.cos(phi)
+      );
+    }
+    geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+    var mat = new THREE.PointsMaterial({
+      color: 0xf2ede4,
+      size: 0.008,
+      transparent: true,
+      opacity: 0.75,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending
     });
-  }
+    var sphere = new THREE.Points(geo, mat);
+    scene.add(sphere);
 
-  function updateLabel(i){
-    const c=CARDS[i];
-    elNum.textContent=`0${i+1} / 0${CARDS.length}`;
-    elTit.style.opacity='0';elTit.style.transform='translateY(8px)';
-    elSub.style.opacity='0';
-    setTimeout(()=>{
-      elTit.textContent=c.title;elSub.textContent=c.desc;elCta.href=c.link;
-      elTit.style.transition='all .5s cubic-bezier(.16,1,.3,1)';elTit.style.opacity='1';elTit.style.transform='none';
-      elSub.style.transition='all .5s .1s cubic-bezier(.16,1,.3,1)';elSub.style.opacity='1';
-    },100);
-  }
+    /* Gold orbital ring */
+    var rGeo = new THREE.BufferGeometry();
+    var rPos = [];
+    for (var j = 0; j < 300; j++) {
+      var a = (j / 300) * Math.PI * 2;
+      var rr = 1.32;
+      rPos.push(rr * Math.cos(a), rr * Math.sin(a) * 0.2, rr * Math.sin(a));
+    }
+    rGeo.setAttribute('position', new THREE.Float32BufferAttribute(rPos, 3));
+    var ring = new THREE.Points(rGeo, new THREE.PointsMaterial({
+      color: 0xc4a35a, size: 0.015, transparent: true, opacity: 0.7,
+      depthWrite: false, blending: THREE.AdditiveBlending
+    }));
+    scene.add(ring);
 
-  function goTo(i){
-    if(i<0||i>=CARDS.length)return;
-    cur=i;applyT(cur);
-    bg.style.background=BGSB[cur]||BGSB[0];
-    updateLabel(cur);
-    dots.forEach((d,j)=>d.classList.toggle('on',j===cur));
-  }
+    /* Second ring */
+    var r2Geo = new THREE.BufferGeometry();
+    var r2Pos = [];
+    for (var k = 0; k < 200; k++) {
+      var a2 = (k / 200) * Math.PI * 2;
+      var rr2 = 1.42;
+      r2Pos.push(rr2 * Math.cos(a2) * 0.2, rr2 * Math.sin(a2), rr2 * Math.cos(a2));
+    }
+    r2Geo.setAttribute('position', new THREE.Float32BufferAttribute(r2Pos, 3));
+    var ring2 = new THREE.Points(r2Geo, new THREE.PointsMaterial({
+      color: 0xdfbe7a, size: 0.012, transparent: true, opacity: 0.55,
+      depthWrite: false, blending: THREE.AdditiveBlending
+    }));
+    scene.add(ring2);
 
-  // Use BGSB not BGSB reference fix
-  const BGSB=BGS;
+    /* Mouse parallax */
+    var mx = 0, my = 0;
+    sect.addEventListener('mousemove', function(e) {
+      var r = sect.getBoundingClientRect();
+      mx =  ((e.clientX - r.left) / r.width  - 0.5) * 0.4;
+      my = -((e.clientY - r.top)  / r.height - 0.5) * 0.4;
+    });
+    sect.addEventListener('mouseleave', function() { mx = 0; my = 0; });
 
-  dots.forEach((d,i)=>d.addEventListener('click',()=>goTo(i)));
+    /* Animate */
+    function animate() {
+      requestAnimationFrame(animate);
+      sphere.rotation.y += 0.0009;
+      sphere.rotation.x += 0.00028;
+      ring.rotation.y   += 0.002;
+      ring.rotation.z   += 0.0007;
+      ring2.rotation.x  += 0.0015;
+      ring2.rotation.z  -= 0.001;
+      camera.position.x += (mx - camera.position.x) * 0.05;
+      camera.position.y += (my - camera.position.y) * 0.05;
+      camera.lookAt(scene.position);
+      renderer.render(scene, camera);
+    }
+    animate();
 
-  // Scroll driven
-  const scScroll=document.getElementById('scStack').closest('.sc-scroll');
-  function onScroll(){
-    if(!scScroll)return;
-    const rect=scScroll.getBoundingClientRect();
-    const total=scScroll.offsetHeight-window.innerHeight;
-    const scrolled=-rect.top;
-    if(scrolled<0||scrolled>total)return;
-    const prog=scrolled/total;
-    const idx=Math.min(Math.floor(prog*CARDS.length),CARDS.length-1);
-    if(idx!==cur)goTo(idx);
-    // gentle tilt on active
-    const sub=(prog*CARDS.length)%1;
-    const activeEl=cards[cur];
-    if(activeEl){const tilt=(sub-.5)*2.5;activeEl.style.transform=`translateZ(0px) rotateY(${tilt}deg) scale(1)`}
-  }
-  window.addEventListener('scroll',onScroll,{passive:true});
-
-  // Mouse parallax — subtle
-  const stick=document.querySelector('.sc-stick');
-  stick.addEventListener('mousemove',e=>{
-    const r=stick.getBoundingClientRect();
-    const mx=(e.clientX-r.left)/r.width-.5,my=(e.clientY-r.top)/r.height-.5;
-    const a=cards[cur];
-    if(a)a.style.transform=`translateZ(0px) rotateY(${mx*6}deg) rotateX(${-my*4}deg) scale(1)`;
-    cards.forEach((el,i)=>{if(i>cur&&i<=cur+2){const d=i-cur;const tb=getT(i,cur);el.style.transform=tb.t+` rotateY(${mx*2.5/d}deg)`}});
-  });
-  stick.addEventListener('mouseleave',()=>applyT(cur));
-
-  goTo(0);
-  // Kill initial label transitions
-  elTit.style.transition='none';elSub.style.transition='none';
+    /* Resize */
+    window.addEventListener('resize', function() {
+      var nw = sect.offsetWidth  || window.innerWidth;
+      var nh = sect.offsetHeight || window.innerHeight;
+      camera.aspect = nw / nh;
+      camera.updateProjectionMatrix();
+      renderer.setSize(nw, nh);
+    });
+  };
+  document.head.appendChild(script);
 })();
 
-/* ── CTA GLOBE — Futuristic 3D Particle Sphere ── */
-(()=>{
-  const c = document.getElementById('ctac');
-  if(!c) return;
-  const ctx = c.getContext('2d');
-
-  let W, H, R;
-  let rotY = 0;       // Y-axis rotation (main spin)
-  let rotX = 0.12;    // slight tilt — feels 3D
-  let mouseX = 0, mouseY = 0;
-  let targetRotX = 0.12, targetRotY = 0;
-
-  // ── Sphere surface points ──
-  const SURFACE = [];
-  // Latitude/longitude grid — dense
-  for(let lat = -85; lat <= 85; lat += 7) {
-    const lr = lat * Math.PI / 180;
-    const cr = Math.cos(lr);
-    const steps = Math.max(6, Math.floor(cr * 38));
-    for(let i = 0; i < steps; i++) {
-      const lng = (i / steps) * 2 * Math.PI;
-      SURFACE.push({
-        lat: lr, lng,
-        baseSize: 0.55 + Math.random() * 0.6,
-        brightness: 0.4 + Math.random() * 0.4,
-        pulse: Math.random() * Math.PI * 2,
-        pulseSpeed: 0.008 + Math.random() * 0.012,
-        type: 'grid'
-      });
-    }
-  }
-  // Random scattered stars on surface
-  for(let i = 0; i < 500; i++) {
-    const lat = Math.asin(2 * Math.random() - 1);
-    const lng = Math.random() * 2 * Math.PI;
-    SURFACE.push({
-      lat, lng,
-      baseSize: 0.3 + Math.random() * 1.1,
-      brightness: 0.15 + Math.random() * 0.6,
-      pulse: Math.random() * Math.PI * 2,
-      pulseSpeed: 0.005 + Math.random() * 0.02,
-      type: 'star'
-    });
-  }
-  // Bright accent nodes — like cities on a globe
-  for(let i = 0; i < 18; i++) {
-    const lat = (Math.random() - 0.5) * Math.PI * 0.8;
-    const lng = Math.random() * 2 * Math.PI;
-    SURFACE.push({
-      lat, lng,
-      baseSize: 1.8 + Math.random() * 1.2,
-      brightness: 0.9,
-      pulse: Math.random() * Math.PI * 2,
-      pulseSpeed: 0.02 + Math.random() * 0.03,
-      type: 'node'
-    });
-  }
-
-  // ── Orbital rings — satellites ──
-  const ORBITS = [
-    // { tilt (radians), speed, radius-factor, count, color, size }
-    { tilt: 0.3,  speed: 0.004,  rf: 1.18, count: 28, color: [242,237,228], size: 1.2 },
-    { tilt: -0.6, speed: -0.006, rf: 1.28, count: 20, color: [196,163,90],  size: 1.5 },
-    { tilt: 1.1,  speed: 0.003,  rf: 1.38, count: 16, color: [122,164,118], size: 1.1 },
-    { tilt: -1.4, speed: -0.005, rf: 1.22, count: 12, color: [194,170,143], size: 1.3 },
-  ];
-  // Each orbit particle has a phase
-  const orbitPts = ORBITS.map(o =>
-    Array.from({ length: o.count }, (_, i) => ({
-      phase: (i / o.count) * 2 * Math.PI,
-      orbitAngle: 0,
-    }))
-  );
-
-  // ── Floating particles — random field ──
-  const FLOATERS = Array.from({ length: 60 }, () => ({
-    x: 0, y: 0, // calculated per frame
-    lng: Math.random() * 2 * Math.PI,
-    lat: (Math.random() - 0.5) * Math.PI,
-    dist: 1.55 + Math.random() * 0.8,
-    size: 0.4 + Math.random() * 0.8,
-    alpha: 0.1 + Math.random() * 0.2,
-    speed: (Math.random() - 0.5) * 0.001,
-  }));
-
-  let t = 0;
-
-  function resize() {
-    W = c.width = c.offsetWidth;
-    H = c.height = c.offsetHeight;
-    R = Math.min(W, H) * 0.36;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  // Mouse parallax — subtle tilt
-  const cta = document.getElementById('cta');
-  if(cta) {
-    cta.addEventListener('mousemove', e => {
-      const rect = cta.getBoundingClientRect();
-      mouseX = (e.clientX - rect.left) / rect.width - 0.5;
-      mouseY = (e.clientY - rect.top)  / rect.height - 0.5;
-      targetRotX = 0.12 + mouseY * 0.15;
-      targetRotY = mouseX * 0.2;
-    });
-    cta.addEventListener('mouseleave', () => {
-      targetRotX = 0.12;
-      targetRotY = 0;
-    });
-  }
-
-  // ── 3D rotation helpers ──
-  function rotateY(x, z, a) {
-    return { x: x * Math.cos(a) - z * Math.sin(a), z: x * Math.sin(a) + z * Math.cos(a) };
-  }
-  function rotateX(y, z, a) {
-    return { y: y * Math.cos(a) - z * Math.sin(a), z: y * Math.sin(a) + z * Math.cos(a) };
-  }
-  function project(px, py, pz) {
-    // perspective-like projection
-    const fov = 900;
-    const scale = fov / (fov + pz * 0.1);
-    return {
-      sx: W/2 + px * scale,
-      sy: H/2 - py * scale,
-      depth: pz,
-      scale
-    };
-  }
-
-  function sphereToCart(lat, lng, r) {
-    return {
-      x: r * Math.cos(lat) * Math.sin(lng),
-      y: r * Math.sin(lat),
-      z: r * Math.cos(lat) * Math.cos(lng)
-    };
-  }
-
-  function applyRotation(x, y, z) {
-    // Y rotation
-    let ry = rotateY(x, z, rotY);
-    x = ry.x; z = ry.z;
-    // X tilt
-    let rx = rotateX(y, z, rotX);
-    y = rx.y; z = rx.z;
-    return { x, y, z };
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
-    t += 0.016;
-
-    // Smooth camera
-    rotY += 0.003 + (targetRotY - rotY) * 0.04;
-    rotX += (targetRotX - rotX) * 0.04;
-
-    const cx = W / 2, cy = H / 2;
-
-    // ── 1. DEEP GLOW BEHIND SPHERE ──
-    const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, R * 1.4);
-    grd.addColorStop(0, 'rgba(46,74,43,.12)');
-    grd.addColorStop(0.5, 'rgba(30,50,28,.06)');
-    grd.addColorStop(1, 'transparent');
-    ctx.fillStyle = grd;
-    ctx.fillRect(0, 0, W, H);
-
-    // ── 2. SPHERE SURFACE POINTS ──
-    const rendered = [];
-    for(const p of SURFACE) {
-      const lngR = p.lng + rotY;
-      const latR = p.lat;
-      // Convert to cartesian after rotation
-      const raw = sphereToCart(latR, lngR, R);
-      const rot = applyRotation(raw.x, raw.y, raw.z - R * Math.cos(latR) * Math.cos(lngR) + R * Math.cos(latR) * Math.cos(lngR));
-
-      // Simpler: just rotate the lng
-      const x3 = R * Math.cos(latR) * Math.sin(lngR + rotY * 0 ); // already in lngR
-      const y3 = R * Math.sin(latR);
-      const z3_raw = R * Math.cos(latR) * Math.cos(lngR);
-
-      // Apply Y rotation
-      const cosRY = Math.cos(rotY), sinRY = Math.sin(rotY);
-      let rx = x3 * cosRY - z3_raw * sinRY;
-      let rz = x3 * sinRY + z3_raw * cosRY;
-
-      // Apply X rotation
-      const cosRX = Math.cos(rotX), sinRX = Math.sin(rotX);
-      let ry2 = y3 * cosRX - rz * sinRX;
-      let rz2 = y3 * sinRX + rz * cosRX;
-
-      const sx = cx + rx;
-      const sy = cy - ry2;
-      const depth = rz2; // positive = front
-
-      // Skip back hemisphere mostly (gives solid sphere look)
-      if(depth < -R * 0.05) continue;
-
-      // Depth-based opacity
-      const depthNorm = (depth + R) / (2 * R); // 0=back, 1=front
-      const pulsed = 0.7 + 0.3 * Math.sin(t * p.pulseSpeed * 60 + p.pulse);
-      let alpha, size;
-
-      if(p.type === 'node') {
-        alpha = p.brightness * Math.max(0.3, depthNorm) * pulsed;
-        size  = p.baseSize * (0.7 + depthNorm * 0.6) * pulsed;
-      } else if(p.type === 'star') {
-        alpha = p.brightness * depthNorm * pulsed * 0.85;
-        size  = p.baseSize * depthNorm;
-      } else {
-        alpha = p.brightness * Math.pow(depthNorm, 0.7) * 0.75;
-        size  = p.baseSize * (0.5 + depthNorm * 0.7);
-      }
-
-      if(alpha < 0.02 || size < 0.1) continue;
-      rendered.push({ sx, sy, size, alpha, depth, type: p.type });
-    }
-
-    // Sort back to front
-    rendered.sort((a, b) => a.depth - b.depth);
-
-    for(const p of rendered) {
-      ctx.beginPath();
-      if(p.type === 'node') {
-        // Bright node with glow halo
-        const halo = ctx.createRadialGradient(p.sx, p.sy, 0, p.sx, p.sy, p.size * 4);
-        halo.addColorStop(0, `rgba(196,163,90,${p.alpha * 0.9})`);
-        halo.addColorStop(0.4, `rgba(196,163,90,${p.alpha * 0.25})`);
-        halo.addColorStop(1, 'transparent');
-        ctx.fillStyle = halo;
-        ctx.fillRect(p.sx - p.size*4, p.sy - p.size*4, p.size*8, p.size*8);
-        // Core dot
-        ctx.beginPath();
-        ctx.arc(p.sx, p.sy, p.size, 0, Math.PI*2);
-        ctx.fillStyle = `rgba(242,237,228,${p.alpha})`;
-        ctx.fill();
-      } else {
-        ctx.arc(p.sx, p.sy, Math.max(0.3, p.size), 0, Math.PI*2);
-        ctx.fillStyle = `rgba(242,237,228,${Math.min(p.alpha, 0.82)})`;
-        ctx.fill();
-      }
-    }
-
-    // ── 3. ORBITAL RINGS ──
-    ORBITS.forEach((orb, oi) => {
-      orbitPts[oi].forEach(op => {
-        op.phase += orb.speed;
-        const angle = op.phase;
-        const orbR = R * orb.rf;
-
-        // Orbit position in orbit plane
-        let ox = orbR * Math.cos(angle);
-        let oy = 0;
-        let oz = orbR * Math.sin(angle);
-
-        // Tilt the orbital plane
-        const cosT = Math.cos(orb.tilt), sinT = Math.sin(orb.tilt);
-        let ty = oy * cosT - oz * sinT;
-        let tz = oy * sinT + oz * cosT;
-        oy = ty; oz = tz;
-
-        // Apply globe rotation
-        const cosRY = Math.cos(rotY), sinRY = Math.sin(rotY);
-        let rx2 = ox * cosRY - oz * sinRY;
-        let rz3 = ox * sinRY + oz * cosRY;
-
-        const cosRX = Math.cos(rotX), sinRX = Math.sin(rotX);
-        let ry3 = oy * cosRX - rz3 * sinRX;
-        let rz4 = oy * sinRX + rz3 * cosRX;
-
-        const sx2 = cx + rx2;
-        const sy2 = cy - ry3;
-        const depth2 = rz4;
-
-        // Depth-based opacity for orbital particles
-        const dNorm = (depth2 + orbR) / (2 * orbR);
-        const [r,g,b] = orb.color;
-        const alpha2 = dNorm * 0.75;
-
-        if(alpha2 < 0.05) return;
-
-        // Glow
-        const grd2 = ctx.createRadialGradient(sx2, sy2, 0, sx2, sy2, orb.size * 3);
-        grd2.addColorStop(0, `rgba(${r},${g},${b},${alpha2 * 0.9})`);
-        grd2.addColorStop(1, 'transparent');
-        ctx.fillStyle = grd2;
-        ctx.fillRect(sx2 - orb.size*3, sy2 - orb.size*3, orb.size*6, orb.size*6);
-
-        ctx.beginPath();
-        ctx.arc(sx2, sy2, orb.size * (0.5 + dNorm * 0.7), 0, Math.PI*2);
-        ctx.fillStyle = `rgba(${r},${g},${b},${alpha2})`;
-        ctx.fill();
-      });
-    });
-
-    // ── 4. EQUATOR RING GLOW (subtle) ──
-    const eqGrd = ctx.createRadialGradient(cx, cy, R * 0.95, cx, cy, R * 1.05);
-    eqGrd.addColorStop(0, 'rgba(196,163,90,.03)');
-    eqGrd.addColorStop(0.5,'rgba(196,163,90,.06)');
-    eqGrd.addColorStop(1, 'transparent');
-    ctx.fillStyle = eqGrd;
-    ctx.fillRect(0, 0, W, H);
-
-    // ── 5. ATMOSPHERE LIMB GLOW ──
-    const limb = ctx.createRadialGradient(cx, cy, R * 0.88, cx, cy, R * 1.12);
-    limb.addColorStop(0, 'transparent');
-    limb.addColorStop(0.6, 'rgba(46,74,43,.04)');
-    limb.addColorStop(1, 'rgba(46,74,43,.08)');
-    ctx.fillStyle = limb;
-    ctx.beginPath();
-    ctx.arc(cx, cy, R * 1.12, 0, Math.PI*2);
-    ctx.fill();
-
-    requestAnimationFrame(draw);
-  }
-
-  draw();
-})();
-
-/* ── DINQ BOT ── */
+/* ── DINQ BOT — Routed through app.dinqdigital.com/api/ai ── */
 let chatHist=[];
 const SYS=`You are Dinq Bot, the AI assistant for Dinq Digital — an Ethiopian web design and software studio. Keep replies under 80 words and use simple HTML like <strong> for emphasis.
 Key facts:
 - DinqOS: 42-module business OS (CRM, invoices, payments, kanban, AI, WhatsApp, booking, analytics and more)
-- Payments: Telebirr, Stripe, Zelle, CashApp, CBE Birr, PayPal. Currencies: ETB, USD, GBP, KES, NGN
-- Pricing: Starter $499 (5 pages), Growth $1499 (15 pages + payments + 1mo DinqOS), Enterprise custom. DinqOS monthly: $2 Starter, $6 Growth, $14 Gold
+- Payments: Telebirr, Stripe, Zelle, CashApp, CBE Birr, PayPal. Multiple currencies: ETB, USD, GBP, KES, NGN
+- Pricing: Starter $499 (5 pages), Growth $1499 (15 pages + payments + 1mo DinqOS), Enterprise custom. DinqOS monthly: $10 Starter, $20 Growth, $50 Gold
 - Contact: dinqdigital@gmail.com | Telegram @dinqdigital | Demo: app.dinqdigital.com
 Be warm, concise, professional. Occasionally use ድንቅ.`;
 
 async function callAI(msg){
   chatHist.push({role:'user',content:msg});
   try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:300,system:SYS,messages:chatHist})});
+    /* Route through Next.js backend — keeps API key secure on server */
+    const r=await fetch('https://app.dinqdigital.com/api/ai',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-haiku-4-5-20251001',
+        max_tokens:300,
+        system:SYS,
+        messages:chatHist
+      })
+    });
+    if(!r.ok) throw new Error('API error');
     const d=await r.json();
     const reply=d.content?.[0]?.text||'Reach us at dinqdigital@gmail.com';
     chatHist.push({role:'assistant',content:reply});
     if(chatHist.length>10)chatHist=chatHist.slice(-10);
     return reply;
-  }catch(e){return 'Connection issue. Email us: <strong>dinqdigital@gmail.com</strong>'}
+  }catch(e){
+    /* Fallback: try direct Anthropic (works without API key for limited usage) */
+    try{
+      const r2=await fetch('https://api.anthropic.com/v1/messages',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:300,system:SYS,messages:chatHist})
+      });
+      const d2=await r2.json();
+      const reply2=d2.content?.[0]?.text||'Reach us at dinqdigital@gmail.com';
+      chatHist.push({role:'assistant',content:reply2});
+      return reply2;
+    }catch(e2){
+      return 'Connection issue. Email us: <strong>dinqdigital@gmail.com</strong> or Telegram <strong>@dinqdigital</strong>';
+    }
+  }
 }
 async function sendD(btn,text){addMsg(text,'u');btn.disabled=true;addTyp();const r=await callAI(text);rmTyp();addMsg(r,'b')}
 async function sendC(){const i=document.getElementById('chatInput'),t=i.value.trim();if(!t)return;i.value='';addMsg(t,'u');addTyp();const r=await callAI(t);rmTyp();addMsg(r,'b')}
-function addMsg(text,role){const b=document.getElementById('chatBody');const d=document.createElement('div');d.className=`cmsg c${role}`;d.innerHTML=`<div c
+function addMsg(text,role){const b=document.getElementById('chatBody');const d=document.createElement('div');d.className=`cmsg c${role}`;d.innerHTML=`<div class="bbl">${text}</div><div class="ctm">just now</div>`;b.appendChild(d);b.scrollTop=b.scrollHeight}
+function addTyp(){const b=document.getElementById('chatBody');const d=document.createElement('div');d.className='cmsg cb';d.id='typ';d.innerHTML='<div class="typind"><span></span><span></span><span></span></div>';b.appendChild(d);b.scrollTop=b.scrollHeight}
+function rmTyp(){const t=document.getElementById('typ');if(t)t.remove()}
+</script>
+</body>
+</html>
