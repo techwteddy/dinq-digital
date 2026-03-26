@@ -10,34 +10,29 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 /* ══════════════════════════════════════════
-   DINQ DIGITAL — PREMIUM EDITION v3
-   Clean · Minimal · Cinematic · Convertible
+   DINQ DIGITAL — PREMIUM EDITION v4
+   All fixes + Process + Testimonials
 ══════════════════════════════════════════ */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{font-size:16px;scroll-behavior:smooth;background:#080808}
 
 :root{
-  /* ── Deep Dark Backgrounds ── */
   --void:   #080808;
   --ink:    #0F0F0F;
   --deep:   #141414;
   --card:   #1A1A1A;
   --lift:   #222222;
-  /* ── Ceramic Gold ── */
   --gold:   #C4A35A;
   --gold-l: #DFBE7A;
   --gold-d: #8A6B2E;
   --gold-g: rgba(196,163,90,.08);
   --gold-b: rgba(196,163,90,.2);
-  /* ── Text ── */
   --t1:   #F2EDE4;
   --t2:   rgba(242,237,228,.52);
   --t3:   rgba(242,237,228,.3);
   --t4:   rgba(242,237,228,.12);
-  /* ── Gold-tinted Borders ── */
   --edge:  rgba(196,163,90,.08);
   --edge2: rgba(196,163,90,.16);
-  /* ── Extended Gold Palette ── */
   --cyan:   #C4A35A;
   --cyan-l: #DFBE7A;
   --cyan-d: #8A6B2E;
@@ -46,28 +41,24 @@ html{font-size:16px;scroll-behavior:smooth;background:#080808}
   --r:8px;--rl:14px;
 }
 
-body{background:#080808;background:var(--void);color:#F2EDE4;color:var(--t1);font-family:'Outfit',sans-serif;overflow-x:hidden;line-height:1.65;-webkit-font-smoothing:antialiased}
+body{background:var(--void);color:var(--t1);font-family:'Outfit',sans-serif;overflow-x:hidden;line-height:1.65;-webkit-font-smoothing:antialiased}
 ::selection{background:var(--gold);color:#080808}
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--gold-d);border-radius:99px}
 
-/* noise grain */
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.028;pointer-events:none;z-index:9998}
 
-/* ── CURSOR ── */
-#cur{width:7px;height:7px;background:var(--gold);border-radius:50%;;position:fixed;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);transition:width .25s,height .25s}
-#cur.big{width:36px;height:36px;background:transparent;border:1px solid rgba(196,163,90,.45)}
-#curt{width:28px;height:28px;border:1px solid rgba(196,163,90,.15);border-radius:50%;position:fixed;pointer-events:none;z-index:9996;transform:translate(-50%,-50%);transition:left .15s ease-out,top .15s ease-out}
-
-/* ── FORCE VISIBILITY ── */
-section, section *{visibility:visible!important}
-section > *{opacity:1!important}
+/* ── CURSOR (desktop only) ── */
+@media(hover:hover){
+  #cur{width:7px;height:7px;background:var(--gold);border-radius:50%;position:fixed;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);transition:width .25s,height .25s}
+  #cur.big{width:36px;height:36px;background:transparent;border:1px solid rgba(196,163,90,.45)}
+  #curt{width:28px;height:28px;border:1px solid rgba(196,163,90,.15);border-radius:50%;position:fixed;pointer-events:none;z-index:9996;transform:translate(-50%,-50%);transition:left .15s ease-out,top .15s ease-out}
+}
 
 /* ── REVEAL ── */
 .rv{opacity:1;transform:none;transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
 .rvl{opacity:1;transform:none;transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
 .rvr{opacity:1;transform:none;transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
 .rv.in,.rvl.in,.rvr.in{opacity:1;transform:none}
-/* Animate in only when JS adds .in class */
 .rv.animate-start{opacity:0;transform:translateY(20px)}
 .rvl.animate-start{opacity:0;transform:translateX(-24px)}
 .rvr.animate-start{opacity:0;transform:translateX(24px)}
@@ -80,9 +71,8 @@ nav.s{padding:1rem 3rem;background:rgba(8,8,8,.96);backdrop-filter:blur(28px);bo
 .nmark{width:30px;height:30px;border:1px solid var(--gold-d);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:.82rem;color:var(--gold);transition:all .25s}
 .nlogo:hover .nmark{background:var(--gold);color:#080808;border-color:var(--gold)}
 .nname{font-family:'Outfit',sans-serif;font-weight:600;font-size:.92rem;color:var(--t1)}
-.nname em{color:rgba(255,255,255,.55);font-style:normal}
 .nlinks{display:flex;gap:2.25rem;list-style:none}
-.nlinks a{color:rgba(245,244,240,.28);color:var(--t3);text-decoration:none;font-size:.78rem;font-weight:400;letter-spacing:.05em;text-transform:uppercase;transition:color .2s;padding:.2rem 0;position:relative}
+.nlinks a{color:var(--t3);text-decoration:none;font-size:.78rem;font-weight:400;letter-spacing:.05em;text-transform:uppercase;transition:color .2s;padding:.2rem 0;position:relative}
 .nlinks a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width .28s}
 .nlinks a:hover{color:var(--t1)}
 .nlinks a:hover::after{width:100%}
@@ -109,24 +99,21 @@ nav.s{padding:1rem 3rem;background:rgba(8,8,8,.96);backdrop-filter:blur(28px);bo
 @keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ── HERO ── */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:0 2rem}
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-start;justify-content:center;text-align:center;overflow:hidden;padding:0 2rem}
 .hero-atm{position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 45%,rgba(46,74,43,.35),transparent 65%),radial-gradient(ellipse 40% 35% at 85% 25%,rgba(196,163,90,.08),transparent 55%),var(--void)}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(196,163,90,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(196,163,90,.03) 1px,transparent 1px);background-size:72px 72px}
-/* very subtle vignette edges */
 .hero-vign{position:absolute;inset:0;background:radial-gradient(ellipse 100% 100% at 50% 50%,transparent 50%,rgba(5,5,5,.6) 100%)}
-.hero-c{position:relative;z-index:2;max-width:820px;padding-top:9rem;padding-bottom:4rem}
+.hero-c{position:relative;z-index:2;max-width:820px;padding-top:9rem;padding-bottom:4rem;transform:translateY(-5.5rem)}
 .hero-eye{display:flex;align-items:center;justify-content:center;gap:.75rem;margin-bottom:2.5rem;opacity:0;animation:fu .6s .25s cubic-bezier(.16,1,.3,1) both}
 .hero-eye-line{width:32px;height:1px;background:rgba(200,200,200,.4)}
-.hero-eye-dot{width:5px;height:5px;border-radius:50%;background:var(--cyan);animation:dp 2.5s ease-in-out infinite;}
+.hero-eye-dot{width:5px;height:5px;border-radius:50%;background:var(--cyan);animation:dp 2.5s ease-in-out infinite}
 @keyframes dp{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.6)}}
 .hero-eye-txt{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);font-weight:500}
 
-/* headline */
 .hero-h{font-family:'Playfair Display',serif;font-size:clamp(3.2rem,7.5vw,7rem);font-weight:700;letter-spacing:-.03em;line-height:.98;margin-bottom:2rem}
 .hero-h .w{display:inline-block;opacity:0;transform:translateY(110%);animation:wr .75s cubic-bezier(.16,1,.3,1) forwards;overflow:visible;animation-fill-mode:both}
 .hero-h .ww{overflow:hidden;display:inline-block;vertical-align:bottom}
 @keyframes wr{to{opacity:1;transform:none}}
-.hero-h .dim{color:rgba(242,237,228,.28)}
 .hero-h .gl{color:var(--gold)}
 
 .hero-sub{font-size:1.05rem;color:rgba(255,255,255,.55);line-height:1.75;max-width:500px;margin:0 auto 2.75rem;font-weight:300;opacity:0;animation:fu .7s 1s cubic-bezier(.16,1,.3,1) both}
@@ -165,7 +152,6 @@ section{padding:9rem 3rem}
 .vis-quote{font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3vw,2.6rem);font-weight:400;line-height:1.3;color:var(--t1);padding-left:2rem;position:relative}
 .vis-quote::before{content:'';position:absolute;left:0;top:.2rem;bottom:.2rem;width:2px;background:linear-gradient(to bottom,var(--gold),rgba(196,163,90,.1))}
 .vis-quote em{font-style:italic;color:var(--gold)}
-.vis-right{display:flex;flex-direction:column;gap:0}
 .vis-stat{padding:2rem 0;border-bottom:1px solid var(--edge)}
 .vis-stat:first-child{padding-top:0}
 .vis-stat:last-child{border-bottom:none;padding-bottom:0}
@@ -173,7 +159,7 @@ section{padding:9rem 3rem}
 .vs-n span{color:var(--gold)}
 .vs-l{font-size:.82rem;color:var(--t3);margin-top:.35rem;font-weight:300;line-height:1.6}
 
-/* ── PLATFORM (WHITE) ── */
+/* ── PLATFORM ── */
 #platform{background:#0F0F0F;padding:9rem 3rem;color:#FFFFFF;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
 .plat-head{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:end;margin-bottom:5rem}
 .plat-h{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,4vw,3.6rem);font-weight:700;color:#FFFFFF;line-height:1.06;letter-spacing:-.02em}
@@ -181,7 +167,6 @@ section{padding:9rem 3rem}
 .plat-link{display:inline-flex;align-items:center;gap:.45rem;font-size:.82rem;font-weight:600;color:var(--gold);text-decoration:none;border-bottom:1.5px solid rgba(196,163,90,.4);padding-bottom:.15rem;transition:all .22s}
 .plat-link:hover{color:var(--gold-l);border-color:var(--gold)}
 
-/* feature cards */
 .fc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-bottom:1.25rem}
 .fc{border-radius:14px;overflow:hidden;min-height:360px;display:flex;flex-direction:column;cursor:default;transition:transform .32s,box-shadow .32s;position:relative}
 .fc:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(0,0,0,.12)}
@@ -189,68 +174,63 @@ section{padding:9rem 3rem}
 .fc h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;margin-bottom:.55rem}
 .fc p{font-size:.76rem;line-height:1.7;font-weight:300}
 .fc-body{flex:1;padding:0 1.25rem 1.25rem;display:flex;align-items:flex-end}
-
-/* dark cards */
-.fc-dk{background:#111111}
-.fc-dk h3{color:#fff}
-.fc-dk p{color:rgba(255,255,255,.45)}
-/* light cards */
-.fc-lt{background:#161616;border:1px solid rgba(255,255,255,.06)}
-.fc-lt h3{color:#FFFFFF}
-.fc-lt p{color:rgba(255,255,255,.45)}
-/* accent card */
-.fc-gr{background:linear-gradient(135deg,#111111,#0A0A0A)}
-.fc-gr h3{color:#fff}
-.fc-gr p{color:rgba(255,255,255,.45)}
-/* blue card */
-.fc-bl{background:linear-gradient(135deg,#151515,#0D0D0D)}
-.fc-bl h3{color:#fff}
-.fc-bl p{color:rgba(255,255,255,.45)}
-
+.fc-dk{background:#111111}.fc-dk h3{color:#fff}.fc-dk p{color:rgba(255,255,255,.45)}
+.fc-lt{background:#161616;border:1px solid rgba(255,255,255,.06)}.fc-lt h3{color:#FFFFFF}.fc-lt p{color:rgba(255,255,255,.45)}
+.fc-gr{background:linear-gradient(135deg,#111111,#0A0A0A)}.fc-gr h3{color:#fff}.fc-gr p{color:rgba(255,255,255,.45)}
+.fc-bl{background:linear-gradient(135deg,#151515,#0D0D0D)}.fc-bl h3{color:#fff}.fc-bl p{color:rgba(255,255,255,.45)}
 .fc2-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
 
-/* mini mockup components */
 .mmk{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:9px;overflow:hidden;width:100%}
 .mmk-bar{height:22px;background:rgba(255,255,255,.04);display:flex;align-items:center;gap:3px;padding:0 9px;border-bottom:1px solid rgba(255,255,255,.06)}
 .mmk-d{width:6px;height:6px;border-radius:50%}
 .mmk-body{padding:.65rem;display:flex;flex-direction:column;gap:.3rem}
 .ml{height:3px;border-radius:2px;background:rgba(255,255,255,.08);margin:.18rem 0}
 .ml-g{background:rgba(201,168,76,.4);width:62%}.ml-s{width:38%}.ml-m{width:74%}
-.mini-bars{display:flex;align-items:flex-end;gap:3px;height:30px}
-.mb{flex:1;border-radius:2px 2px 0 0;background:rgba(201,168,76,.3)}
 
-/* module strip */
 .mod-strip{overflow:hidden;border-top:1px solid rgba(196,163,90,.08);padding:1.75rem 0;margin-top:3rem}
 .mod-track{display:flex;gap:.85rem;animation:mts 36s linear infinite;white-space:nowrap}
 .mod-pill{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:99px;padding:.32rem .85rem;font-size:.7rem;color:rgba(255,255,255,.5);flex-shrink:0;transition:all .2s}
 .mod-pill:hover{border-color:var(--gold);color:var(--gold)}
 @keyframes mts{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
+/* ── PROCESS ── */
+#process{background:var(--ink);padding:9rem 3rem;border-top:1px solid rgba(196,163,90,.06);border-bottom:1px solid rgba(196,163,90,.06)}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:4rem;position:relative}
+.process-grid::before{content:'';position:absolute;top:2.2rem;left:12.5%;right:12.5%;height:1px;background:linear-gradient(to right,transparent,var(--edge2) 20%,var(--edge2) 80%,transparent);z-index:0}
+.ps{padding:0 2rem;position:relative;z-index:1}
+.ps-num{width:44px;height:44px;border-radius:50%;border:1px solid var(--edge2);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--gold);margin-bottom:1.5rem;background:var(--ink);transition:all .4s;position:relative}
+.ps:hover .ps-num{background:var(--gold);color:#080808;border-color:var(--gold);box-shadow:0 0 24px rgba(196,163,90,.35)}
+.ps-icon{font-size:1.4rem;margin-bottom:.85rem}
+.ps h4{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--t1);margin-bottom:.5rem}
+.ps p{font-size:.78rem;color:var(--t3);line-height:1.7;font-weight:300}
+.ps-tag{display:inline-block;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border:1px solid var(--edge2);border-radius:99px;padding:.2rem .65rem;margin-top:.85rem}
+
 /* ── WORK ── */
-#work{background:#141414;padding:9rem 3rem}
-.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--edge);margin-top:4rem}
+#work{background:var(--deep);padding:9rem 3rem}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--edge);margin-top:4rem}
 .wi{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:16/10}
 .wi.tall{aspect-ratio:4/5}
 .wbg{width:100%;height:100%;transition:transform .7s cubic-bezier(.16,1,.3,1);display:flex;align-items:center;justify-content:center}
 .wi:hover .wbg{transform:scale(1.04)}
 .wov{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,5,5,.97) 0%,rgba(5,5,5,.1) 50%,transparent 100%);opacity:0;transition:opacity .35s}
 .wi:hover .wov{opacity:1}
-.wi-info{position:absolute;bottom:0;left:0;right:0;padding:2rem;transform:translateY(6px);opacity:0;transition:all .35s}
+/* Mobile: always show overlay on work cards */
+@media(hover:none){
+  .wov{opacity:1;background:linear-gradient(to top,rgba(5,5,5,.9) 0%,rgba(5,5,5,.05) 60%,transparent 100%)}
+  .wi-info{transform:none!important;opacity:1!important}
+}
+.wi-info{position:absolute;bottom:0;left:0;right:0;padding:1.5rem;transform:translateY(6px);opacity:0;transition:all .35s}
 .wi:hover .wi-info{transform:none;opacity:1}
-.wi-cat{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500;letter-spacing:.12em;margin-bottom:.4rem}
-.wi-name{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700}
-.wi-placeholder .wbg{position:relative}
-.wi-placeholder .wbg::after{content:'+ Add your project';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(196,163,90,.3);font-weight:500}
-.wi-desc{font-size:.78rem;color:var(--t2);margin-top:.3rem;font-weight:300}
-.wi-metric{display:inline-flex;align-items:center;gap:.4rem;margin-top:.65rem;font-size:.68rem;color:var(--gold);background:rgba(196,163,90,.08);border:1px solid rgba(196,163,90,.2);padding:.22rem .65rem;border-radius:99px}
+.wi-cat{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:.4rem}
+.wi-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700}
+.wi-desc{font-size:.75rem;color:var(--t2);margin-top:.3rem;font-weight:300}
+.wi-metric{display:inline-flex;align-items:center;gap:.4rem;margin-top:.55rem;font-size:.68rem;color:var(--gold);background:rgba(196,163,90,.08);border:1px solid rgba(196,163,90,.2);padding:.22rem .65rem;border-radius:99px}
 .wam{position:absolute;top:1rem;right:1.25rem;font-size:3rem;opacity:.07;line-height:1;pointer-events:none;font-family:'Playfair Display',serif;transition:opacity .35s}
 .wi:hover .wam{opacity:.15}
-/* bg colors */
 .bg-e{background:linear-gradient(135deg,#0E0E0E,#141414)}
 .bg-v{background:linear-gradient(135deg,#101010,#181818)}
 .bg-o{background:linear-gradient(135deg,#0C0C0C,#131313)}
 .bg-s{background:linear-gradient(135deg,#0A0A0A,#111111)}
-/* mock screens */
 .mk{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:7px;padding:.6rem;width:60%}
 .mk-dots{display:flex;gap:3px;margin-bottom:.45rem}
 .mk-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.14)}
@@ -259,10 +239,26 @@ section{padding:9rem 3rem}
 .mkgr{display:grid;grid-template-columns:1fr 1fr;gap:.22rem;margin-top:.3rem}
 .mkc{background:rgba(255,255,255,.06);border-radius:3px;height:16px}
 
+/* ── TESTIMONIALS ── */
+#testimonials{background:var(--void);padding:9rem 3rem;position:relative;overflow:hidden}
+#testimonials::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:100%;background:linear-gradient(to bottom,transparent,rgba(196,163,90,.08) 30%,rgba(196,163,90,.08) 70%,transparent);pointer-events:none}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem}
+.tcard{background:var(--card);border:1px solid var(--edge);border-radius:16px;padding:2rem;position:relative;transition:all .35s;cursor:default}
+.tcard:hover{border-color:var(--edge2);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.tcard::before{content:'\201C';font-family:'Playfair Display',serif;font-size:5rem;color:rgba(196,163,90,.12);position:absolute;top:.5rem;left:1.5rem;line-height:1;pointer-events:none}
+.tcard-body{font-size:.88rem;color:var(--t2);line-height:1.8;font-weight:300;margin-bottom:1.5rem;position:relative;z-index:1}
+.tcard-body em{color:var(--gold);font-style:normal;font-weight:500}
+.tcard-author{display:flex;align-items:center;gap:.85rem;border-top:1px solid var(--edge);padding-top:1.25rem}
+.tcard-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:.85rem;color:#080808;flex-shrink:0}
+.tcard-name{font-size:.82rem;font-weight:600;color:var(--t1)}
+.tcard-role{font-size:.7rem;color:var(--t3);font-weight:300;margin-top:.1rem}
+.tcard-stars{display:flex;gap:2px;margin-top:.35rem}
+.tcard-stars span{font-size:.7rem;color:var(--gold)}
+.tcard-flag{position:absolute;top:1.5rem;right:1.5rem;font-size:1.1rem}
+
 /* ── PAYMENTS ── */
-#payments{background:var(--void);padding:9rem 0}
+#payments{background:var(--void);padding:9rem 0 9rem}
 .pay-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center}
-.pay-methods{display:flex;flex-direction:column;gap:0;margin-top:2rem}
 .pm{display:flex;align-items:center;gap:1.1rem;padding:1.25rem 0;border-bottom:1px solid var(--edge);transition:all .22s;cursor:default;position:relative}
 .pm::after{content:'';position:absolute;bottom:-1px;left:0;width:0;height:1px;background:var(--gold);transition:width .35s}
 .pm:hover::after{width:100%}
@@ -270,7 +266,6 @@ section{padding:9rem 3rem}
 .pm-flag{font-size:1.3rem;line-height:1;flex-shrink:0;width:28px}
 .pm-name{font-size:.9rem;font-weight:500;color:var(--t1)}
 .pm-sub{font-size:.72rem;color:var(--t3);font-weight:300}
-/* invoice */
 .inv{background:var(--card);border:1px solid rgba(196,163,90,.12);border-radius:18px;overflow:hidden;box-shadow:0 32px 64px rgba(0,0,0,.5)}
 .inv-top{padding:1.4rem 1.6rem;background:rgba(26,26,26,.9);border-bottom:1px solid rgba(196,163,90,.08);display:flex;justify-content:space-between;align-items:center}
 .inv-co{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700}
@@ -293,7 +288,7 @@ section{padding:9rem 3rem}
 .inv-m:hover{border-color:rgba(201,168,76,.25);color:var(--gold)}
 
 /* ── PRICING ── */
-#pricing{background:#141414;padding:9rem 3rem}
+#pricing{background:var(--deep);padding:9rem 3rem}
 .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--edge);margin-top:4rem}
 .pc{background:var(--deep);padding:2.75rem;display:flex;flex-direction:column;transition:background .3s;cursor:default;position:relative}
 .pc:hover{background:var(--card)}
@@ -315,8 +310,27 @@ section{padding:9rem 3rem}
 .pc-note a{color:rgba(255,255,255,.45);text-decoration:none}
 .pop-b{position:absolute;top:0;right:0;background:var(--gold);color:#080808;font-size:.56rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .8rem;border-radius:0 14px 0 14px}
 
+/* ── PRICING FAQ ── */
+.pricing-trust{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;padding-top:3rem;border-top:1px solid var(--edge)}
+.pt-item{display:flex;align-items:flex-start;gap:.85rem}
+.pt-icon{font-size:1.4rem;flex-shrink:0;margin-top:.1rem}
+.pt-item h5{font-size:.82rem;font-weight:600;color:var(--t1);margin-bottom:.3rem}
+.pt-item p{font-size:.75rem;color:var(--t3);line-height:1.65;font-weight:300}
+
+.faq-wrap{margin-top:3rem}
+.faq-title{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem}
+.faq-title::before{content:'';display:inline-block;width:22px;height:1px;background:var(--gold-d)}
+.faq-item{border-top:1px solid var(--edge);overflow:hidden}
+.faq-item:last-child{border-bottom:1px solid var(--edge)}
+.faq-q{width:100%;background:none;border:none;color:var(--t1);font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:500;padding:1.25rem 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;text-align:left;transition:color .2s}
+.faq-q:hover{color:var(--gold)}
+.faq-arrow{font-size:.7rem;color:var(--gold);transition:transform .3s;flex-shrink:0}
+.faq-a{font-size:.8rem;color:var(--t3);line-height:1.75;font-weight:300;max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.16,1,.3,1),padding .3s}
+.faq-item.open .faq-a{max-height:200px;padding-bottom:1.25rem}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+
 /* ── AI CHAT ── */
-#ai{background:#080808;padding:9rem 3rem}
+#ai{background:var(--void);padding:9rem 3rem}
 .ai-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center}
 .ai-feats{display:flex;flex-direction:column;margin-top:2.25rem}
 .af{display:flex;align-items:flex-start;gap:1.1rem;padding:1.4rem 0;border-bottom:1px solid var(--edge);transition:padding .22s;cursor:default}
@@ -356,15 +370,10 @@ section{padding:9rem 3rem}
 .csnd:hover{background:#F0F0F0;box-shadow:0 0 12px rgba(200,200,200,.4)}
 
 /* ── CTA ── */
-#cta{background:var(--void);padding:12rem 3rem 14rem;position:relative;overflow:hidden;text-align:center;min-height:100vh;display:flex;align-items:center;justify-content:center}
-.cta-atm{position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 50% 55%,rgba(46,74,43,.28),transparent 65%),radial-gradient(ellipse 35% 30% at 80% 20%,rgba(196,163,90,.06),transparent 55%);pointer-events:none}
-#ctac{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
-.cta-in{position:relative;z-index:2;max-width:640px;margin:0 auto}
-.cta-pre{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1.75rem;display:flex;align-items:center;justify-content:center;gap:.6rem}
-.cta-pre::before,.cta-pre::after{content:'';display:inline-block;width:28px;height:1px;background:var(--gold-d)}
-.cta-h{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,5.5vw,4.8rem);font-weight:700;letter-spacing:-.03em;line-height:1.04;margin-bottom:1.4rem}
-.cta-s{font-size:.95rem;color:var(--t2);font-weight:300;margin-bottom:2.75rem;line-height:1.75}
-.cta-fine{margin-top:1.4rem;font-size:.68rem;color:var(--t4);letter-spacing:.08em}
+#cta{background:var(--void);padding:8rem 2rem 3rem;position:relative;overflow:hidden;text-align:center;min-height:100vh;display:flex;align-items:flex-end;justify-content:center}
+.cta-atm{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(8,8,8,.1),rgba(8,8,8,.5) 100%);pointer-events:none;z-index:1}
+#ctac{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;transform:translateY(-95px) scale(1.04);transform-origin:center top;opacity:.62}
+.cta-in{position:relative;z-index:2;max-width:680px;margin:0 auto;text-align:center;padding-top:18rem}
 
 /* ── FOOTER ── */
 footer{background:#141414;border-top:1px solid rgba(200,200,200,.08);padding:5rem 3rem 3rem}
@@ -387,45 +396,41 @@ footer{background:#141414;border-top:1px solid rgba(200,200,200,.08);padding:5re
   .plat-head{grid-template-columns:1fr;gap:2rem}
   .fc-grid{grid-template-columns:1fr 1fr}
   .fc2-grid{grid-template-columns:1fr 1fr}
-  .work-grid{grid-template-columns:1fr}
-  .wi.tall{aspect-ratio:16/10}
+  .process-grid{grid-template-columns:1fr 1fr;gap:2.5rem}
+  .process-grid::before{display:none}
+  .testi-grid{grid-template-columns:1fr 1fr}
+  .pricing-trust{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
   section{padding:6rem 1.5rem}
   nav{padding:1.25rem 1.5rem}nav.s{padding:.85rem 1.5rem}
   .nlinks,.btn-ng,.btn-nc{display:none}
   .ntog{display:flex}
-  .fc-grid{grid-template-columns:1fr}
-  .fc2-grid{grid-template-columns:1fr}
+  .fc-grid,.fc2-grid{grid-template-columns:1fr}
   .price-grid{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .pricing-trust{grid-template-columns:1fr}
   .ft-top{grid-template-columns:1fr 1fr}
   .hero-proof{flex-wrap:wrap}.hp+.hp{border-left:none;border-top:1px solid var(--edge);padding-top:1.25rem;margin-top:1.25rem}
+  .work-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:480px){
   .ft-top{grid-template-columns:1fr}
-  .sc-label{left:1.5rem;bottom:2rem}
+  .work-grid{grid-template-columns:1fr}
 }
 
-/* ── HERO / CTA COMPOSITION TUNE ── */
-.hero{align-items:flex-start!important}
-.hero-c{position:relative;z-index:2;transform:translateY(-2.6rem)}
-#hero3d{transform:translateY(-40px) scale(1.02);transform-origin:center top;opacity:.98}
-#cta{align-items:flex-end!important;padding:8rem 2rem 3rem!important}
-#ctac{transform:translateY(-95px) scale(1.04);transform-origin:center top;opacity:.62}
-.cta-in{position:relative;z-index:2;max-width:680px;margin:0 auto;text-align:center;transform:none!important;padding-top:18rem}
+/* ── CTA composition ── */
 @media(max-width:1024px){
   .hero-c{transform:translateY(-1.75rem)}
-  #hero3d{transform:translateY(-20px) scale(1.01)}
   .cta-in{padding-top:15rem}
   #ctac{transform:translateY(-70px) scale(1.02)}
 }
 @media(max-width:768px){
   .hero-c{transform:translateY(-1rem)}
-  #hero3d{transform:translateY(0) scale(1)}
   .cta-in{padding-top:12rem}
   #ctac{transform:translateY(-40px) scale(1.01)}
 }
-
 </style>
 </head>
 <body>
@@ -463,7 +468,7 @@ footer{background:#141414;border-top:1px solid rgba(200,200,200,.08);padding:5re
   </div>
 </nav>
 
-<!-- 1. TICKER — subtle, ambient -->
+<!-- TICKER -->
 <div class="ticker" style="padding-top:3.75rem">
   <div class="ttk">
     <span>ድንቅ ዲጂታል</span><span class="dot">·</span><span>Ethiopia → Global</span><span class="dot">·</span><span>Addis Ababa</span><span class="dot">·</span><span>DinqOS Platform</span><span class="dot">·</span><span>24 Countries</span><span class="dot">·</span><span>42 Modules</span><span class="dot">·</span><span>Multi-currency</span><span class="dot">·</span><span>Telebirr · Stripe · Zelle</span><span class="dot">·</span>
@@ -471,12 +476,12 @@ footer{background:#141414;border-top:1px solid rgba(200,200,200,.08);padding:5re
   </div>
 </div>
 
-<!-- 2. HERO -->
+<!-- HERO -->
 <section class="hero" id="home" style="color:#FFFFFF">
   <div class="hero-atm"></div>
   <div class="hero-grid"></div>
   <div class="hero-vign"></div>
-  <div class="hero-c" style="color:#FFFFFF;transform:translateY(-5.5rem)">
+  <div class="hero-c">
     <div class="hero-eye">
       <div class="hero-eye-line"></div>
       <div class="hero-eye-dot"></div>
@@ -502,13 +507,14 @@ footer{background:#141414;border-top:1px solid rgba(200,200,200,.08);padding:5re
     <div class="hero-proof">
       <div class="hp"><div class="hp-n count" data-t="30">0</div><div class="hp-l">Projects Shipped</div></div>
       <div class="hp"><div class="hp-n count" data-t="10">0</div><div class="hp-l">Countries Served</div></div>
+      <div class="hp"><div class="hp-n" style="font-size:1.6rem">5K+</div><div class="hp-l">End Users Reached</div></div>
     </div>
   </div>
   <div class="scroll-hint"><span class="sh-txt">Scroll</span><div class="sh-line"></div></div>
   <canvas id="hero3d" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;transform:translateY(-40px) scale(1.02);transform-origin:center top"></canvas>
 </section>
 
-<!-- 3. VISION -->
+<!-- VISION -->
 <section id="vision" style="background:var(--void);padding:10rem 3rem">
   <div class="vis-inner mxw">
     <div class="rvl">
@@ -518,36 +524,33 @@ footer{background:#141414;border-top:1px solid rgba(200,200,200,.08);padding:5re
     </div>
     <div style="display:flex;flex-direction:column;gap:0">
       <div class="vis-stat rv d1">
-        <div class="vs-n"><span>42</span>+</div>
-        <div class="vs-l">Everything you need in one place — customers, orders, inventory, invoicing, analytics, and automation. One login. Everything connected.</div>
+        <div class="vs-n"><span>$120K</span></div>
+        <div class="vs-l">In annual recurring revenue generated for a single client on DinqOS — SabaCloud hit this mark within 14 months of launch.</div>
       </div>
       <div class="vis-stat rv d2">
-        <div class="vs-n"><span>Multiple</span> currencies</div>
-        <div class="vs-l">Accept payments globally and locally — ETB, USD, GBP, CAD, KES, NGN, and more. Telebirr, Stripe, Zelle, CashApp, and CBE all in one dashboard.</div>
+        <div class="vs-n"><span>12</span> countries</div>
+        <div class="vs-l">MB Coffee Farm now ships to 12 export markets — built on a website and DinqOS payment system we shipped in 3 weeks.</div>
       </div>
       <div class="vis-stat rv d3" style="border-bottom:none;padding-bottom:0">
-        <div class="vs-n"><span>24/7</span></div>
-        <div class="vs-l">AI that works while you sleep — replies to customers, sends invoices, follows up on leads, and keeps your business moving.</div>
+        <div class="vs-n"><span>5K+</span></div>
+        <div class="vs-l">Daily active users across Dinq-built platforms — from Addis Ababa fintech to US-based diaspora services.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 4. PLATFORM (WHITE) -->
-<section id="platform" style="background:#0F0F0F;padding:9rem 3rem;color:#FFFFFF !important;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)">
+<!-- PLATFORM -->
+<section id="platform" style="background:#0F0F0F;padding:9rem 3rem;color:#FFFFFF;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)">
   <div class="mxw">
     <div class="plat-head rv">
       <h2 class="plat-h">Everything you need.<br>One platform.</h2>
-      <p style="margin-top:1.25rem;font-size:.85rem;color:rgba(255,255,255,.35);line-height:1.7;font-weight:300;max-width:400px">42 integrated modules — manage customers, payments, projects, and growth all from one dashboard.</p>
       <div>
-        <p class="plat-sub">Run your entire business from one place — manage customers, payments, operations, and growth with a fully integrated system built for speed.</p>
+        <p class="plat-sub">42 integrated modules — manage customers, payments, projects, and growth all from one dashboard.</p>
         <a href="https://app.dinqdigital.com/login" class="plat-link">View all features →</a>
       </div>
     </div>
 
-    <!-- Row 1: 4 core cards -->
     <div class="fc-grid">
-      <!-- DinqOS -->
       <div class="fc fc-dk rv d1">
         <div class="fc-top"><h3>Dinq<span style="color:var(--gold)">OS</span></h3><p>Your complete business operating system — manage everything from one dashboard. One login. Full control.</p></div>
         <div class="fc-body">
@@ -578,7 +581,6 @@ footer{background:#141414;border-top:1px solid rgba(200,200,200,.08);padding:5re
           </div>
         </div>
       </div>
-      <!-- AI -->
       <div class="fc fc-dk rv d2">
         <div class="fc-top"><h3>AI Assistant</h3><p>AI that replies to customers, writes proposals, and automates your daily workflow — so your business runs even when you're offline.</p></div>
         <div class="fc-body">
@@ -589,7 +591,6 @@ footer{background:#141414;border-top:1px solid rgba(200,200,200,.08);padding:5re
           </div>
         </div>
       </div>
-      <!-- Payments -->
       <div class="fc fc-gr rv d3">
         <div class="fc-top"><h3>Payments</h3><p>Accept payments anywhere, anytime — Telebirr, Stripe, Zelle, CashApp, CBE — all connected in one system.</p></div>
         <div class="fc-body">
@@ -601,7 +602,6 @@ footer{background:#141414;border-top:1px solid rgba(200,200,200,.08);padding:5re
           </div>
         </div>
       </div>
-      <!-- Analytics -->
       <div class="fc fc-bl rv d4">
         <div class="fc-top"><h3>Analytics</h3><p>Track revenue, performance, and business health in real time — with clear insights to help you grow faster.</p></div>
         <div class="fc-body">
@@ -627,7 +627,6 @@ footer{background:#141414;border-top:1px solid rgba(200,200,200,.08);padding:5re
       </div>
     </div>
 
-    <!-- Row 2: reveals on scroll -->
     <div class="fc2-grid">
       <div class="fc fc-lt rv d1" style="min-height:220px">
         <div class="fc-top"><h3>Kanban & Projects</h3><p>Visual boards to manage leads, projects, orders, and tasks — drag, drop, and stay organized.</p></div>
@@ -651,7 +650,7 @@ footer{background:#141414;border-top:1px solid rgba(200,200,200,.08);padding:5re
       <div class="fc fc-lt rv d3" style="min-height:220px">
         <div class="fc-top"><h3>Forms & Booking</h3><p>Create forms, collect leads, and let customers book services through simple, shareable pages.</p></div>
         <div class="fc-body">
-          <div style="width:100%;background:#1A1A1A;border:1px solid rgba(255,255,255,.1);border-radius:9px;padding:.8rem;box-shadow:0 4px 12px rgba(0,0,0,.06)">
+          <div style="width:100%;background:#1A1A1A;border:1px solid rgba(255,255,255,.1);border-radius:9px;padding:.8rem">
             <div style="font-size:.58rem;font-weight:600;color:#FFFFFF;margin-bottom:.55rem">Book a Consultation</div>
             <div style="background:rgba(255,255,255,.06);border-radius:5px;padding:.4rem .55rem;font-size:.58rem;color:rgba(255,255,255,.35);margin-bottom:.3rem">Full name *</div>
             <div style="background:rgba(255,255,255,.06);border-radius:5px;padding:.4rem .55rem;font-size:.58rem;color:rgba(255,255,255,.35);margin-bottom:.4rem">Email address *</div>
@@ -661,7 +660,6 @@ footer{background:#141414;border-top:1px solid rgba(200,200,200,.08);padding:5re
       </div>
     </div>
 
-    <!-- Module pills -->
     <div class="mod-strip">
       <div class="mod-track">
         <span class="mod-pill">📋 Projects</span><span class="mod-pill">👥 Customers</span><span class="mod-pill">🧾 Invoices</span><span class="mod-pill">💳 Payments</span><span class="mod-pill">🗂️ Kanban</span><span class="mod-pill">⏱️ Time Tracking</span><span class="mod-pill">🤖 AI Assistant</span><span class="mod-pill">💬 WhatsApp</span><span class="mod-pill">📣 Campaigns</span><span class="mod-pill">📚 Knowledge Base</span><span class="mod-pill">📬 Inbox</span><span class="mod-pill">🔗 Webhooks</span><span class="mod-pill">📆 Booking</span><span class="mod-pill">📝 Forms</span><span class="mod-pill">📤 Exports</span><span class="mod-pill">📦 Inventory</span><span class="mod-pill">🛒 Orders</span><span class="mod-pill">👷 Staff</span><span class="mod-pill">📊 Analytics</span><span class="mod-pill">🎯 Leads</span>
@@ -671,7 +669,48 @@ footer{background:#141414;border-top:1px solid rgba(200,200,200,.08);padding:5re
   </div>
 </section>
 
-<!-- 6. WORK -->
+<!-- PROCESS (NEW) -->
+<section id="process" style="background:var(--ink);padding:9rem 3rem">
+  <div class="mxw">
+    <div class="rv" style="text-align:center;max-width:520px;margin:0 auto 1rem">
+      <div class="sl" style="justify-content:center">How It Works</div>
+      <h2 class="sh" style="text-align:center">From first call<br><em style="font-style:italic;color:var(--gold)">to live system.</em></h2>
+      <p style="font-size:.88rem;color:var(--t3);font-weight:300;line-height:1.75;margin-top:.75rem">Four clear steps. No jargon. No surprises.</p>
+    </div>
+    <div class="process-grid rv">
+      <div class="ps d1">
+        <div class="ps-num">01</div>
+        <div class="ps-icon">☎️</div>
+        <h4>Discovery Call</h4>
+        <p>We learn your business — what you sell, how you collect payment, where you're losing time. 30 minutes, no sales pitch.</p>
+        <div class="ps-tag">Free · 30 min</div>
+      </div>
+      <div class="ps d2">
+        <div class="ps-num">02</div>
+        <div class="ps-icon">🗺️</div>
+        <h4>Proposal & Scope</h4>
+        <p>We send a clear breakdown: exactly what we'll build, what it costs, and when it ships. No hidden scope.</p>
+        <div class="ps-tag">Within 48 hrs</div>
+      </div>
+      <div class="ps d3">
+        <div class="ps-num">03</div>
+        <div class="ps-icon">⚡</div>
+        <h4>We Build Fast</h4>
+        <p>Design, develop, connect payments and DinqOS modules. You get progress updates throughout — not silence.</p>
+        <div class="ps-tag">14–30 days</div>
+      </div>
+      <div class="ps d4">
+        <div class="ps-num">04</div>
+        <div class="ps-icon">🚀</div>
+        <h4>Launch & Support</h4>
+        <p>We go live together. You get onboarding, training, and ongoing support — so your system runs the day it launches.</p>
+        <div class="ps-tag">Ongoing care</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK — FIXED HTML -->
 <section id="work" style="background:var(--deep);padding:9rem 3rem">
   <div class="mxw">
     <div class="rv" style="margin-bottom:4rem">
@@ -679,111 +718,114 @@ footer{background:#141414;border-top:1px solid rgba(200,200,200,.08);padding:5re
       <p style="font-size:.72rem;letter-spacing:.12em;color:rgba(255,255,255,.25);margin-bottom:.5rem;text-transform:uppercase">7 projects across fintech, SaaS, e-commerce & more</p>
       <h2 class="sh">Real products.<br><em style="font-style:italic;color:var(--gold)">Real results.</em></h2>
     </div>
-    <div class="work-grid rv" style="grid-template-columns:repeat(3,1fr)">
+    <div class="work-grid rv">
+      <!-- 1 eQub -->
       <div class="wi">
         <div class="wbg bg-e"><div class="mk"><div class="mk-dots"><div class="mk-dot"></div><div class="mk-dot"></div><div class="mk-dot"></div></div><div class="mkl mkl-g"></div><div class="mkl mkl-m"></div><div class="mkl mkl-s"></div><div class="mkgr"><div class="mkc"></div><div class="mkc"></div></div></div></div>
         <div class="wov"></div><span class="wam">ሀ</span>
         <div class="wi-info"><div class="wi-cat">Fintech</div><div class="wi-name">eQub Pay</div><div class="wi-desc">Scalable payment platform serving thousands daily</div><div class="wi-metric">5K+ active users</div></div>
       </div>
+      <!-- 2 Arif -->
       <div class="wi">
         <div class="wbg bg-v"><div class="mk"><div class="mk-dots"><div class="mk-dot"></div><div class="mk-dot"></div><div class="mk-dot"></div></div><div class="mkl mkl-g"></div><div class="mkl mkl-s"></div></div></div>
         <div class="wov"></div><span class="wam">ሸ</span>
         <div class="wi-info"><div class="wi-cat">E-Commerce</div><div class="wi-name">Arif Market</div><div class="wi-desc">Optimized online store driving consistent sales</div><div class="wi-metric">3× revenue growth</div></div>
       </div>
+      <!-- 3 SabaCloud -->
       <div class="wi">
         <div class="wbg bg-o"><div class="mk"><div class="mk-dots"><div class="mk-dot"></div><div class="mk-dot"></div><div class="mk-dot"></div></div><div class="mkl mkl-m"></div><div class="mkl mkl-g"></div></div></div>
         <div class="wov"></div><span class="wam">ሳ</span>
         <div class="wi-info"><div class="wi-cat">SaaS</div><div class="wi-name">SabaCloud</div><div class="wi-desc">SaaS platform generating recurring revenue</div><div class="wi-metric">$120K ARR</div></div>
       </div>
+      <!-- 4 MB Coffee -->
       <div class="wi">
         <div class="wbg bg-s"><div class="mk"><div class="mk-dots"><div class="mk-dot"></div><div class="mk-dot"></div><div class="mk-dot"></div></div><div class="mkl mkl-g"></div><div class="mkl mkl-m"></div><div class="mkl mkl-s"></div></div></div>
         <div class="wov"></div><span class="wam">ቡ</span>
         <div class="wi-info"><div class="wi-cat">Export Brand</div><div class="wi-name">MB Coffee Farm</div><div class="wi-desc">Global-ready brand reaching international markets</div><div class="wi-metric">12 export markets</div></div>
       </div>
+      <!-- 5 G&M Auto -->
       <div class="wi">
         <div class="wbg" style="background:linear-gradient(135deg,#1A1409,#0F0D07)"><div class="mk"><div class="mk-dots"><div class="mk-dot"></div><div class="mk-dot"></div><div class="mk-dot"></div></div><div class="mkl mkl-g"></div><div class="mkl mkl-m"></div></div></div>
         <div class="wov"></div><span class="wam">ጂ</span>
         <div class="wi-info"><div class="wi-cat">Auto Repair</div><div class="wi-name">G &amp; M Auto Repair</div><div class="wi-desc">Connecting car owners with trusted mechanics</div><div class="wi-metric">2× monthly bookings</div></div>
       </div>
+      <!-- 6 Nice Braids -->
       <div class="wi">
         <div class="wbg" style="background:linear-gradient(135deg,#1C1A10,#100F08)"><div class="mk"><div class="mk-dots"><div class="mk-dot"></div><div class="mk-dot"></div><div class="mk-dot"></div></div><div class="mkl mkl-g"></div><div class="mkl mkl-s"></div></div></div>
         <div class="wov"></div><span class="wam">ኒ</span>
         <div class="wi-info"><div class="wi-cat">Beauty</div><div class="wi-name">Nice Braids</div><div class="wi-desc">Premium hair braiding with easy online booking</div><div class="wi-metric">150+ clients served</div></div>
       </div>
+      <!-- 7 Adismotion — FIXED closing div -->
       <div class="wi">
         <div class="wbg" style="background:linear-gradient(135deg,#0D120A,#090E07)"><div class="mk"><div class="mk-dots"><div class="mk-dot"></div><div class="mk-dot"></div><div class="mk-dot"></div></div><div class="mkl mkl-g"></div><div class="mkl mkl-m"></div><div class="mkl mkl-s"></div></div></div>
         <div class="wov"></div><span class="wam">አ</span>
         <div class="wi-info"><div class="wi-cat">Photography</div><div class="wi-name">Adismotion</div><div class="wi-desc">Full-service photo studio with digital galleries</div><div class="wi-metric">500+ shoots completed</div></div>
+      </div>
       <!-- Placeholder 1 -->
       <div class="wi">
-        <div class="wbg" style="background:linear-gradient(135deg,#1a1209,#0d0d0a)">
-          <div class="mk"><div class="mk-dots"><div class="mk-dot"></div><div class="mk-dot"></div><div class="mk-dot"></div></div><div class="mkl mkl-g"></div><div class="mkl mkl-m"></div></div>
-        </div>
+        <div class="wbg" style="background:linear-gradient(135deg,#1a1209,#0d0d0a)"><div class="mk"><div class="mk-dots"><div class="mk-dot"></div><div class="mk-dot"></div><div class="mk-dot"></div></div><div class="mkl mkl-g"></div><div class="mkl mkl-m"></div></div></div>
         <div class="wov"></div><span class="wam">ሀ</span>
-        <div class="wi-info">
-          <div class="wi-cat" style="color:rgba(196,163,90,.5);letter-spacing:.18em">— Coming Soon —</div>
-          <div class="wi-name">Your Project</div>
-          <div class="wi-desc">Fintech · E-commerce · SaaS · Brand</div>
-          <div class="wi-metric" style="color:var(--gold);border-color:var(--gold)">Let's build it →</div>
-        </div>
+        <div class="wi-info"><div class="wi-cat" style="color:rgba(196,163,90,.5);letter-spacing:.18em">— Coming Soon —</div><div class="wi-name">Your Project</div><div class="wi-desc">Fintech · E-commerce · SaaS · Brand</div><div class="wi-metric" style="color:var(--gold);border-color:var(--gold)">Let's build it →</div></div>
       </div>
       <!-- Placeholder 2 -->
       <div class="wi">
-        <div class="wbg" style="background:linear-gradient(135deg,#0d1a14,#080f0a)">
-          <div class="mk"><div class="mk-dots"><div class="mk-dot"></div><div class="mk-dot"></div><div class="mk-dot"></div></div><div class="mkl mkl-g"></div><div class="mkl mkl-s"></div></div>
-        </div>
+        <div class="wbg" style="background:linear-gradient(135deg,#0d1a14,#080f0a)"><div class="mk"><div class="mk-dots"><div class="mk-dot"></div><div class="mk-dot"></div><div class="mk-dot"></div></div><div class="mkl mkl-g"></div><div class="mkl mkl-s"></div></div></div>
         <div class="wov"></div><span class="wam">ሸ</span>
-        <div class="wi-info">
-          <div class="wi-cat" style="color:rgba(196,163,90,.5);letter-spacing:.18em">— Coming Soon —</div>
-          <div class="wi-name">Your Project</div>
-          <div class="wi-desc">Web design · DinqOS · Payments</div>
-          <div class="wi-metric" style="color:var(--gold);border-color:var(--gold)">Start a project →</div>
+        <div class="wi-info"><div class="wi-cat" style="color:rgba(196,163,90,.5);letter-spacing:.18em">— Coming Soon —</div><div class="wi-name">Your Project</div><div class="wi-desc">Web design · DinqOS · Payments</div><div class="wi-metric" style="color:var(--gold);border-color:var(--gold)">Start a project →</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS (NEW) -->
+<section id="testimonials" style="background:var(--void);padding:9rem 3rem">
+  <div class="mxw">
+    <div class="rv" style="margin-bottom:4rem">
+      <div class="sl">Client Stories</div>
+      <h2 class="sh">Don't take<br><em style="font-style:italic;color:var(--gold)">our word for it.</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="tcard rv d1">
+        <div class="tcard-flag">🇪🇹</div>
+        <p class="tcard-body">Before Dinq, I was tracking everything on paper. Now I have a website, my Telebirr is connected, and I can see every booking from my phone. <em>My revenue doubled in 4 months.</em></p>
+        <div class="tcard-author">
+          <div class="tcard-av" style="background:var(--gold)">N</div>
+          <div>
+            <div class="tcard-name">Nardos T.</div>
+            <div class="tcard-role">Owner, Nice Braids · Addis Ababa</div>
+            <div class="tcard-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          </div>
         </div>
       </div>
-      <!-- Placeholder 3 -->
-      <div class="wi">
-        <div class="wbg" style="background:linear-gradient(135deg,#1a1409,#0f0e08)">
-          <div class="mk"><div class="mk-dots"><div class="mk-dot"></div><div class="mk-dot"></div><div class="mk-dot"></div></div><div class="mkl mkl-m"></div><div class="mkl mkl-g"></div></div>
-        </div>
-        <div class="wov"></div><span class="wam">ዜ</span>
-        <div class="wi-info">
-          <div class="wi-cat" style="color:rgba(196,163,90,.5);letter-spacing:.18em">— Coming Soon —</div>
-          <div class="wi-name">Your Project</div>
-          <div class="wi-desc">AI automation · Branding · Growth</div>
-          <div class="wi-metric" style="color:var(--gold);border-color:var(--gold)">Get in touch →</div>
-        </div>
-      </div>
-      <!-- Placeholder 4 -->
-      <div class="wi">
-        <div class="wbg" style="background:linear-gradient(135deg,#0d0d1a,#08080f)">
-          <div class="mk"><div class="mk-dots"><div class="mk-dot"></div><div class="mk-dot"></div><div class="mk-dot"></div></div><div class="mkl mkl-g"></div><div class="mkl mkl-m"></div><div class="mkl mkl-s"></div></div>
-        </div>
-        <div class="wov"></div><span class="wam">ቡ</span>
-        <div class="wi-info">
-          <div class="wi-cat" style="color:rgba(196,163,90,.5);letter-spacing:.18em">— Coming Soon —</div>
-          <div class="wi-name">Your Project</div>
-          <div class="wi-desc">From Ethiopia to everywhere</div>
-          <div class="wi-metric" style="color:var(--gold);border-color:var(--gold)">Work with us →</div>
+      <div class="tcard rv d2">
+        <div class="tcard-flag">🇺🇸</div>
+        <p class="tcard-body">We needed a system that could handle diaspora clients in the US and customers in Ethiopia at the same time. <em>Dinq built exactly that — Zelle, Telebirr, and CashApp in one place.</em></p>
+        <div class="tcard-author">
+          <div class="tcard-av" style="background:#C4A35A">G</div>
+          <div>
+            <div class="tcard-name">Girma M.</div>
+            <div class="tcard-role">Founder, G & M Auto Repair · Atlanta</div>
+            <div class="tcard-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          </div>
         </div>
       </div>
-      <!-- Placeholder 5 -->
-      <div class="wi">
-        <div class="wbg" style="background:linear-gradient(135deg,#1a0d0d,#0f0808)">
-          <div class="mk"><div class="mk-dots"><div class="mk-dot"></div><div class="mk-dot"></div><div class="mk-dot"></div></div><div class="mkl mkl-s"></div><div class="mkl mkl-g"></div></div>
-        </div>
-        <div class="wov"></div><span class="wam">ሳ</span>
-        <div class="wi-info">
-          <div class="wi-cat" style="color:rgba(196,163,90,.5);letter-spacing:.18em">— Coming Soon —</div>
-          <div class="wi-name">Your Project</div>
-          <div class="wi-desc">The next ድንቅ business</div>
-          <div class="wi-metric" style="color:var(--gold);border-color:var(--gold)"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="acc8c5c2ddc8c5cbc5d8cdc0eccbc1cdc5c082cfc3c1">[email&#160;protected]</a> →</div>
+      <div class="tcard rv d3">
+        <div class="tcard-flag">🌍</div>
+        <p class="tcard-body">Dinq understood what we needed without us having to over-explain. They shipped our export site in 3 weeks and set up our international payment flow. <em>We're in 12 countries now.</em></p>
+        <div class="tcard-author">
+          <div class="tcard-av" style="background:#8A6B2E">M</div>
+          <div>
+            <div class="tcard-name">Meseret B.</div>
+            <div class="tcard-role">Director, MB Coffee Farm</div>
+            <div class="tcard-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 7. PAYMENTS -->
+<!-- PAYMENTS CAROUSEL -->
 <section id="payments" style="background:var(--void);padding:9rem 0 9rem">
   <div class="mxw" style="padding:0 3rem;margin-bottom:3.5rem">
     <div class="rvl">
@@ -794,12 +836,9 @@ footer{background:#141414;border-top:1px solid rgba(200,200,200,.08);padding:5re
     </div>
   </div>
 
-  <!-- HORIZONTAL SWIPEABLE CAROUSEL -->
   <div style="position:relative">
-    <!-- scroll container -->
     <div id="payCarousel" style="display:flex;gap:1.25rem;overflow-x:auto;padding:0 3rem 1.5rem;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab;user-select:none" onmousedown="startDrag(event)" onmousemove="onDrag(event)" onmouseup="stopDrag()" onmouseleave="stopDrag()">
 
-      <!-- Card 1: Telebirr -->
       <div style="min-width:300px;max-width:300px;background:linear-gradient(135deg,#050528,#020215);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:2rem;scroll-snap-align:start;flex-shrink:0;position:relative;overflow:hidden;transition:transform .25s" onmouseenter="this.style.transform='translateY(-4px)'" onmouseleave="this.style.transform='none'">
         <div style="position:absolute;top:-40px;right:-40px;width:150px;height:150px;background:radial-gradient(circle,rgba(201,168,76,.12),transparent 70%);pointer-events:none"></div>
         <div style="font-size:2.5rem;margin-bottom:1.25rem">🇪🇹</div>
@@ -812,7 +851,6 @@ footer{background:#141414;border-top:1px solid rgba(200,200,200,.08);padding:5re
         </div>
       </div>
 
-      <!-- Card 2: Stripe -->
       <div style="min-width:300px;max-width:300px;background:linear-gradient(135deg,#0D0525,#08021A);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:2rem;scroll-snap-align:start;flex-shrink:0;position:relative;overflow:hidden;transition:transform .25s" onmouseenter="this.style.transform='translateY(-4px)'" onmouseleave="this.style.transform='none'">
         <div style="position:absolute;top:-40px;right:-40px;width:150px;height:150px;background:radial-gradient(circle,rgba(99,102,241,.12),transparent 70%);pointer-events:none"></div>
         <div style="font-size:2.5rem;margin-bottom:1.25rem">🌍</div>
@@ -821,38 +859,30 @@ footer{background:#141414;border-top:1px solid rgba(200,200,200,.08);padding:5re
         <div style="display:flex;flex-wrap:wrap;gap:.4rem">
           <span style="font-size:.62rem;padding:.22rem .65rem;border-radius:99px;border:1px solid rgba(99,102,241,.3);color:rgba(139,92,246,.8)">Global</span>
           <span style="font-size:.62rem;padding:.22rem .65rem;border-radius:99px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.35)">135+ currencies</span>
-          <span style="font-size:.62rem;padding:.22rem .65rem;border-radius:99px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.35)">Cards</span>
         </div>
       </div>
 
-      <!-- Card 3: Zelle / CashApp -->
       <div style="min-width:300px;max-width:300px;background:linear-gradient(135deg,#050520,#030318);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:2rem;scroll-snap-align:start;flex-shrink:0;position:relative;overflow:hidden;transition:transform .25s" onmouseenter="this.style.transform='translateY(-4px)'" onmouseleave="this.style.transform='none'">
-        <div style="position:absolute;top:-40px;right:-40px;width:150px;height:150px;background:radial-gradient(circle,rgba(37,211,102,.1),transparent 70%);pointer-events:none"></div>
         <div style="display:flex;gap:.5rem;margin-bottom:1.25rem"><span style="font-size:1.8rem">💚</span><span style="font-size:1.8rem">💙</span><span style="font-size:1.8rem">🍎</span></div>
         <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:.5rem">CashApp, Zelle & Apple Pay</div>
-        <div style="font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.65;font-weight:300;margin-bottom:1.5rem">The preferred way diaspora clients in the US send money — CashApp, Zelle, and Apple Pay. Instant, zero fees, no card required.</div>
+        <div style="font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.65;font-weight:300;margin-bottom:1.5rem">The preferred way diaspora clients in the US send money. Instant, zero fees, no card required.</div>
         <div style="display:flex;flex-wrap:wrap;gap:.4rem">
           <span style="font-size:.62rem;padding:.22rem .65rem;border-radius:99px;border:1px solid rgba(37,211,102,.25);color:rgba(37,211,102,.7)">USA</span>
           <span style="font-size:.62rem;padding:.22rem .65rem;border-radius:99px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.35)">Zero fees</span>
-          <span style="font-size:.62rem;padding:.22rem .65rem;border-radius:99px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.35)">Instant</span>
         </div>
       </div>
 
-      <!-- Card 4: CBE Birr -->
       <div style="min-width:300px;max-width:300px;background:linear-gradient(135deg,#100A28,#0A0720);border:1px solid rgba(201,168,76,.12);border-radius:18px;padding:2rem;scroll-snap-align:start;flex-shrink:0;position:relative;overflow:hidden;transition:transform .25s" onmouseenter="this.style.transform='translateY(-4px)'" onmouseleave="this.style.transform='none'">
-        <div style="position:absolute;top:-40px;right:-40px;width:150px;height:150px;background:radial-gradient(circle,rgba(201,168,76,.1),transparent 70%);pointer-events:none"></div>
         <div style="font-size:2.5rem;margin-bottom:1.25rem">🏦</div>
         <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:.5rem">CBE Birr</div>
-        <div style="font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.65;font-weight:300;margin-bottom:1.5rem">Commercial Bank of Ethiopia's mobile banking — trusted by millions of Ethiopians for direct transfers.</div>
+        <div style="font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.65;font-weight:300;margin-bottom:1.5rem">Commercial Bank of Ethiopia's mobile banking — trusted by millions for direct transfers.</div>
         <div style="display:flex;flex-wrap:wrap;gap:.4rem">
           <span style="font-size:.62rem;padding:.22rem .65rem;border-radius:99px;border:1px solid rgba(201,168,76,.25);color:rgba(200,200,200,.7)">Ethiopia</span>
           <span style="font-size:.62rem;padding:.22rem .65rem;border-radius:99px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.35)">Bank transfer</span>
         </div>
       </div>
 
-      <!-- Card 5: PayPal -->
       <div style="min-width:300px;max-width:300px;background:linear-gradient(135deg,#0A0530,#060220);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:2rem;scroll-snap-align:start;flex-shrink:0;position:relative;overflow:hidden;transition:transform .25s" onmouseenter="this.style.transform='translateY(-4px)'" onmouseleave="this.style.transform='none'">
-        <div style="position:absolute;top:-40px;right:-40px;width:150px;height:150px;background:radial-gradient(circle,rgba(0,112,243,.1),transparent 70%);pointer-events:none"></div>
         <div style="font-size:2.5rem;margin-bottom:1.25rem">🅿️</div>
         <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:.5rem">PayPal</div>
         <div style="font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.65;font-weight:300;margin-bottom:1.5rem">International clients trust PayPal. Accept invoices globally via paypal.me/dinqdigital.</div>
@@ -862,7 +892,6 @@ footer{background:#141414;border-top:1px solid rgba(200,200,200,.08);padding:5re
         </div>
       </div>
 
-      <!-- Card 6: Invoice UI card -->
       <div style="min-width:300px;max-width:300px;background:var(--card);border:1px solid var(--edge);border-radius:18px;overflow:hidden;scroll-snap-align:start;flex-shrink:0;box-shadow:0 24px 48px rgba(0,0,0,.4)">
         <div style="padding:1.2rem 1.4rem;background:var(--lift);border-bottom:1px solid var(--edge);display:flex;justify-content:space-between;align-items:center">
           <div style="font-family:'Playfair Display',serif;font-size:.88rem;font-weight:700">Habesha Coffee</div>
@@ -886,16 +915,12 @@ footer{background:#141414;border-top:1px solid rgba(200,200,200,.08);padding:5re
           </div>
         </div>
       </div>
-
-      <!-- trailing space -->
       <div style="min-width:2rem;flex-shrink:0"></div>
     </div>
 
-    <!-- fade edges -->
     <div style="position:absolute;top:0;left:0;bottom:1.5rem;width:3rem;background:linear-gradient(to right,var(--void),transparent);pointer-events:none"></div>
     <div style="position:absolute;top:0;right:0;bottom:1.5rem;width:3rem;background:linear-gradient(to left,var(--void),transparent);pointer-events:none"></div>
 
-    <!-- scroll dots -->
     <div style="display:flex;justify-content:center;gap:.5rem;margin-top:.5rem" id="payDots">
       <div style="width:16px;height:3px;border-radius:99px;background:var(--gold);transition:all .3s"></div>
       <div style="width:6px;height:3px;border-radius:99px;background:var(--edge2);transition:all .3s"></div>
@@ -906,31 +931,9 @@ footer{background:#141414;border-top:1px solid rgba(200,200,200,.08);padding:5re
     </div>
   </div>
 </section>
+<style>#payCarousel::-webkit-scrollbar{display:none}#payCarousel.dragging{cursor:grabbing}</style>
 
-<style>
-#payCarousel::-webkit-scrollbar{display:none}
-#payCarousel.dragging{cursor:grabbing}
-</style>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// Drag to scroll
-let isDragging=false,startX=0,scrollLeft=0;
-function startDrag(e){isDragging=true;startX=e.pageX-document.getElementById('payCarousel').offsetLeft;scrollLeft=document.getElementById('payCarousel').scrollLeft;document.getElementById('payCarousel').classList.add('dragging')}
-function onDrag(e){if(!isDragging)return;e.preventDefault();const x=e.pageX-document.getElementById('payCarousel').offsetLeft;const walk=(x-startX)*1.5;document.getElementById('payCarousel').scrollLeft=scrollLeft-walk}
-function stopDrag(){isDragging=false;document.getElementById('payCarousel').classList.remove('dragging')}
-
-// Update dots
-const payEl=document.getElementById('payCarousel');
-const payDotEls=document.getElementById('payDots').children;
-payEl.addEventListener('scroll',()=>{
-  const idx=Math.round(payEl.scrollLeft/(300+20));
-  Array.from(payDotEls).forEach((d,i)=>{
-    d.style.width=i===idx?'16px':'6px';
-    d.style.background=i===idx?'var(--gold)':'var(--edge2)';
-  });
-});
-</script>
-
-<!-- 8. PRICING -->
+<!-- PRICING + FAQ -->
 <section id="pricing" style="background:var(--deep);padding:9rem 3rem">
   <div class="mxw">
     <div class="rv" style="margin-bottom:1rem">
@@ -973,10 +976,51 @@ payEl.addEventListener('scroll',()=>{
       </div>
     </div>
     <p class="pc-note rv">DinqOS monthly access — <strong style="color:var(--t1)">$10/mo</strong> Starter · <strong style="color:var(--t1)">$20/mo</strong> Growth · <strong style="color:var(--t1)">$50/mo</strong> Gold · <a href="https://app.dinqdigital.com/login">View live demo →</a></p>
+
+    <!-- Trust signals -->
+    <div class="pricing-trust rv">
+      <div class="pt-item">
+        <div class="pt-icon">🔒</div>
+        <div><h5>No hidden fees</h5><p>The price you see is what you pay. We quote in full before any work starts.</p></div>
+      </div>
+      <div class="pt-item">
+        <div class="pt-icon">⚡</div>
+        <div><h5>Fast delivery</h5><p>Starter sites ship in 14 days. Growth projects in 30. We move fast so you can too.</p></div>
+      </div>
+      <div class="pt-item">
+        <div class="pt-icon">💬</div>
+        <div><h5>Real support</h5><p>You get a direct line to the team — not a ticket queue. WhatsApp, Telegram, or email.</p></div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-wrap rv">
+      <div class="faq-title">Common Questions</div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Do I need to pay everything upfront? <span class="faq-arrow">↓</span></button>
+        <div class="faq-a">No. We work on a 50/50 structure — 50% to start, 50% on delivery. For Enterprise projects we discuss a milestone-based schedule.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Can I pay in Ethiopian Birr? <span class="faq-arrow">↓</span></button>
+        <div class="faq-a">Yes. We accept ETB via Telebirr or CBE, and we'll quote your project in local currency if you're based in Ethiopia.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What happens after the site launches? <span class="faq-arrow">↓</span></button>
+        <div class="faq-a">You get 30 days of included support after launch. After that, we offer ongoing DinqOS subscriptions and care plans starting from $10/month.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">I'm in the US / diaspora — can you still work with me? <span class="faq-arrow">↓</span></button>
+        <div class="faq-a">Absolutely. Many of our clients are Ethiopian diaspora businesses in the US, UK, and Canada. We work across time zones and accept Zelle, CashApp, and PayPal.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What is DinqOS exactly? <span class="faq-arrow">↓</span></button>
+        <div class="faq-a">DinqOS is our 42-module business operating system. Think CRM, invoicing, Kanban boards, booking pages, WhatsApp inbox, AI assistant, and analytics — all connected under one login. You can try it live at app.dinqdigital.com.</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- 9. AI CHAT -->
+<!-- AI CHAT -->
 <section id="ai" style="background:var(--void);padding:9rem 3rem">
   <div class="ai-inner mxw">
     <div class="rvl">
@@ -1015,52 +1059,43 @@ payEl.addEventListener('scroll',()=>{
   </div>
 </section>
 
-<!-- 10. CTA -->
+<!-- CTA -->
 <section id="cta" style="background:#080808;padding:8rem 2rem 3rem;position:relative;overflow:hidden;text-align:center;min-height:100vh;display:flex;align-items:flex-end;justify-content:center">
-  <div class="cta-atm" style="position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(8,8,8,.1),rgba(8,8,8,.5) 100%);pointer-events:none"></div>
-  <canvas id="ctac" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;transform:translateY(-95px) scale(1.04);transform-origin:center top"></canvas>
+  <div class="cta-atm"></div>
+  <canvas id="ctac"></canvas>
 
-  <!-- Decorative Amharic background letters -->
   <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:1;overflow:hidden">
     <span style="font-family:'Playfair Display',serif;font-size:clamp(12rem,30vw,22rem);font-weight:700;color:rgba(255,255,255,.03);line-height:1;user-select:none;letter-spacing:-.05em">ድንቅ</span>
   </div>
 
-  <div class="cta-in" style="position:relative;z-index:2;max-width:680px;margin:0 auto;text-align:center;padding-top:18rem">
-
-    <!-- Big headline -->
+  <div class="cta-in">
     <h2 style="font-family:'Playfair Display',serif;font-size:clamp(3rem,9vw,6.5rem);font-weight:700;letter-spacing:-.03em;line-height:1.0;margin-bottom:1.5rem;color:#FFFFFF">
       Ready to build<br>something<br>
       <em style="font-style:italic;color:#C4A35A">ድንቅ</em>?
     </h2>
-
     <p style="font-size:1rem;color:rgba(255,255,255,.45);font-weight:300;margin-bottom:3rem;line-height:1.75">
       From Addis Ababa to everywhere — your vision, our execution.
     </p>
-
-    <!-- Buttons -->
     <div style="display:flex;flex-direction:column;align-items:center;gap:.85rem;max-width:420px;margin:0 auto">
-      <a href="/cdn-cgi/l/email-protection#4b2f22253a2f222c223f2a270b2c262a222765282426" style="display:flex;align-items:center;justify-content:center;gap:.65rem;width:100%;padding:1rem 2rem;background:var(--gold);color:#080808;border:none;border-radius:var(--r);font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:600;text-decoration:none;transition:all .25s;letter-spacing:.02em">
-        Email Us →
+      <a href="mailto:dinqdigital@gmail.com" style="display:flex;align-items:center;justify-content:center;gap:.65rem;width:100%;padding:1rem 2rem;background:var(--gold);color:#080808;border:none;border-radius:var(--r);font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:600;text-decoration:none;transition:all .25s;letter-spacing:.02em" onmouseover="this.style.background='var(--gold-l)'" onmouseout="this.style.background='var(--gold)'">
+        Email Us → dinqdigital@gmail.com
       </a>
       <div style="display:flex;gap:.85rem;width:100%">
-        <a href="https://t.me/dinqdigital" style="flex:1;display:flex;align-items:center;justify-content:center;gap:.55rem;padding:1rem;background:transparent;color:#FFFFFF;border:1px solid rgba(255,255,255,.2);border-radius:var(--r);font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:400;text-decoration:none;transition:all .25s">
+        <a href="https://t.me/dinqdigital" style="flex:1;display:flex;align-items:center;justify-content:center;gap:.55rem;padding:1rem;background:transparent;color:#FFFFFF;border:1px solid rgba(255,255,255,.2);border-radius:var(--r);font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:400;text-decoration:none;transition:all .25s" onmouseover="this.style.borderColor='rgba(255,255,255,.5)'" onmouseout="this.style.borderColor='rgba(255,255,255,.2)'">
           Telegram ✈️
         </a>
-        <a href="https://wa.me/dinqdigital" style="flex:1;display:flex;align-items:center;justify-content:center;gap:.55rem;padding:1rem;background:transparent;color:#FFFFFF;border:1px solid rgba(255,255,255,.2);border-radius:var(--r);font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:400;text-decoration:none;transition:all .25s">
+        <a href="https://wa.me/251900000000" style="flex:1;display:flex;align-items:center;justify-content:center;gap:.55rem;padding:1rem;background:transparent;color:#FFFFFF;border:1px solid rgba(255,255,255,.2);border-radius:var(--r);font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:400;text-decoration:none;transition:all .25s" onmouseover="this.style.borderColor='rgba(255,255,255,.5)'" onmouseout="this.style.borderColor='rgba(255,255,255,.2)'">
           WhatsApp 💬
         </a>
       </div>
     </div>
-
-    <!-- Fine print -->
     <p style="margin-top:2rem;font-size:.72rem;color:rgba(255,255,255,.2);letter-spacing:.06em">
-      <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="86e2efe8f7e2efe1eff2e7eac6e1ebe7efeaa8e5e9eb">[email&#160;protected]</a> · @dinqdigital · Addis Ababa, Ethiopia
+      dinqdigital@gmail.com · @dinqdigital · Addis Ababa, Ethiopia
     </p>
-
   </div>
 </section>
 
-<!-- 11. FOOTER -->
+<!-- FOOTER -->
 <footer>
   <div class="ft">
     <div class="ft-top">
@@ -1073,28 +1108,29 @@ payEl.addEventListener('scroll',()=>{
         <p style="font-size:.68rem;color:var(--t4);margin-top:.4rem">Addis Ababa · Global</p>
       </div>
       <div class="ft-col"><h5>Platform</h5><ul><li><a href="https://app.dinqdigital.com/login">DinqOS Demo</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#platform">Features</a></li><li><a href="https://app.dinqdigital.com/login">Login</a></li></ul></div>
-      <div class="ft-col"><h5>Company</h5><ul><li><a href="#work">Our Work</a></li><li><a href="#vision">About</a></li><li><a href="#cta">Contact</a></li><li><a href="/cdn-cgi/l/email-protection#0c6865627d68656b65786d604c6b616d6560226f6361">Email Us</a></li></ul></div>
-      <div class="ft-col"><h5>Connect</h5><ul><li><a href="https://t.me/dinqdigital">Telegram</a></li><li><a href="https://discord.gg/dinqdigital">Discord</a></li><li><a href="#">WhatsApp</a></li><li><a href="/cdn-cgi/l/email-protection#5135383f203538363825303d11363c30383d7f323e3c"><span class="__cf_email__" data-cfemail="56323f3827323f313f22373a16313b373f3a7835393b">[email&#160;protected]</span></a></li></ul></div>
+      <div class="ft-col"><h5>Company</h5><ul><li><a href="#work">Our Work</a></li><li><a href="#vision">About</a></li><li><a href="#process">Process</a></li><li><a href="mailto:dinqdigital@gmail.com">Email Us</a></li></ul></div>
+      <div class="ft-col"><h5>Connect</h5><ul><li><a href="https://t.me/dinqdigital">Telegram</a></li><li><a href="https://wa.me/251900000000">WhatsApp</a></li><li><a href="mailto:dinqdigital@gmail.com">dinqdigital@gmail.com</a></li></ul></div>
     </div>
     <div class="ft-bot">
       <span class="ft-cp">© 2026 Dinq Digital · ድንቅ ዲጂታል</span>
-      <div class="ft-lk"><a href="https://t.me/dinqdigital">Telegram</a><a href="https://discord.gg/dinqdigital">Discord</a><a href="#">WhatsApp</a></div>
+      <div class="ft-lk"><a href="https://t.me/dinqdigital">Telegram</a><a href="https://wa.me/251900000000">WhatsApp</a><a href="mailto:dinqdigital@gmail.com">Email</a></div>
     </div>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-/* ── CURSOR ── */
-const cur=document.getElementById('cur'),curt=document.getElementById('curt');
-let mx=0,my=0,tx=0,ty=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
-(function loop(){tx+=(mx-tx)*.12;ty+=(my-ty)*.12;curt.style.left=tx+'px';curt.style.top=ty+'px';requestAnimationFrame(loop)})();
-document.querySelectorAll('a,button,.fc,.wi,.pm,.af,.pc').forEach(el=>{el.addEventListener('mouseenter',()=>cur.classList.add('big'));el.addEventListener('mouseleave',()=>cur.classList.remove('big'))});
+<script>
+/* ── CURSOR (desktop only) ── */
+if(window.matchMedia('(hover:hover)').matches){
+  const cur=document.getElementById('cur'),curt=document.getElementById('curt');
+  let mx=0,my=0,tx=0,ty=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+  (function loop(){tx+=(mx-tx)*.12;ty+=(my-ty)*.12;curt.style.left=tx+'px';curt.style.top=ty+'px';requestAnimationFrame(loop)})();
+  document.querySelectorAll('a,button,.fc,.wi,.pm,.af,.pc,.tcard,.ps').forEach(el=>{el.addEventListener('mouseenter',()=>cur.classList.add('big'));el.addEventListener('mouseleave',()=>cur.classList.remove('big'))});
+}
 
 /* ── NAV ── */
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('s',scrollY>60));
-/* Smooth scroll for all anchor links */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
     const id=a.getAttribute('href').slice(1);
@@ -1106,15 +1142,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 /* ── SCROLL REVEAL ── */
 const ro=new IntersectionObserver(e=>e.forEach(n=>{if(n.isIntersecting){n.target.classList.add('in');ro.unobserve(n.target)}}),{threshold:0,rootMargin:'0px 0px 0px 0px'});
 document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>ro.observe(el));
-/* Fallback: if file:// or slow load, force all visible after 400ms */
 setTimeout(()=>document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>el.classList.add('in')),400);
-/* Force hero words visible after 800ms if animation failed */
 setTimeout(()=>{
   document.querySelectorAll('.hero-h .w,.hero-sub,.hero-btns,.hero-proof,.hero-eye,.scroll-hint').forEach(el=>{
     el.style.opacity='1';el.style.transform='none';
   });
 },800);
-/* Also trigger on first scroll */
 window.addEventListener('scroll',function onFirstScroll(){
   document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>el.classList.add('in'));
   window.removeEventListener('scroll',onFirstScroll);
@@ -1123,1152 +1156,132 @@ window.addEventListener('scroll',function onFirstScroll(){
 /* ── COUNTERS ── */
 function animCnt(el){
   const t=+el.dataset.t,dur=2000;let c=0;const s=t/(dur/16);
-  const ti=setInterval(()=>{c=Math.min(c+s,t);el.textContent=Math.floor(c)+(t===98?'%':'+');if(c>=t)clearInterval(ti)},16);
+  const ti=setInterval(()=>{c=Math.min(c+s,t);el.textContent=Math.floor(c)+'+';if(c>=t)clearInterval(ti)},16);
 }
 const co=new IntersectionObserver(e=>e.forEach(n=>{if(n.isIntersecting){animCnt(n.target);co.unobserve(n.target)}}),{threshold:0});
 document.querySelectorAll('.count').forEach(el=>co.observe(el));
-/* Fallback: run counters after 600ms regardless */
 setTimeout(()=>document.querySelectorAll('.count').forEach(el=>{if(el.textContent==='0')animCnt(el)}),600);
 
-/* ── CTA SPHERE — Three.js (r158) ── */
+/* ── FAQ ── */
+function toggleFaq(btn){
+  const item=btn.closest('.faq-item');
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el=>el.classList.remove('open'));
+  if(!wasOpen)item.classList.add('open');
+}
+
+/* ── PAYMENT CAROUSEL DRAG ── */
+let isDragging=false,startX=0,scrollLeft=0;
+function startDrag(e){isDragging=true;startX=e.pageX-document.getElementById('payCarousel').offsetLeft;scrollLeft=document.getElementById('payCarousel').scrollLeft;document.getElementById('payCarousel').classList.add('dragging')}
+function onDrag(e){if(!isDragging)return;e.preventDefault();const x=e.pageX-document.getElementById('payCarousel').offsetLeft;const walk=(x-startX)*1.5;document.getElementById('payCarousel').scrollLeft=scrollLeft-walk}
+function stopDrag(){isDragging=false;document.getElementById('payCarousel').classList.remove('dragging')}
+const payEl=document.getElementById('payCarousel');
+const payDotEls=document.getElementById('payDots').children;
+payEl.addEventListener('scroll',()=>{
+  const idx=Math.round(payEl.scrollLeft/(300+20));
+  Array.from(payDotEls).forEach((d,i)=>{
+    d.style.width=i===idx?'16px':'6px';
+    d.style.background=i===idx?'var(--gold)':'var(--edge2)';
+  });
+});
+
+/* ── THREE.JS — single load, shared between hero + CTA ── */
 (function(){
-  var scr = document.createElement('script');
-  scr.src = 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js';
-  scr.onload = function(){
-    var canvas = document.getElementById('ctac');
-    var sect   = document.getElementById('cta');
-    if(!canvas||!sect) return;
-
-    var W = sect.offsetWidth  || window.innerWidth;
-    var H = sect.offsetHeight || window.innerHeight;
-
-    var scene    = new THREE.Scene();
-    scene.position.y = 0.12;
-    var camera   = new THREE.PerspectiveCamera(75, W/H, 0.1, 1000);
-    camera.position.set(0, -0.12, 2.78);
-
-    var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true});
-    renderer.setSize(W, H);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
-    renderer.setClearColor(0x000000, 0);
-
-    /* Main sphere */
-    var sPos=[];
-    for(var i=0;i<9000;i++){
-      var u=Math.random(),v=Math.random();
-      var th=2*Math.PI*u, ph=Math.acos(2*v-1);
-      var r=1.2+(Math.random()-0.5)*0.05;
-      sPos.push(r*Math.sin(ph)*Math.cos(th), r*Math.sin(ph)*Math.sin(th), r*Math.cos(ph));
-    }
-    var sGeo=new THREE.BufferGeometry();
-    sGeo.setAttribute('position',new THREE.Float32BufferAttribute(sPos,3));
-    var sphere=new THREE.Points(sGeo, new THREE.PointsMaterial({
-      color:0xf2ede4, size:0.008, transparent:true, opacity:0.78,
-      depthWrite:false, blending:THREE.AdditiveBlending
-    }));
-    scene.add(sphere);
-
-    /* Smooth left-right sweep dots */
-    var SWEEP_COUNT = 560;
-    var sweepData = [];
-    var sweepPos = new Float32Array(SWEEP_COUNT * 3);
-    var sweepGeo = new THREE.BufferGeometry();
-    sweepGeo.setAttribute('position', new THREE.BufferAttribute(sweepPos, 3));
-    var sweepDots = new THREE.Points(sweepGeo, new THREE.PointsMaterial({
-      color:0xffffff, size:0.011, transparent:true, opacity:0.92,
-      depthWrite:false, blending:THREE.AdditiveBlending
-    }));
-    scene.add(sweepDots);
-    for(var f=0;f<SWEEP_COUNT;f++){
-      sweepData.push({
-        phi: 0.28 + Math.random()*(Math.PI-0.56),
-        theta: Math.random()*Math.PI*2,
-        amp: 0.35 + Math.random()*0.7,
-        speed: 0.005 + Math.random()*0.006,
-        dir: Math.random()>0.5 ? 1 : -1,
-        offset: Math.random()*Math.PI*2,
-        r: 1.22 + Math.random()*0.05
-      });
-    }
-
-    /* Random free dots for organic motion */
-    var FREE_COUNT = 180;
-    var freeData = [];
-    var fPos = new Float32Array(FREE_COUNT * 3);
-    var fGeo = new THREE.BufferGeometry();
-    fGeo.setAttribute('position', new THREE.BufferAttribute(fPos, 3));
-    var freeDots = new THREE.Points(fGeo, new THREE.PointsMaterial({
-      color:0xffffff, size:0.012, transparent:true, opacity:0.74,
-      depthWrite:false, blending:THREE.AdditiveBlending
-    }));
-    scene.add(freeDots);
-    for(var x=0;x<FREE_COUNT;x++){
-      freeData.push({
-        theta: Math.random()*Math.PI*2,
-        phi:   Math.random()*Math.PI,
-        st:    (Math.random()-0.5)*0.012,
-        sp:    (Math.random()-0.5)*0.009,
-        r:     1.22 + Math.random()*0.06
-      });
-    }
-
-    /* Shooting stars */
-    var STAR_MAX = 3;
-    var stars = [];
-    function spawnStar(){
-      var th = Math.random()*Math.PI*2;
-      var ph = Math.random()*Math.PI;
-      var R  = 1.25;
-      var sx = R*Math.sin(ph)*Math.cos(th);
-      var sy = R*Math.sin(ph)*Math.sin(th);
-      var sz = R*Math.cos(ph);
-      var nx=sx/R, ny=sy/R, nz=sz/R;
-      var tx = ny-nz, ty = nz-nx, tz = nx-ny;
-      var tlen = Math.sqrt(tx*tx+ty*ty+tz*tz)||1;
-      tx/=tlen; ty/=tlen; tz/=tlen;
-      var trailLen = 18;
-      var tPos = new Float32Array(trailLen*3);
-      var tGeo = new THREE.BufferGeometry();
-      tGeo.setAttribute('position', new THREE.BufferAttribute(tPos, 3));
-      var tMat = new THREE.PointsMaterial({
-        color:0xfff8e8, size:0.018, transparent:true, opacity:1.0,
-        depthWrite:false, blending:THREE.AdditiveBlending
-      });
-      var trail = new THREE.Points(tGeo, tMat);
-      scene.add(trail);
-      stars.push({
-        x:sx, y:sy, z:sz,
-        vx:tx*0.045, vy:ty*0.045, vz:tz*0.045,
-        trail:trail, tPos:tPos, tGeo:tGeo, tMat:tMat,
-        life:0, maxLife:55, trailLen:trailLen,
-        history:[]
-      });
-    }
-    spawnStar();
-    setInterval(function(){ if(stars.length < STAR_MAX) spawnStar(); }, 4000);
-
-    var mx=0, my=0;
-    sect.addEventListener('mousemove',function(e){
-      var r=sect.getBoundingClientRect();
-      mx=((e.clientX-r.left)/r.width-0.5)*0.35;
-      my=-((e.clientY-r.top)/r.height-0.5)*0.3;
-    });
-    sect.addEventListener('mouseleave',function(){mx=0;my=0;});
-
-    function animate(){
-      requestAnimationFrame(animate);
-      sphere.rotation.y += 0.0018;
-      sphere.rotation.x += 0.00055;
-
-      var sp = sweepGeo.attributes.position.array;
-      var t = performance.now()*0.001;
-      for(var i=0;i<SWEEP_COUNT;i++){
-        var d = sweepData[i];
-        d.theta += d.speed * d.dir;
-        var drift = Math.sin(t*d.speed*14 + d.offset) * d.amp;
-        var theta = d.theta + drift;
-        sp[i*3]   = d.r*Math.sin(d.phi)*Math.cos(theta);
-        sp[i*3+1] = d.r*Math.cos(d.phi);
-        sp[i*3+2] = d.r*Math.sin(d.phi)*Math.sin(theta);
-      }
-      sweepGeo.attributes.position.needsUpdate = true;
-
-      var fp = fGeo.attributes.position.array;
-      for(var f=0;f<FREE_COUNT;f++){
-        var fd = freeData[f];
-        fd.theta += fd.st;
-        fd.phi   += fd.sp;
-        if(fd.phi < 0)       fd.phi += Math.PI;
-        if(fd.phi > Math.PI) fd.phi -= Math.PI;
-        fp[f*3]   = fd.r*Math.sin(fd.phi)*Math.cos(fd.theta);
-        fp[f*3+1] = fd.r*Math.sin(fd.phi)*Math.sin(fd.theta);
-        fp[f*3+2] = fd.r*Math.cos(fd.phi);
-      }
-      fGeo.attributes.position.needsUpdate = true;
-
-      for(var si=stars.length-1;si>=0;si--){
-        var s = stars[si];
-        s.life++;
-        s.x += s.vx; s.y += s.vy; s.z += s.vz;
-        var len = Math.sqrt(s.x*s.x+s.y*s.y+s.z*s.z)||1;
-        s.x = s.x/len*1.25; s.y = s.y/len*1.25; s.z = s.z/len*1.25;
-        s.history.unshift({x:s.x, y:s.y, z:s.z});
-        if(s.history.length > s.trailLen) s.history.pop();
-        var tp = s.tPos;
-        for(var ti=0;ti<s.history.length;ti++){
-          tp[ti*3]   = s.history[ti].x;
-          tp[ti*3+1] = s.history[ti].y;
-          tp[ti*3+2] = s.history[ti].z;
-        }
-        s.tGeo.attributes.position.needsUpdate = true;
-        var progress = s.life / s.maxLife;
-        s.tMat.opacity = progress < 0.5 ? progress*2 : (1-progress)*2;
-        s.tMat.size    = 0.022 * (1 - progress*0.5);
-        if(s.life >= s.maxLife){ scene.remove(s.trail); stars.splice(si,1); }
-      }
-
-      camera.position.x += (mx-camera.position.x)*0.05;
-      camera.position.y += (-0.12 + my-camera.position.y)*0.05;
-      camera.lookAt(0,-0.08,0);
-      renderer.render(scene,camera);
-    }
-    animate();
-
-    window.addEventListener('resize',function(){
-      var nw=sect.offsetWidth||window.innerWidth;
-      var nh=sect.offsetHeight||window.innerHeight;
-      camera.aspect=nw/nh;
-      camera.updateProjectionMatrix();
-      renderer.setSize(nw,nh);
-    });
+  var scr=document.createElement('script');
+  scr.src='https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js';
+  scr.onload=function(){
+    initHero3D();
+    initCTA3D();
   };
   document.head.appendChild(scr);
-})();
 
-/* ── HERO 3D — 10 Smooth Floating Cards ── */
-(function(){
-  function init(){
-    var canvas = document.getElementById('hero3d');
-    var sect   = document.querySelector('.hero');
-    if(!canvas || !sect || !window.THREE) return;
-
-    var W = sect.offsetWidth  || window.innerWidth;
-    var H = sect.offsetHeight || window.innerHeight;
-
-    var scene  = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(55, W/H, 0.1, 1000);
-    camera.position.set(0, 2.5, 7);
-    camera.lookAt(0, 0.8, 0);
-
-    var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true});
-    renderer.setSize(W, H);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setClearColor(0x000000, 0);
-    renderer.shadowMap.enabled = false;
-
-    /* ── Lights ── */
-    scene.add(new THREE.AmbientLight(0x221c10, 2.5));
-    var key = new THREE.PointLight(0xfff0d0, 3.5, 25);
-    key.position.set(4, 6, 6); scene.add(key);
-    var fill = new THREE.PointLight(0xc4a35a, 2.0, 20);
-    fill.position.set(-5, 2, 4); scene.add(fill);
-    var rim = new THREE.PointLight(0xdfbe7a, 1.2, 15);
-    rim.position.set(0, -3, -4); scene.add(rim);
-
-    /* ── Glowing gold core ── */
-    var coreMat = new THREE.MeshStandardMaterial({
-      color: 0xc4a35a, emissive: 0xb8902a,
-      emissiveIntensity: 0.8, roughness: 0.15, metalness: 0.95
-    });
-    var core = new THREE.Mesh(new THREE.SphereGeometry(0.62, 64, 64), coreMat);
-    scene.add(core);
-
-    /* Core glow ring */
-    var glowRing = new THREE.Mesh(
-      new THREE.TorusGeometry(0.85, 0.025, 16, 80),
-      new THREE.MeshStandardMaterial({
-        color: 0xdfbe7a, emissive: 0xc4a35a,
-        emissiveIntensity: 1.2, roughness: 0.1, metalness: 1.0,
-        transparent: true, opacity: 0.6
-      })
-    );
-    glowRing.rotation.x = Math.PI * 0.15;
-    scene.add(glowRing);
-
-    /* ── Card builder ── */
-    function makeCard(cfg){
-      var g = new THREE.Group();
-
-      /* Card body */
-      var body = new THREE.Mesh(
-        new THREE.BoxGeometry(1.5, 0.9, 0.055),
-        new THREE.MeshStandardMaterial({
-          color: cfg.color,
-          emissive: cfg.emissive,
-          emissiveIntensity: cfg.ei || 0.08,
-          roughness: 0.12, metalness: 0.88,
-          transparent: true, opacity: 0.82
-        })
-      );
-      g.add(body);
-
-      /* Top browser bar */
-      var bar = new THREE.Mesh(
-        new THREE.BoxGeometry(1.5, 0.13, 0.065),
-        new THREE.MeshStandardMaterial({ color:0x111111, roughness:0.05, metalness:1.0 })
-      );
-      bar.position.set(0, 0.385, 0);
-      g.add(bar);
-
-      /* Traffic dots */
-      var dotColors = [0xff5f57, 0xfebc2e, 0x28c840];
-      dotColors.forEach(function(dc, di){
-        var dot = new THREE.Mesh(
-          new THREE.SphereGeometry(0.028, 8, 8),
-          new THREE.MeshStandardMaterial({
-            color:dc, emissive:dc, emissiveIntensity:0.6, roughness:0.1
-          })
-        );
-        dot.position.set(-0.58 + di*0.095, 0.385, 0.065);
-        g.add(dot);
-      });
-
-      /* Content lines */
-      var lineData = [
-        {w:1.0, y:0.19, op:0.92, c:0xffffff},
-        {w:0.75, y:0.10, op:0.5, c:0xaaaaaa},
-        {w:0.85, y:0.01, op:0.4, c:0x888888},
-        {w:0.60, y:-0.08, op:0.35, c:0x888888},
-        {w:0.40, y:-0.17, op:0.55, c:cfg.accent || 0xc4a35a},
-      ];
-      lineData.forEach(function(ld){
-        var line = new THREE.Mesh(
-          new THREE.BoxGeometry(ld.w, 0.038, 0.065),
-          new THREE.MeshStandardMaterial({
-            color:ld.c, roughness:0.1, metalness:0.7,
-            transparent:true, opacity:ld.op
-          })
-        );
-        line.position.set(-(1.5-ld.w)/2 + 0.15, ld.y, 0);
-        g.add(line);
-      });
-
-      /* Subtle edge glow */
-      var edge = new THREE.Mesh(
-        new THREE.BoxGeometry(1.52, 0.92, 0.04),
-        new THREE.MeshStandardMaterial({
-          color: cfg.accent || 0xc4a35a,
-          emissive: cfg.accent || 0xc4a35a,
-          emissiveIntensity: 0.3,
-          transparent: true, opacity: 0.15,
-          roughness:0.1, metalness:1.0
-        })
-      );
-      edge.position.z = -0.03;
-      g.add(edge);
-
-      return g;
+  function initCTA3D(){
+    var canvas=document.getElementById('ctac');
+    var sect=document.getElementById('cta');
+    if(!canvas||!sect)return;
+    var W=sect.offsetWidth||window.innerWidth;
+    var H=sect.offsetHeight||window.innerHeight;
+    var scene=new THREE.Scene();
+    scene.position.y=0.12;
+    var camera=new THREE.PerspectiveCamera(75,W/H,0.1,1000);
+    camera.position.set(0,-1.8,2.78);
+    var renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true});
+    renderer.setSize(W,H);renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));renderer.setClearColor(0x000000,0);
+    var sPos=[];
+    for(var i=0;i<9000;i++){var u=Math.random(),v=Math.random();var th=2*Math.PI*u,ph=Math.acos(2*v-1);var r=1.2+(Math.random()-0.5)*0.05;sPos.push(r*Math.sin(ph)*Math.cos(th),r*Math.sin(ph)*Math.sin(th),r*Math.cos(ph))}
+    var sGeo=new THREE.BufferGeometry();sGeo.setAttribute('position',new THREE.Float32BufferAttribute(sPos,3));
+    var sphere=new THREE.Points(sGeo,new THREE.PointsMaterial({color:0xf2ede4,size:0.008,transparent:true,opacity:0.78,depthWrite:false,blending:THREE.AdditiveBlending}));
+    scene.add(sphere);
+    var SWEEP_COUNT=560,sweepData=[],sweepPos=new Float32Array(SWEEP_COUNT*3);
+    var sweepGeo=new THREE.BufferGeometry();sweepGeo.setAttribute('position',new THREE.BufferAttribute(sweepPos,3));
+    var sweepDots=new THREE.Points(sweepGeo,new THREE.PointsMaterial({color:0xffffff,size:0.011,transparent:true,opacity:0.92,depthWrite:false,blending:THREE.AdditiveBlending}));
+    scene.add(sweepDots);
+    for(var f=0;f<SWEEP_COUNT;f++){sweepData.push({phi:0.28+Math.random()*(Math.PI-0.56),theta:Math.random()*Math.PI*2,amp:0.35+Math.random()*0.7,speed:0.005+Math.random()*0.006,dir:Math.random()>0.5?1:-1,offset:Math.random()*Math.PI*2,r:1.22+Math.random()*0.05})}
+    var FREE_COUNT=180,freeData=[],fPos=new Float32Array(FREE_COUNT*3);
+    var fGeo=new THREE.BufferGeometry();fGeo.setAttribute('position',new THREE.BufferAttribute(fPos,3));
+    var freeDots=new THREE.Points(fGeo,new THREE.PointsMaterial({color:0xffffff,size:0.012,transparent:true,opacity:0.74,depthWrite:false,blending:THREE.AdditiveBlending}));
+    scene.add(freeDots);
+    for(var x=0;x<FREE_COUNT;x++){freeData.push({theta:Math.random()*Math.PI*2,phi:Math.random()*Math.PI,st:(Math.random()-0.5)*0.012,sp:(Math.random()-0.5)*0.009,r:1.22+Math.random()*0.06})}
+    var STAR_MAX=3,stars=[];
+    function spawnStar(){var th=Math.random()*Math.PI*2,ph=Math.random()*Math.PI,R=1.25;var sx=R*Math.sin(ph)*Math.cos(th),sy=R*Math.sin(ph)*Math.sin(th),sz=R*Math.cos(ph);var nx=sx/R,ny=sy/R,nz=sz/R;var tx=ny-nz,ty=nz-nx,tz=nx-ny;var tlen=Math.sqrt(tx*tx+ty*ty+tz*tz)||1;tx/=tlen;ty/=tlen;tz/=tlen;var trailLen=18,tPos=new Float32Array(trailLen*3);var tGeo=new THREE.BufferGeometry();tGeo.setAttribute('position',new THREE.BufferAttribute(tPos,3));var tMat=new THREE.PointsMaterial({color:0xfff8e8,size:0.018,transparent:true,opacity:1.0,depthWrite:false,blending:THREE.AdditiveBlending});var trail=new THREE.Points(tGeo,tMat);scene.add(trail);stars.push({x:sx,y:sy,z:sz,vx:tx*0.045,vy:ty*0.045,vz:tz*0.045,trail:trail,tPos:tPos,tGeo:tGeo,tMat:tMat,life:0,maxLife:55,trailLen:trailLen,history:[]})}
+    spawnStar();setInterval(function(){if(stars.length<STAR_MAX)spawnStar()},4000);
+    var cmx=0,cmy=0;
+    sect.addEventListener('mousemove',function(e){var r=sect.getBoundingClientRect();cmx=((e.clientX-r.left)/r.width-0.5)*0.35;cmy=-((e.clientY-r.top)/r.height-0.5)*0.3});
+    sect.addEventListener('mouseleave',function(){cmx=0;cmy=0});
+    function animateCTA(){
+      requestAnimationFrame(animateCTA);
+      sphere.rotation.y+=0.0018;sphere.rotation.x+=0.00055;
+      var sp=sweepGeo.attributes.position.array,t=performance.now()*0.001;
+      for(var i=0;i<SWEEP_COUNT;i++){var d=sweepData[i];d.theta+=d.speed*d.dir;var drift=Math.sin(t*d.speed*14+d.offset)*d.amp;var theta=d.theta+drift;sp[i*3]=d.r*Math.sin(d.phi)*Math.cos(theta);sp[i*3+1]=d.r*Math.cos(d.phi);sp[i*3+2]=d.r*Math.sin(d.phi)*Math.sin(theta)}
+      sweepGeo.attributes.position.needsUpdate=true;
+      var fp=fGeo.attributes.position.array;
+      for(var f=0;f<FREE_COUNT;f++){var fd=freeData[f];fd.theta+=fd.st;fd.phi+=fd.sp;if(fd.phi<0)fd.phi+=Math.PI;if(fd.phi>Math.PI)fd.phi-=Math.PI;fp[f*3]=fd.r*Math.sin(fd.phi)*Math.cos(fd.theta);fp[f*3+1]=fd.r*Math.sin(fd.phi)*Math.sin(fd.theta);fp[f*3+2]=fd.r*Math.cos(fd.phi)}
+      fGeo.attributes.position.needsUpdate=true;
+      for(var si=stars.length-1;si>=0;si--){var s=stars[si];s.life++;s.x+=s.vx;s.y+=s.vy;s.z+=s.vz;var len=Math.sqrt(s.x*s.x+s.y*s.y+s.z*s.z)||1;s.x=s.x/len*1.25;s.y=s.y/len*1.25;s.z=s.z/len*1.25;s.history.unshift({x:s.x,y:s.y,z:s.z});if(s.history.length>s.trailLen)s.history.pop();var tp=s.tPos;for(var ti=0;ti<s.history.length;ti++){tp[ti*3]=s.history[ti].x;tp[ti*3+1]=s.history[ti].y;tp[ti*3+2]=s.history[ti].z}s.tGeo.attributes.position.needsUpdate=true;var progress=s.life/s.maxLife;s.tMat.opacity=progress<0.5?progress*2:(1-progress)*2;s.tMat.size=0.022*(1-progress*0.5);if(s.life>=s.maxLife){scene.remove(s.trail);stars.splice(si,1)}}
+      camera.position.x+=(cmx-camera.position.x)*0.05;camera.position.y+=(-0.12+cmy-camera.position.y)*0.05;camera.lookAt(0,-0.08,0);
+      renderer.render(scene,camera);
     }
-
-    /* ── 10 cards in two orbital rings ── */
-    var cardConfigs = [
-      /* Inner ring — 4 cards */
-      {color:0x1a1408, emissive:0x2a2010, accent:0xc4a35a, ei:0.10, label:'CRM'},
-      {color:0x0e1510, emissive:0x182010, accent:0x8faf8a, ei:0.08, label:'Invoices'},
-      {color:0x14100e, emissive:0x201810, accent:0xdfbe7a, ei:0.12, label:'Payments'},
-      {color:0x100e18, emissive:0x181020, accent:0xa695ff, ei:0.08, label:'Analytics'},
-      /* Outer ring — 6 cards */
-      {color:0x0a0a08, emissive:0x141210, accent:0xc4a35a, ei:0.06, label:'eQub Pay'},
-      {color:0x08100a, emissive:0x101808, accent:0x8faf8a, ei:0.06, label:'Arif Market'},
-      {color:0x100808, emissive:0x180e08, accent:0xdfbe7a, ei:0.06, label:'SabaCloud'},
-      {color:0x080a10, emissive:0x080e18, accent:0xc4a35a, ei:0.06, label:'MB Coffee'},
-      {color:0x100a08, emissive:0x18100a, accent:0xdfbe7a, ei:0.06, label:'Nice Braids'},
-      {color:0x0a0810, emissive:0x100c18, accent:0xa695ff, ei:0.06, label:'Adismotion'},
-    ];
-
-    var cards = [];
-    cardConfigs.forEach(function(cfg, i){
-      var card = makeCard(cfg);
-      scene.add(card);
-      var isInner = i < 4;
-      cards.push({
-        group: card,
-        angle: (i / (isInner ? 4 : 6)) * Math.PI * 2 + (isInner ? 0 : Math.PI/6),
-        baseAngle: (i / (isInner ? 4 : 6)) * Math.PI * 2,
-        speed: isInner ? (0.007 + i*0.0008) : (0.0045 + (i-4)*0.0005),
-        radius: isInner ? 2.4 : 3.8,
-        yAmp: isInner ? 0.4 : 0.65,
-        yFreq: isInner ? 1.5 : 1.2,
-        tilt: isInner ? 0.08 : 0.12,
-        inner: isInner
-      });
-    });
-
-    /* ── Particle field ── */
-    var pPos = [];
-    for(var p=0; p<800; p++){
-      pPos.push(
-        (Math.random()-0.5)*18,
-        (Math.random()-0.5)*16,
-        (Math.random()-0.5)*16
-      );
-    }
-    var pGeo = new THREE.BufferGeometry();
-    pGeo.setAttribute('position', new THREE.Float32BufferAttribute(pPos, 3));
-    var particles = new THREE.Points(pGeo, new THREE.PointsMaterial({
-      color:0xc4a35a, size:0.025,
-      transparent:true, opacity:0.22,
-      depthWrite:false, blending:THREE.AdditiveBlending
-    }));
-    scene.add(particles);
-
-    /* ── Mouse parallax ── */
-    var mx = 0, my = 0, tmx = 0, tmy = 0;
-    document.addEventListener('mousemove', function(e){
-      tmx = (e.clientX / window.innerWidth  - 0.5) * 0.5;
-      tmy = (e.clientY / window.innerHeight - 0.5) * 0.18;
-    });
-
-    var clock = 0;
-
-    function animate(){
-      requestAnimationFrame(animate);
-      clock += 0.008;
-
-      /* Smooth mouse lerp */
-      mx += (tmx - mx) * 0.04;
-      my += (tmy - my) * 0.04;
-
-      core.rotation.y += 0.006;
-      glowRing.rotation.z += 0.004;
-      glowRing.rotation.y += 0.002;
-
-      cards.forEach(function(c){
-        c.angle += c.speed;
-
-        /* Smooth orbital motion */
-        c.group.position.x = Math.cos(c.angle) * c.radius;
-        c.group.position.z = Math.sin(c.angle) * c.radius;
-        c.group.position.y = Math.sin(c.angle * c.yFreq + clock) * c.yAmp;
-
-        /* Card always faces camera with gentle tilt */
-        c.group.rotation.y = -c.angle + Math.PI * c.tilt;
-        c.group.rotation.x = Math.sin(c.angle) * 0.08;
-        c.group.rotation.z = Math.cos(c.angle * 0.5) * 0.04;
-      });
-
-      particles.rotation.y += 0.0002;
-      particles.rotation.x += 0.0001;
-
-      /* Scene parallax from mouse */
-      scene.rotation.y += (mx - scene.rotation.y) * 0.05;
-      scene.rotation.x += (-my - scene.rotation.x) * 0.05;
-
-      renderer.render(scene, camera);
-    }
-    animate();
-
-    window.addEventListener('resize', function(){
-      var nw = sect.offsetWidth  || window.innerWidth;
-      var nh = sect.offsetHeight || window.innerHeight;
-      camera.aspect = nw/nh;
-      camera.updateProjectionMatrix();
-      renderer.setSize(nw, nh);
-    });
+    animateCTA();
+    window.addEventListener('resize',function(){var nw=sect.offsetWidth||window.innerWidth,nh=sect.offsetHeight||window.innerHeight;camera.aspect=nw/nh;camera.updateProjectionMatrix();renderer.setSize(nw,nh)});
   }
 
-  var attempts = 0;
-  var check = setInterval(function(){
-    attempts++;
-    if(window.THREE){ clearInterval(check); init(); }
-    if(attempts > 80) clearInterval(check);
-  }, 100);
-})();
-
-/* ── CTA SPHERE — Three.js (r158) ── */
-(function(){
-  var scr = document.createElement('script');
-  scr.src = 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js';
-  scr.onload = function(){
-    var canvas = document.getElementById('ctac');
-    var sect   = document.getElementById('cta');
-    if(!canvas||!sect) return;
-
-    var W = sect.offsetWidth  || window.innerWidth;
-    var H = sect.offsetHeight || window.innerHeight;
-
-    var scene    = new THREE.Scene();
-    scene.position.y = 0.12;
-    var camera   = new THREE.PerspectiveCamera(75, W/H, 0.1, 1000);
-    camera.position.set(0, -0.12, 2.78);
-
-    var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true});
-    renderer.setSize(W, H);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
-    renderer.setClearColor(0x000000, 0);
-
-    /* Main sphere */
-    var sPos=[];
-    for(var i=0;i<9000;i++){
-      var u=Math.random(),v=Math.random();
-      var th=2*Math.PI*u, ph=Math.acos(2*v-1);
-      var r=1.2+(Math.random()-0.5)*0.05;
-      sPos.push(r*Math.sin(ph)*Math.cos(th), r*Math.sin(ph)*Math.sin(th), r*Math.cos(ph));
-    }
-    var sGeo=new THREE.BufferGeometry();
-    sGeo.setAttribute('position',new THREE.Float32BufferAttribute(sPos,3));
-    var sphere=new THREE.Points(sGeo, new THREE.PointsMaterial({
-      color:0xf2ede4, size:0.008, transparent:true, opacity:0.78,
-      depthWrite:false, blending:THREE.AdditiveBlending
-    }));
-    scene.add(sphere);
-
-    /* Smooth left-right sweep dots */
-    var SWEEP_COUNT = 560;
-    var sweepData = [];
-    var sweepPos = new Float32Array(SWEEP_COUNT * 3);
-    var sweepGeo = new THREE.BufferGeometry();
-    sweepGeo.setAttribute('position', new THREE.BufferAttribute(sweepPos, 3));
-    var sweepDots = new THREE.Points(sweepGeo, new THREE.PointsMaterial({
-      color:0xffffff, size:0.011, transparent:true, opacity:0.92,
-      depthWrite:false, blending:THREE.AdditiveBlending
-    }));
-    scene.add(sweepDots);
-    for(var f=0;f<SWEEP_COUNT;f++){
-      sweepData.push({
-        phi: 0.28 + Math.random()*(Math.PI-0.56),
-        theta: Math.random()*Math.PI*2,
-        amp: 0.35 + Math.random()*0.7,
-        speed: 0.005 + Math.random()*0.006,
-        dir: Math.random()>0.5 ? 1 : -1,
-        offset: Math.random()*Math.PI*2,
-        r: 1.22 + Math.random()*0.05
-      });
-    }
-
-    /* Random free dots for organic motion */
-    var FREE_COUNT = 180;
-    var freeData = [];
-    var fPos = new Float32Array(FREE_COUNT * 3);
-    var fGeo = new THREE.BufferGeometry();
-    fGeo.setAttribute('position', new THREE.BufferAttribute(fPos, 3));
-    var freeDots = new THREE.Points(fGeo, new THREE.PointsMaterial({
-      color:0xffffff, size:0.012, transparent:true, opacity:0.74,
-      depthWrite:false, blending:THREE.AdditiveBlending
-    }));
-    scene.add(freeDots);
-    for(var x=0;x<FREE_COUNT;x++){
-      freeData.push({
-        theta: Math.random()*Math.PI*2,
-        phi:   Math.random()*Math.PI,
-        st:    (Math.random()-0.5)*0.012,
-        sp:    (Math.random()-0.5)*0.009,
-        r:     1.22 + Math.random()*0.06
-      });
-    }
-
-    /* Shooting stars */
-    var STAR_MAX = 3;
-    var stars = [];
-    function spawnStar(){
-      var th = Math.random()*Math.PI*2;
-      var ph = Math.random()*Math.PI;
-      var R  = 1.25;
-      var sx = R*Math.sin(ph)*Math.cos(th);
-      var sy = R*Math.sin(ph)*Math.sin(th);
-      var sz = R*Math.cos(ph);
-      var nx=sx/R, ny=sy/R, nz=sz/R;
-      var tx = ny-nz, ty = nz-nx, tz = nx-ny;
-      var tlen = Math.sqrt(tx*tx+ty*ty+tz*tz)||1;
-      tx/=tlen; ty/=tlen; tz/=tlen;
-      var trailLen = 18;
-      var tPos = new Float32Array(trailLen*3);
-      var tGeo = new THREE.BufferGeometry();
-      tGeo.setAttribute('position', new THREE.BufferAttribute(tPos, 3));
-      var tMat = new THREE.PointsMaterial({
-        color:0xfff8e8, size:0.018, transparent:true, opacity:1.0,
-        depthWrite:false, blending:THREE.AdditiveBlending
-      });
-      var trail = new THREE.Points(tGeo, tMat);
-      scene.add(trail);
-      stars.push({
-        x:sx, y:sy, z:sz,
-        vx:tx*0.045, vy:ty*0.045, vz:tz*0.045,
-        trail:trail, tPos:tPos, tGeo:tGeo, tMat:tMat,
-        life:0, maxLife:55, trailLen:trailLen,
-        history:[]
-      });
-    }
-    spawnStar();
-    setInterval(function(){ if(stars.length < STAR_MAX) spawnStar(); }, 4000);
-
-    var mx=0, my=0;
-    sect.addEventListener('mousemove',function(e){
-      var r=sect.getBoundingClientRect();
-      mx=((e.clientX-r.left)/r.width-0.5)*0.35;
-      my=-((e.clientY-r.top)/r.height-0.5)*0.3;
-    });
-    sect.addEventListener('mouseleave',function(){mx=0;my=0;});
-
-    function animate(){
-      requestAnimationFrame(animate);
-      sphere.rotation.y += 0.0018;
-      sphere.rotation.x += 0.00055;
-
-      var sp = sweepGeo.attributes.position.array;
-      var t = performance.now()*0.001;
-      for(var i=0;i<SWEEP_COUNT;i++){
-        var d = sweepData[i];
-        d.theta += d.speed * d.dir;
-        var drift = Math.sin(t*d.speed*14 + d.offset) * d.amp;
-        var theta = d.theta + drift;
-        sp[i*3]   = d.r*Math.sin(d.phi)*Math.cos(theta);
-        sp[i*3+1] = d.r*Math.cos(d.phi);
-        sp[i*3+2] = d.r*Math.sin(d.phi)*Math.sin(theta);
-      }
-      sweepGeo.attributes.position.needsUpdate = true;
-
-      var fp = fGeo.attributes.position.array;
-      for(var f=0;f<FREE_COUNT;f++){
-        var fd = freeData[f];
-        fd.theta += fd.st;
-        fd.phi   += fd.sp;
-        if(fd.phi < 0)       fd.phi += Math.PI;
-        if(fd.phi > Math.PI) fd.phi -= Math.PI;
-        fp[f*3]   = fd.r*Math.sin(fd.phi)*Math.cos(fd.theta);
-        fp[f*3+1] = fd.r*Math.sin(fd.phi)*Math.sin(fd.theta);
-        fp[f*3+2] = fd.r*Math.cos(fd.phi);
-      }
-      fGeo.attributes.position.needsUpdate = true;
-
-      for(var si=stars.length-1;si>=0;si--){
-        var s = stars[si];
-        s.life++;
-        s.x += s.vx; s.y += s.vy; s.z += s.vz;
-        var len = Math.sqrt(s.x*s.x+s.y*s.y+s.z*s.z)||1;
-        s.x = s.x/len*1.25; s.y = s.y/len*1.25; s.z = s.z/len*1.25;
-        s.history.unshift({x:s.x, y:s.y, z:s.z});
-        if(s.history.length > s.trailLen) s.history.pop();
-        var tp = s.tPos;
-        for(var ti=0;ti<s.history.length;ti++){
-          tp[ti*3]   = s.history[ti].x;
-          tp[ti*3+1] = s.history[ti].y;
-          tp[ti*3+2] = s.history[ti].z;
-        }
-        s.tGeo.attributes.position.needsUpdate = true;
-        var progress = s.life / s.maxLife;
-        s.tMat.opacity = progress < 0.5 ? progress*2 : (1-progress)*2;
-        s.tMat.size    = 0.022 * (1 - progress*0.5);
-        if(s.life >= s.maxLife){ scene.remove(s.trail); stars.splice(si,1); }
-      }
-
-      camera.position.x += (mx-camera.position.x)*0.05;
-      camera.position.y += (-0.12 + my-camera.position.y)*0.05;
-      camera.lookAt(0,-0.08,0);
-      renderer.render(scene,camera);
-    }
-    animate();
-
-    window.addEventListener('resize',function(){
-      var nw=sect.offsetWidth||window.innerWidth;
-      var nh=sect.offsetHeight||window.innerHeight;
-      camera.aspect=nw/nh;
-      camera.updateProjectionMatrix();
-      renderer.setSize(nw,nh);
-    });
-  };
-  document.head.appendChild(scr);
-})();
-
-/* ── HERO 3D SCENE ── */
-(function(){
-  function init(){
-    var canvas = document.getElementById('hero3d');
-    var sect   = document.querySelector('.hero');
-    if(!canvas||!sect||!window.THREE) return;
-
-    var W = sect.offsetWidth  || window.innerWidth;
-    var H = sect.offsetHeight || window.innerHeight;
-
-    var scene  = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(60, W/H, 0.1, 1000);
-    camera.position.set(0, 3.2, 5.5); // shifted up near headline top
-    camera.lookAt(0, 1.2, 0);
-
-    var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true});
-    renderer.setSize(W, H);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
-    renderer.setClearColor(0x000000, 0);
-
-    /* ── Glowing gold core ── */
-    var core = new THREE.Mesh(
-      new THREE.SphereGeometry(0.7, 64, 64),
-      new THREE.MeshStandardMaterial({
-        color:0xc4a35a, emissive:0x8a6b2e,
-        emissiveIntensity:0.7, roughness:0.2, metalness:0.9
-      })
-    );
+  function initHero3D(){
+    var canvas=document.getElementById('hero3d');
+    var sect=document.querySelector('.hero');
+    if(!canvas||!sect)return;
+    var W=sect.offsetWidth||window.innerWidth,H=sect.offsetHeight||window.innerHeight;
+    var scene=new THREE.Scene();
+    var camera=new THREE.PerspectiveCamera(60,W/H,0.1,1000);
+    camera.position.z=5;
+    var renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true});
+    renderer.setSize(W,H);renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));renderer.setClearColor(0x000000,0);
+    var core=new THREE.Mesh(new THREE.SphereGeometry(0.75,64,64),new THREE.MeshStandardMaterial({color:0xc4a35a,emissive:0x8a6b2e,emissiveIntensity:0.6,roughness:0.3,metalness:0.8}));
     scene.add(core);
-
-    /* ── Helper: make a website mockup panel ── */
-    function makePanel(title, sub, color, emissive){
-      var g = new THREE.Group();
-
-      // Panel body
-      var body = new THREE.Mesh(
-        new THREE.BoxGeometry(1.35, 0.82, 0.06),
-        new THREE.MeshStandardMaterial({
-          color: color, emissive: emissive,
-          emissiveIntensity: 0.12,
-          roughness: 0.15, metalness: 0.85,
-          transparent: true, opacity: 0.88
-        })
-      );
-      g.add(body);
-
-      // Top bar (browser chrome)
-      var bar = new THREE.Mesh(
-        new THREE.BoxGeometry(1.35, 0.12, 0.07),
-        new THREE.MeshStandardMaterial({
-          color: 0x1a1a1a, roughness: 0.1, metalness: 1.0
-        })
-      );
-      bar.position.y = 0.35;
-      g.add(bar);
-
-      // 3 dots (traffic lights)
-      [[-0.52,'#ff5f57'],[-0.44,'#febc2e'],[-0.36,'#28c840']].forEach(function(d){
-        var dot = new THREE.Mesh(
-          new THREE.SphereGeometry(0.025, 8, 8),
-          new THREE.MeshStandardMaterial({ color: parseInt(d[1].replace('#','0x')), emissive: parseInt(d[1].replace('#','0x')), emissiveIntensity: 0.5 })
-        );
-        dot.position.set(d[0], 0.35, 0.055);
-        g.add(dot);
-      });
-
-      // Content lines
-      var lineW = [0.9, 0.7, 0.55, 0.75, 0.5];
-      lineW.forEach(function(w, i){
-        var line = new THREE.Mesh(
-          new THREE.BoxGeometry(w, 0.035, 0.07),
-          new THREE.MeshStandardMaterial({
-            color: i === 0 ? 0xffffff : 0x888888,
-            roughness: 0.1, metalness: 0.8,
-            transparent: true, opacity: i === 0 ? 0.9 : 0.45
-          })
-        );
-        line.position.set(-(1.35-w)/2 + 0.15, 0.18 - i*0.1, 0.055);
-        g.add(line);
-      });
-
-      return g;
-    }
-
-    /* ── 8 panels — inner ring (modules) + outer ring (websites) ── */
-    var innerPanels = [];
-    var innerColors = [
-      {c:0xc4a35a, e:0x8a6b2e},
-      {c:0xdfbe7a, e:0xb8904a},
-      {c:0xf2ede4, e:0xc4a35a},
-      {c:0x8a6b2e, e:0x5a4010}
-    ];
-    var innerLabels = ['CRM','PAY','AI','OPS'];
-
-    for(var i=0; i<4; i++){
-      var ic = innerColors[i];
-      var ip = new THREE.Mesh(
-        new THREE.BoxGeometry(0.9, 0.52, 0.05),
-        new THREE.MeshStandardMaterial({
-          color:ic.c, emissive:ic.e,
-          emissiveIntensity:0.18, roughness:0.2, metalness:0.9,
-          transparent:true, opacity:0.85
-        })
-      );
-      scene.add(ip);
-      innerPanels.push({mesh:ip, angle:i*Math.PI/2, speed:0.010+i*0.001, r:2.1});
-    }
-
-    /* Outer website panels */
-    var outerPanels = [];
-    var siteData = [
-      {title:'eQub Pay',    sub:'Fintech',    c:0x1a1a12, e:0x2a2010},
-      {title:'Arif Market', sub:'E-Commerce', c:0x12151a, e:0x101520},
-      {title:'SabaCloud',   sub:'SaaS',       c:0x1a1210, e:0x201510},
-      {title:'MB Coffee',   sub:'Export',     c:0x101a12, e:0x102015}
-    ];
-    siteData.forEach(function(sd, i){
-      var panel = makePanel(sd.title, sd.sub, sd.c, sd.e);
-      scene.add(panel);
-      outerPanels.push({
-        group: panel,
-        angle: i*Math.PI/2 + Math.PI/4, // offset from inner panels
-        speed: 0.006 + i*0.0008,
-        r: 3.2
-      });
-    });
-
-    /* Particle field */
-    var pPos=[];
-    for(var p=0;p<700;p++){
-      pPos.push((Math.random()-0.5)*14,(Math.random()-0.5)*14,(Math.random()-0.5)*14);
-    }
-    var pGeo=new THREE.BufferGeometry();
-    pGeo.setAttribute('position',new THREE.Float32BufferAttribute(pPos,3));
-    var particles=new THREE.Points(pGeo,new THREE.PointsMaterial({
-      color:0xc4a35a, size:0.028, transparent:true, opacity:0.28,
-      depthWrite:false, blending:THREE.AdditiveBlending
-    }));
+    var panels=[],panelColors=[0xc4a35a,0xdfbe7a,0xf2ede4,0x8a6b2e];
+    for(var i=0;i<4;i++){var panel=new THREE.Mesh(new THREE.BoxGeometry(1.1,0.6,0.06),new THREE.MeshStandardMaterial({color:panelColors[i],emissive:panelColors[i],emissiveIntensity:0.15,roughness:0.2,metalness:0.9,transparent:true,opacity:0.85}));scene.add(panel);panels.push({mesh:panel,angle:i*Math.PI/2,speed:0.008+i*0.001})}
+    var pPos=[];for(var p=0;p<600;p++){pPos.push((Math.random()-0.5)*12,(Math.random()-0.5)*12,(Math.random()-0.5)*12)}
+    var pGeo=new THREE.BufferGeometry();pGeo.setAttribute('position',new THREE.Float32BufferAttribute(pPos,3));
+    var particles=new THREE.Points(pGeo,new THREE.PointsMaterial({color:0xc4a35a,size:0.03,transparent:true,opacity:0.35,depthWrite:false,blending:THREE.AdditiveBlending}));
     scene.add(particles);
-
-    /* Lights */
-    var l1=new THREE.PointLight(0xffffff,2.5,20); l1.position.set(5,5,5); scene.add(l1);
-    var l2=new THREE.PointLight(0xc4a35a,1.8,15); l2.position.set(-4,-2,3); scene.add(l2);
-    var l3=new THREE.PointLight(0xdfbe7a,1.2,12); l3.position.set(0,6,0); scene.add(l3);
-    scene.add(new THREE.AmbientLight(0x222211,1.2));
-
-    var mx=0, my=0;
-    document.addEventListener('mousemove',function(e){
-      mx=(e.clientX/window.innerWidth -0.5);
-      my=(e.clientY/window.innerHeight-0.5);
-    });
-
-    function animate(){
-      requestAnimationFrame(animate);
+    var light=new THREE.PointLight(0xffffff,2.5,20);light.position.set(5,5,5);scene.add(light);
+    var light2=new THREE.PointLight(0xc4a35a,1.5,15);light2.position.set(-4,-2,3);scene.add(light2);
+    scene.add(new THREE.AmbientLight(0x111111,1));
+    var hmx=0,hmy=0;
+    document.addEventListener('mousemove',function(e){hmx=(e.clientX/window.innerWidth-0.5);hmy=(e.clientY/window.innerHeight-0.5)});
+    function animateHero(){
+      requestAnimationFrame(animateHero);
       core.rotation.y+=0.004;
-
-      innerPanels.forEach(function(p){
-        p.angle+=p.speed;
-        p.mesh.position.x=Math.cos(p.angle)*p.r;
-        p.mesh.position.z=Math.sin(p.angle)*p.r;
-        p.mesh.position.y=Math.sin(p.angle*2)*0.3;
-        p.mesh.rotation.y=-p.angle;
-        p.mesh.rotation.x=Math.sin(p.angle)*0.15;
-      });
-
-      outerPanels.forEach(function(p){
-        p.angle+=p.speed;
-        p.group.position.x=Math.cos(p.angle)*p.r;
-        p.group.position.z=Math.sin(p.angle)*p.r;
-        p.group.position.y=Math.sin(p.angle*1.5)*0.5;
-        p.group.rotation.y=-p.angle+Math.PI*0.05;
-        p.group.rotation.x=Math.sin(p.angle)*0.1;
-      });
-
+      panels.forEach(function(p){p.angle+=p.speed;p.mesh.position.x=Math.cos(p.angle)*2.2;p.mesh.position.z=Math.sin(p.angle)*2.2;p.mesh.position.y=Math.sin(p.angle*2)*0.35;p.mesh.rotation.y=-p.angle;p.mesh.rotation.x=Math.sin(p.angle)*0.2});
       particles.rotation.y+=0.0003;
-      scene.rotation.y=mx*0.35;
-      scene.rotation.x=my*0.12;
+      scene.rotation.y=hmx*0.4;scene.rotation.x=hmy*0.15;
       renderer.render(scene,camera);
     }
-    animate();
-
-    window.addEventListener('resize',function(){
-      var nw=sect.offsetWidth||window.innerWidth;
-      var nh=sect.offsetHeight||window.innerHeight;
-      camera.aspect=nw/nh;
-      camera.updateProjectionMatrix();
-      renderer.setSize(nw,nh);
-    });
+    animateHero();
+    window.addEventListener('resize',function(){var nw=sect.offsetWidth||window.innerWidth,nh=sect.offsetHeight||window.innerHeight;camera.aspect=nw/nh;camera.updateProjectionMatrix();renderer.setSize(nw,nh)});
   }
-
-  var attempts=0;
-  var check=setInterval(function(){
-    attempts++;
-    if(window.THREE){clearInterval(check);init();}
-    if(attempts>50)clearInterval(check);
-  },100);
 })();
 
-/* ── CTA SPHERE — Three.js (r158) ── */
-(function(){
-  var scr = document.createElement('script');
-  scr.src = 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js';
-  scr.onload = function(){
-    var canvas = document.getElementById('ctac');
-    var sect   = document.getElementById('cta');
-    if(!canvas||!sect) return;
-
-    var W = sect.offsetWidth  || window.innerWidth;
-    var H = sect.offsetHeight || window.innerHeight;
-
-    var scene    = new THREE.Scene();
-    var camera   = new THREE.PerspectiveCamera(75, W/H, 0.1, 1000);
-    camera.position.z = 2.8;
-
-    var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true});
-    renderer.setSize(W, H);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
-    renderer.setClearColor(0x000000, 0);
-
-    /* 9000 surface particles */
-    var pos=[];
-    for(var i=0;i<9000;i++){
-      var u=Math.random(),v=Math.random();
-      var th=2*Math.PI*u, ph=Math.acos(2*v-1);
-      var r=1.2+(Math.random()-0.5)*0.05;
-      pos.push(r*Math.sin(ph)*Math.cos(th), r*Math.sin(ph)*Math.sin(th), r*Math.cos(ph));
-    }
-    var geo=new THREE.BufferGeometry();
-    geo.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
-    var sphere=new THREE.Points(geo, new THREE.PointsMaterial({
-      color:0xf2ede4, size:0.008, transparent:true, opacity:0.78,
-      depthWrite:false, blending:THREE.AdditiveBlending
-    }));
-    scene.add(sphere);
-
-    /* Gold ring */
-    var rp=[];
-    for(var j=0;j<300;j++){
-      var a=(j/300)*Math.PI*2;
-      rp.push(1.45*Math.cos(a), 1.45*Math.sin(a)*0.14, 1.45*Math.sin(a));
-    }
-    var rg=new THREE.BufferGeometry();
-    rg.setAttribute('position',new THREE.Float32BufferAttribute(rp,3));
-    var ring=new THREE.Points(rg, new THREE.PointsMaterial({
-      color:0xc4a35a, size:0.014, transparent:true, opacity:0.65,
-      depthWrite:false, blending:THREE.AdditiveBlending
-    }));
-    scene.add(ring);
-
-    /* Second ring */
-    var r2p=[];
-    for(var k=0;k<200;k++){
-      var a2=(k/200)*Math.PI*2;
-      r2p.push(1.55*Math.cos(a2)*0.18, 1.55*Math.sin(a2), 1.55*Math.cos(a2));
-    }
-    var r2g=new THREE.BufferGeometry();
-    r2g.setAttribute('position',new THREE.Float32BufferAttribute(r2p,3));
-    var ring2=new THREE.Points(r2g, new THREE.PointsMaterial({
-      color:0xdfbe7a, size:0.010, transparent:true, opacity:0.45,
-      depthWrite:false, blending:THREE.AdditiveBlending
-    }));
-    scene.add(ring2);
-
-    var mx=0, my=0;
-    sect.addEventListener('mousemove',function(e){
-      var r=sect.getBoundingClientRect();
-      mx=((e.clientX-r.left)/r.width-0.5)*0.4;
-      my=-((e.clientY-r.top)/r.height-0.5)*0.4;
-    });
-    sect.addEventListener('mouseleave',function(){mx=0;my=0;});
-
-    function animate(){
-      requestAnimationFrame(animate);
-      sphere.rotation.y+=0.0008; sphere.rotation.x+=0.00025;
-      ring.rotation.y+=0.002;    ring.rotation.z+=0.0006;
-      ring2.rotation.x+=0.0014;  ring2.rotation.z-=0.0009;
-      camera.position.x+=(mx-camera.position.x)*0.05;
-      camera.position.y+=(my-camera.position.y)*0.05;
-      camera.lookAt(scene.position);
-      renderer.render(scene,camera);
-    }
-    animate();
-
-    window.addEventListener('resize',function(){
-      var nw=sect.offsetWidth||window.innerWidth;
-      var nh=sect.offsetHeight||window.innerHeight;
-      camera.aspect=nw/nh;
-      camera.updateProjectionMatrix();
-      renderer.setSize(nw,nh);
-    });
-  };
-  document.head.appendChild(scr);
-})();
-
-/* ── HERO 3D SCENE ── */
-(function(){
-  /* Three.js r158 already loaded by CTA sphere — wait for it */
-  function init(){
-    var canvas = document.getElementById('hero3d');
-    var sect   = document.querySelector('.hero');
-    if(!canvas||!sect||!window.THREE) return;
-
-    var W = sect.offsetWidth  || window.innerWidth;
-    var H = sect.offsetHeight || window.innerHeight;
-
-    var scene    = new THREE.Scene();
-    var camera   = new THREE.PerspectiveCamera(60, W/H, 0.1, 1000);
-    camera.position.z = 5;
-
-    var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true});
-    renderer.setSize(W, H);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
-    renderer.setClearColor(0x000000, 0);
-
-    /* Glowing core sphere */
-    var core = new THREE.Mesh(
-      new THREE.SphereGeometry(0.75, 64, 64),
-      new THREE.MeshStandardMaterial({
-        color: 0xc4a35a,
-        emissive: 0x8a6b2e,
-        emissiveIntensity: 0.6,
-        roughness: 0.3,
-        metalness: 0.8
-      })
-    );
-    scene.add(core);
-
-    /* Floating panels orbiting the core */
-    var panels = [];
-    var panelColors = [0xc4a35a, 0xdfbe7a, 0xf2ede4, 0x8a6b2e];
-    var labels = ['CRM', 'PAY', 'AI', 'OPS'];
-    for(var i=0; i<4; i++){
-      var panel = new THREE.Mesh(
-        new THREE.BoxGeometry(1.1, 0.6, 0.06),
-        new THREE.MeshStandardMaterial({
-          color: panelColors[i],
-          emissive: panelColors[i],
-          emissiveIntensity: 0.15,
-          roughness: 0.2,
-          metalness: 0.9,
-          transparent: true,
-          opacity: 0.85
-        })
-      );
-      scene.add(panel);
-      panels.push({ mesh: panel, angle: i * Math.PI/2, speed: 0.008 + i*0.001 });
-    }
-
-    /* Particle field */
-    var pPos = [];
-    for(var p=0; p<600; p++){
-      pPos.push((Math.random()-0.5)*12, (Math.random()-0.5)*12, (Math.random()-0.5)*12);
-    }
-    var pGeo = new THREE.BufferGeometry();
-    pGeo.setAttribute('position', new THREE.Float32BufferAttribute(pPos,3));
-    var particles = new THREE.Points(pGeo, new THREE.PointsMaterial({
-      color:0xc4a35a, size:0.03, transparent:true, opacity:0.35,
-      depthWrite:false, blending:THREE.AdditiveBlending
-    }));
-    scene.add(particles);
-
-    /* Lights */
-    var light = new THREE.PointLight(0xffffff, 2.5, 20);
-    light.position.set(5,5,5);
-    scene.add(light);
-    var light2 = new THREE.PointLight(0xc4a35a, 1.5, 15);
-    light2.position.set(-4,-2,3);
-    scene.add(light2);
-    scene.add(new THREE.AmbientLight(0x111111, 1));
-
-    var mx=0, my=0;
-    document.addEventListener('mousemove', function(e){
-      mx = (e.clientX/window.innerWidth  - 0.5);
-      my = (e.clientY/window.innerHeight - 0.5);
-    });
-
-    function animate(){
-      requestAnimationFrame(animate);
-      core.rotation.y += 0.004;
-      panels.forEach(function(p){
-        p.angle += p.speed;
-        p.mesh.position.x = Math.cos(p.angle) * 2.2;
-        p.mesh.position.z = Math.sin(p.angle) * 2.2;
-        p.mesh.position.y = Math.sin(p.angle * 2) * 0.35;
-        p.mesh.rotation.y = -p.angle;
-        p.mesh.rotation.x = Math.sin(p.angle) * 0.2;
-      });
-      particles.rotation.y += 0.0003;
-      scene.rotation.y = mx * 0.4;
-      scene.rotation.x = my * 0.15;
-      renderer.render(scene, camera);
-    }
-    animate();
-
-    window.addEventListener('resize', function(){
-      var nw = sect.offsetWidth||window.innerWidth;
-      var nh = sect.offsetHeight||window.innerHeight;
-      camera.aspect = nw/nh;
-      camera.updateProjectionMatrix();
-      renderer.setSize(nw,nh);
-    });
-  }
-
-  /* Wait for Three.js to load (loaded by CTA sphere script) */
-  var attempts = 0;
-  var check = setInterval(function(){
-    attempts++;
-    if(window.THREE){ clearInterval(check); init(); }
-    if(attempts > 50) clearInterval(check);
-  }, 100);
-})();
-
-/* ── DINQ BOT — Routed through app.dinqdigital.com/api/ai ── */
-(function(){
-  var scr = document.createElement('script');
-  scr.src = 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js';
-  scr.onload = function(){
-    var canvas = document.getElementById('ctac');
-    var sect   = document.getElementById('cta');
-    if(!canvas||!sect) return;
-
-    var W = sect.offsetWidth  || window.innerWidth;
-    var H = sect.offsetHeight || window.innerHeight;
-
-    var scene    = new THREE.Scene();
-    var camera   = new THREE.PerspectiveCamera(75, W/H, 0.1, 1000);
-    camera.position.z = 2.8;
-
-    var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true});
-    renderer.setSize(W, H);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
-    renderer.setClearColor(0x000000, 0);
-
-    /* 9000 surface particles */
-    var pos=[];
-    for(var i=0;i<9000;i++){
-      var u=Math.random(),v=Math.random();
-      var th=2*Math.PI*u, ph=Math.acos(2*v-1);
-      var r=1.2+(Math.random()-0.5)*0.05;
-      pos.push(r*Math.sin(ph)*Math.cos(th), r*Math.sin(ph)*Math.sin(th), r*Math.cos(ph));
-    }
-    var geo=new THREE.BufferGeometry();
-    geo.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
-    var sphere=new THREE.Points(geo, new THREE.PointsMaterial({
-      color:0xf2ede4, size:0.008, transparent:true, opacity:0.78,
-      depthWrite:false, blending:THREE.AdditiveBlending
-    }));
-    scene.add(sphere);
-
-    /* Gold ring */
-    var rp=[];
-    for(var j=0;j<300;j++){
-      var a=(j/300)*Math.PI*2;
-      rp.push(1.45*Math.cos(a), 1.45*Math.sin(a)*0.14, 1.45*Math.sin(a));
-    }
-    var rg=new THREE.BufferGeometry();
-    rg.setAttribute('position',new THREE.Float32BufferAttribute(rp,3));
-    var ring=new THREE.Points(rg, new THREE.PointsMaterial({
-      color:0xc4a35a, size:0.014, transparent:true, opacity:0.65,
-      depthWrite:false, blending:THREE.AdditiveBlending
-    }));
-    scene.add(ring);
-
-    /* Second ring */
-    var r2p=[];
-    for(var k=0;k<200;k++){
-      var a2=(k/200)*Math.PI*2;
-      r2p.push(1.55*Math.cos(a2)*0.18, 1.55*Math.sin(a2), 1.55*Math.cos(a2));
-    }
-    var r2g=new THREE.BufferGeometry();
-    r2g.setAttribute('position',new THREE.Float32BufferAttribute(r2p,3));
-    var ring2=new THREE.Points(r2g, new THREE.PointsMaterial({
-      color:0xdfbe7a, size:0.010, transparent:true, opacity:0.45,
-      depthWrite:false, blending:THREE.AdditiveBlending
-    }));
-    scene.add(ring2);
-
-    var mx=0, my=0;
-    sect.addEventListener('mousemove',function(e){
-      var r=sect.getBoundingClientRect();
-      mx=((e.clientX-r.left)/r.width-0.5)*0.4;
-      my=-((e.clientY-r.top)/r.height-0.5)*0.4;
-    });
-    sect.addEventListener('mouseleave',function(){mx=0;my=0;});
-
-    function animate(){
-      requestAnimationFrame(animate);
-      sphere.rotation.y+=0.0008; sphere.rotation.x+=0.00025;
-      ring.rotation.y+=0.002;    ring.rotation.z+=0.0006;
-      ring2.rotation.x+=0.0014;  ring2.rotation.z-=0.0009;
-      camera.position.x+=(mx-camera.position.x)*0.05;
-      camera.position.y+=(my-camera.position.y)*0.05;
-      camera.lookAt(scene.position);
-      renderer.render(scene,camera);
-    }
-    animate();
-
-    window.addEventListener('resize',function(){
-      var nw=sect.offsetWidth||window.innerWidth;
-      var nh=sect.offsetHeight||window.innerHeight;
-      camera.aspect=nw/nh;
-      camera.updateProjectionMatrix();
-      renderer.setSize(nw,nh);
-    });
-  };
-  document.head.appendChild(scr);
-})();
-
-/* ── DINQ BOT — Routed through app.dinqdigital.com/api/ai ── */
+/* ── DINQ BOT ── */
 let chatHist=[];
 const SYS=`You are Dinq Bot, the AI assistant for Dinq Digital — an Ethiopian web design and software studio. Keep replies under 80 words and use simple HTML like <strong> for emphasis.
 Key facts:
@@ -2281,31 +1294,16 @@ Be warm, concise, professional. Occasionally use ድንቅ.`;
 async function callAI(msg){
   chatHist.push({role:'user',content:msg});
   try{
-    /* Route through Next.js backend — keeps API key secure on server */
-    const r=await fetch('https://app.dinqdigital.com/api/ai',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        model:'claude-haiku-4-5-20251001',
-        max_tokens:300,
-        system:SYS,
-        messages:chatHist
-      })
-    });
-    if(!r.ok) throw new Error('API error');
+    const r=await fetch('https://app.dinqdigital.com/api/ai',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:300,system:SYS,messages:chatHist})});
+    if(!r.ok)throw new Error('API error');
     const d=await r.json();
     const reply=d.content?.[0]?.text||'Reach us at dinqdigital@gmail.com';
     chatHist.push({role:'assistant',content:reply});
     if(chatHist.length>10)chatHist=chatHist.slice(-10);
     return reply;
   }catch(e){
-    /* Fallback: try direct Anthropic (works without API key for limited usage) */
     try{
-      const r2=await fetch('https://api.anthropic.com/v1/messages',{
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:300,system:SYS,messages:chatHist})
-      });
+      const r2=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:300,system:SYS,messages:chatHist})});
       const d2=await r2.json();
       const reply2=d2.content?.[0]?.text||'Reach us at dinqdigital@gmail.com';
       chatHist.push({role:'assistant',content:reply2});
