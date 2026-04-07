@@ -210,6 +210,96 @@ nav {
   background: rgba(74,222,128,.08); border: 1px solid rgba(74,222,128,.2); color: #4ADE80;
 }
 
+/* ── FULLSCREEN OVERLAY ── */
+#fs-overlay {
+  position: fixed; inset: 0;
+  z-index: 500;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity .45s cubic-bezier(.4,0,.2,1);
+}
+#fs-overlay.open { opacity: 1; pointer-events: auto; }
+#fs-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(4,4,4,.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+#fs-card {
+  position: relative; z-index: 1;
+  width: min(680px, 92vw);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 48px 120px rgba(0,0,0,.9), 0 0 0 1px rgba(255,255,255,.08);
+  transform: scale(.88) translateY(28px);
+  transition: transform .45s cubic-bezier(.4,0,.2,1);
+}
+#fs-overlay.open #fs-card { transform: scale(1) translateY(0); }
+
+/* fullscreen detail content */
+#fs-detail {
+  padding: 40px 44px 36px;
+}
+#fs-cat {
+  font-family: 'Inter', sans-serif;
+  font-size: .6rem; letter-spacing: .2em; text-transform: uppercase;
+  font-weight: 500; margin-bottom: 10px;
+  display: flex; align-items: center; gap: 8px;
+}
+#fs-cat::before { content: ''; display: inline-block; width: 18px; height: 1px; }
+#fs-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700;
+  color: #fff; line-height: 1.0; margin-bottom: 14px;
+}
+#fs-desc {
+  font-size: .88rem; color: rgba(255,255,255,.5);
+  line-height: 1.75; font-weight: 300; margin-bottom: 28px;
+  max-width: 520px;
+}
+#fs-metrics {
+  display: flex; gap: 32px; margin-bottom: 32px;
+  padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.fs-metric-n {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem; font-weight: 700; line-height: 1;
+}
+.fs-metric-l {
+  font-size: .52rem; color: rgba(255,255,255,.3);
+  text-transform: uppercase; letter-spacing: .1em; margin-top: 4px;
+}
+#fs-actions { display: flex; gap: 12px; align-items: center; }
+#fs-visit {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: .65rem 1.4rem;
+  font-family: 'Inter', sans-serif; font-size: .75rem;
+  font-weight: 600; letter-spacing: .04em; text-decoration: none;
+  border-radius: 6px; transition: opacity .2s;
+}
+#fs-visit:hover { opacity: .85; }
+#fs-close {
+  display: flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+  color: rgba(255,255,255,.6); font-size: 1rem; cursor: pointer;
+  transition: all .2s; font-family: inherit; margin-left: auto;
+}
+#fs-close:hover { background: rgba(255,255,255,.14); color: #fff; }
+
+/* hint on center card */
+.card.pos-center::after {
+  content: 'Click to expand';
+  position: absolute; bottom: 44px; left: 50%; transform: translateX(-50%);
+  font-family: 'Inter', sans-serif; font-size: .5rem;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(255,255,255,.2); white-space: nowrap;
+  opacity: 0; transition: opacity .3s;
+  pointer-events: none;
+}
+.card.pos-center:hover::after { opacity: 1; }
+
 /* ── LABEL ── */
 #label {
   position: fixed; bottom: 62px; left: 50%; transform: translateX(-50%);
@@ -355,7 +445,7 @@ nav {
   <div id="track">
 
     <!-- CARD 0: eQub Pay -->
-    <div class="card pos-center" id="card0" onclick="goTo(0)">
+    <div class="card pos-center" id="card0">
       <div class="chrome">
         <div class="dot" style="background:#FF5F57"></div>
         <div class="dot" style="background:#FEBC2E"></div>
@@ -374,7 +464,7 @@ nav {
             Fintech Platform
           </div>
           <div class="ch-h">Digital <span style="color:#60A5FA">Iqub</span><br>for the modern<br>Ethiopian.</div>
-          <div class="ch-sub">Join savings groups, track contributions, and receive payouts — all digital, all secure.</div>
+          <div class="ch-sub">Join savings groups, track contributions, and receive payouts all digital, all secure.</div>
           <div class="ch-btns">
             <div class="ch-btn1" style="background:#60A5FA;color:#080808">Join a Group →</div>
             <div class="ch-btn2" style="border:1px solid rgba(96,165,250,.3);color:rgba(96,165,250,.8)">How it works</div>
@@ -391,7 +481,7 @@ nav {
     </div>
 
     <!-- CARD 1: Nice Braids -->
-    <div class="card pos-right" id="card1" onclick="goTo(1)">
+    <div class="card pos-right" id="card1">
       <div class="chrome">
         <div class="dot" style="background:#FF5F57"></div>
         <div class="dot" style="background:#FEBC2E"></div>
@@ -426,7 +516,7 @@ nav {
     </div>
 
     <!-- CARD 2: MB Coffee Farm -->
-    <div class="card pos-left" id="card2" onclick="goTo(2)">
+    <div class="card pos-left" id="card2">
       <div class="chrome">
         <div class="dot" style="background:#FF5F57"></div>
         <div class="dot" style="background:#FEBC2E"></div>
@@ -468,7 +558,7 @@ nav {
     </div>
 
     <!-- CARD 3: G&M Auto Repair -->
-    <div class="card pos-far-right" id="card3" onclick="goTo(3)">
+    <div class="card pos-far-right" id="card3">
       <div class="chrome">
         <div class="dot" style="background:#FF5F57"></div>
         <div class="dot" style="background:#FEBC2E"></div>
@@ -487,7 +577,7 @@ nav {
             Auto Repair · Seattle, WA
           </div>
           <div class="ch-h">Trusted <span style="color:#F97316">repairs.</span><br>Easy online<br>booking.</div>
-          <div class="ch-sub">Ethiopian-owned auto shop in Seattle. Oil change, brakes, diagnostics — book in 60 seconds.</div>
+          <div class="ch-sub">Ethiopian-owned auto shop in Seattle. Oil change, brakes, diagnostics, book in 60 seconds.</div>
           <div class="ch-btns">
             <div class="ch-btn1" style="background:#F97316;color:#080808">Book a Service →</div>
             <div class="ch-btn2" style="border:1px solid rgba(249,115,22,.3);color:rgba(249,115,22,.8)">View Services</div>
@@ -503,7 +593,7 @@ nav {
     </div>
 
     <!-- CARD 4: Arif Market -->
-    <div class="card pos-far-left" id="card4" onclick="goTo(4)">
+    <div class="card pos-far-left" id="card4">
       <div class="chrome">
         <div class="dot" style="background:#FF5F57"></div>
         <div class="dot" style="background:#FEBC2E"></div>
@@ -538,7 +628,7 @@ nav {
     </div>
 
     <!-- CARD 5: SabaCloud -->
-    <div class="card pos-far-right" id="card5" onclick="goTo(5)">
+    <div class="card pos-far-right" id="card5">
       <div class="chrome">
         <div class="dot" style="background:#FF5F57"></div>
         <div class="dot" style="background:#FEBC2E"></div>
@@ -573,7 +663,7 @@ nav {
     </div>
 
     <!-- CARD 6: Adismotion -->
-    <div class="card pos-far-left" id="card6" onclick="goTo(6)">
+    <div class="card pos-far-left" id="card6">
       <div class="chrome">
         <div class="dot" style="background:#FF5F57"></div>
         <div class="dot" style="background:#FEBC2E"></div>
@@ -618,13 +708,13 @@ nav {
 
 <!-- dots -->
 <div id="dots">
-  <div class="dot-el active" onclick="goTo(0)"></div>
-  <div class="dot-el" onclick="goTo(1)"></div>
-  <div class="dot-el" onclick="goTo(2)"></div>
-  <div class="dot-el" onclick="goTo(3)"></div>
-  <div class="dot-el" onclick="goTo(4)"></div>
-  <div class="dot-el" onclick="goTo(5)"></div>
-  <div class="dot-el" onclick="goTo(6)"></div>
+  <div class="dot-el active"></div>
+  <div class="dot-el"></div>
+  <div class="dot-el"></div>
+  <div class="dot-el"></div>
+  <div class="dot-el"></div>
+  <div class="dot-el"></div>
+  <div class="dot-el"></div>
 </div>
 
 <!-- side indicators -->
@@ -676,10 +766,34 @@ nav {
   </div>
 </div>
 
-<div id="hint">Auto-rotating · Click any card · ↑↓ to navigate</div>
+<div id="hint">Swipe or click center card to expand · ↑↓ to navigate</div>
 <div id="progress-bar"></div>
 
+<!-- FULLSCREEN OVERLAY -->
+<div id="fs-overlay">
+  <div id="fs-backdrop" onclick="closeFS()"></div>
+  <div id="fs-card">
+    <div id="fs-chrome" class="chrome">
+      <div class="dot" style="background:#FF5F57"></div>
+      <div class="dot" style="background:#FEBC2E"></div>
+      <div class="dot" style="background:#28C840"></div>
+      <div class="url"><span id="fs-url"></span></div>
+    </div>
+    <div id="fs-detail">
+      <div id="fs-cat"></div>
+      <div id="fs-name"></div>
+      <div id="fs-desc"></div>
+      <div id="fs-metrics"></div>
+      <div id="fs-actions">
+        <a id="fs-visit" href="#" target="_blank" rel="noopener">Visit Site →</a>
+        <button id="fs-close" onclick="closeFS()">✕</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
+  /* ── CURSOR ── */
   const cursor = document.getElementById('cursor');
   if (window.matchMedia('(hover: hover)').matches) {
     document.addEventListener('mousemove', e => {
@@ -692,25 +806,26 @@ nav {
     });
   }
 
+  /* ── DATA ── */
   const cards = Array.from({ length: 7 }, (_, i) => document.getElementById('card' + i));
   const bgs   = Array.from({ length: 7 }, (_, i) => document.getElementById('bg'   + i));
   const dots  = document.querySelectorAll('.dot-el');
   const inds  = document.querySelectorAll('.ind');
   const progressBar = document.getElementById('progress-bar');
-  const DURATION = 2800;
+  const DURATION = 2500;
 
   const meta = [
-    { cat: 'Fintech',               name: 'eQub Pay',       num: '01' },
-    { cat: 'Beauty Studio · DC',    name: 'Nice Braids',    num: '02' },
-    { cat: 'Export Brand',          name: 'MB Coffee Farm', num: '03' },
-    { cat: 'Auto Repair · Seattle', name: 'G&M Auto Repair',num: '04' },
-    { cat: 'E-Commerce',            name: 'Arif Market',    num: '05' },
-    { cat: 'SaaS Platform',         name: 'SabaCloud',      num: '06' },
-    { cat: 'Photography · Addis',   name: 'Adismotion',     num: '07' }
+    { cat: 'Fintech',               name: 'eQub Pay',        num: '01', color: '#60A5FA', url: 'app.equbpay.com',    desc: 'Digital Iqub savings groups for modern Ethiopia. Join, track contributions, and receive payouts — all digital, all secure.', metrics: [{n:'5K+',l:'Active users'},{n:'340',l:'Groups'},{n:'98%',l:'Uptime'}] },
+    { cat: 'Beauty Studio · DC',    name: 'Nice Braids',     num: '02', color: '#C4A35A', url: 'nicebraids.com',     desc: 'Premium Ethiopian hair braiding studio in Washington DC. Box braids, knotless, locs — fully bookable 24/7 online.', metrics: [{n:'150+',l:'Clients served'},{n:'24/7',l:'Booking'},{n:'DC',l:'Location'}] },
+    { cat: 'Export Brand',          name: 'MB Coffee Farm',  num: '03', color: '#10B981', url: 'mbcoffeefarm.com',   desc: "Ethiopia's finest single-origin coffee exported to 12 countries. International payment ready, built in 3 weeks.", metrics: [{n:'12',l:'Markets'},{n:'4.9★',l:'Rating'},{n:'8yr',l:'Heritage'}] },
+    { cat: 'Auto Repair · Seattle', name: 'G&M Auto Repair', num: '04', color: '#F97316', url: 'gmautorepair.com',   desc: 'Ethiopian-owned auto shop in Seattle. Online booking, service management, Zelle & CashApp payments — simple and fast.', metrics: [{n:'2×',l:'Bookings'},{n:'Zelle',l:'Payments'},{n:'24/7',l:'Online'}] },
+    { cat: 'E-Commerce',            name: 'Arif Market',     num: '05', color: '#F59E0B', url: 'arifmarket.com',     desc: 'Ethiopian goods delivered locally and internationally. Pay with Telebirr or card. Built with full inventory management.', metrics: [{n:'3×',l:'Revenue'},{n:'Telebirr',l:'Payments'},{n:'Intl',l:'Delivery'}] },
+    { cat: 'SaaS Platform',         name: 'SabaCloud',       num: '06', color: '#A78BFA', url: 'sabacloud.io',       desc: 'Cloud software built for Africa. Recurring revenue model, subscription billing, and a dashboard clients love using every day.', metrics: [{n:'$120K',l:'ARR'},{n:'MRR',l:'Recurring'},{n:'99.9%',l:'Uptime'}] },
+    { cat: 'Photography · Addis',   name: 'Adismotion',      num: '07', color: '#14B8A6', url: 'adismotion.com',     desc: 'Full-service photo & video studio in Addis Ababa. Digital galleries, client portals, and online delivery. 500+ shoots completed.', metrics: [{n:'500+',l:'Shoots'},{n:'4K',l:'Delivery'},{n:'Portal',l:'Client access'}] }
   ];
 
   const TOTAL = cards.length;
-  let current = 0, timer = null;
+  let current = 0, timer = null, fsOpen = false;
 
   function getPos(cardIdx, center) {
     const diff = (cardIdx - center + TOTAL) % TOTAL;
@@ -723,49 +838,125 @@ nav {
   }
 
   function goTo(idx) {
+    if (fsOpen) return;
     current = ((idx % TOTAL) + TOTAL) % TOTAL;
-
     cards.forEach((c, i) => { c.className = 'card ' + getPos(i, current); });
     bgs.forEach((b, i)   => { b.classList.toggle('active', i === current); });
     dots.forEach((d, i)  => { d.classList.toggle('active', i === current); });
     inds.forEach((d, i)  => { d.classList.toggle('active', i === current); });
-
     document.getElementById('lbl-cat').textContent  = meta[current].cat;
     document.getElementById('lbl-name').textContent = meta[current].name;
     document.getElementById('counter').innerHTML    = '<em>' + meta[current].num + '</em> / 07';
-
     progressBar.style.transition = 'none';
     progressBar.style.width = '0%';
     requestAnimationFrame(() => requestAnimationFrame(() => {
       progressBar.style.transition = `width ${DURATION}ms linear`;
       progressBar.style.width = '100%';
     }));
-
     clearInterval(timer);
     timer = setInterval(() => goTo(current + 1), DURATION);
   }
+
+  /* ── FULLSCREEN ── */
+  function openFS() {
+    if (fsOpen) return;
+    fsOpen = true;
+    clearInterval(timer);
+    progressBar.style.transition = 'none';
+    progressBar.style.width = '0%';
+
+    const m = meta[current];
+    document.getElementById('fs-cat').textContent   = m.cat;
+    document.getElementById('fs-cat').style.color   = m.color;
+    document.getElementById('fs-cat').style.setProperty('--line-color', m.color);
+    document.getElementById('fs-name').textContent  = m.name;
+    document.getElementById('fs-desc').textContent  = m.desc;
+    document.getElementById('fs-url').textContent   = m.url;
+    document.getElementById('fs-visit').href        = 'https://' + m.url;
+    document.getElementById('fs-visit').style.background = m.color;
+    document.getElementById('fs-visit').style.color = '#080808';
+
+    // style the cat line
+    const catEl = document.getElementById('fs-cat');
+    catEl.style.cssText = `color:${m.color};`;
+
+    const metricsEl = document.getElementById('fs-metrics');
+    metricsEl.innerHTML = m.metrics.map(mt =>
+      `<div><div class="fs-metric-n" style="color:${m.color}">${mt.n}</div><div class="fs-metric-l">${mt.l}</div></div>`
+    ).join('');
+
+    document.getElementById('fs-overlay').classList.add('open');
+  }
+
+  function closeFS() {
+    if (!fsOpen) return;
+    fsOpen = false;
+    document.getElementById('fs-overlay').classList.remove('open');
+    // resume rotation
+    clearInterval(timer);
+    timer = setInterval(() => goTo(current + 1), DURATION);
+    progressBar.style.transition = 'none';
+    progressBar.style.width = '0%';
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      progressBar.style.transition = `width ${DURATION}ms linear`;
+      progressBar.style.width = '100%';
+    }));
+  }
+
+  // Escape key closes
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeFS(); return; }
+    if (fsOpen) return;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') goTo(current + 1);
+    if (e.key === 'ArrowUp'   || e.key === 'ArrowLeft')  goTo(current - 1);
+  });
+
+  /* ── CARD CLICK — center = fullscreen, others = bring to center ── */
+  cards.forEach((card, i) => {
+    card.addEventListener('click', () => {
+      if (card.classList.contains('pos-center')) {
+        openFS();
+      } else {
+        goTo(i);
+      }
+    });
+  });
+
+  /* ── SWIPE ON CARDS (horizontal) ── */
+  let swipeStartX = 0, swipeStartY = 0, swipeMoved = false;
+  const stage = document.getElementById('stage');
+
+  stage.addEventListener('touchstart', e => {
+    swipeStartX = e.touches[0].clientX;
+    swipeStartY = e.touches[0].clientY;
+    swipeMoved = false;
+  }, { passive: true });
+
+  stage.addEventListener('touchmove', e => {
+    swipeMoved = true;
+  }, { passive: true });
+
+  stage.addEventListener('touchend', e => {
+    if (!swipeMoved) return;
+    const dx = swipeStartX - e.changedTouches[0].clientX;
+    const dy = swipeStartY - e.changedTouches[0].clientY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+      if (fsOpen) return;
+      dx > 0 ? goTo(current + 1) : goTo(current - 1);
+    }
+  }, { passive: true });
 
   goTo(0);
 
   document.getElementById('next-btn').onclick = () => goTo(current + 1);
   document.getElementById('prev-btn').onclick = () => goTo(current - 1);
   inds.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.idx)));
+  dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
 
-  document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') goTo(current + 1);
-    if (e.key === 'ArrowUp'   || e.key === 'ArrowLeft')  goTo(current - 1);
-  });
-
-  let ty = 0;
-  document.addEventListener('touchstart', e => { ty = e.touches[0].clientY; }, { passive: true });
-  document.addEventListener('touchend', e => {
-    const d = ty - e.changedTouches[0].clientY;
-    if (Math.abs(d) > 50) goTo(d > 0 ? current + 1 : current - 1);
-  }, { passive: true });
-
-  /* mouse parallax */
+  /* ── MOUSE PARALLAX (desktop only, not when fs open) ── */
   const track = document.getElementById('track');
   document.addEventListener('mousemove', e => {
+    if (fsOpen) return;
     const mx = (e.clientX / window.innerWidth  - 0.5) * 16;
     const my = (e.clientY / window.innerHeight - 0.5) * 9;
     track.style.transform = `rotateY(${mx * .07}deg) rotateX(${-my * .05}deg)`;
