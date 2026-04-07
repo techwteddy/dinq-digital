@@ -1,276 +1,775 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="Dinq Digital Work — Real products, real results across fintech, SaaS, e-commerce and more."/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Work · Dinq Digital</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<meta name="description" content="Real products, real results — Dinq Digital's selected work across fintech, SaaS, e-commerce, beauty, auto repair and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;700;800;900&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--gold:#C4A35A;--gold-l:#DFBE7A;--gold-d:#8A6B2E;--void:#080808;--ink:#0e0e0e;--card:#111;--t1:#F2EDE4;--t2:rgba(242,237,228,.55);--t3:rgba(242,237,228,.28);--edge:rgba(196,163,90,.1);--r:12px}
-html{scroll-behavior:smooth;background:var(--void)}
-body{font-family:'Outfit',sans-serif;-webkit-font-smoothing:antialiased;color:var(--t1);overflow-x:hidden}
-body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.025;pointer-events:none;z-index:9999}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.3rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(8,8,8,.95);backdrop-filter:blur(24px);border-bottom:1px solid rgba(196,163,90,.07)}
-.nlogo{display:flex;align-items:center;gap:.65rem;text-decoration:none}
-.nmark{width:28px;height:28px;border:1px solid var(--gold-d);border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:.78rem;color:var(--gold);transition:all .22s}
-.nlogo:hover .nmark{background:var(--gold);color:#080808;border-color:var(--gold)}
-.nlogo-txt{font-family:'Outfit',sans-serif;font-weight:600;font-size:.9rem;color:var(--t1)}
-.nlogo-txt em{color:var(--gold);font-style:normal}
-.nlinks{display:flex;align-items:center;gap:2rem;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
-.nlinks a{color:rgba(255,255,255,.4);text-decoration:none;font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:.2rem 0;position:relative;transition:color .2s}
-.nlinks a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width .25s}
-.nlinks a:hover,.nlinks a.cur{color:var(--t1)}
-.nlinks a:hover::after,.nlinks a.cur::after{width:100%}
-.nlinks a.cur{color:var(--gold)}
-.nright{display:flex;align-items:center;gap:1.75rem}
-.nright a{color:rgba(255,255,255,.35);text-decoration:none;font-size:.7rem;font-weight:400;letter-spacing:.04em;transition:color .2s}
-.nright a:hover{color:var(--t1)}
-.ntog{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:4px;padding:.2rem}
-.ntog span{display:block;width:18px;height:1.5px;background:var(--t1);border-radius:2px}
-#mm{position:fixed;inset:0;background:rgba(8,8,8,.98);z-index:490;display:none;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem}
-#mm.open{display:flex}
-#mm a{color:var(--t1);text-decoration:none;font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;transition:color .2s}
-#mm a:hover{color:var(--gold)}
-#mm .mm-x{position:absolute;top:1.5rem;right:2rem;background:none;border:none;color:rgba(255,255,255,.45);font-size:.85rem;cursor:pointer;font-family:'Outfit',sans-serif;letter-spacing:.1em;text-transform:uppercase}
+:root {
+  --gold: #C4A35A;
+  --white: #ffffff;
+  --nav-h: 64px;
+}
 
-/* HERO */
-.hero{padding:9rem 2.5rem 5rem;position:relative;overflow:hidden;background:radial-gradient(ellipse 65% 55% at 60% 30%,rgba(90,38,6,.7),transparent 62%),#060508}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(196,163,90,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(196,163,90,.018) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
-.hero-tag{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1rem;display:flex;align-items:center;gap:.55rem}
-.hero-tag::before{content:'';display:inline-block;width:16px;height:1px;background:var(--gold-d)}
-.hero-h{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,6rem);font-weight:700;line-height:.95;letter-spacing:-.03em;color:#FFFFFF;margin-bottom:1.4rem}
-.hero-h em{font-style:italic;color:var(--gold)}
-.hero-sub{font-size:.9rem;color:var(--t2);font-weight:300;line-height:1.75;max-width:420px}
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  font-family: 'League Spartan', sans-serif;
+  background: #000;
+}
 
-/* WORK GRID */
-.work-section{padding:5rem 2.5rem 7rem;background:var(--void)}
-.mxw{max-width:1100px;margin:0 auto}
-.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2.5rem}
-.wcard{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:18px;overflow:hidden;transition:all .32s;cursor:pointer;text-decoration:none;display:block;position:relative}
-.wcard:hover{transform:translateY(-5px);box-shadow:0 24px 48px rgba(0,0,0,.5);border-color:rgba(196,163,90,.18)}
-.wcard-top{padding:2rem 2rem 1.25rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
-.wcard-icon{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.wcard-dot{width:10px;height:10px;border-radius:50%}
-.wcard-live{font-size:.52rem;font-weight:600;padding:.18rem .55rem;border-radius:99px;display:inline-flex;align-items:center;gap:.3rem}
-.wcard-body{padding:0 2rem 1.5rem}
-.wcard-cat{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;margin-bottom:.5rem}
-.wcard-name{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:.5rem}
-.wcard-desc{font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.7;font-weight:300;margin-bottom:1.1rem}
-.wcard-metric{display:inline-flex;align-items:center;gap:.4rem;font-size:.65rem;font-weight:600;padding:.22rem .7rem;border-radius:99px;border-style:solid;border-width:1px}
-.wcard-footer{padding:.9rem 2rem;border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:space-between}
-.wcard-url{font-size:.65rem;color:rgba(255,255,255,.25);font-weight:300;letter-spacing:.04em}
-.wcard-arrow{font-size:.75rem;color:rgba(255,255,255,.25);transition:all .22s}
-.wcard:hover .wcard-arrow{color:var(--gold);transform:translateX(3px)}
+/* ── CURSOR ── */
+#cursor {
+  position: fixed;
+  width: 10px; height: 10px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width .3s ease, height .3s ease, background .3s ease;
+  mix-blend-mode: difference;
+}
+#cursor.big {
+  width: 48px; height: 48px;
+  background: rgba(196,163,90,.25);
+  border: 1px solid var(--gold);
+}
+@media (hover: none) { #cursor { display: none; } }
 
-/* FLOATING PILL */
-#floatBtn{position:fixed;bottom:2.25rem;left:50%;transform:translateX(-50%);z-index:400;display:flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.95);color:#080808;font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:700;padding:.6rem .6rem .6rem 1.4rem;border-radius:99px;text-decoration:none;border:none;cursor:pointer;box-shadow:0 8px 32px rgba(0,0,0,.4);transition:all .25s;white-space:nowrap}
-#floatBtn:hover{background:#fff;box-shadow:0 12px 40px rgba(0,0,0,.5);transform:translateX(-50%) translateY(-2px)}
-#floatBtn .pa{width:30px;height:30px;background:#080808;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;color:#fff;transition:all .22s}
-#floatBtn:hover .pa{background:var(--gold);color:#080808}
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+}
+.nav-logo { text-decoration: none; }
+.nav-logo-text {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 800; font-size: 18px;
+  color: var(--white); letter-spacing: -.5px;
+  text-transform: lowercase;
+}
+.nav-logo-dot { color: var(--gold); }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.nav-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px; font-weight: 400;
+  color: rgba(255,255,255,.55);
+  text-decoration: none; letter-spacing: .8px;
+  transition: color .3s; text-transform: uppercase;
+}
+.nav-link:hover, .nav-link.cur { color: var(--white); }
+.nav-link.cur { color: var(--gold); }
+.nav-wa {
+  display: flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 50%; text-decoration: none;
+  transition: border-color .3s;
+}
+.nav-wa:hover { border-color: var(--gold); }
+.nav-wa svg { width: 14px; height: 14px; fill: var(--white); }
 
-footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.05);padding:3rem 2.5rem 2.25rem}
-.ft{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-.ft-l{font-size:.62rem;color:rgba(255,255,255,.18);letter-spacing:.06em}
-.ft-r{display:flex;gap:2rem}
-.ft-r a{font-size:.62rem;color:rgba(255,255,255,.25);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
-.ft-r a:hover{color:var(--gold)}
+/* ── BACKGROUNDS ── */
+.bg-layer {
+  position: fixed; inset: 0;
+  opacity: 0; pointer-events: none;
+  transition: opacity 1.1s cubic-bezier(.4,0,.2,1);
+}
+.bg-layer.active { opacity: 1; }
 
-@media(max-width:1024px){.nlinks{gap:1.25rem}.nlinks a{font-size:.66rem}}
-@media(max-width:768px){
-  nav{padding:1.1rem 1.5rem}
-  .nlinks,.nright{display:none}
-  .ntog{display:flex}
-  .work-grid{grid-template-columns:1fr}
-  .hero{padding:7rem 1.5rem 4rem}
-  .work-section{padding:4rem 1.5rem 6rem}
-  #floatBtn{font-size:.72rem;padding:.55rem .55rem .55rem 1.2rem}
-  #floatBtn .pa{width:26px;height:26px}
+#bg0 { background: radial-gradient(ellipse 80% 70% at 50% 38%, rgba(29,78,216,.32), transparent 65%), radial-gradient(ellipse 50% 40% at 80% 70%, rgba(34,211,238,.08), transparent 55%), #080808; }
+#bg1 { background: radial-gradient(ellipse 80% 70% at 50% 38%, rgba(120,53,15,.38), transparent 65%), radial-gradient(ellipse 50% 40% at 20% 70%, rgba(196,163,90,.1), transparent 55%), #080808; }
+#bg2 { background: radial-gradient(ellipse 80% 70% at 50% 38%, rgba(6,78,59,.38), transparent 65%), radial-gradient(ellipse 40% 35% at 75% 60%, rgba(5,46,22,.2), transparent 55%), #080808; }
+#bg3 { background: radial-gradient(ellipse 80% 70% at 50% 38%, rgba(120,50,10,.35), transparent 65%), radial-gradient(ellipse 50% 40% at 75% 65%, rgba(249,115,22,.06), transparent 55%), #080808; }
+#bg4 { background: radial-gradient(ellipse 80% 70% at 50% 38%, rgba(100,60,5,.35), transparent 65%), radial-gradient(ellipse 50% 40% at 25% 65%, rgba(245,158,11,.07), transparent 55%), #080808; }
+#bg5 { background: radial-gradient(ellipse 80% 70% at 50% 38%, rgba(60,30,120,.32), transparent 65%), radial-gradient(ellipse 50% 40% at 75% 65%, rgba(167,139,250,.06), transparent 55%), #080808; }
+#bg6 { background: radial-gradient(ellipse 80% 70% at 50% 38%, rgba(5,60,48,.36), transparent 65%), radial-gradient(ellipse 50% 40% at 25% 65%, rgba(20,184,166,.06), transparent 55%), #080808; }
+
+.bg-grid {
+  position: fixed; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,.022) 1px, transparent 1px);
+  background-size: 72px 72px; pointer-events: none; z-index: 0;
+}
+.bg-noise {
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: .028; pointer-events: none; z-index: 0;
+}
+.bg-vign {
+  position: fixed; inset: 0;
+  background: radial-gradient(ellipse 100% 100% at 50% 50%, transparent 38%, rgba(4,4,4,.72) 100%);
+  pointer-events: none; z-index: 0;
+}
+
+/* ── STAGE ── */
+#stage {
+  position: fixed; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2;
+  perspective: 1400px;
+  padding-top: var(--nav-h);
+  padding-bottom: 130px;
+}
+#track {
+  position: relative;
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  transform-style: preserve-3d;
+}
+
+/* ── CARDS ── */
+.card {
+  position: absolute;
+  width: 540px;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 40px 80px rgba(0,0,0,.72);
+  cursor: pointer;
+  transition: transform 1s cubic-bezier(.4,0,.2,1),
+              opacity .9s cubic-bezier(.4,0,.2,1),
+              box-shadow .9s;
+  will-change: transform, opacity;
+  user-select: none;
+}
+.card.pos-center {
+  transform: translateX(0) translateZ(0) rotateY(0deg) scale(1);
+  opacity: 1; z-index: 10;
+  box-shadow: 0 40px 100px rgba(0,0,0,.88), 0 0 0 1px rgba(255,255,255,.06);
+}
+.card.pos-right  { transform: translateX(54%) translateZ(-220px) rotateY(-14deg) scale(.87); opacity: .46; z-index: 5; }
+.card.pos-left   { transform: translateX(-54%) translateZ(-220px) rotateY(14deg) scale(.87); opacity: .46; z-index: 5; }
+.card.pos-far-right { transform: translateX(92%) translateZ(-420px) rotateY(-26deg) scale(.72); opacity: 0; z-index: 1; }
+.card.pos-far-left  { transform: translateX(-92%) translateZ(-420px) rotateY(26deg) scale(.72); opacity: 0; z-index: 1; }
+
+/* browser chrome */
+.chrome {
+  height: 30px; background: #1a1a1a;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  display: flex; align-items: center; gap: 5px; padding: 0 12px; flex-shrink: 0;
+}
+.chrome .dot { width: 8px; height: 8px; border-radius: 50%; }
+.chrome .url {
+  flex: 1; background: rgba(255,255,255,.06); border-radius: 4px;
+  height: 14px; margin: 0 8px; display: flex; align-items: center; padding: 0 7px;
+}
+.chrome .url span { font-size: 8px; color: rgba(255,255,255,.28); letter-spacing: .04em; font-family: 'Outfit', sans-serif; }
+
+/* card inner nav */
+.cn {
+  height: 36px; display: flex; align-items: center;
+  justify-content: space-between; padding: 0 16px;
+  border-bottom-width: 1px; border-bottom-style: solid;
+}
+.cn-logo { font-family: 'Playfair Display', serif; font-size: .82rem; font-weight: 700; }
+.cn-links { display: flex; gap: 12px; }
+.cn-links span { font-size: .52rem; color: rgba(255,255,255,.28); letter-spacing: .06em; text-transform: uppercase; }
+.cn-btn { font-size: .52rem; font-weight: 700; padding: .2rem .6rem; border-radius: 4px; font-family: 'Outfit', sans-serif; }
+
+/* hero section */
+.ch { padding: 18px 18px 12px; }
+.ch-tag {
+  font-size: .48rem; letter-spacing: .16em; text-transform: uppercase;
+  font-weight: 500; margin-bottom: 6px;
+  display: flex; align-items: center; gap: 6px;
+}
+.ch-h { font-family: 'Playfair Display', serif; font-size: 1.28rem; font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 6px; }
+.ch-sub { font-size: .57rem; color: rgba(255,255,255,.36); line-height: 1.65; font-weight: 300; }
+.ch-btns { display: flex; gap: 7px; margin-top: 11px; }
+.ch-btn1 { font-size: .56rem; font-weight: 700; padding: .27rem .72rem; border-radius: 4px; font-family: 'Outfit', sans-serif; }
+.ch-btn2 { font-size: .56rem; padding: .27rem .72rem; border-radius: 4px; font-family: 'Outfit', sans-serif; }
+
+/* stat grid */
+.stats { display: grid; gap: 1px; }
+.st { padding: 9px 14px; }
+.st-n { font-family: 'Playfair Display', serif; font-size: .98rem; font-weight: 700; line-height: 1; }
+.st-l { font-size: .45rem; color: rgba(255,255,255,.28); text-transform: uppercase; letter-spacing: .08em; margin-top: 2px; }
+
+/* card footer */
+.cfoot {
+  padding: .7rem 1rem; border-top: 1px solid rgba(255,255,255,.05);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.cfoot-url { font-size: .55rem; color: rgba(255,255,255,.2); font-weight: 300; }
+.cfoot-live {
+  font-size: .48rem; font-weight: 600; padding: .14rem .48rem; border-radius: 99px;
+  background: rgba(74,222,128,.08); border: 1px solid rgba(74,222,128,.2); color: #4ADE80;
+}
+
+/* ── LABEL ── */
+#label {
+  position: fixed; bottom: 62px; left: 50%; transform: translateX(-50%);
+  z-index: 20; text-align: center; pointer-events: none;
+  transition: all .5s cubic-bezier(.4,0,.2,1);
+}
+#lbl-cat {
+  font-family: 'Inter', sans-serif;
+  font-size: .58rem; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(255,255,255,.3); margin-bottom: 3px;
+}
+#lbl-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem; font-weight: 700; color: #fff;
+}
+
+/* ── DOTS ── */
+#dots {
+  position: fixed; bottom: 36px; left: 50%; transform: translateX(-50%);
+  z-index: 20; display: flex; gap: 7px; align-items: center;
+}
+.dot-el {
+  width: 5px; height: 5px; border-radius: 99px;
+  background: rgba(255,255,255,.22); cursor: pointer;
+  transition: all .35s cubic-bezier(.4,0,.2,1);
+}
+.dot-el.active { width: 20px; background: #fff; }
+
+/* ── ARROWS ── */
+#arrows {
+  position: fixed; bottom: 44px; right: 48px;
+  z-index: 1000; display: flex; flex-direction: column; align-items: center;
+}
+.arrow-btn {
+  width: 44px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  background: none; border: none;
+  color: rgba(255,255,255,.45); font-size: 20px;
+  cursor: pointer; transition: color .3s;
+  font-family: inherit; line-height: 1;
+}
+.arrow-btn:hover { color: var(--white); }
+.arrow-sep { width: 1px; height: 18px; background: rgba(255,255,255,.22); }
+
+/* ── INDICATORS (side) ── */
+#indicators {
+  position: fixed; right: 48px; top: 50%; transform: translateY(-50%);
+  z-index: 1000; display: flex; flex-direction: column; gap: 10px;
+}
+.ind {
+  width: 2px; height: 22px;
+  background: rgba(255,255,255,.18);
+  cursor: pointer; transition: background .3s, height .3s;
+}
+.ind.active { background: var(--gold); height: 38px; }
+
+/* ── TICKER ── */
+#ticker {
+  position: fixed; bottom: 100px; left: 0; right: 0;
+  overflow: hidden; z-index: 500; pointer-events: none;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+.ticker-track { display: flex; width: max-content; animation: ticker 30s linear infinite; }
+.ticker-item {
+  font-family: 'Inter', sans-serif; font-size: 10px;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(255,255,255,.15); white-space: nowrap; padding: 0 32px;
+}
+.ticker-dot { color: var(--gold); }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ── HINT ── */
+#hint {
+  position: fixed; bottom: 14px; left: 50%; transform: translateX(-50%);
+  font-size: .55rem; color: rgba(255,255,255,.12);
+  letter-spacing: .13em; text-transform: uppercase;
+  font-family: 'Inter', sans-serif; z-index: 20; pointer-events: none; white-space: nowrap;
+}
+
+/* ── COUNTER ── */
+#counter {
+  position: fixed; bottom: 52px; left: 80px;
+  font-family: 'Inter', sans-serif; font-size: 10px;
+  letter-spacing: 2px; color: rgba(255,255,255,.28); z-index: 20;
+}
+#counter em { color: var(--white); font-style: normal; }
+
+/* ── PROGRESS BAR ── */
+#progress-bar {
+  position: fixed; bottom: 0; left: 0;
+  height: 2px; background: var(--gold);
+  z-index: 1000; width: 0%;
+  transition: width linear;
+}
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-link { display: none; }
+  .card { width: calc(100vw - 48px); max-width: 400px; }
+  #stage { padding-bottom: 110px; }
+  #arrows { right: 16px; bottom: 90px; }
+  #indicators { display: none; }
+  #ticker { bottom: 80px; }
+  #counter { left: 24px; bottom: 42px; }
 }
 </style>
 </head>
 <body>
 
-<div id="mm">
-  <button class="mm-x" onclick="document.getElementById('mm').classList.remove('open')">✕ Close</button>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="pricing.html">Pricing</a>
-  <a href="about.html#contact">Contact</a>
-  <a href="https://app.dinqdigital.com/login" style="color:var(--gold)">Login →</a>
-</div>
+<div id="cursor"></div>
+
+<!-- backgrounds -->
+<div id="bg0" class="bg-layer active"></div>
+<div id="bg1" class="bg-layer"></div>
+<div id="bg2" class="bg-layer"></div>
+<div id="bg3" class="bg-layer"></div>
+<div id="bg4" class="bg-layer"></div>
+<div id="bg5" class="bg-layer"></div>
+<div id="bg6" class="bg-layer"></div>
+<div class="bg-grid"></div>
+<div class="bg-noise"></div>
+<div class="bg-vign"></div>
 
 <nav>
-  <a href="index.html" class="nlogo">
-    <div class="nmark">D</div>
-    <span class="nlogo-txt">Dinq<em>Digital</em></span>
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-text">dinq digital<span class="nav-logo-dot">.</span></span>
   </a>
-  <ul class="nlinks">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="work.html" class="cur">Work</a></li>
-    <li><a href="pricing.html">Pricing</a></li>
-    <li><a href="about.html#contact">Contact</a></li>
-  </ul>
-  <div class="nright">
-    <a href="https://app.dinqdigital.com/login">app.dinqdigital.com</a>
-    <a href="mailto:dinqdigital@gmail.com">dinqdigital@gmail.com</a>
-    <button class="ntog" onclick="document.getElementById('mm').classList.add('open')"><span></span><span></span><span></span></button>
+  <div class="nav-right">
+    <a href="about.html" class="nav-link">About</a>
+    <a href="work.html" class="nav-link cur">Work</a>
+    <a href="pricing.html" class="nav-link">Pricing</a>
+    <a href="https://app.dinqdigital.com" class="nav-link">Platform</a>
+    <a href="https://wa.me/251900000000" class="nav-wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+    </a>
   </div>
 </nav>
 
-<a href="about.html#contact" id="floatBtn">Get Started <div class="pa">↗</div></a>
+<!-- stage -->
+<div id="stage">
+  <div id="track">
 
-<div class="hero">
-  <div class="hero-grid"></div>
-  <div class="mxw">
-    <div class="hero-tag">Selected Work · 7 Projects</div>
-    <h1 class="hero-h">Real products.<br><em>Real results.</em></h1>
-    <p class="hero-sub">Fintech, SaaS, e-commerce, auto repair, beauty, photography, and export brands — from Addis Ababa to Seattle, DC, and beyond.</p>
+    <!-- CARD 0: eQub Pay -->
+    <div class="card pos-center" id="card0" onclick="goTo(0)">
+      <div class="chrome">
+        <div class="dot" style="background:#FF5F57"></div>
+        <div class="dot" style="background:#FEBC2E"></div>
+        <div class="dot" style="background:#28C840"></div>
+        <div class="url"><span>app.equbpay.com</span></div>
+      </div>
+      <div style="background:linear-gradient(160deg,#0a0f1e,#060d1a)">
+        <div class="cn" style="background:rgba(255,255,255,.04);border-color:rgba(96,165,250,.1)">
+          <div class="cn-logo" style="color:#60A5FA">eQub<span style="color:#22D3EE">Pay</span></div>
+          <div class="cn-links"><span>Dashboard</span><span>Groups</span><span>Payments</span></div>
+          <div class="cn-btn" style="background:#60A5FA;color:#080808">Get Started</div>
+        </div>
+        <div class="ch">
+          <div class="ch-tag" style="color:#22D3EE">
+            <span style="display:inline-block;width:12px;height:1px;background:#22D3EE"></span>
+            Fintech Platform
+          </div>
+          <div class="ch-h">Digital <span style="color:#60A5FA">Iqub</span><br>for the modern<br>Ethiopian.</div>
+          <div class="ch-sub">Join savings groups, track contributions, and receive payouts — all digital, all secure.</div>
+          <div class="ch-btns">
+            <div class="ch-btn1" style="background:#60A5FA;color:#080808">Join a Group →</div>
+            <div class="ch-btn2" style="border:1px solid rgba(96,165,250,.3);color:rgba(96,165,250,.8)">How it works</div>
+          </div>
+        </div>
+        <div class="stats" style="grid-template-columns:repeat(4,1fr);background:rgba(96,165,250,.07)">
+          <div class="st" style="background:#0a0f1e"><div class="st-n" style="color:#60A5FA">5K+</div><div class="st-l">Active users</div></div>
+          <div class="st" style="background:#0a0f1e"><div class="st-n" style="color:#60A5FA">340</div><div class="st-l">Groups</div></div>
+          <div class="st" style="background:#0a0f1e"><div class="st-n" style="color:#60A5FA">98%</div><div class="st-l">Uptime</div></div>
+          <div class="st" style="background:#0a0f1e"><div class="st-n" style="color:#60A5FA">ETB+$</div><div class="st-l">Currencies</div></div>
+        </div>
+        <div class="cfoot"><span class="cfoot-url">app.equbpay.com</span><span class="cfoot-live">● Live</span></div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Nice Braids -->
+    <div class="card pos-right" id="card1" onclick="goTo(1)">
+      <div class="chrome">
+        <div class="dot" style="background:#FF5F57"></div>
+        <div class="dot" style="background:#FEBC2E"></div>
+        <div class="dot" style="background:#28C840"></div>
+        <div class="url"><span>nicebraids.com</span></div>
+      </div>
+      <div style="background:linear-gradient(160deg,#1a0f08,#120a04)">
+        <div class="cn" style="background:rgba(0,0,0,.3);border-color:rgba(196,163,90,.1)">
+          <div class="cn-logo" style="color:#C4A35A">Nice Braids</div>
+          <div class="cn-links"><span>Services</span><span>Gallery</span><span>About</span></div>
+          <div class="cn-btn" style="background:#C4A35A;color:#080808">Book Now</div>
+        </div>
+        <div style="height:118px;position:relative;overflow:hidden;display:flex;align-items:flex-end">
+          <div style="position:absolute;inset:0;background:linear-gradient(135deg,#2d1506,#1a0d04)"></div>
+          <div style="position:absolute;inset:0;opacity:.07;background-image:repeating-linear-gradient(45deg,#C4A35A 0,#C4A35A 1px,transparent 0,transparent 50%);background-size:12px 12px"></div>
+          <div style="position:relative;z-index:1;padding:14px 16px">
+            <div style="font-size:.48rem;color:rgba(196,163,90,.7);letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px">Premium Hair Studio · Washington DC</div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.28rem;font-weight:900;color:#fff;line-height:1.1">Beautiful braids.<br><em style="color:#C4A35A">Booked online.</em></div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(196,163,90,.08)">
+          <div style="background:#130905;padding:9px 12px"><div style="font-size:.85rem;margin-bottom:3px">✦</div><div style="font-size:.58rem;font-weight:600;color:#fff;margin-bottom:2px">Box Braids</div><div style="font-size:.5rem;color:rgba(196,163,90,.7)">From $120</div></div>
+          <div style="background:#130905;padding:9px 12px"><div style="font-size:.85rem;margin-bottom:3px">◈</div><div style="font-size:.58rem;font-weight:600;color:#fff;margin-bottom:2px">Knotless</div><div style="font-size:.5rem;color:rgba(196,163,90,.7)">From $180</div></div>
+          <div style="background:#130905;padding:9px 12px"><div style="font-size:.85rem;margin-bottom:3px">◇</div><div style="font-size:.58rem;font-weight:600;color:#fff;margin-bottom:2px">Locs</div><div style="font-size:.5rem;color:rgba(196,163,90,.7)">From $95</div></div>
+        </div>
+        <div style="padding:9px 14px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(196,163,90,.08)">
+          <div style="font-size:.56rem;color:rgba(255,255,255,.32)">Next: <strong style="color:#4ADE80">Tomorrow 10am</strong></div>
+          <div style="background:#C4A35A;color:#080808;font-size:.58rem;font-weight:700;padding:.28rem .8rem;border-radius:4px;font-family:'Outfit',sans-serif">Book →</div>
+        </div>
+        <div class="cfoot"><span class="cfoot-url">nicebraids.com</span><span class="cfoot-live">● Live</span></div>
+      </div>
+    </div>
+
+    <!-- CARD 2: MB Coffee Farm -->
+    <div class="card pos-left" id="card2" onclick="goTo(2)">
+      <div class="chrome">
+        <div class="dot" style="background:#FF5F57"></div>
+        <div class="dot" style="background:#FEBC2E"></div>
+        <div class="dot" style="background:#28C840"></div>
+        <div class="url"><span>mbcoffeefarm.com</span></div>
+      </div>
+      <div style="background:linear-gradient(160deg,#071a0f,#04110a)">
+        <div class="cn" style="background:rgba(0,0,0,.35);border-color:rgba(16,185,129,.1)">
+          <div class="cn-logo" style="color:#10B981">MB Coffee Farm</div>
+          <div class="cn-links"><span>Origin</span><span>Varieties</span><span>Export</span></div>
+          <div class="cn-btn" style="background:#10B981;color:#080808">Order Now</div>
+        </div>
+        <div style="height:108px;position:relative;overflow:hidden;display:flex;align-items:flex-end">
+          <div style="position:absolute;inset:0;background:linear-gradient(135deg,#0a2218,#051409)"></div>
+          <div style="position:absolute;right:18px;top:50%;transform:translateY(-50%);opacity:.12">
+            <div style="width:86px;height:86px;border-radius:50%;border:1px solid #10B981;position:absolute;right:0;top:50%;transform:translateY(-50%)"></div>
+            <div style="width:52px;height:52px;border-radius:50%;border:1px solid #10B981;position:absolute;right:17px;top:50%;transform:translateY(-50%)"></div>
+          </div>
+          <div style="position:relative;z-index:1;padding:14px 16px">
+            <div style="font-size:.48rem;color:rgba(16,185,129,.7);letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px">Single Origin · Yirgacheffe, Ethiopia</div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.22rem;font-weight:900;color:#fff;line-height:1.1">Ethiopia's finest<br><em style="color:#10B981">coffee, exported.</em></div>
+          </div>
+        </div>
+        <div style="display:flex;gap:5px;padding:9px 14px;border-bottom:1px solid rgba(16,185,129,.07);overflow:hidden">
+          <div style="display:flex;align-items:center;gap:3px;background:rgba(255,255,255,.04);border:1px solid rgba(16,185,129,.1);border-radius:5px;padding:3px 6px;flex-shrink:0"><span style="font-size:.8rem">🇺🇸</span><span style="font-size:.48rem;color:rgba(255,255,255,.45)">USA</span></div>
+          <div style="display:flex;align-items:center;gap:3px;background:rgba(255,255,255,.04);border:1px solid rgba(16,185,129,.1);border-radius:5px;padding:3px 6px;flex-shrink:0"><span style="font-size:.8rem">🇬🇧</span><span style="font-size:.48rem;color:rgba(255,255,255,.45)">UK</span></div>
+          <div style="display:flex;align-items:center;gap:3px;background:rgba(255,255,255,.04);border:1px solid rgba(16,185,129,.1);border-radius:5px;padding:3px 6px;flex-shrink:0"><span style="font-size:.8rem">🇦🇪</span><span style="font-size:.48rem;color:rgba(255,255,255,.45)">UAE</span></div>
+          <div style="display:flex;align-items:center;gap:3px;background:rgba(255,255,255,.04);border:1px solid rgba(16,185,129,.1);border-radius:5px;padding:3px 6px;flex-shrink:0"><span style="font-size:.8rem">🇩🇪</span><span style="font-size:.48rem;color:rgba(255,255,255,.45)">DE</span></div>
+          <div style="display:flex;align-items:center;gap:3px;background:rgba(255,255,255,.04);border:1px solid rgba(16,185,129,.1);border-radius:5px;padding:3px 6px;flex-shrink:0"><span style="font-size:.8rem">🇯🇵</span><span style="font-size:.48rem;color:rgba(255,255,255,.45)">JP</span></div>
+          <div style="display:flex;align-items:center;gap:3px;background:rgba(255,255,255,.04);border:1px solid rgba(16,185,129,.1);border-radius:5px;padding:3px 6px;flex-shrink:0"><span style="font-size:.8rem">🇨🇦</span><span style="font-size:.48rem;color:rgba(255,255,255,.45)">CA</span></div>
+        </div>
+        <div class="stats" style="grid-template-columns:repeat(3,1fr);background:rgba(16,185,129,.07)">
+          <div class="st" style="background:#071a0f"><div class="st-n" style="color:#10B981">12</div><div class="st-l">Markets</div></div>
+          <div class="st" style="background:#071a0f"><div class="st-n" style="color:#10B981">4.9★</div><div class="st-l">Avg rating</div></div>
+          <div class="st" style="background:#071a0f"><div class="st-n" style="color:#10B981">8yr</div><div class="st-l">Heritage</div></div>
+        </div>
+        <div class="cfoot"><span class="cfoot-url">mbcoffeefarm.com</span><span class="cfoot-live">● Live</span></div>
+      </div>
+    </div>
+
+    <!-- CARD 3: G&M Auto Repair -->
+    <div class="card pos-far-right" id="card3" onclick="goTo(3)">
+      <div class="chrome">
+        <div class="dot" style="background:#FF5F57"></div>
+        <div class="dot" style="background:#FEBC2E"></div>
+        <div class="dot" style="background:#28C840"></div>
+        <div class="url"><span>gmautorepair.com</span></div>
+      </div>
+      <div style="background:linear-gradient(160deg,#1a0e04,#100908)">
+        <div class="cn" style="background:rgba(0,0,0,.3);border-color:rgba(249,115,22,.1)">
+          <div class="cn-logo" style="color:#F97316">G&amp;M Auto</div>
+          <div class="cn-links"><span>Services</span><span>Book</span><span>Contact</span></div>
+          <div class="cn-btn" style="background:#F97316;color:#080808">Book Now</div>
+        </div>
+        <div class="ch">
+          <div class="ch-tag" style="color:#F97316">
+            <span style="display:inline-block;width:12px;height:1px;background:#F97316"></span>
+            Auto Repair · Seattle, WA
+          </div>
+          <div class="ch-h">Trusted <span style="color:#F97316">repairs.</span><br>Easy online<br>booking.</div>
+          <div class="ch-sub">Ethiopian-owned auto shop in Seattle. Oil change, brakes, diagnostics — book in 60 seconds.</div>
+          <div class="ch-btns">
+            <div class="ch-btn1" style="background:#F97316;color:#080808">Book a Service →</div>
+            <div class="ch-btn2" style="border:1px solid rgba(249,115,22,.3);color:rgba(249,115,22,.8)">View Services</div>
+          </div>
+        </div>
+        <div class="stats" style="grid-template-columns:repeat(3,1fr);background:rgba(249,115,22,.07)">
+          <div class="st" style="background:#1a0e04"><div class="st-n" style="color:#F97316">2×</div><div class="st-l">Monthly bookings</div></div>
+          <div class="st" style="background:#1a0e04"><div class="st-n" style="color:#F97316">Zelle</div><div class="st-l">+ CashApp</div></div>
+          <div class="st" style="background:#1a0e04"><div class="st-n" style="color:#F97316">24/7</div><div class="st-l">Online booking</div></div>
+        </div>
+        <div class="cfoot"><span class="cfoot-url">gmautorepair.com</span><span class="cfoot-live">● Live</span></div>
+      </div>
+    </div>
+
+    <!-- CARD 4: Arif Market -->
+    <div class="card pos-far-left" id="card4" onclick="goTo(4)">
+      <div class="chrome">
+        <div class="dot" style="background:#FF5F57"></div>
+        <div class="dot" style="background:#FEBC2E"></div>
+        <div class="dot" style="background:#28C840"></div>
+        <div class="url"><span>arifmarket.com</span></div>
+      </div>
+      <div style="background:linear-gradient(160deg,#1a0f04,#0f0a04)">
+        <div class="cn" style="background:rgba(0,0,0,.3);border-color:rgba(245,158,11,.1)">
+          <div class="cn-logo" style="color:#F59E0B">Arif Market</div>
+          <div class="cn-links"><span>Shop</span><span>Categories</span><span>Orders</span></div>
+          <div class="cn-btn" style="background:#F59E0B;color:#080808">Shop Now</div>
+        </div>
+        <div class="ch">
+          <div class="ch-tag" style="color:#F59E0B">
+            <span style="display:inline-block;width:12px;height:1px;background:#F59E0B"></span>
+            E-Commerce
+          </div>
+          <div class="ch-h">Ethiopian goods.<br><span style="color:#F59E0B">Delivered</span><br>everywhere.</div>
+          <div class="ch-sub">Local and international delivery. Pay with Telebirr or card. Full inventory management.</div>
+          <div class="ch-btns">
+            <div class="ch-btn1" style="background:#F59E0B;color:#080808">Shop Now →</div>
+            <div class="ch-btn2" style="border:1px solid rgba(245,158,11,.3);color:rgba(245,158,11,.8)">Browse</div>
+          </div>
+        </div>
+        <div class="stats" style="grid-template-columns:repeat(3,1fr);background:rgba(245,158,11,.07)">
+          <div class="st" style="background:#1a0f04"><div class="st-n" style="color:#F59E0B">3×</div><div class="st-l">Revenue growth</div></div>
+          <div class="st" style="background:#1a0f04"><div class="st-n" style="color:#F59E0B">Telebirr</div><div class="st-l">Payments</div></div>
+          <div class="st" style="background:#1a0f04"><div class="st-n" style="color:#F59E0B">Intl</div><div class="st-l">Delivery</div></div>
+        </div>
+        <div class="cfoot"><span class="cfoot-url">arifmarket.com</span><span class="cfoot-live">● Live</span></div>
+      </div>
+    </div>
+
+    <!-- CARD 5: SabaCloud -->
+    <div class="card pos-far-right" id="card5" onclick="goTo(5)">
+      <div class="chrome">
+        <div class="dot" style="background:#FF5F57"></div>
+        <div class="dot" style="background:#FEBC2E"></div>
+        <div class="dot" style="background:#28C840"></div>
+        <div class="url"><span>sabacloud.io</span></div>
+      </div>
+      <div style="background:linear-gradient(160deg,#0d0a1e,#08060f)">
+        <div class="cn" style="background:rgba(0,0,0,.3);border-color:rgba(167,139,250,.1)">
+          <div class="cn-logo" style="color:#A78BFA">SabaCloud</div>
+          <div class="cn-links"><span>Features</span><span>Pricing</span><span>Docs</span></div>
+          <div class="cn-btn" style="background:#A78BFA;color:#080808">Start Free</div>
+        </div>
+        <div class="ch">
+          <div class="ch-tag" style="color:#A78BFA">
+            <span style="display:inline-block;width:12px;height:1px;background:#A78BFA"></span>
+            SaaS Platform
+          </div>
+          <div class="ch-h">Cloud software<br>built for <span style="color:#A78BFA">Africa.</span></div>
+          <div class="ch-sub">Recurring revenue model, subscription billing, and a dashboard clients love using daily.</div>
+          <div class="ch-btns">
+            <div class="ch-btn1" style="background:#A78BFA;color:#080808">Start Free →</div>
+            <div class="ch-btn2" style="border:1px solid rgba(167,139,250,.3);color:rgba(167,139,250,.8)">See Demo</div>
+          </div>
+        </div>
+        <div class="stats" style="grid-template-columns:repeat(3,1fr);background:rgba(167,139,250,.07)">
+          <div class="st" style="background:#0d0a1e"><div class="st-n" style="color:#A78BFA">$120K</div><div class="st-l">ARR</div></div>
+          <div class="st" style="background:#0d0a1e"><div class="st-n" style="color:#A78BFA">MRR</div><div class="st-l">Recurring rev.</div></div>
+          <div class="st" style="background:#0d0a1e"><div class="st-n" style="color:#A78BFA">99.9%</div><div class="st-l">Uptime</div></div>
+        </div>
+        <div class="cfoot"><span class="cfoot-url">sabacloud.io</span><span class="cfoot-live">● Live</span></div>
+      </div>
+    </div>
+
+    <!-- CARD 6: Adismotion -->
+    <div class="card pos-far-left" id="card6" onclick="goTo(6)">
+      <div class="chrome">
+        <div class="dot" style="background:#FF5F57"></div>
+        <div class="dot" style="background:#FEBC2E"></div>
+        <div class="dot" style="background:#28C840"></div>
+        <div class="url"><span>adismotion.com</span></div>
+      </div>
+      <div style="background:linear-gradient(160deg,#071a10,#040f09)">
+        <div class="cn" style="background:rgba(0,0,0,.3);border-color:rgba(20,184,166,.1)">
+          <div class="cn-logo" style="color:#14B8A6">Adismotion</div>
+          <div class="cn-links"><span>Portfolio</span><span>Services</span><span>Book</span></div>
+          <div class="cn-btn" style="background:#14B8A6;color:#080808">Book Studio</div>
+        </div>
+        <div class="ch">
+          <div class="ch-tag" style="color:#14B8A6">
+            <span style="display:inline-block;width:12px;height:1px;background:#14B8A6"></span>
+            Photo &amp; Video · Addis Ababa
+          </div>
+          <div class="ch-h">Full-service<br><span style="color:#14B8A6">studio.</span><br>Digital galleries.</div>
+          <div class="ch-sub">Professional photo &amp; video production. Client portals, online delivery, 500+ shoots completed.</div>
+          <div class="ch-btns">
+            <div class="ch-btn1" style="background:#14B8A6;color:#080808">Book Studio →</div>
+            <div class="ch-btn2" style="border:1px solid rgba(20,184,166,.3);color:rgba(20,184,166,.8)">View Portfolio</div>
+          </div>
+        </div>
+        <div class="stats" style="grid-template-columns:repeat(3,1fr);background:rgba(20,184,166,.07)">
+          <div class="st" style="background:#071a10"><div class="st-n" style="color:#14B8A6">500+</div><div class="st-l">Shoots done</div></div>
+          <div class="st" style="background:#071a10"><div class="st-n" style="color:#14B8A6">Portal</div><div class="st-l">Client access</div></div>
+          <div class="st" style="background:#071a10"><div class="st-n" style="color:#14B8A6">4K</div><div class="st-l">Delivery</div></div>
+        </div>
+        <div class="cfoot"><span class="cfoot-url">adismotion.com</span><span class="cfoot-live">● Live</span></div>
+      </div>
+    </div>
+
+  </div><!-- /track -->
+</div><!-- /stage -->
+
+<!-- label -->
+<div id="label">
+  <div id="lbl-cat">Fintech</div>
+  <div id="lbl-name">eQub Pay</div>
+</div>
+
+<!-- dots -->
+<div id="dots">
+  <div class="dot-el active" onclick="goTo(0)"></div>
+  <div class="dot-el" onclick="goTo(1)"></div>
+  <div class="dot-el" onclick="goTo(2)"></div>
+  <div class="dot-el" onclick="goTo(3)"></div>
+  <div class="dot-el" onclick="goTo(4)"></div>
+  <div class="dot-el" onclick="goTo(5)"></div>
+  <div class="dot-el" onclick="goTo(6)"></div>
+</div>
+
+<!-- side indicators -->
+<div id="indicators">
+  <div class="ind active" data-idx="0"></div>
+  <div class="ind" data-idx="1"></div>
+  <div class="ind" data-idx="2"></div>
+  <div class="ind" data-idx="3"></div>
+  <div class="ind" data-idx="4"></div>
+  <div class="ind" data-idx="5"></div>
+  <div class="ind" data-idx="6"></div>
+</div>
+
+<!-- arrows -->
+<div id="arrows">
+  <button class="arrow-btn" id="prev-btn">↑</button>
+  <div class="arrow-sep"></div>
+  <button class="arrow-btn" id="next-btn">↓</button>
+</div>
+
+<!-- counter -->
+<div id="counter"><em>01</em> / 07</div>
+
+<!-- ticker -->
+<div id="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item">Fintech <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">E-Commerce <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">SaaS <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Auto Repair <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Beauty Studio <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Export Brand <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Photography <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Addis Ababa <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Seattle <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Washington DC <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">ድንቅ Digital <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Fintech <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">E-Commerce <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">SaaS <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Auto Repair <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Beauty Studio <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Export Brand <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Photography <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Addis Ababa <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Seattle <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Washington DC <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">ድንቅ Digital <span class="ticker-dot">·</span></span>
   </div>
 </div>
 
-<section class="work-section">
-  <div class="mxw">
-    <div class="work-grid">
+<div id="hint">Auto-rotating · Click any card · ↑↓ to navigate</div>
+<div id="progress-bar"></div>
 
-      <a class="wcard" href="about.html#contact">
-        <div class="wcard-top">
-          <div class="wcard-icon" style="background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.2)"><div class="wcard-dot" style="background:#60A5FA"></div></div>
-          <span class="wcard-live" style="background:rgba(74,222,128,.08);border-color:rgba(74,222,128,.2);color:#4ADE80">● Live</span>
-        </div>
-        <div class="wcard-body">
-          <div class="wcard-cat" style="color:#60A5FA">Fintech Platform</div>
-          <div class="wcard-name">eQub Pay</div>
-          <div class="wcard-desc">Digital Iqub savings groups for modern Ethiopia. Join, track contributions, receive payouts — all digital, all secure.</div>
-          <span class="wcard-metric" style="color:#60A5FA;border-color:rgba(96,165,250,.25);background:rgba(96,165,250,.07)">5K+ active users</span>
-        </div>
-        <div class="wcard-footer">
-          <span class="wcard-url">app.equbpay.com</span>
-          <span class="wcard-arrow">→</span>
-        </div>
-      </a>
+<script>
+  const cursor = document.getElementById('cursor');
+  if (window.matchMedia('(hover: hover)').matches) {
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top  = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button, .card, .dot-el, .ind').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('big'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('big'));
+    });
+  }
 
-      <a class="wcard" href="about.html#contact">
-        <div class="wcard-top">
-          <div class="wcard-icon" style="background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2)"><div class="wcard-dot" style="background:#F59E0B"></div></div>
-          <span class="wcard-live" style="background:rgba(74,222,128,.08);border-color:rgba(74,222,128,.2);color:#4ADE80">● Live</span>
-        </div>
-        <div class="wcard-body">
-          <div class="wcard-cat" style="color:#F59E0B">E-Commerce</div>
-          <div class="wcard-name">Arif Market</div>
-          <div class="wcard-desc">Ethiopian goods delivered locally and internationally. Pay with Telebirr or card. Built with full inventory management.</div>
-          <span class="wcard-metric" style="color:#F59E0B;border-color:rgba(245,158,11,.25);background:rgba(245,158,11,.07)">3× revenue growth</span>
-        </div>
-        <div class="wcard-footer">
-          <span class="wcard-url">arifmarket.com</span>
-          <span class="wcard-arrow">→</span>
-        </div>
-      </a>
+  const cards = Array.from({ length: 7 }, (_, i) => document.getElementById('card' + i));
+  const bgs   = Array.from({ length: 7 }, (_, i) => document.getElementById('bg'   + i));
+  const dots  = document.querySelectorAll('.dot-el');
+  const inds  = document.querySelectorAll('.ind');
+  const progressBar = document.getElementById('progress-bar');
+  const DURATION = 3800;
 
-      <a class="wcard" href="about.html#contact">
-        <div class="wcard-top">
-          <div class="wcard-icon" style="background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.2)"><div class="wcard-dot" style="background:#A78BFA"></div></div>
-          <span class="wcard-live" style="background:rgba(74,222,128,.08);border-color:rgba(74,222,128,.2);color:#4ADE80">● Live</span>
-        </div>
-        <div class="wcard-body">
-          <div class="wcard-cat" style="color:#A78BFA">SaaS Platform</div>
-          <div class="wcard-name">SabaCloud</div>
-          <div class="wcard-desc">Cloud software built for Africa. Recurring revenue model, subscription billing, and a dashboard clients love.</div>
-          <span class="wcard-metric" style="color:#A78BFA;border-color:rgba(167,139,250,.25);background:rgba(167,139,250,.07)">$120K ARR</span>
-        </div>
-        <div class="wcard-footer">
-          <span class="wcard-url">sabacloud.io</span>
-          <span class="wcard-arrow">→</span>
-        </div>
-      </a>
+  const meta = [
+    { cat: 'Fintech',               name: 'eQub Pay',       num: '01' },
+    { cat: 'Beauty Studio · DC',    name: 'Nice Braids',    num: '02' },
+    { cat: 'Export Brand',          name: 'MB Coffee Farm', num: '03' },
+    { cat: 'Auto Repair · Seattle', name: 'G&M Auto Repair',num: '04' },
+    { cat: 'E-Commerce',            name: 'Arif Market',    num: '05' },
+    { cat: 'SaaS Platform',         name: 'SabaCloud',      num: '06' },
+    { cat: 'Photography · Addis',   name: 'Adismotion',     num: '07' }
+  ];
 
-      <a class="wcard" href="about.html#contact">
-        <div class="wcard-top">
-          <div class="wcard-icon" style="background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2)"><div class="wcard-dot" style="background:#10B981"></div></div>
-          <span class="wcard-live" style="background:rgba(74,222,128,.08);border-color:rgba(74,222,128,.2);color:#4ADE80">● Live</span>
-        </div>
-        <div class="wcard-body">
-          <div class="wcard-cat" style="color:#10B981">Export Brand</div>
-          <div class="wcard-name">MB Coffee Farm</div>
-          <div class="wcard-desc">Ethiopia's finest coffee exported to 12 countries. International payment ready, built in 3 weeks.</div>
-          <span class="wcard-metric" style="color:#10B981;border-color:rgba(16,185,129,.25);background:rgba(16,185,129,.07)">12 export markets</span>
-        </div>
-        <div class="wcard-footer">
-          <span class="wcard-url">mbcoffeefarm.com</span>
-          <span class="wcard-arrow">→</span>
-        </div>
-      </a>
+  const TOTAL = cards.length;
+  let current = 0, timer = null;
 
-      <a class="wcard" href="about.html#contact">
-        <div class="wcard-top">
-          <div class="wcard-icon" style="background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.2)"><div class="wcard-dot" style="background:#F97316"></div></div>
-          <span class="wcard-live" style="background:rgba(74,222,128,.08);border-color:rgba(74,222,128,.2);color:#4ADE80">● Live</span>
-        </div>
-        <div class="wcard-body">
-          <div class="wcard-cat" style="color:#F97316">Auto Repair · Seattle</div>
-          <div class="wcard-name">G&M Auto Repair</div>
-          <div class="wcard-desc">Ethiopian-owned auto shop in Seattle. Online booking, service management, Zelle & CashApp payments.</div>
-          <span class="wcard-metric" style="color:#F97316;border-color:rgba(249,115,22,.25);background:rgba(249,115,22,.07)">2× monthly bookings</span>
-        </div>
-        <div class="wcard-footer">
-          <span class="wcard-url">gmautorepair.com</span>
-          <span class="wcard-arrow">→</span>
-        </div>
-      </a>
+  function getPos(cardIdx, center) {
+    const diff = (cardIdx - center + TOTAL) % TOTAL;
+    if (diff === 0) return 'pos-center';
+    if (diff === 1) return 'pos-right';
+    if (diff === 2) return 'pos-far-right';
+    if (diff === TOTAL - 1) return 'pos-left';
+    if (diff === TOTAL - 2) return 'pos-far-left';
+    return 'pos-far-right';
+  }
 
-      <a class="wcard" href="about.html#contact">
-        <div class="wcard-top">
-          <div class="wcard-icon" style="background:rgba(196,163,90,.1);border:1px solid rgba(196,163,90,.2)"><div class="wcard-dot" style="background:#C4A35A"></div></div>
-          <span class="wcard-live" style="background:rgba(74,222,128,.08);border-color:rgba(74,222,128,.2);color:#4ADE80">● Live</span>
-        </div>
-        <div class="wcard-body">
-          <div class="wcard-cat" style="color:#C4A35A">Beauty Studio · DC</div>
-          <div class="wcard-name">Nice Braids</div>
-          <div class="wcard-desc">Premium Ethiopian hair braiding studio in Washington DC. Box braids, knotless, locs — fully bookable 24/7.</div>
-          <span class="wcard-metric" style="color:#C4A35A;border-color:rgba(196,163,90,.25);background:rgba(196,163,90,.07)">150+ clients served</span>
-        </div>
-        <div class="wcard-footer">
-          <span class="wcard-url">nicebraids.com</span>
-          <span class="wcard-arrow">→</span>
-        </div>
-      </a>
+  function goTo(idx) {
+    current = ((idx % TOTAL) + TOTAL) % TOTAL;
 
-      <a class="wcard" href="about.html#contact" style="grid-column:1/-1;max-width:540px">
-        <div class="wcard-top">
-          <div class="wcard-icon" style="background:rgba(20,184,166,.1);border:1px solid rgba(20,184,166,.2)"><div class="wcard-dot" style="background:#14B8A6"></div></div>
-          <span class="wcard-live" style="background:rgba(74,222,128,.08);border-color:rgba(74,222,128,.2);color:#4ADE80">● Live</span>
-        </div>
-        <div class="wcard-body">
-          <div class="wcard-cat" style="color:#14B8A6">Photography Studio · Addis Ababa</div>
-          <div class="wcard-name">Adismotion</div>
-          <div class="wcard-desc">Full-service photo & video studio. Digital galleries, client portals, and online delivery.</div>
-          <span class="wcard-metric" style="color:#14B8A6;border-color:rgba(20,184,166,.25);background:rgba(20,184,166,.07)">500+ shoots completed</span>
-        </div>
-        <div class="wcard-footer">
-          <span class="wcard-url">adismotion.com</span>
-          <span class="wcard-arrow">→</span>
-        </div>
-      </a>
+    cards.forEach((c, i) => { c.className = 'card ' + getPos(i, current); });
+    bgs.forEach((b, i)   => { b.classList.toggle('active', i === current); });
+    dots.forEach((d, i)  => { d.classList.toggle('active', i === current); });
+    inds.forEach((d, i)  => { d.classList.toggle('active', i === current); });
 
-    </div>
-  </div>
-</section>
+    document.getElementById('lbl-cat').textContent  = meta[current].cat;
+    document.getElementById('lbl-name').textContent = meta[current].name;
+    document.getElementById('counter').innerHTML    = '<em>' + meta[current].num + '</em> / 07';
 
-<footer>
-  <div class="ft">
-    <span class="ft-l">© 2026 Dinq Digital · ድንቅ ዲጂታል · Addis Ababa, Ethiopia</span>
-    <div class="ft-r">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="https://t.me/dinqdigital">Telegram</a>
-    </div>
-  </div>
-</footer>
+    progressBar.style.transition = 'none';
+    progressBar.style.width = '0%';
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      progressBar.style.transition = `width ${DURATION}ms linear`;
+      progressBar.style.width = '100%';
+    }));
+
+    clearInterval(timer);
+    timer = setInterval(() => goTo(current + 1), DURATION);
+  }
+
+  goTo(0);
+
+  document.getElementById('next-btn').onclick = () => goTo(current + 1);
+  document.getElementById('prev-btn').onclick = () => goTo(current - 1);
+  inds.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.idx)));
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') goTo(current + 1);
+    if (e.key === 'ArrowUp'   || e.key === 'ArrowLeft')  goTo(current - 1);
+  });
+
+  let ty = 0;
+  document.addEventListener('touchstart', e => { ty = e.touches[0].clientY; }, { passive: true });
+  document.addEventListener('touchend', e => {
+    const d = ty - e.changedTouches[0].clientY;
+    if (Math.abs(d) > 50) goTo(d > 0 ? current + 1 : current - 1);
+  }, { passive: true });
+
+  /* mouse parallax */
+  const track = document.getElementById('track');
+  document.addEventListener('mousemove', e => {
+    const mx = (e.clientX / window.innerWidth  - 0.5) * 16;
+    const my = (e.clientY / window.innerHeight - 0.5) * 9;
+    track.style.transform = `rotateY(${mx * .07}deg) rotateX(${-my * .05}deg)`;
+  });
+</script>
 </body>
 </html>
