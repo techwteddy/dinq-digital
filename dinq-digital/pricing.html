@@ -1,370 +1,742 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="Dinq Digital Pricing — Simple, honest pricing. No hidden fees. One-time project fees from $499."/>
-<title>Pricing · Dinq Digital</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Dinq Digital</title>
+<meta name="description" content="DinqOS platform pricing. Web design, video, and ads — request a quote and we'll plan it together.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--gold:#C4A35A;--gold-l:#DFBE7A;--gold-d:#8A6B2E;--void:#080808;--ink:#0e0e0e;--card:#111;--lift:#1a1a1a;--t1:#F2EDE4;--t2:rgba(242,237,228,.55);--t3:rgba(242,237,228,.28);--edge:rgba(196,163,90,.1);--r:10px}
-html{scroll-behavior:smooth;background:var(--void)}
-body{font-family:'Outfit',sans-serif;-webkit-font-smoothing:antialiased;color:var(--t1);overflow-x:hidden}
-body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.025;pointer-events:none;z-index:9999}
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.3rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(8,8,8,.95);backdrop-filter:blur(24px);border-bottom:1px solid rgba(196,163,90,.07)}
-.nlogo{display:flex;align-items:center;gap:.65rem;text-decoration:none}
-.nmark{width:28px;height:28px;border:1px solid var(--gold-d);border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:.78rem;color:var(--gold);transition:all .22s}
-.nlogo:hover .nmark{background:var(--gold);color:#080808;border-color:var(--gold)}
-.nlogo-txt{font-family:'Outfit',sans-serif;font-weight:600;font-size:.9rem;color:var(--t1)}
-.nlogo-txt em{color:var(--gold);font-style:normal}
-.nlinks{display:flex;align-items:center;gap:2rem;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
-.nlinks a{color:rgba(255,255,255,.4);text-decoration:none;font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:.2rem 0;position:relative;transition:color .2s}
-.nlinks a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width .25s}
-.nlinks a:hover,.nlinks a.cur{color:var(--t1)}
-.nlinks a:hover::after,.nlinks a.cur::after{width:100%}
-.nlinks a.cur{color:var(--gold)}
-.nright{display:flex;align-items:center;gap:1.75rem}
-.nright a{color:rgba(255,255,255,.35);text-decoration:none;font-size:.7rem;font-weight:400;letter-spacing:.04em;transition:color .2s}
-.nright a:hover{color:var(--t1)}
-.ntog{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:4px;padding:.2rem}
-.ntog span{display:block;width:18px;height:1.5px;background:var(--t1);border-radius:2px}
-#mm{position:fixed;inset:0;background:rgba(8,8,8,.98);z-index:490;display:none;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem}
-#mm.open{display:flex}
-#mm a{color:var(--t1);text-decoration:none;font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;transition:color .2s}
-#mm a:hover{color:var(--gold)}
-#mm .mm-x{position:absolute;top:1.5rem;right:2rem;background:none;border:none;color:rgba(255,255,255,.45);font-size:.85rem;cursor:pointer;font-family:'Outfit',sans-serif;letter-spacing:.1em;text-transform:uppercase}
+  :root {
+    --gold: #C4A35A;
+    --gold-light: #D4B96A;
+    --white: #ffffff;
+    --black: #0a0a0a;
+    --dark: #111111;
+    --nav-h: 64px;
+  }
 
-.hero{padding:9rem 2.5rem 5rem;position:relative;overflow:hidden;background:radial-gradient(ellipse 60% 55% at 55% 28%,rgba(40,7,65,.75),transparent 62%),#060508}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(196,163,90,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(196,163,90,.018) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
-.hero-tag{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1rem;display:flex;align-items:center;gap:.55rem}
-.hero-tag::before{content:'';display:inline-block;width:16px;height:1px;background:var(--gold-d)}
-.hero-h{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,6rem);font-weight:700;line-height:.95;letter-spacing:-.03em;color:#FFFFFF;margin-bottom:1.4rem}
-.hero-h em{font-style:italic;color:var(--gold)}
-.hero-sub{font-size:.9rem;color:var(--t2);font-weight:300;line-height:1.75;max-width:400px}
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+  }
 
-.mxw{max-width:1100px;margin:0 auto}
+  ::-webkit-scrollbar { width: 3px; }
+  ::-webkit-scrollbar-track { background: #000; }
+  ::-webkit-scrollbar-thumb { background: var(--gold); }
 
-/* PRICING TIERS */
-.pricing-section{padding:5rem 2.5rem 3rem;background:var(--void)}
-.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:rgba(255,255,255,.06);border-radius:18px;overflow:hidden;margin-top:3rem}
-.pc{background:var(--card);padding:2.5rem;display:flex;flex-direction:column;transition:background .28s;cursor:default;position:relative}
-.pc:hover{background:var(--lift)}
-.pc.feat{background:var(--lift);border-top:2px solid var(--gold)}
-.pop-b{position:absolute;top:0;right:0;background:var(--gold);color:#080808;font-size:.52rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.24rem .75rem;border-radius:0 0 0 8px}
-.pc-tier{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:.85rem}
-.pc-amt{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;line-height:1;margin-bottom:.2rem}
-.pc-per{font-size:.75rem;color:var(--t3);margin-bottom:1.5rem;font-weight:300}
-.pc-feats{list-style:none;flex:1;margin-bottom:1.75rem;display:flex;flex-direction:column;gap:.6rem}
-.pc-feats li{font-size:.78rem;color:var(--t2);display:flex;align-items:center;gap:.55rem;font-weight:300}
-.pc-feats li::before{content:'';display:inline-block;width:10px;height:1px;background:var(--gold-d);flex-shrink:0}
-.pc-feats li.off{color:var(--t3)}
-.pc-feats li.off::before{background:rgba(255,255,255,.12)}
-.pc-btn{display:block;text-align:center;padding:.75rem;font-size:.78rem;font-family:'Outfit',sans-serif;font-weight:600;border-radius:var(--r);cursor:pointer;transition:all .25s;border:none;text-decoration:none;letter-spacing:.03em}
-.pc-btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.14);color:var(--t2)}
-.pc-btn.ghost:hover{border-color:var(--gold-d);color:var(--t1)}
-.pc-btn.solid{background:var(--gold);color:#080808}
-.pc-btn.solid:hover{background:var(--gold-l)}
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-h);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+  }
+  .nav-logo {
+    text-decoration: none;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--white);
+    letter-spacing: -0.5px;
+    text-transform: lowercase;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-right { display: flex; align-items: center; gap: 20px; }
+  .nav-link {
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-link:hover, .nav-link.active { color: var(--white); }
+  .nav-wa {
+    display: flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    text-decoration: none;
+    transition: border-color 0.3s;
+  }
+  .nav-wa:hover { border-color: var(--gold); }
+  .nav-wa svg { width: 14px; height: 14px; fill: var(--white); }
 
-/* TRUST */
-.trust-section{padding:3rem 2.5rem 5rem;background:var(--void)}
-.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.06)}
-.ti{display:flex;align-items:flex-start;gap:.85rem}
-.ti-icon{font-size:1.3rem;flex-shrink:0;margin-top:.1rem}
-.ti h5{font-size:.8rem;font-weight:600;color:var(--t1);margin-bottom:.28rem}
-.ti p{font-size:.74rem;color:var(--t3);line-height:1.65;font-weight:300}
+  /* ── HERO ── */
+  #hero {
+    padding-top: calc(var(--nav-h) + 80px);
+    padding-bottom: 80px;
+    padding-left: 80px;
+    padding-right: 80px;
+    text-align: center;
+  }
+  .hero-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .hero-title {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 800;
+    font-size: clamp(44px, 7vw, 96px);
+    letter-spacing: -3px;
+    line-height: 0.9;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+  .hero-sub {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(15px, 1.4vw, 20px);
+    color: rgba(255,255,255,0.5);
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
 
-/* FAQ */
-.faq-section{padding:5rem 2.5rem;background:#0c0c0c;border-top:1px solid rgba(255,255,255,.04)}
-.sl{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1rem;display:flex;align-items:center;gap:.55rem}
-.sl::before{content:'';display:inline-block;width:16px;height:1px;background:var(--gold-d)}
-.sh{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;line-height:1.05;letter-spacing:-.02em;color:#FFFFFF;margin-bottom:.85rem}
-.sh em{font-style:italic;color:var(--gold)}
-.faq-list{margin-top:2.5rem;max-width:720px}
-.fi{border-top:1px solid rgba(255,255,255,.06)}
-.fi:last-child{border-bottom:1px solid rgba(255,255,255,.06)}
-.fq{width:100%;background:none;border:none;color:var(--t1);font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:500;padding:1.2rem 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;text-align:left;transition:color .2s}
-.fq:hover{color:var(--gold)}
-.fa-arrow{font-size:.68rem;color:var(--gold);transition:transform .28s;flex-shrink:0}
-.fa{font-size:.78rem;color:var(--t3);line-height:1.75;font-weight:300;max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.16,1,.3,1),padding .28s}
-.fi.open .fa{max-height:180px;padding-bottom:1.2rem}
-.fi.open .fa-arrow{transform:rotate(180deg)}
+  /* ── DINQOS SECTION ── */
+  #dinqos {
+    padding: 80px 80px 100px;
+    background: var(--dark);
+  }
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .section-title {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 800;
+    font-size: clamp(28px, 3.5vw, 48px);
+    letter-spacing: -1.5px;
+    text-transform: uppercase;
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  .section-sub {
+    text-align: center;
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 64px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-/* QUOTE FORM */
-.quote-section{padding:5rem 2.5rem 7rem;background:var(--void)}
-.quote-wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:start}
-.q-left h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#fff;line-height:1.05;letter-spacing:-.02em;margin-bottom:1rem}
-.q-left h2 em{font-style:italic;color:var(--gold)}
-.q-left p{font-size:.88rem;color:var(--t2);line-height:1.75;font-weight:300;max-width:360px;margin-bottom:2rem}
-.q-note{display:flex;align-items:flex-start;gap:.75rem;padding:1rem;background:rgba(196,163,90,.06);border:1px solid rgba(196,163,90,.12);border-radius:10px;margin-bottom:1rem}
-.q-note-icon{font-size:.9rem;flex-shrink:0;margin-top:.05rem}
-.q-note p{font-size:.75rem;color:var(--t2);line-height:1.6;font-weight:300;margin:0;max-width:none}
+  /* Tier cards */
+  .tiers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
 
-.qcard{background:#111;border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:2.25rem;box-shadow:0 32px 64px rgba(0,0,0,.5)}
-.qcard-title{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:#fff;margin-bottom:.3rem}
-.qcard-sub{font-size:.76rem;color:var(--t3);font-weight:300;margin-bottom:1.4rem;line-height:1.6}
-.wa-btn{display:flex;align-items:center;gap:.9rem;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.22);border-radius:12px;padding:.85rem 1.1rem;text-decoration:none;transition:all .22s;margin-bottom:1.4rem}
-.wa-btn:hover{background:rgba(37,211,102,.16);border-color:rgba(37,211,102,.38)}
-.wa-icon{width:36px;height:36px;background:#25D366;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
-.wa-text strong{display:block;font-size:.8rem;font-weight:600;color:#fff;margin-bottom:.1rem}
-.wa-text span{font-size:.68rem;color:rgba(255,255,255,.42);font-weight:300}
-.wa-arrow{margin-left:auto;color:rgba(255,255,255,.28);font-size:.78rem;transition:transform .22s}
-.wa-btn:hover .wa-arrow{transform:translateX(3px)}
-.fdiv{display:flex;align-items:center;gap:1rem;margin-bottom:1.4rem}
-.fdiv::before,.fdiv::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.06)}
-.fdiv span{font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.22);white-space:nowrap}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:.7rem}
-.frow.full{grid-template-columns:1fr}
-.fg label{display:block;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:.38rem;font-weight:500}
-.fg input,.fg select,.fg textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:var(--r);padding:.62rem .82rem;font-size:.8rem;color:var(--t1);font-family:'Outfit',sans-serif;outline:none;transition:border-color .2s;-webkit-appearance:none}
-.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.2)}
-.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:rgba(196,163,90,.32)}
-.fg select{color:rgba(255,255,255,.38);cursor:pointer}
-.fg select option{background:#111;color:#fff}
-.fg textarea{resize:vertical;min-height:75px;line-height:1.6}
-.srv-checks{display:flex;flex-wrap:wrap;gap:.38rem;margin-bottom:1rem}
-.srv-check{display:none}
-.srv-check+label{font-size:.7rem;padding:.28rem .75rem;border:1px solid rgba(255,255,255,.09);border-radius:99px;color:rgba(255,255,255,.4);cursor:pointer;transition:all .2s;font-weight:400}
-.srv-check:checked+label{border-color:var(--gold);color:var(--gold);background:rgba(196,163,90,.08)}
-.srv-check+label:hover{border-color:rgba(255,255,255,.22);color:var(--t1)}
-.submit-btn{width:100%;padding:.88rem;background:var(--gold);color:#080808;border:none;border-radius:var(--r);font-size:.82rem;font-weight:700;font-family:'Outfit',sans-serif;cursor:pointer;transition:all .25s;letter-spacing:.04em;margin-top:.2rem}
-.submit-btn:hover{background:var(--gold-l);transform:translateY(-1px)}
-.form-success{display:none;text-align:center;padding:2rem;color:var(--gold)}
-.form-success h4{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:.5rem}
-.form-success p{font-size:.78rem;color:var(--t3);font-weight:300}
+  .tier-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 40px 32px;
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .tier-card:hover {
+    border-color: rgba(196,163,90,0.3);
+    transform: translateY(-4px);
+  }
+  .tier-card.featured {
+    border-color: var(--gold);
+    background: rgba(196,163,90,0.05);
+  }
+  .tier-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: var(--black);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
 
-#floatBtn{position:fixed;bottom:2.25rem;left:50%;transform:translateX(-50%);z-index:400;display:flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.95);color:#080808;font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:700;padding:.6rem .6rem .6rem 1.4rem;border-radius:99px;text-decoration:none;border:none;cursor:pointer;box-shadow:0 8px 32px rgba(0,0,0,.4);transition:all .25s;white-space:nowrap}
-#floatBtn:hover{background:#fff;box-shadow:0 12px 40px rgba(0,0,0,.5);transform:translateX(-50%) translateY(-2px)}
-#floatBtn .pa{width:30px;height:30px;background:#080808;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;color:#fff;transition:all .22s}
-#floatBtn:hover .pa{background:var(--gold);color:#080808}
+  .tier-name {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+  .tier-price {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+  .tier-currency {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    color: rgba(255,255,255,0.5);
+  }
+  .tier-amount {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 800;
+    font-size: 56px;
+    letter-spacing: -3px;
+    color: var(--white);
+    line-height: 1;
+  }
+  .tier-amount.custom-text {
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+  .tier-period {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 28px;
+  }
 
-footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.05);padding:3rem 2.5rem 2.25rem}
-.ft{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-.ft-l{font-size:.62rem;color:rgba(255,255,255,.18);letter-spacing:.06em}
-.ft-r{display:flex;gap:2rem}
-.ft-r a{font-size:.62rem;color:rgba(255,255,255,.25);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
-.ft-r a:hover{color:var(--gold)}
+  .tier-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.06);
+    margin-bottom: 28px;
+  }
 
-@media(max-width:1024px){.nlinks{gap:1.25rem}.nlinks a{font-size:.66rem}.price-grid{grid-template-columns:1fr}.trust-grid{grid-template-columns:1fr 1fr}.quote-wrap{grid-template-columns:1fr;gap:3.5rem}}
-@media(max-width:768px){
-  nav{padding:1.1rem 1.5rem}
-  .nlinks,.nright{display:none}
-  .ntog{display:flex}
-  .hero{padding:7rem 1.5rem 4rem}
-  .pricing-section,.trust-section,.faq-section,.quote-section{padding:4rem 1.5rem}
-  .trust-grid{grid-template-columns:1fr}
-  .frow{grid-template-columns:1fr}
-  #floatBtn{font-size:.72rem;padding:.55rem .55rem .55rem 1.2rem}
-  #floatBtn .pa{width:26px;height:26px}
-}
+  .tier-features {
+    list-style: none;
+    margin-bottom: 36px;
+  }
+  .tier-features li {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    padding: 7px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.4;
+  }
+  .tier-features li::before {
+    content: '—';
+    color: var(--gold);
+    flex-shrink: 0;
+    font-size: 12px;
+    margin-top: 1px;
+  }
+  .tier-features li.dim { color: rgba(255,255,255,0.25); }
+  .tier-features li.dim::before { color: rgba(255,255,255,0.1); }
+
+  .tier-btn {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+  }
+  .tier-btn-outline {
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.7);
+  }
+  .tier-btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--white);
+  }
+  .tier-btn-gold {
+    background: var(--gold);
+    color: var(--black);
+    border: 1px solid var(--gold);
+  }
+  .tier-btn-gold:hover { background: var(--gold-light); }
+
+  .tier-note {
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.2);
+    margin-top: 32px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  /* ── SERVICES SECTION ── */
+  #services {
+    padding: 100px 80px;
+    background: var(--black);
+  }
+
+  .services-intro {
+    max-width: 600px;
+    margin: 0 auto 64px;
+    text-align: center;
+  }
+
+  .service-rows {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .service-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    gap: 40px;
+  }
+  .service-row:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
+
+  .service-row-left { flex: 1; }
+  .service-row-name {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.5px;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .service-row-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.5;
+    max-width: 440px;
+  }
+  .service-row-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+  }
+  .service-price-label {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 14px;
+    color: rgba(255,255,255,0.3);
+    white-space: nowrap;
+  }
+  .service-quote-btn {
+    padding: 10px 22px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 100px;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    white-space: nowrap;
+  }
+  .service-quote-btn:hover {
+    border-color: var(--gold);
+    color: var(--white);
+  }
+
+  /* ── QUOTE CTA ── */
+  #quote-cta {
+    padding: 100px 80px;
+    background: var(--dark);
+    text-align: center;
+  }
+  .cta-title {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 800;
+    font-size: clamp(36px, 5vw, 72px);
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 16px;
+    line-height: 0.95;
+  }
+  .cta-sub {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 17px;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 40px;
+  }
+  .cta-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .cta-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 32px;
+    background: #25D366;
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .cta-btn-primary:hover { background: #1ebe5a; transform: translateY(-2px); }
+  .cta-btn-primary svg { width: 16px; height: 16px; fill: var(--white); }
+  .cta-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 32px;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+  }
+  .cta-btn-secondary:hover { border-color: var(--gold); color: var(--white); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    padding: 60px 80px 40px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+    max-width: 1200px;
+  }
+  .footer-brand-name {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--white);
+    letter-spacing: -0.5px;
+    text-transform: lowercase;
+    margin-bottom: 12px;
+  }
+  .footer-brand-name span { color: var(--gold); }
+  .footer-tagline { font-size: 12px; color: rgba(255,255,255,0.3); line-height: 1.6; max-width: 220px; }
+  .footer-col-title { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 16px; font-weight: 500; }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 8px; }
+  .footer-links a { font-size: 13px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 11px; color: rgba(255,255,255,0.2); }
+
+  /* ── PILL ── */
+  #pill {
+    position: fixed; bottom: 36px; left: 50%; transform: translateX(-50%);
+    z-index: 1001; display: flex; align-items: center;
+    background: rgba(15,15,15,0.75); backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.12); border-radius: 100px; overflow: hidden;
+    transition: opacity 0.4s, transform 0.4s;
+  }
+  #pill.hidden { opacity: 0; transform: translateX(-50%) translateY(16px); pointer-events: none; }
+  #pill-link { display: flex; align-items: center; gap: 10px; padding: 13px 26px; text-decoration: none; color: var(--white); font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; transition: background 0.3s; }
+  #pill-link:hover { background: rgba(255,255,255,0.05); }
+  #pill-link svg { width: 13px; height: 13px; fill: #25D366; }
+  #pill-close { width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; background: none; border: none; border-left: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.35); font-size: 16px; cursor: pointer; transition: color 0.3s; }
+  #pill-close:hover { color: var(--white); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; }
+    .nav-link { display: none; }
+    #hero, #dinqos, #services, #quote-cta, footer { padding-left: 24px; padding-right: 24px; }
+    .tiers { grid-template-columns: 1fr; max-width: 420px; }
+    .service-row { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    #pill { bottom: 20px; }
+  }
 </style>
 </head>
 <body>
 
-<div id="mm">
-  <button class="mm-x" onclick="document.getElementById('mm').classList.remove('open')">✕ Close</button>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="work.html">Work</a>
-  <a href="#quote">Get a Quote</a>
-  <a href="https://app.dinqdigital.com/login" style="color:var(--gold)">Login →</a>
-</div>
-
 <nav>
-  <a href="index.html" class="nlogo">
-    <div class="nmark">D</div>
-    <span class="nlogo-txt">Dinq<em>Digital</em></span>
-  </a>
-  <ul class="nlinks">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="work.html">Work</a></li>
-    <li><a href="pricing.html" class="cur">Pricing</a></li>
-    <li><a href="#quote">Get a Quote</a></li>
-  </ul>
-  <div class="nright">
-    <a href="https://app.dinqdigital.com/login">app.dinqdigital.com</a>
-    <a href="mailto:dinqdigital@gmail.com">dinqdigital@gmail.com</a>
-    <button class="ntog" onclick="document.getElementById('mm').classList.add('open')"><span></span><span></span><span></span></button>
+  <a href="index.html" class="nav-logo">dinq digital<span>.</span></a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="work.html" class="nav-link">Work</a>
+    <a href="pricing.html" class="nav-link active">Pricing</a>
+    <a href="https://app.dinqdigital.com" class="nav-link">Platform</a>
+    <a href="https://wa.me/251900000000" class="nav-wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+    </a>
   </div>
 </nav>
 
-<a href="#quote" id="floatBtn">Get a Quote <div class="pa">↗</div></a>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-label">Pricing</div>
+  <h1 class="hero-title">Pay Nothing.<br>Plan Everything.</h1>
+  <p class="hero-sub">DinqOS has clear monthly pricing. For everything else — we talk first, then we price. No surprises.</p>
+</section>
 
-<div class="hero">
-  <div class="hero-grid"></div>
-  <div class="mxw">
-    <div class="hero-tag">Pricing · Simple & Honest</div>
-    <h1 class="hero-h">Simple. Honest.<br><em>No surprises.</em></h1>
-    <p class="hero-sub">One-time project fees. Quote in USD or ETB. 50% to start, 50% on delivery. No hidden costs.</p>
+<!-- DINQOS TIERS -->
+<section id="dinqos">
+  <div class="section-label">DinqOS Platform</div>
+  <h2 class="section-title">Business OS Pricing</h2>
+  <p class="section-sub">One subscription. Your vertical. All modules included.</p>
+
+  <div class="tiers">
+
+    <!-- Starter -->
+    <div class="tier-card">
+      <div class="tier-name">Starter</div>
+      <div class="tier-price">
+        <span class="tier-currency">$</span>
+        <span class="tier-amount">29</span>
+      </div>
+      <div class="tier-period">per month</div>
+      <div class="tier-divider"></div>
+      <ul class="tier-features">
+        <li>1 admin account</li>
+        <li>1 business vertical</li>
+        <li>All core modules included</li>
+        <li>Client-facing dashboard</li>
+        <li>Email support</li>
+        <li class="dim">Multi-location</li>
+        <li class="dim">Priority support</li>
+        <li class="dim">Custom branding</li>
+      </ul>
+      <a href="about.html#contact" class="tier-btn tier-btn-outline">Get Started</a>
+    </div>
+
+    <!-- Growth -->
+    <div class="tier-card featured">
+      <div class="tier-badge">Most Popular</div>
+      <div class="tier-name">Growth</div>
+      <div class="tier-price">
+        <span class="tier-currency">$</span>
+        <span class="tier-amount">49</span>
+      </div>
+      <div class="tier-period">per month</div>
+      <div class="tier-divider"></div>
+      <ul class="tier-features">
+        <li>3 admin accounts</li>
+        <li>1 business vertical</li>
+        <li>All core modules included</li>
+        <li>Client-facing dashboard</li>
+        <li>Priority email support</li>
+        <li>Multi-location support</li>
+        <li class="dim">Custom branding</li>
+        <li class="dim">Dedicated onboarding</li>
+      </ul>
+      <a href="about.html#contact" class="tier-btn tier-btn-gold">Get Started</a>
+    </div>
+
+    <!-- Custom -->
+    <div class="tier-card">
+      <div class="tier-name">Custom</div>
+      <div class="tier-price">
+        <span class="tier-amount custom-text">Let's Talk</span>
+      </div>
+      <div class="tier-period">tailored to your needs</div>
+      <div class="tier-divider"></div>
+      <ul class="tier-features">
+        <li>Unlimited admin accounts</li>
+        <li>Multiple verticals</li>
+        <li>All modules included</li>
+        <li>Custom branding & white-label</li>
+        <li>Dedicated onboarding</li>
+        <li>Priority & phone support</li>
+        <li>Custom integrations</li>
+        <li>SLA agreement</li>
+      </ul>
+      <a href="https://wa.me/251900000000" class="tier-btn tier-btn-outline" target="_blank" rel="noopener">Contact Us</a>
+    </div>
+
   </div>
-</div>
+  <p class="tier-note">All plans include access to your vertical's full module suite. Cancel anytime. Pricing in USD — ETB pricing available on request.</p>
+</section>
 
-<section class="pricing-section">
-  <div class="mxw">
-    <div class="price-grid">
-      <div class="pc">
-        <div class="pc-tier">Starter</div>
-        <div class="pc-amt"><sup style="font-size:1rem;vertical-align:super;color:var(--gold)">$</sup>499</div>
-        <div class="pc-per">One-time · 14-day delivery</div>
-        <ul class="pc-feats">
-          <li>Up to 5 pages</li>
-          <li>Mobile responsive</li>
-          <li>SEO foundation</li>
-          <li>Contact form</li>
-          <li class="off">DinqOS access</li>
-          <li class="off">Payment integration</li>
-        </ul>
-        <a href="#quote" class="pc-btn ghost">Get Started</a>
+<!-- SERVICES (quote-only) -->
+<section id="services">
+  <div class="services-intro">
+    <div class="section-label">Creative & Web Services</div>
+    <h2 class="section-title">Custom Pricing</h2>
+    <p class="section-sub" style="margin-bottom:0">Every project is different. Tell us what you need — we'll plan it together and give you an honest estimate. No obligation.</p>
+  </div>
+
+  <div class="service-rows">
+
+    <div class="service-row">
+      <div class="service-row-left">
+        <div class="service-row-name">Website Creation</div>
+        <div class="service-row-desc">Custom-built websites designed to convert. No templates, no shortcuts.</div>
       </div>
-      <div class="pc feat">
-        <div class="pop-b">Most Popular</div>
-        <div class="pc-tier">Growth</div>
-        <div class="pc-amt"><sup style="font-size:1rem;vertical-align:super;color:var(--gold)">$</sup>1,499</div>
-        <div class="pc-per">One-time · 30-day delivery</div>
-        <ul class="pc-feats">
-          <li>Up to 15 pages</li>
-          <li>E-commerce ready</li>
-          <li>Telebirr + Stripe</li>
-          <li>DinqOS (1 month)</li>
-          <li>30-day support</li>
-          <li>Custom integrations</li>
-        </ul>
-        <a href="#quote" class="pc-btn solid">Get Started</a>
-      </div>
-      <div class="pc">
-        <div class="pc-tier">Enterprise</div>
-        <div class="pc-amt" style="font-size:2rem">Custom</div>
-        <div class="pc-per">Full system · Ongoing</div>
-        <ul class="pc-feats">
-          <li>Full SaaS product</li>
-          <li>Payments + AI</li>
-          <li>Custom integrations</li>
-          <li>White-label DinqOS</li>
-          <li>Dedicated support</li>
-          <li>Ongoing partnership</li>
-        </ul>
-        <a href="#quote" class="pc-btn ghost">Book a Call</a>
+      <div class="service-row-right">
+        <span class="service-price-label">Custom quote</span>
+        <a href="about.html#contact" class="service-quote-btn">Request →</a>
       </div>
     </div>
-    <p style="text-align:center;margin-top:1.75rem;font-size:.74rem;color:rgba(255,255,255,.3);font-weight:300">DinqOS monthly: <strong style="color:rgba(255,255,255,.55)">$10</strong> Starter · <strong style="color:rgba(255,255,255,.55)">$20</strong> Growth · <strong style="color:rgba(255,255,255,.55)">$50</strong> Gold · ETB pricing available for Ethiopia-based clients</p>
+
+    <div class="service-row">
+      <div class="service-row-left">
+        <div class="service-row-name">Website Redesign</div>
+        <div class="service-row-desc">We audit, redesign, and rebuild your existing site for better performance and conversions.</div>
+      </div>
+      <div class="service-row-right">
+        <span class="service-price-label">Custom quote</span>
+        <a href="about.html#contact" class="service-quote-btn">Request →</a>
+      </div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-row-left">
+        <div class="service-row-name">E-Commerce</div>
+        <div class="service-row-desc">Full online store with product management, inventory, checkout, and payment integration.</div>
+      </div>
+      <div class="service-row-right">
+        <span class="service-price-label">Custom quote</span>
+        <a href="about.html#contact" class="service-quote-btn">Request →</a>
+      </div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-row-left">
+        <div class="service-row-name">Video Production</div>
+        <div class="service-row-desc">Brand videos, social reels, product showcases. We handle concept, filming, and editing.</div>
+      </div>
+      <div class="service-row-right">
+        <span class="service-price-label">Custom quote</span>
+        <a href="about.html#contact" class="service-quote-btn">Request →</a>
+      </div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-row-left">
+        <div class="service-row-name">Social Media & Ads</div>
+        <div class="service-row-desc">Content creation, community management, Meta Ads, and monthly analytics reporting.</div>
+      </div>
+      <div class="service-row-right">
+        <span class="service-price-label">Custom quote</span>
+        <a href="about.html#contact" class="service-quote-btn">Request →</a>
+      </div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-row-left">
+        <div class="service-row-name">Growth / SEO</div>
+        <div class="service-row-desc">Technical SEO, content strategy, and Core Web Vitals improvements to drive measurable growth.</div>
+      </div>
+      <div class="service-row-right">
+        <span class="service-price-label">Custom quote</span>
+        <a href="about.html#contact" class="service-quote-btn">Request →</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<section class="trust-section">
-  <div class="mxw">
-    <div class="trust-grid">
-      <div class="ti"><div class="ti-icon">🔒</div><div><h5>No hidden fees</h5><p>The price you see is what you pay. We quote in full before any work starts.</p></div></div>
-      <div class="ti"><div class="ti-icon">⚡</div><div><h5>Fast delivery</h5><p>Starter sites ship in 14 days. Growth projects in 30. We move fast so you can too.</p></div></div>
-      <div class="ti"><div class="ti-icon">💬</div><div><h5>Real support</h5><p>Direct line to the team — not a ticket queue. WhatsApp, Telegram, or email.</p></div></div>
-    </div>
+<!-- QUOTE CTA -->
+<section id="quote-cta">
+  <h2 class="cta-title">Not Sure<br>Where To Start?</h2>
+  <p class="cta-sub"><em>Tell us about your business. We'll figure out the rest.</em></p>
+  <div class="cta-btns">
+    <a href="https://wa.me/251900000000" class="cta-btn-primary" target="_blank" rel="noopener">
+      <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+      Chat on WhatsApp
+    </a>
+    <a href="about.html#contact" class="cta-btn-secondary">Send a Request</a>
   </div>
 </section>
 
-<section class="faq-section">
-  <div class="mxw">
-    <div class="sl">FAQ</div>
-    <h2 class="sh">Common<br><em>questions.</em></h2>
-    <div class="faq-list">
-      <div class="fi"><button class="fq" onclick="toggleFaq(this)">Do I need to pay everything upfront? <span class="fa-arrow">↓</span></button><div class="fa">No. We work on a 50/50 structure — 50% to start, 50% on delivery. For Enterprise projects we discuss a milestone-based schedule.</div></div>
-      <div class="fi"><button class="fq" onclick="toggleFaq(this)">Can I pay in Ethiopian Birr? <span class="fa-arrow">↓</span></button><div class="fa">Yes. We accept ETB via Telebirr or CBE, and we'll quote your project in local currency if you're based in Ethiopia.</div></div>
-      <div class="fi"><button class="fq" onclick="toggleFaq(this)">What happens after the site launches? <span class="fa-arrow">↓</span></button><div class="fa">You get 30 days of included support after launch. After that, we offer ongoing DinqOS subscriptions and care plans starting from $10/month.</div></div>
-      <div class="fi"><button class="fq" onclick="toggleFaq(this)">I'm in the US / diaspora — can you still work with me? <span class="fa-arrow">↓</span></button><div class="fa">Absolutely. Many of our clients are Ethiopian diaspora businesses in the US, UK, and Canada. We work across time zones and accept Zelle, CashApp, and PayPal.</div></div>
-      <div class="fi"><button class="fq" onclick="toggleFaq(this)">What is DinqOS exactly? <span class="fa-arrow">↓</span></button><div class="fa">DinqOS is our 42-module business operating system — CRM, invoicing, Kanban boards, booking pages, WhatsApp inbox, AI assistant, and analytics — all connected under one login. Try it live at app.dinqdigital.com.</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="quote-section" id="quote">
-  <div class="mxw">
-    <div class="quote-wrap">
-      <div class="q-left">
-        <div class="sl">Get a Quote</div>
-        <h2>Know the cost.<br><em>Unlock the growth.</em></h2>
-        <p>This quote is provided as an estimate to help with planning and budgeting. The exact final price will be confirmed after review by our team.</p>
-        <div class="q-note">
-          <span class="q-note-icon">⚡</span>
-          <p>We typically respond within 24 hours. For urgent projects, reach us directly on WhatsApp or Telegram.</p>
-        </div>
-        <div class="q-note">
-          <span class="q-note-icon">🌍</span>
-          <p>We serve clients in Ethiopia, US, UK, Canada, UAE, and beyond. Payments in USD, ETB, GBP, and more.</p>
-        </div>
-      </div>
-      <div class="qcard">
-        <div class="qcard-title">Send Your Request</div>
-        <div class="qcard-sub">Tell us about your project and we'll get back within 24 hours.</div>
-        <a href="https://wa.me/251900000000" class="wa-btn" target="_blank">
-          <div class="wa-icon">💬</div>
-          <div class="wa-text">
-            <strong>Start a WhatsApp Conversation</strong>
-            <span>Get a faster response — we're usually online</span>
-          </div>
-          <span class="wa-arrow">→</span>
-        </a>
-        <div class="fdiv"><span>or fill the form</span></div>
-        <form id="qForm" onsubmit="submitQuote(event)">
-          <div class="frow">
-            <div class="fg"><label>Name *</label><input type="text" placeholder="Your name" required/></div>
-            <div class="fg"><label>Email *</label><input type="email" placeholder="your@email.com" required/></div>
-          </div>
-          <div class="frow">
-            <div class="fg"><label>Phone</label><input type="tel" placeholder="+1 234 567 8900"/></div>
-            <div class="fg">
-              <label>Country</label>
-              <select>
-                <option value="">Select</option>
-                <option>Ethiopia</option><option>United States</option><option>United Kingdom</option>
-                <option>Canada</option><option>UAE</option><option>Germany</option><option>Other</option>
-              </select>
-            </div>
-          </div>
-          <div class="frow full">
-            <div class="fg">
-              <label style="display:block;margin-bottom:.5rem">What do you need? *</label>
-              <div class="srv-checks">
-                <input type="checkbox" class="srv-check" id="q1"/><label for="q1">Website Creation</label>
-                <input type="checkbox" class="srv-check" id="q2"/><label for="q2">Website Redesign</label>
-                <input type="checkbox" class="srv-check" id="q3"/><label for="q3">E-Commerce</label>
-                <input type="checkbox" class="srv-check" id="q4"/><label for="q4">DinqOS Platform</label>
-                <input type="checkbox" class="srv-check" id="q5"/><label for="q5">Payments</label>
-                <input type="checkbox" class="srv-check" id="q6"/><label for="q6">Other</label>
-              </div>
-            </div>
-          </div>
-          <div class="frow full">
-            <div class="fg"><label>Message</label><textarea placeholder="Tell us about your business..."></textarea></div>
-          </div>
-          <button type="submit" class="submit-btn">Send Request →</button>
-        </form>
-        <div class="form-success" id="qSuccess">
-          <h4>✓ Request Sent!</h4>
-          <p>Thanks! We'll get back within 24 hours.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- FOOTER -->
 <footer>
-  <div class="ft">
-    <span class="ft-l">© 2026 Dinq Digital · ድንቅ ዲጂታል · Addis Ababa, Ethiopia</span>
-    <div class="ft-r">
-      <a href="index.html">Home</a>
-      <a href="work.html">Work</a>
-      <a href="about.html">About</a>
-      <a href="https://t.me/dinqdigital">Telegram</a>
-      <a href="https://app.dinqdigital.com/login">Login</a>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">dinq digital<span>.</span></div>
+      <p class="footer-tagline">Ethiopian web design and software studio. Building DinqOS — a 42-module business OS across 15 verticals.</p>
     </div>
+    <div>
+      <div class="footer-col-title">Pages</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Platform</div>
+      <ul class="footer-links">
+        <li><a href="https://app.dinqdigital.com">DinqOS</a></li>
+        <li><a href="https://app.dinqdigital.com/login">Client Login</a></li>
+        <li><a href="about.html#services">Services</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:dinqdigital@gmail.com">dinqdigital@gmail.com</a></li>
+        <li><a href="https://wa.me/251900000000">WhatsApp</a></li>
+        <li><a href="https://t.me/dinqdigital">Telegram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Dinq Digital. All rights reserved.</span>
+    <span>Addis Ababa, Ethiopia</span>
   </div>
 </footer>
 
+<div id="pill">
+  <a id="pill-link" href="about.html#contact">
+    <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+    Get Started
+  </a>
+  <button id="pill-close" aria-label="Dismiss">×</button>
+</div>
+
 <script>
-function toggleFaq(btn){const item=btn.closest('.fi');const was=item.classList.contains('open');document.querySelectorAll('.fi.open').forEach(el=>el.classList.remove('open'));if(!was)item.classList.add('open')}
-function submitQuote(e){e.preventDefault();const btn=e.target.querySelector('.submit-btn');btn.disabled=true;btn.textContent='Sending...';setTimeout(()=>{document.getElementById('qForm').style.display='none';document.getElementById('qSuccess').style.display='block'},1200)}
+  document.getElementById('pill-close').onclick = () => document.getElementById('pill').classList.add('hidden');
 </script>
 </body>
 </html>
