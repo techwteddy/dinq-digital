@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Dinq Digital Work — Real products, real results across fintech, SaaS, e-commerce and more."/>
+<title>Work · Dinq Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--gold:#C4A35A;--gold-l:#DFBE7A;--gold-d:#8A6B2E;--void:#080808;--ink:#0e0e0e;--card:#111;--t1:#F2EDE4;--t2:rgba(242,237,228,.55);--t3:rgba(242,237,228,.28);--edge:rgba(196,163,90,.1);--r:12px}
+html{scroll-behavior:smooth;background:var(--void)}
+body{font-family:'Outfit',sans-serif;-webkit-font-smoothing:antialiased;color:var(--t1);overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.025;pointer-events:none;z-index:9999}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.3rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(8,8,8,.95);backdrop-filter:blur(24px);border-bottom:1px solid rgba(196,163,90,.07)}
+.nlogo{display:flex;align-items:center;gap:.65rem;text-decoration:none}
+.nmark{width:28px;height:28px;border:1px solid var(--gold-d);border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:.78rem;color:var(--gold);transition:all .22s}
+.nlogo:hover .nmark{background:var(--gold);color:#080808;border-color:var(--gold)}
+.nlogo-txt{font-family:'Outfit',sans-serif;font-weight:600;font-size:.9rem;color:var(--t1)}
+.nlogo-txt em{color:var(--gold);font-style:normal}
+.nlinks{display:flex;align-items:center;gap:2rem;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
+.nlinks a{color:rgba(255,255,255,.4);text-decoration:none;font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:.2rem 0;position:relative;transition:color .2s}
+.nlinks a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width .25s}
+.nlinks a:hover,.nlinks a.cur{color:var(--t1)}
+.nlinks a:hover::after,.nlinks a.cur::after{width:100%}
+.nlinks a.cur{color:var(--gold)}
+.nright{display:flex;align-items:center;gap:1.75rem}
+.nright a{color:rgba(255,255,255,.35);text-decoration:none;font-size:.7rem;font-weight:400;letter-spacing:.04em;transition:color .2s}
+.nright a:hover{color:var(--t1)}
+.ntog{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:4px;padding:.2rem}
+.ntog span{display:block;width:18px;height:1.5px;background:var(--t1);border-radius:2px}
+#mm{position:fixed;inset:0;background:rgba(8,8,8,.98);z-index:490;display:none;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem}
+#mm.open{display:flex}
+#mm a{color:var(--t1);text-decoration:none;font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;transition:color .2s}
+#mm a:hover{color:var(--gold)}
+#mm .mm-x{position:absolute;top:1.5rem;right:2rem;background:none;border:none;color:rgba(255,255,255,.45);font-size:.85rem;cursor:pointer;font-family:'Outfit',sans-serif;letter-spacing:.1em;text-transform:uppercase}
+
+/* HERO */
+.hero{padding:9rem 2.5rem 5rem;position:relative;overflow:hidden;background:radial-gradient(ellipse 65% 55% at 60% 30%,rgba(90,38,6,.7),transparent 62%),#060508}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(196,163,90,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(196,163,90,.018) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
+.hero-tag{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1rem;display:flex;align-items:center;gap:.55rem}
+.hero-tag::before{content:'';display:inline-block;width:16px;height:1px;background:var(--gold-d)}
+.hero-h{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,6rem);font-weight:700;line-height:.95;letter-spacing:-.03em;color:#FFFFFF;margin-bottom:1.4rem}
+.hero-h em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:.9rem;color:var(--t2);font-weight:300;line-height:1.75;max-width:420px}
+
+/* WORK GRID */
+.work-section{padding:5rem 2.5rem 7rem;background:var(--void)}
+.mxw{max-width:1100px;margin:0 auto}
+.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2.5rem}
+.wcard{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:18px;overflow:hidden;transition:all .32s;cursor:pointer;text-decoration:none;display:block;position:relative}
+.wcard:hover{transform:translateY(-5px);box-shadow:0 24px 48px rgba(0,0,0,.5);border-color:rgba(196,163,90,.18)}
+.wcard-top{padding:2rem 2rem 1.25rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.wcard-icon{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.wcard-dot{width:10px;height:10px;border-radius:50%}
+.wcard-live{font-size:.52rem;font-weight:600;padding:.18rem .55rem;border-radius:99px;display:inline-flex;align-items:center;gap:.3rem}
+.wcard-body{padding:0 2rem 1.5rem}
+.wcard-cat{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;margin-bottom:.5rem}
+.wcard-name{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:.5rem}
+.wcard-desc{font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.7;font-weight:300;margin-bottom:1.1rem}
+.wcard-metric{display:inline-flex;align-items:center;gap:.4rem;font-size:.65rem;font-weight:600;padding:.22rem .7rem;border-radius:99px;border-style:solid;border-width:1px}
+.wcard-footer{padding:.9rem 2rem;border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:space-between}
+.wcard-url{font-size:.65rem;color:rgba(255,255,255,.25);font-weight:300;letter-spacing:.04em}
+.wcard-arrow{font-size:.75rem;color:rgba(255,255,255,.25);transition:all .22s}
+.wcard:hover .wcard-arrow{color:var(--gold);transform:translateX(3px)}
+
+/* FLOATING PILL */
+#floatBtn{position:fixed;bottom:2.25rem;left:50%;transform:translateX(-50%);z-index:400;display:flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.95);color:#080808;font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:700;padding:.6rem .6rem .6rem 1.4rem;border-radius:99px;text-decoration:none;border:none;cursor:pointer;box-shadow:0 8px 32px rgba(0,0,0,.4);transition:all .25s;white-space:nowrap}
+#floatBtn:hover{background:#fff;box-shadow:0 12px 40px rgba(0,0,0,.5);transform:translateX(-50%) translateY(-2px)}
+#floatBtn .pa{width:30px;height:30px;background:#080808;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;color:#fff;transition:all .22s}
+#floatBtn:hover .pa{background:var(--gold);color:#080808}
+
+footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.05);padding:3rem 2.5rem 2.25rem}
+.ft{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.ft-l{font-size:.62rem;color:rgba(255,255,255,.18);letter-spacing:.06em}
+.ft-r{display:flex;gap:2rem}
+.ft-r a{font-size:.62rem;color:rgba(255,255,255,.25);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.ft-r a:hover{color:var(--gold)}
+
+@media(max-width:1024px){.nlinks{gap:1.25rem}.nlinks a{font-size:.66rem}}
+@media(max-width:768px){
+  nav{padding:1.1rem 1.5rem}
+  .nlinks,.nright{display:none}
+  .ntog{display:flex}
+  .work-grid{grid-template-columns:1fr}
+  .hero{padding:7rem 1.5rem 4rem}
+  .work-section{padding:4rem 1.5rem 6rem}
+  #floatBtn{font-size:.72rem;padding:.55rem .55rem .55rem 1.2rem}
+  #floatBtn .pa{width:26px;height:26px}
+}
+</style>
+</head>
+<body>
+
+<div id="mm">
+  <button class="mm-x" onclick="document.getElementById('mm').classList.remove('open')">✕ Close</button>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="about.html#contact">Contact</a>
+  <a href="https://app.dinqdigital.com/login" style="color:var(--gold)">Login →</a>
+</div>
+
+<nav>
+  <a href="index.html" class="nlogo">
+    <div class="nmark">D</div>
+    <span class="nlogo-txt">Dinq<em>Digital</em></span>
+  </a>
+  <ul class="nlinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="work.html" class="cur">Work</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="about.html#contact">Contact</a></li>
+  </ul>
+  <div class="nright">
+    <a href="https://app.dinqdigital.com/login">app.dinqdigital.com</a>
+    <a href="mailto:dinqdigital@gmail.com">dinqdigital@gmail.com</a>
+    <button class="ntog" onclick="document.getElementById('mm').classList.add('open')"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<a href="about.html#contact" id="floatBtn">Get Started <div class="pa">↗</div></a>
+
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="mxw">
+    <div class="hero-tag">Selected Work · 7 Projects</div>
+    <h1 class="hero-h">Real products.<br><em>Real results.</em></h1>
+    <p class="hero-sub">Fintech, SaaS, e-commerce, auto repair, beauty, photography, and export brands — from Addis Ababa to Seattle, DC, and beyond.</p>
+  </div>
+</div>
+
+<section class="work-section">
+  <div class="mxw">
+    <div class="work-grid">
+
+      <a class="wcard" href="about.html#contact">
+        <div class="wcard-top">
+          <div class="wcard-icon" style="background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.2)"><div class="wcard-dot" style="background:#60A5FA"></div></div>
+          <span class="wcard-live" style="background:rgba(74,222,128,.08);border-color:rgba(74,222,128,.2);color:#4ADE80">● Live</span>
+        </div>
+        <div class="wcard-body">
+          <div class="wcard-cat" style="color:#60A5FA">Fintech Platform</div>
+          <div class="wcard-name">eQub Pay</div>
+          <div class="wcard-desc">Digital Iqub savings groups for modern Ethiopia. Join, track contributions, receive payouts — all digital, all secure.</div>
+          <span class="wcard-metric" style="color:#60A5FA;border-color:rgba(96,165,250,.25);background:rgba(96,165,250,.07)">5K+ active users</span>
+        </div>
+        <div class="wcard-footer">
+          <span class="wcard-url">app.equbpay.com</span>
+          <span class="wcard-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="wcard" href="about.html#contact">
+        <div class="wcard-top">
+          <div class="wcard-icon" style="background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2)"><div class="wcard-dot" style="background:#F59E0B"></div></div>
+          <span class="wcard-live" style="background:rgba(74,222,128,.08);border-color:rgba(74,222,128,.2);color:#4ADE80">● Live</span>
+        </div>
+        <div class="wcard-body">
+          <div class="wcard-cat" style="color:#F59E0B">E-Commerce</div>
+          <div class="wcard-name">Arif Market</div>
+          <div class="wcard-desc">Ethiopian goods delivered locally and internationally. Pay with Telebirr or card. Built with full inventory management.</div>
+          <span class="wcard-metric" style="color:#F59E0B;border-color:rgba(245,158,11,.25);background:rgba(245,158,11,.07)">3× revenue growth</span>
+        </div>
+        <div class="wcard-footer">
+          <span class="wcard-url">arifmarket.com</span>
+          <span class="wcard-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="wcard" href="about.html#contact">
+        <div class="wcard-top">
+          <div class="wcard-icon" style="background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.2)"><div class="wcard-dot" style="background:#A78BFA"></div></div>
+          <span class="wcard-live" style="background:rgba(74,222,128,.08);border-color:rgba(74,222,128,.2);color:#4ADE80">● Live</span>
+        </div>
+        <div class="wcard-body">
+          <div class="wcard-cat" style="color:#A78BFA">SaaS Platform</div>
+          <div class="wcard-name">SabaCloud</div>
+          <div class="wcard-desc">Cloud software built for Africa. Recurring revenue model, subscription billing, and a dashboard clients love.</div>
+          <span class="wcard-metric" style="color:#A78BFA;border-color:rgba(167,139,250,.25);background:rgba(167,139,250,.07)">$120K ARR</span>
+        </div>
+        <div class="wcard-footer">
+          <span class="wcard-url">sabacloud.io</span>
+          <span class="wcard-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="wcard" href="about.html#contact">
+        <div class="wcard-top">
+          <div class="wcard-icon" style="background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2)"><div class="wcard-dot" style="background:#10B981"></div></div>
+          <span class="wcard-live" style="background:rgba(74,222,128,.08);border-color:rgba(74,222,128,.2);color:#4ADE80">● Live</span>
+        </div>
+        <div class="wcard-body">
+          <div class="wcard-cat" style="color:#10B981">Export Brand</div>
+          <div class="wcard-name">MB Coffee Farm</div>
+          <div class="wcard-desc">Ethiopia's finest coffee exported to 12 countries. International payment ready, built in 3 weeks.</div>
+          <span class="wcard-metric" style="color:#10B981;border-color:rgba(16,185,129,.25);background:rgba(16,185,129,.07)">12 export markets</span>
+        </div>
+        <div class="wcard-footer">
+          <span class="wcard-url">mbcoffeefarm.com</span>
+          <span class="wcard-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="wcard" href="about.html#contact">
+        <div class="wcard-top">
+          <div class="wcard-icon" style="background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.2)"><div class="wcard-dot" style="background:#F97316"></div></div>
+          <span class="wcard-live" style="background:rgba(74,222,128,.08);border-color:rgba(74,222,128,.2);color:#4ADE80">● Live</span>
+        </div>
+        <div class="wcard-body">
+          <div class="wcard-cat" style="color:#F97316">Auto Repair · Seattle</div>
+          <div class="wcard-name">G&M Auto Repair</div>
+          <div class="wcard-desc">Ethiopian-owned auto shop in Seattle. Online booking, service management, Zelle & CashApp payments.</div>
+          <span class="wcard-metric" style="color:#F97316;border-color:rgba(249,115,22,.25);background:rgba(249,115,22,.07)">2× monthly bookings</span>
+        </div>
+        <div class="wcard-footer">
+          <span class="wcard-url">gmautorepair.com</span>
+          <span class="wcard-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="wcard" href="about.html#contact">
+        <div class="wcard-top">
+          <div class="wcard-icon" style="background:rgba(196,163,90,.1);border:1px solid rgba(196,163,90,.2)"><div class="wcard-dot" style="background:#C4A35A"></div></div>
+          <span class="wcard-live" style="background:rgba(74,222,128,.08);border-color:rgba(74,222,128,.2);color:#4ADE80">● Live</span>
+        </div>
+        <div class="wcard-body">
+          <div class="wcard-cat" style="color:#C4A35A">Beauty Studio · DC</div>
+          <div class="wcard-name">Nice Braids</div>
+          <div class="wcard-desc">Premium Ethiopian hair braiding studio in Washington DC. Box braids, knotless, locs — fully bookable 24/7.</div>
+          <span class="wcard-metric" style="color:#C4A35A;border-color:rgba(196,163,90,.25);background:rgba(196,163,90,.07)">150+ clients served</span>
+        </div>
+        <div class="wcard-footer">
+          <span class="wcard-url">nicebraids.com</span>
+          <span class="wcard-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="wcard" href="about.html#contact" style="grid-column:1/-1;max-width:540px">
+        <div class="wcard-top">
+          <div class="wcard-icon" style="background:rgba(20,184,166,.1);border:1px solid rgba(20,184,166,.2)"><div class="wcard-dot" style="background:#14B8A6"></div></div>
+          <span class="wcard-live" style="background:rgba(74,222,128,.08);border-color:rgba(74,222,128,.2);color:#4ADE80">● Live</span>
+        </div>
+        <div class="wcard-body">
+          <div class="wcard-cat" style="color:#14B8A6">Photography Studio · Addis Ababa</div>
+          <div class="wcard-name">Adismotion</div>
+          <div class="wcard-desc">Full-service photo & video studio. Digital galleries, client portals, and online delivery.</div>
+          <span class="wcard-metric" style="color:#14B8A6;border-color:rgba(20,184,166,.25);background:rgba(20,184,166,.07)">500+ shoots completed</span>
+        </div>
+        <div class="wcard-footer">
+          <span class="wcard-url">adismotion.com</span>
+          <span class="wcard-arrow">→</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft">
+    <span class="ft-l">© 2026 Dinq Digital · ድንቅ ዲጂታል · Addis Ababa, Ethiopia</span>
+    <div class="ft-r">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="https://t.me/dinqdigital">Telegram</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
