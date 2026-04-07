@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="About Dinq Digital — Ethiopian web design and software studio building operating systems for modern businesses."/>
+<title>About · Dinq Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#C4A35A;--gold-l:#DFBE7A;--gold-d:#8A6B2E;
+  --void:#080808;--ink:#0e0e0e;--card:#141414;--lift:#1c1c1c;
+  --t1:#F2EDE4;--t2:rgba(242,237,228,.55);--t3:rgba(242,237,228,.28);
+  --edge:rgba(196,163,90,.1);--r:10px;
+}
+html{scroll-behavior:smooth;background:var(--void)}
+body{font-family:'Outfit',sans-serif;-webkit-font-smoothing:antialiased;color:var(--t1);overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.025;pointer-events:none;z-index:9999}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.3rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(8,8,8,.95);backdrop-filter:blur(24px);border-bottom:1px solid rgba(196,163,90,.07)}
+.nlogo{display:flex;align-items:center;gap:.65rem;text-decoration:none}
+.nmark{width:28px;height:28px;border:1px solid var(--gold-d);border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:.78rem;color:var(--gold);transition:all .22s}
+.nlogo:hover .nmark{background:var(--gold);color:#080808;border-color:var(--gold)}
+.nlogo-txt{font-family:'Outfit',sans-serif;font-weight:600;font-size:.9rem;color:var(--t1)}
+.nlogo-txt em{color:var(--gold);font-style:normal}
+.nlinks{display:flex;align-items:center;gap:2rem;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
+.nlinks a{color:rgba(255,255,255,.4);text-decoration:none;font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:.2rem 0;position:relative;transition:color .2s}
+.nlinks a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width .25s}
+.nlinks a:hover,.nlinks a.cur{color:var(--t1)}
+.nlinks a:hover::after,.nlinks a.cur::after{width:100%}
+.nlinks a.cur{color:var(--gold)}
+.nright{display:flex;align-items:center;gap:1.75rem}
+.nright a{color:rgba(255,255,255,.35);text-decoration:none;font-size:.7rem;font-weight:400;letter-spacing:.04em;transition:color .2s}
+.nright a:hover{color:var(--t1)}
+.ntog{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:4px;padding:.2rem}
+.ntog span{display:block;width:18px;height:1.5px;background:var(--t1);border-radius:2px}
+#mm{position:fixed;inset:0;background:rgba(8,8,8,.98);z-index:490;display:none;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem}
+#mm.open{display:flex}
+#mm a{color:var(--t1);text-decoration:none;font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;transition:color .2s}
+#mm a:hover{color:var(--gold)}
+#mm .mm-x{position:absolute;top:1.5rem;right:2rem;background:none;border:none;color:rgba(255,255,255,.45);font-size:.85rem;cursor:pointer;font-family:'Outfit',sans-serif;letter-spacing:.1em;text-transform:uppercase}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:3rem 2.5rem 5rem;position:relative;overflow:hidden;
+  background:radial-gradient(ellipse 70% 60% at 60% 30%,rgba(14,40,14,.9),transparent 62%),radial-gradient(ellipse 40% 40% at 18% 80%,rgba(196,163,90,.06),transparent 50%),#050806}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(196,163,90,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(196,163,90,.018) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
+.hero-orb{position:absolute;right:-5%;top:50%;transform:translateY(-50%);width:55vw;height:55vw;max-width:620px;max-height:620px;border-radius:50%;background:radial-gradient(circle at 36% 36%,rgba(196,163,90,.12),rgba(25,55,25,.05) 50%,transparent 72%);pointer-events:none}
+.hero-tag{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1.1rem;display:flex;align-items:center;gap:.55rem}
+.hero-tag::before{content:'';display:inline-block;width:16px;height:1px;background:var(--gold-d)}
+.hero-h{font-family:'Playfair Display',serif;font-size:clamp(3rem,8vw,7.5rem);font-weight:700;line-height:.93;letter-spacing:-.03em;color:#FFFFFF;margin-bottom:1.6rem;max-width:65vw}
+.hero-h em{font-style:italic;color:var(--gold)}
+.hero-bot{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem}
+.hero-sub{font-size:.9rem;color:var(--t2);font-weight:300;line-height:1.75;max-width:360px}
+.hero-cta{display:inline-flex;align-items:center;gap:.5rem;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.24);border-radius:99px;padding:.58rem 1.3rem;cursor:pointer;background:none;font-family:'Outfit',sans-serif;white-space:nowrap;transition:all .22s;text-decoration:none;flex-shrink:0}
+.hero-cta:hover{border-color:var(--gold);color:var(--gold)}
+
+/* SECTIONS */
+section{padding:7rem 2.5rem}
+.mxw{max-width:1100px;margin:0 auto}
+.sl{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1rem;display:flex;align-items:center;gap:.55rem}
+.sl::before{content:'';display:inline-block;width:16px;height:1px;background:var(--gold-d)}
+.sh{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;line-height:1.05;letter-spacing:-.02em;color:#FFFFFF;margin-bottom:.85rem}
+.sh em{font-style:italic;color:var(--gold)}
+.sd{font-size:.9rem;color:var(--t2);line-height:1.8;font-weight:300;max-width:480px}
+
+/* ABOUT SECTION */
+#about{background:var(--void);border-bottom:1px solid rgba(255,255,255,.04)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;margin-top:3.5rem}
+.about-stat{padding:1.6rem 0;border-bottom:1px solid var(--edge)}
+.about-stat:first-child{padding-top:0}
+.about-stat:last-child{border-bottom:none;padding-bottom:0}
+.as-n{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;line-height:1;color:#fff}
+.as-n em{color:var(--gold);font-style:normal}
+.as-l{font-size:.78rem;color:var(--t3);margin-top:.3rem;font-weight:300;line-height:1.6}
+
+/* SERVICES */
+#services{background:var(--ink);border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04)}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3.5rem}
+.srv-card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:2rem;transition:all .3s;cursor:default}
+.srv-card:hover{border-color:rgba(196,163,90,.2);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.srv-icon{font-size:1.6rem;margin-bottom:1.1rem}
+.srv-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.5rem}
+.srv-card p{font-size:.78rem;color:var(--t2);line-height:1.72;font-weight:300}
+.srv-tag{display:inline-block;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(196,163,90,.18);border-radius:99px;padding:.16rem .55rem;margin-top:.85rem}
+
+/* PROCESS */
+#process{background:var(--void)}
+.proc-list{display:flex;flex-direction:column;margin-top:3.5rem}
+.proc-item{display:flex;gap:1.5rem;padding:1.6rem 0;border-bottom:1px solid rgba(255,255,255,.05);transition:padding .18s}
+.proc-item:last-child{border-bottom:none}
+.proc-item:hover{padding-left:.5rem}
+.proc-num{font-family:'Playfair Display',serif;font-size:.85rem;color:var(--gold);font-weight:700;flex-shrink:0;width:1.75rem;padding-top:.1rem}
+.proc-body h4{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:.35rem;display:flex;align-items:center;gap:.55rem}
+.proc-body p{font-size:.8rem;color:var(--t2);line-height:1.72;font-weight:300;margin-bottom:.55rem}
+.proc-tag{font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(196,163,90,.16);border-radius:99px;padding:.14rem .52rem;display:inline-block}
+
+/* CONTACT */
+#contact{background:var(--ink);border-top:1px solid rgba(255,255,255,.04)}
+.contact-wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:start;margin-top:3.5rem}
+
+/* LEFT — contact info */
+.contact-info h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#fff;line-height:1.05;letter-spacing:-.02em;margin-bottom:1rem}
+.contact-info h2 em{font-style:italic;color:var(--gold)}
+.contact-info p{font-size:.88rem;color:var(--t2);line-height:1.75;font-weight:300;max-width:380px;margin-bottom:2.5rem}
+.cinfo-item{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.cinfo-item:last-child{border-bottom:none}
+.cinfo-icon{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.cinfo-label{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:.25rem}
+.cinfo-val{font-size:.82rem;color:var(--t1);font-weight:400}
+.cinfo-val a{color:var(--t1);text-decoration:none;transition:color .2s}
+.cinfo-val a:hover{color:var(--gold)}
+.cinfo-sub{font-size:.72rem;color:var(--t3);font-weight:300;margin-top:.1rem}
+
+/* RIGHT — form card */
+.contact-card{background:#111;border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:2.25rem;box-shadow:0 32px 64px rgba(0,0,0,.5)}
+.card-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:.35rem}
+.card-sub{font-size:.78rem;color:var(--t3);font-weight:300;margin-bottom:1.5rem;line-height:1.6}
+
+/* WHATSAPP CTA */
+.wa-btn{display:flex;align-items:center;gap:.9rem;background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.25);border-radius:12px;padding:.9rem 1.1rem;text-decoration:none;transition:all .22s;margin-bottom:1.5rem}
+.wa-btn:hover{background:rgba(37,211,102,.18);border-color:rgba(37,211,102,.4)}
+.wa-icon{width:36px;height:36px;background:#25D366;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.wa-text strong{display:block;font-size:.82rem;font-weight:600;color:#fff;margin-bottom:.1rem}
+.wa-text span{font-size:.7rem;color:rgba(255,255,255,.45);font-weight:300}
+.wa-arrow{margin-left:auto;color:rgba(255,255,255,.3);font-size:.8rem;transition:transform .22s}
+.wa-btn:hover .wa-arrow{transform:translateX(3px)}
+
+.form-divider{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
+.form-divider::before,.form-divider::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.07)}
+.form-divider span{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.25);white-space:nowrap}
+
+/* FORM */
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.75rem}
+.frow.full{grid-template-columns:1fr}
+.fg label{display:block;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:.4rem;font-weight:500}
+.fg input,.fg select,.fg textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:.65rem .85rem;font-size:.82rem;color:var(--t1);font-family:'Outfit',sans-serif;outline:none;transition:border-color .2s;-webkit-appearance:none}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.22)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:rgba(196,163,90,.35)}
+.fg select{color:rgba(255,255,255,.4);cursor:pointer}
+.fg select option{background:#111;color:#fff}
+.fg textarea{resize:vertical;min-height:80px;line-height:1.6}
+
+/* SERVICE CHECKBOXES */
+.srv-check-label{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:.55rem;font-weight:500;display:block}
+.srv-checks{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.1rem}
+.srv-check{display:none}
+.srv-check+label{font-size:.72rem;padding:.3rem .8rem;border:1px solid rgba(255,255,255,.1);border-radius:99px;color:rgba(255,255,255,.45);cursor:pointer;transition:all .2s;font-weight:400}
+.srv-check:checked+label{border-color:var(--gold);color:var(--gold);background:rgba(196,163,90,.08)}
+.srv-check+label:hover{border-color:rgba(255,255,255,.25);color:var(--t1)}
+
+.submit-btn{width:100%;padding:.9rem;background:var(--gold);color:#080808;border:none;border-radius:var(--r);font-size:.84rem;font-weight:700;font-family:'Outfit',sans-serif;cursor:pointer;transition:all .25s;letter-spacing:.04em;margin-top:.25rem}
+.submit-btn:hover{background:var(--gold-l);transform:translateY(-1px)}
+.submit-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.form-success{display:none;text-align:center;padding:2rem;color:var(--gold)}
+.form-success h4{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:.5rem}
+.form-success p{font-size:.8rem;color:var(--t3);font-weight:300}
+
+/* FLOATING PILL */
+#floatBtn{position:fixed;bottom:2.25rem;left:50%;transform:translateX(-50%);z-index:400;display:flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.95);color:#080808;font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:700;padding:.6rem .6rem .6rem 1.4rem;border-radius:99px;text-decoration:none;border:none;cursor:pointer;box-shadow:0 8px 32px rgba(0,0,0,.4);transition:all .25s;white-space:nowrap}
+#floatBtn:hover{background:#fff;box-shadow:0 12px 40px rgba(0,0,0,.5);transform:translateX(-50%) translateY(-2px)}
+#floatBtn .pa{width:30px;height:30px;background:#080808;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;color:#fff;transition:all .22s}
+#floatBtn:hover .pa{background:var(--gold);color:#080808}
+
+/* FOOTER */
+footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.05);padding:3rem 2.5rem 2.25rem}
+.ft{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.ft-l{font-size:.62rem;color:rgba(255,255,255,.18);letter-spacing:.06em}
+.ft-r{display:flex;gap:2rem}
+.ft-r a{font-size:.62rem;color:rgba(255,255,255,.25);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.ft-r a:hover{color:var(--gold)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .about-grid,.contact-wrap{grid-template-columns:1fr;gap:3.5rem}
+  .srv-grid{grid-template-columns:1fr 1fr}
+  .nlinks{gap:1.25rem}.nlinks a{font-size:.66rem}
+}
+@media(max-width:768px){
+  nav{padding:1.1rem 1.5rem}
+  .nlinks,.nright{display:none}
+  .ntog{display:flex}
+  section{padding:5rem 1.5rem}
+  .hero{padding:2.5rem 1.5rem 5rem}
+  .hero-h{max-width:95vw}
+  .hero-bot{flex-direction:column;align-items:flex-start;gap:1rem}
+  .srv-grid{grid-template-columns:1fr}
+  .frow{grid-template-columns:1fr}
+  #floatBtn{font-size:.72rem;padding:.55rem .55rem .55rem 1.2rem}
+  #floatBtn .pa{width:26px;height:26px}
+}
+</style>
+</head>
+<body>
+
+<div id="mm">
+  <button class="mm-x" onclick="document.getElementById('mm').classList.remove('open')">✕ Close</button>
+  <a href="index.html">Home</a>
+  <a href="work.html">Work</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="#process">Process</a>
+  <a href="#contact">Contact</a>
+  <a href="https://app.dinqdigital.com/login" style="color:var(--gold)">Login →</a>
+</div>
+
+<nav>
+  <a href="index.html" class="nlogo">
+    <div class="nmark">D</div>
+    <span class="nlogo-txt">Dinq<em>Digital</em></span>
+  </a>
+  <ul class="nlinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="cur">About</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nright">
+    <a href="https://app.dinqdigital.com/login">app.dinqdigital.com</a>
+    <a href="mailto:dinqdigital@gmail.com">dinqdigital@gmail.com</a>
+    <button class="ntog" onclick="document.getElementById('mm').classList.add('open')"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<a href="#contact" id="floatBtn">
+  Get Started
+  <div class="pa">↗</div>
+</a>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-orb"></div>
+  <div class="hero-tag">About · Dinq Digital</div>
+  <h1 class="hero-h">Look ድንቅ.<br>Attract more.<br><em>Sell better.</em></h1>
+  <div class="hero-bot">
+    <p class="hero-sub">We're an Ethiopian web design and software studio building websites and operating systems for modern businesses — from Addis Ababa to everywhere.</p>
+    <a href="#contact" class="hero-cta">Start a Project →</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="mxw">
+    <div class="sl">Who We Are</div>
+    <div class="about-grid">
+      <div>
+        <h2 class="sh">We build the system<br><em>behind the website.</em></h2>
+        <p class="sd" style="margin-bottom:1.5rem">Dinq Digital is an Ethiopian web design and software studio. We don't just build websites — we build the operating systems that run behind them. CRM, payments, bookings, analytics, AI — all connected.</p>
+        <p class="sd">Founded in Addis Ababa, serving clients across Ethiopia, the US diaspora, and beyond. Every project we ship is production-ready, fast, and built to grow.</p>
+      </div>
+      <div>
+        <div class="about-stat">
+          <div class="as-n"><em>30+</em></div>
+          <div class="as-l">Projects shipped across fintech, SaaS, e-commerce, auto repair, beauty, photography, and export brands.</div>
+        </div>
+        <div class="about-stat">
+          <div class="as-n">12 <em>countries</em></div>
+          <div class="as-l">MB Coffee Farm now exports to 12 markets — built on a website and DinqOS system we shipped in 3 weeks.</div>
+        </div>
+        <div class="about-stat">
+          <div class="as-n"><em>5K+</em></div>
+          <div class="as-l">Daily active users across Dinq-built platforms — from Addis Ababa fintech to US-based diaspora services.</div>
+        </div>
+        <div class="about-stat">
+          <div class="as-n"><em>$120K</em> ARR</div>
+          <div class="as-l">Generated for a single DinqOS client — SabaCloud hit this mark within 14 months of launch.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="mxw">
+    <div class="sl">What We Build</div>
+    <h2 class="sh">Not just beautiful,<br><em>built to convert.</em></h2>
+    <div class="srv-grid">
+      <div class="srv-card">
+        <div class="srv-icon">🌐</div>
+        <h3>Website Creation</h3>
+        <p>From simple landing pages to full e-commerce — mobile responsive, SEO-ready, and built to convert visitors into customers.</p>
+        <span class="srv-tag">From $499</span>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">⚙️</div>
+        <h3>DinqOS System</h3>
+        <p>42-module business operating system. CRM, invoices, bookings, payments, AI assistant, WhatsApp inbox — all in one dashboard.</p>
+        <span class="srv-tag">From $10/mo</span>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">💳</div>
+        <h3>Payment Integration</h3>
+        <p>Telebirr, Stripe, Zelle, CashApp, CBE, PayPal — we connect all payment methods so you never miss a sale anywhere on earth.</p>
+        <span class="srv-tag">Multi-currency</span>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">🤖</div>
+        <h3>AI & Automation</h3>
+        <p>AI that replies to customers, writes proposals, and automates your daily workflow so your business runs even when you're offline.</p>
+        <span class="srv-tag">Claude-powered</span>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">📦</div>
+        <h3>E-Commerce</h3>
+        <p>Full online stores with inventory, orders, shipping, and multi-currency checkout — built for Ethiopian and diaspora businesses.</p>
+        <span class="srv-tag">Included in Growth</span>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">📊</div>
+        <h3>Analytics & Growth</h3>
+        <p>Real-time revenue tracking, customer insights, and growth dashboards — so you always know where your business stands.</p>
+        <span class="srv-tag">Live data</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="mxw">
+    <div class="sl">How It Works</div>
+    <h2 class="sh">From first call<br><em>to live system.</em></h2>
+    <p class="sd">Four clear steps. No jargon. No surprises. Most projects ship in 14–30 days.</p>
+    <div class="proc-list">
+      <div class="proc-item">
+        <div class="proc-num">01</div>
+        <div class="proc-body">
+          <h4><span>☎️</span> Discovery Call</h4>
+          <p>We learn your business — what you sell, how you collect payment, where you're losing time. 30 minutes, no sales pitch. Just clarity.</p>
+          <span class="proc-tag">Free · 30 min</span>
+        </div>
+      </div>
+      <div class="proc-item">
+        <div class="proc-num">02</div>
+        <div class="proc-body">
+          <h4><span>🗺️</span> Proposal & Scope</h4>
+          <p>We send a clear breakdown: exactly what we'll build, what it costs, and when it ships. No hidden scope, no vague estimates.</p>
+          <span class="proc-tag">Within 48 hrs</span>
+        </div>
+      </div>
+      <div class="proc-item">
+        <div class="proc-num">03</div>
+        <div class="proc-body">
+          <h4><span>⚡</span> We Build Fast</h4>
+          <p>Design, develop, connect payments and DinqOS modules. You get progress updates throughout — not silence and a surprise at the end.</p>
+          <span class="proc-tag">14–30 days</span>
+        </div>
+      </div>
+      <div class="proc-item">
+        <div class="proc-num">04</div>
+        <div class="proc-body">
+          <h4><span>🚀</span> Launch & Support</h4>
+          <p>We go live together. You get onboarding, training, and ongoing support — so your system actually runs the day it launches.</p>
+          <span class="proc-tag">Ongoing care</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="mxw">
+    <div class="contact-wrap">
+      <!-- LEFT -->
+      <div class="contact-info">
+        <div class="sl">Get In Touch</div>
+        <h2>Let's make your brand<br><em>unforgettable.</em></h2>
+        <p>If you're ready to build something ድንቅ, let's talk. Fill in the form or reach out directly — we respond within 24 hours.</p>
+        <div class="cinfo-item">
+          <div class="cinfo-icon">✉️</div>
+          <div>
+            <div class="cinfo-label">Email</div>
+            <div class="cinfo-val"><a href="mailto:dinqdigital@gmail.com">dinqdigital@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="cinfo-item">
+          <div class="cinfo-icon">📍</div>
+          <div>
+            <div class="cinfo-label">Ethiopia Office</div>
+            <div class="cinfo-val">Dinq Digital</div>
+            <div class="cinfo-sub">Addis Ababa, Ethiopia</div>
+          </div>
+        </div>
+        <div class="cinfo-item">
+          <div class="cinfo-icon">🌍</div>
+          <div>
+            <div class="cinfo-label">Diaspora & US Clients</div>
+            <div class="cinfo-val">Available via Telegram & WhatsApp</div>
+            <div class="cinfo-sub">We work across time zones — US, UK, Canada, Gulf</div>
+          </div>
+        </div>
+        <div class="cinfo-item" style="border-bottom:none">
+          <div class="cinfo-icon">💻</div>
+          <div>
+            <div class="cinfo-label">Platform</div>
+            <div class="cinfo-val"><a href="https://app.dinqdigital.com/login" target="_blank">app.dinqdigital.com</a></div>
+            <div class="cinfo-sub">Try DinqOS live — free demo</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT — FORM CARD -->
+      <div class="contact-card">
+        <div class="card-title">From ድንቅ to Icon.</div>
+        <div class="card-sub">Tell us about your project and we'll get back within 24 hours.</div>
+
+        <!-- WHATSAPP -->
+        <a href="https://wa.me/251900000000" class="wa-btn" target="_blank">
+          <div class="wa-icon">💬</div>
+          <div class="wa-text">
+            <strong>Start a WhatsApp Conversation</strong>
+            <span>Get a faster response — we're usually online</span>
+          </div>
+          <span class="wa-arrow">→</span>
+        </a>
+
+        <div class="form-divider"><span>or fill the form</span></div>
+
+        <form id="contactForm" onsubmit="submitForm(event)">
+          <div class="frow">
+            <div class="fg">
+              <label>Name *</label>
+              <input type="text" id="fname" placeholder="Your name" required/>
+            </div>
+            <div class="fg">
+              <label>Email *</label>
+              <input type="email" id="femail" placeholder="your@email.com" required/>
+            </div>
+          </div>
+          <div class="frow">
+            <div class="fg">
+              <label>Phone</label>
+              <input type="tel" id="fphone" placeholder="+1 234 567 8900"/>
+            </div>
+            <div class="fg">
+              <label>Country</label>
+              <select id="fcountry">
+                <option value="">Select country</option>
+                <option>Ethiopia</option>
+                <option>United States</option>
+                <option>United Kingdom</option>
+                <option>Canada</option>
+                <option>UAE</option>
+                <option>Germany</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="frow full">
+            <div class="fg">
+              <span class="srv-check-label">What do you need help with? *</span>
+              <div class="srv-checks">
+                <input type="checkbox" class="srv-check" id="s1" name="service" value="Website Creation"/>
+                <label for="s1">Website Creation</label>
+                <input type="checkbox" class="srv-check" id="s2" name="service" value="Website Redesign"/>
+                <label for="s2">Website Redesign</label>
+                <input type="checkbox" class="srv-check" id="s3" name="service" value="E-Commerce"/>
+                <label for="s3">E-Commerce</label>
+                <input type="checkbox" class="srv-check" id="s4" name="service" value="DinqOS / Platform"/>
+                <label for="s4">DinqOS / Platform</label>
+                <input type="checkbox" class="srv-check" id="s5" name="service" value="Payments"/>
+                <label for="s5">Payments</label>
+                <input type="checkbox" class="srv-check" id="s6" name="service" value="Other"/>
+                <label for="s6">Other</label>
+              </div>
+            </div>
+          </div>
+          <div class="frow full">
+            <div class="fg">
+              <label>Message</label>
+              <textarea id="fmsg" placeholder="Tell us about your business and what you want to build..."></textarea>
+            </div>
+          </div>
+          <button type="submit" class="submit-btn" id="submitBtn">Send Request →</button>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <h4>✓ Request Sent!</h4>
+          <p>Thanks for reaching out! We'll get back within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft">
+    <span class="ft-l">© 2026 Dinq Digital · ድንቅ ዲጂታል · Addis Ababa, Ethiopia</span>
+    <div class="ft-r">
+      <a href="index.html">Home</a>
+      <a href="work.html">Work</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="https://t.me/dinqdigital">Telegram</a>
+      <a href="https://app.dinqdigital.com/login">Login</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function submitForm(e){
+  e.preventDefault();
+  const btn=document.getElementById('submitBtn');
+  btn.disabled=true;
+  btn.textContent='Sending...';
+  setTimeout(()=>{
+    document.getElementById('contactForm').style.display='none';
+    document.getElementById('formSuccess').style.display='block';
+  },1200);
+}
+</script>
+</body>
+</html>
