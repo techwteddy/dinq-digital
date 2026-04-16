@@ -113,7 +113,7 @@ nav.scrolled {
   position: absolute; inset: 0; z-index: 2;
   display: flex; flex-direction: column;
   justify-content: flex-end;
-  padding: 0 64px 64px;
+  padding: 0 80px 72px;
 }
 
 .hero-body {
@@ -122,28 +122,36 @@ nav.scrolled {
   align-items: flex-end;
 }
 
+.hero-center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 .hero-tagline {
   font-family: 'League Spartan', sans-serif;
   font-weight: 800;
-  font-size: clamp(38px, 5.5vw, 78px);
-  line-height: 0.95;
+  font-size: clamp(22px, 3.2vw, 48px);
+  line-height: 1;
   color: var(--white);
-  letter-spacing: -1.5px;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.4);
   opacity: 0;
   animation: fadeUp 1s ease 0.3s forwards;
 }
-.hero-tagline em {
-  display: block;
-  font-style: italic;
+.hero-tagline .sep {
+  color: rgba(255,255,255,0.4);
+  margin: 0 10px;
   font-weight: 300;
-  font-size: 0.82em;
-  letter-spacing: -0.5px;
-  opacity: 0.9;
 }
+
 .hero-divider {
   width: 44px; height: 1px;
-  background: rgba(255,255,255,0.45);
-  margin: 18px 0 14px;
+  background: rgba(255,255,255,0.4);
+  margin: 18px auto 14px;
   opacity: 0;
   animation: fadeUp 0.8s ease 0.6s forwards;
 }
@@ -151,15 +159,19 @@ nav.scrolled {
   font-family: 'League Spartan', sans-serif;
   font-weight: 300;
   font-style: italic;
-  font-size: 15px;
-  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+  color: rgba(255,255,255,0.65);
   line-height: 1.5;
-  max-width: 260px;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.5);
   opacity: 0;
   animation: fadeUp 0.8s ease 0.8s forwards;
 }
 
+/* Scroll indicator — right side, fixed position */
 .hero-scroll {
+  position: absolute;
+  right: 48px;
+  bottom: 64px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -482,52 +494,43 @@ nav.scrolled {
 }
 .suc-msg { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.65; }
 
-/* ── CITIES ── */
+/* ── CITIES — horizontal marquee ── */
 #cities {
-  background: var(--black);
-  padding: 80px 64px;
-  border-top: 1px solid rgba(255,255,255,0.04);
+  background: var(--dark);
+  padding: 52px 0;
   overflow: hidden;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
 }
-.cities-wrap {
-  display: flex; align-items: center;
-  justify-content: center; gap: 36px;
+.cities-track {
+  display: flex;
+  width: max-content;
+  animation: cityTicker 28s linear infinite;
 }
-.cities-ttl {
-  font-family: 'League Spartan', sans-serif;
-  font-weight: 700;
-  font-size: clamp(16px, 2vw, 26px);
-  color: rgba(255,255,255,0.5);
-  white-space: nowrap; flex-shrink: 0;
+.cities-track:hover { animation-play-state: paused; }
+@keyframes cityTicker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
-.cities-sep {
-  display: flex; align-items: center; gap: 10px; flex-shrink: 0;
-}
-.sep-line {
-  width: 36px; height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18));
-}
-.sep-line.r { background: linear-gradient(270deg, transparent, rgba(255,255,255,0.18)); }
-.sep-globe svg { width: 22px; height: 22px; fill: rgba(255,255,255,0.35); }
-.cities-mask {
-  height: 5.5em; overflow: hidden;
-  display: flex; flex-direction: column; justify-content: center;
-  min-width: 240px;
-  -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
-  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
-}
-.cities-list { display: flex; flex-direction: column; }
 .c-item {
-  padding: 7px 0;
   font-family: 'League Spartan', sans-serif;
   font-weight: 800;
-  font-size: clamp(20px, 2.8vw, 36px);
-  letter-spacing: -0.5px;
-  color: rgba(255,255,255,0.1);
+  font-size: clamp(28px, 4vw, 52px);
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.07);
+  white-space: nowrap;
+  padding: 0 48px;
   transition: color 0.3s;
-  text-align: center;
+  cursor: default;
 }
-.c-item.on { color: var(--white); }
+.c-item:hover { color: rgba(196,163,90,0.35); }
+.c-dot {
+  color: var(--gold);
+  font-size: 0.35em;
+  vertical-align: middle;
+  margin: 0 4px;
+}
 
 /* ── FOOTER ── */
 footer {
@@ -572,15 +575,14 @@ footer {
   nav { padding: 0 20px; }
   .nav-contact:first-child { display: none; }
   .hero-content { padding: 0 24px 48px; }
-  .hero-body { flex-direction: column; align-items: flex-start; gap: 28px; }
-  .hero-scroll { display: none; }
+  .hero-tagline { white-space: normal; font-size: clamp(18px, 5vw, 28px); }
+  .hero-scroll { right: 20px; bottom: 48px; }
   .reveal-content { padding: 80px 24px; }
   .reveal-bg { background-attachment: scroll; }
   #contact { padding: 80px 24px; }
   .contact-wrap { grid-template-columns: 1fr; gap: 44px; }
   .f-grid { grid-template-columns: 1fr; }
-  #cities { padding: 56px 24px; }
-  .cities-wrap { flex-direction: column; gap: 20px; }
+  #cities { padding: 40px 0; }
   footer { padding: 44px 24px 28px; }
   .ft-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
 }
@@ -604,19 +606,17 @@ footer {
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-body">
-      <div>
-        <div class="hero-tagline">
-          Look ድንቅ<br>
-          <em>Attract More.<br>Sell Better.</em>
-        </div>
+      <div class="hero-center">
+        <div class="hero-tagline">Look ድንቅ <span class="sep">·</span> Attract More <span class="sep">·</span> Sell Better.</div>
         <div class="hero-divider"></div>
         <p class="hero-sub">Not just beautiful — built to convert.</p>
       </div>
-      <div class="hero-scroll">
-        <div class="scroll-line"></div>
-        <div class="scroll-mouse"><div class="scroll-dot"></div></div>
-        <span class="scroll-label">Scroll down</span>
-      </div>
+    </div>
+    <!-- Scroll indicator — absolute positioned right -->
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <div class="scroll-mouse"><div class="scroll-dot"></div></div>
+      <span class="scroll-label">Scroll down</span>
     </div>
   </div>
 </section>
@@ -776,32 +776,30 @@ footer {
 </section>
 
 <!-- CITIES -->
-<section id="cities">
-  <div class="cities-wrap">
-    <div class="cities-ttl">Operating worldwide</div>
-    <div class="cities-sep">
-      <div class="sep-line"></div>
-      <div class="sep-globe">
-        <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zM4 12c0-.55.05-1.09.14-1.61L7 13.26V14a2 2 0 002 2v1.93A8.01 8.01 0 014 12zm13.93 5.64A1.99 1.99 0 0016 16h-1v-3a1 1 0 00-1-1H9v-2h2a1 1 0 001-1V7h2a2 2 0 002-2v-.41A8.002 8.002 0 0120 12a7.98 7.98 0 01-2.07 5.64z"/></svg>
-      </div>
-      <div class="sep-line r"></div>
-    </div>
-    <div class="cities-mask">
-      <div class="cities-list" id="cList">
-        <div class="c-item">Addis Ababa</div>
-        <div class="c-item">Seattle</div>
-        <div class="c-item">Desē</div>
-        <div class="c-item">Dubai</div>
-        <div class="c-item">New York</div>
-        <div class="c-item">Nairobi</div>
-        <div class="c-item">Toronto</div>
-        <div class="c-item">London</div>
-        <div class="c-item">Washington DC</div>
-        <div class="c-item">Los Angeles</div>
-      </div>
-    </div>
+<div id="cities" aria-hidden="true">
+  <div class="cities-track">
+    <span class="c-item">Addis Ababa <span class="c-dot">·</span></span>
+    <span class="c-item">Seattle <span class="c-dot">·</span></span>
+    <span class="c-item">Desē <span class="c-dot">·</span></span>
+    <span class="c-item">Dubai <span class="c-dot">·</span></span>
+    <span class="c-item">New York <span class="c-dot">·</span></span>
+    <span class="c-item">Nairobi <span class="c-dot">·</span></span>
+    <span class="c-item">Toronto <span class="c-dot">·</span></span>
+    <span class="c-item">London <span class="c-dot">·</span></span>
+    <span class="c-item">Washington DC <span class="c-dot">·</span></span>
+    <span class="c-item">Los Angeles <span class="c-dot">·</span></span>
+    <span class="c-item">Addis Ababa <span class="c-dot">·</span></span>
+    <span class="c-item">Seattle <span class="c-dot">·</span></span>
+    <span class="c-item">Desē <span class="c-dot">·</span></span>
+    <span class="c-item">Dubai <span class="c-dot">·</span></span>
+    <span class="c-item">New York <span class="c-dot">·</span></span>
+    <span class="c-item">Nairobi <span class="c-dot">·</span></span>
+    <span class="c-item">Toronto <span class="c-dot">·</span></span>
+    <span class="c-item">London <span class="c-dot">·</span></span>
+    <span class="c-item">Washington DC <span class="c-dot">·</span></span>
+    <span class="c-item">Los Angeles <span class="c-dot">·</span></span>
   </div>
-</section>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -858,51 +856,6 @@ window.addEventListener('scroll', () => {
   const p = Math.min(1, Math.max(0, (s - h * 0.05) / (h * 0.55)));
   heroFuture.style.opacity = p;
 }, { passive: true });
-
-// City carousel
-(function() {
-  function init() {
-    if (typeof gsap === 'undefined') { setTimeout(init, 80); return; }
-    const list = document.getElementById('cList');
-    if (!list) return;
-    const origItems = Array.from(list.children);
-    const n = origItems.length;
-    // Clone for seamless loop
-    origItems.forEach(item => list.appendChild(item.cloneNode(true)));
-    const allItems = Array.from(list.children);
-    let idx = 0;
-
-    function highlight(i) {
-      allItems.forEach(el => el.classList.remove('on'));
-      if (allItems[i]) allItems[i].classList.add('on');
-    }
-
-    highlight(0);
-    const itemH = allItems[0] ? allItems[0].offsetHeight : 50;
-
-    gsap.timeline({ repeat: -1 })
-      .call(function() {
-        const next = idx + 1;
-        const realNext = next >= allItems.length ? 0 : next;
-        highlight(realNext);
-        gsap.to(list, {
-          y: -(next * itemH),
-          duration: 0.65,
-          ease: 'power2.out',
-          onComplete: function() {
-            idx = next;
-            if (idx >= n) {
-              gsap.set(list, { y: 0 });
-              idx = 0;
-              highlight(0);
-            }
-          }
-        });
-      })
-      .to({}, { duration: 1.5 });
-  }
-  init();
-})();
 
 // Contact form
 (function() {
